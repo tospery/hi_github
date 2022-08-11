@@ -1,0 +1,17 @@
+{
+    "home": "首页",
+    "appname": "hi github",
+    "profile": "我的",
+    "oauthLogin": "oauthLogin",
+    "accessToken": "accessToken",
+    "confirm": "确认",
+    "cancel": "取消",
+    "about": "关于",
+    "username": "用户名",
+    "password": "密码",
+    "login": "登录",
+    "readAndAgree": "已阅读并同意",
+    "userAgreement": "用户协议",
+    "privacyPolicy": "隐私政策",
+    "termTips": "请先同意用户协议和隐私政策"
+}

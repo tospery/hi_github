@@ -1,0 +1,17 @@
+{
+    "home": "home",
+    "appname": "hi github",
+    "profile": "profile",
+    "oauthLogin": "oauthLogin",
+    "accessToken": "accessToken",
+    "confirm": "confirm",
+    "cancel": "cancel",
+    "about": "about",
+    "username": "username",
+    "password": "password",
+    "login": "login",
+    "readAndAgree": "Read and agree",
+    "userAgreement": "user agreement",
+    "privacyPolicy": "privacy policy",
+    "termTips": "Please agree to the agreement first"
+}
