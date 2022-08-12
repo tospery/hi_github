@@ -2,13 +2,13 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:hi_flutter/hi_flutter.dart';
-import 'package:hi_github/extension/build_context.dart';
-import 'package:hi_github/redux/app_state.dart';
-import 'package:hi_github/redux/login_redux.dart';
-import 'package:hi_github/router/path.dart';
-import 'package:hi_github/widget/login_button.dart';
-import 'package:hi_github/widget/login_term.dart';
-import 'package:hi_github/widget/password_input.dart';
+import '../extension/build_context.dart';
+import '../redux/app_state.dart';
+import '../redux/login_redux.dart';
+import '../router/path.dart';
+import '../widget/login_button.dart';
+import '../widget/login_term.dart';
+import '../widget/password_input.dart';
 
 class LoginPage extends StatefulWidget {
   final Map<String, dynamic> parameters;

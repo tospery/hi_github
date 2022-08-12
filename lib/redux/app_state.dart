@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hi_github/redux/locale_reducer.dart';
 import 'package:hi_github/redux/login_redux.dart';
 import 'package:hi_github/redux/theme_reducer.dart';
+import 'package:hi_github/redux/user_redux.dart';
 import 'package:redux/redux.dart';
 import 'package:redux_epics/redux_epics.dart';
 
@@ -19,6 +20,7 @@ class APPState {
 APPState appReducer(APPState state, action) {
   return APPState(
     login: loginReducer(state.login, action),
+    user: userReducer(state.user, action),
     locale: localeReducer(state.locale, action),
     themeData: themeDataReducer(state.themeData, action),
   );
@@ -34,4 +36,6 @@ APPState appReducer(APPState state, action) {
 
 final List<Middleware<APPState>> middleware = [
   EpicMiddleware<APPState>(loginEpic),
+  EpicMiddleware<APPState>(userEpic),
+  UserMiddleware(),
 ];
