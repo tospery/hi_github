@@ -16,7 +16,6 @@ import 'package:hi_flutter/hi_flutter.dart';
 import '../model/user.dart';
 
 class UserDbProvider extends HiDbProvider {
-
   // UserDbProvider();
   // UserDbProvider.fromMap(super.map) : super.fromMap();
 
@@ -40,5 +39,4 @@ class UserDbProvider extends HiDbProvider {
     }
     return User.fromJson(json!);
   }
-
 }

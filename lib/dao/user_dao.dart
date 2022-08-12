@@ -1,7 +1,10 @@
 import 'package:hi_flutter/hi_flutter.dart';
 
 import '../core/constant.dart';
+import '../model/user.dart';
 import '../request/github/oauth_request.dart';
+import '../request/githubapi/login_request.dart';
+import '../request/githubapi/userinfo_request.dart';
 
 class UserDao {
   static Future<String> oauth(String code) async {
@@ -19,16 +22,28 @@ class UserDao {
     return token!;
   }
 
-  // static Future<User> login(String token) async {
-  //   LoginRequest request = LoginRequest();
-  //   request.set('Authorization', 'token $token');
-  //   var base = await HiHttp.shared().fire(request);
-  //   log('base: $base');
-  //   var json = base.json as Map<String, dynamic>?;
-  //   if (json?.isEmpty ?? true) {
-  //     throw HiUnknownError();
-  //   }
-  //   var user = User.fromJson(json!);
-  //   return user;
-  //}
+  static Future<User> login(String token) async {
+    LoginRequest request = LoginRequest();
+    request.set('Authorization', 'token $token');
+    var base = await HiHttp.shared().fire(request);
+    log('base: $base');
+    var json = base.json as Map<String, dynamic>?;
+    if (json?.isEmpty ?? true) {
+      throw HiUnknownError();
+    }
+    var user = User.fromJson(json!);
+    return user;
+  }
+
+  static Future<User> userinfo() async {
+    UserinfoRequest request = UserinfoRequest();
+    var base = await HiHttp.shared().fire(request);
+    log('base: $base');
+    var json = base.json as Map<String, dynamic>?;
+    if (json?.isEmpty ?? true) {
+      throw HiUnknownError();
+    }
+    var user = User.fromJson(json!);
+    return user;
+  }
 }

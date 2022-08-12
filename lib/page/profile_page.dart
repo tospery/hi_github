@@ -1,12 +1,6 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import 'package:hi_github/generated/l10n.dart';
-import 'package:hi_github/provider/user_db_provider.dart';
-import 'package:path_provider/path_provider.dart';
-
-import '../model/user.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -77,6 +71,4 @@ class ProfilePageState extends State<ProfilePage> {
     // var path = await getApplicationDocumentsDirectory();
     // log('path = $path');
   }
-
-
 }

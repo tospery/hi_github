@@ -1,28 +1,34 @@
-abstract class ModelType {
-  final String id;
+mixin HiModel {
+  final String id = '';
 
-  ModelType({required this.id});
-
-  bool get isValid => true;
-
-  factory ModelType.fromJson(Map<String, dynamic> json) {
-    throw UnimplementedError();
-  }
-
-  Map<String, dynamic> toJson();
+  bool get isValid => id.isNotEmpty;
 }
 
-class HiModel {
+// abstract class ModelType {
+//   final String id;
 
-  HiModel();
+//   ModelType({required this.id});
 
-  factory HiModel.fromJson(Map<String, dynamic> json) {
-    throw UnimplementedError();
-  }
+//   bool get isValid => true;
 
-  Map<String, dynamic> toJson() {
-    throw UnimplementedError();
-  }
+//   factory ModelType.fromJson(Map<String, dynamic> json) {
+//     throw UnimplementedError();
+//   }
 
-  String get className => runtimeType.toString();
-}
+//   Map<String, dynamic> toJson();
+// }
+
+// class HiModel {
+
+//   HiModel();
+
+//   factory HiModel.fromJson(Map<String, dynamic> json) {
+//     throw UnimplementedError();
+//   }
+
+//   Map<String, dynamic> toJson() {
+//     throw UnimplementedError();
+//   }
+
+//   String get className => runtimeType.toString();
+// }

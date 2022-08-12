@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:hi_github/extension/build_context.dart';
@@ -10,8 +8,12 @@ class LoginTerm extends StatelessWidget {
   final GestureRecognizer? agreementRecognizer;
   final GestureRecognizer? privacyRecognizer;
 
-  const LoginTerm({super.key, required this.checked, this.onPressed, this.agreementRecognizer, this.privacyRecognizer});
-
+  const LoginTerm(
+      {super.key,
+      required this.checked,
+      this.onPressed,
+      this.agreementRecognizer,
+      this.privacyRecognizer});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,9 @@ class LoginTerm extends StatelessWidget {
                 child: GestureDetector(
                   onTap: onPressed,
                   child: Icon(
-                    checked ? Icons.radio_button_checked_outlined : Icons.radio_button_unchecked_outlined,
+                    checked
+                        ? Icons.radio_button_checked_outlined
+                        : Icons.radio_button_unchecked_outlined,
                     color: Colors.blue,
                     size: 16,
                   ),

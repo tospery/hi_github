@@ -53,7 +53,6 @@ create table $tableName (
     return await db.insert(tableName, toMap(key, data));
   }
 
-  // Future<Map<String, dynamic>?> getObject(String key) async {
   Future<dynamic> getObject(String key) async {
     Database db = await getDataBase();
     var provider = await _getProvider(db, key);

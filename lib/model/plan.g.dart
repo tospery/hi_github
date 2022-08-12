@@ -7,10 +7,10 @@ part of 'plan.dart';
 // **************************************************************************
 
 Plan _$PlanFromJson(Map<String, dynamic> json) => Plan(
-      name: json['name'] as String?,
-      space: json['space'] as int?,
-      collaborators: json['collaborators'] as int?,
-      privateRepos: json['private_repos'] as int?,
+      name: json['name'] as String? ?? 'free',
+      space: json['space'] as int? ?? 0,
+      collaborators: json['collaborators'] as int? ?? 0,
+      privateRepos: json['private_repos'] as int? ?? 0,
     );
 
 Map<String, dynamic> _$PlanToJson(Plan instance) => <String, dynamic>{

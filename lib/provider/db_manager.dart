@@ -13,7 +13,7 @@
 //     User? user;
 //     String name = _name;
 //     if (user != null) {
-      
+
 //     }
 //     path += name;
 //     if (Platform.isIOS) {

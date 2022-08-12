@@ -183,8 +183,7 @@ class _LoginPageState extends State<LoginPage> {
       // ignore: use_build_context_synchronously
       StoreProvider.of<APPState>(context)
           // ignore: use_build_context_synchronously
-          .dispatch(OAuthLoginAction(context, code!));
+          .dispatch(LoginAction(context, code!));
     }
   }
-
 }
