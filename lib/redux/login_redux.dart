@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import 'package:hi_github/provider/user_db_provider.dart';
@@ -54,7 +52,7 @@ Stream<dynamic> loginEpic(Stream<dynamic> actions, EpicStore<APPState> store) {
     var token = await UserDao.oauth(action.code);
     var user = await UserDao.login(token);
     HiCache.shared().setString(token, HiCacheKey.token);
-    UserDbProvider().save(user.login, json.encode(user.toJson()));
+    UserDbProvider().save(user.login, user.toJson().jsonString);
     (store as Store<APPState>?)?.dispatch(UpdateUserAction(user));
     // ignore: use_build_context_synchronously
     yield LoginResultAction(action.context, true);
@@ -63,21 +61,4 @@ Stream<dynamic> loginEpic(Stream<dynamic> actions, EpicStore<APPState> store) {
   return actions
       .whereType<LoginAction>()
       .switchMap((action) => _loginIn(action, store));
-}
-
-class FetchUserAction {}
-
-Stream<dynamic> userEpic(
-    Stream<dynamic> actions, EpicStore<APPState> store) {
-  // Use the async* function to make easier
-  Stream<dynamic> _loadUserInfo() async* {
-    log("*********** userEpic _loadUserInfo ***********");
-    var user = await UserDao.userinfo();
-    yield UpdateUserAction(user);
-  }
-
-  return actions
-      .whereType<FetchUserAction>()
-      .debounce(((_) => TimerStream(true, const Duration(milliseconds: 10))))
-      .switchMap((action) => _loadUserInfo());
 }

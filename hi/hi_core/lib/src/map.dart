@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 extension HiCoreMapEx<K, V> on Map<K, V> {
   String? stringFoKey(K key) {
     return (this[key] as String?);
@@ -25,5 +27,9 @@ extension HiCoreMapEx<K, V> on Map<K, V> {
       }
     });
     return result;
+  }
+
+  String get jsonString {
+    return json.encode(this);
   }
 }
