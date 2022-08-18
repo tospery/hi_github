@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:hi_github/router/router.dart';
+
+import 'core/function.dart';
+import 'generated/l10n.dart';
+import 'redux/app_state.dart';
 
 class App extends StatefulWidget {
   App({Key? key}) : super(key: key) {

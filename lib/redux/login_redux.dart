@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import '../dao/user_dao.dart';
+import '../provider/user_db_provider.dart';
 import 'app_state.dart';
+import 'user_redux.dart';
 
 final loginReducer = combineReducers<bool>([
   TypedReducer<bool, LoginResultAction>(_loginResult),

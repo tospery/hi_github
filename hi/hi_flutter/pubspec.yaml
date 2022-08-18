@@ -23,6 +23,8 @@ dependencies:
       path: ../hi_cache
   hi_dialog:
       path: ../hi_dialog
+  hi_frame:
+      path: ../hi_frame
 
 dev_dependencies:
   flutter_test:

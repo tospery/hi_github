@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:hi_flutter/hi_flutter.dart';
 
 import '../model/user.dart';
+import 'locale_reducer.dart';
+import 'login_redux.dart';
+import 'theme_reducer.dart';
+import 'user_redux.dart';
 
 class APPState {
   bool login;
