@@ -1,7 +1,7 @@
 {
     "home": "首页",
     "appname": "hi github",
-    "profile": "我的",
+    "personal": "我的",
     "oauthLogin": "oauthLogin",
     "accessToken": "accessToken",
     "confirm": "确认",

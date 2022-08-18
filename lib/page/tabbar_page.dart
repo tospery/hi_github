@@ -13,18 +13,18 @@ class TabBarPage extends StatefulWidget {
 
 class _TabBarPageState extends State<TabBarPage> {
   final GlobalKey<HomePageState> homeKey = GlobalKey();
-  final GlobalKey<ProfilePageState> profileKey = GlobalKey();
+  final GlobalKey<PersonalPageState> personalKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
     return HiTabBarPage(
       tabItems: [
         _renderTab(Icons.home, context.string.home),
-        _renderTab(Icons.account_circle, context.string.profile),
+        _renderTab(Icons.account_circle, context.string.personal),
       ],
       tabViews: [
         HomePage(key: homeKey),
-        ProfilePage(key: profileKey),
+        PersonalPage(key: personalKey),
       ],
       backgroundColor: Colors.green,
       indicatorColor: Colors.transparent,

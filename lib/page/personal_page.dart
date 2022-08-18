@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import 'package:hi_github/generated/l10n.dart';
 
-class ProfilePage extends StatefulWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+class PersonalPage extends StatefulWidget {
+  const PersonalPage({Key? key}) : super(key: key);
 
   @override
-  State<ProfilePage> createState() => ProfilePageState();
+  State<PersonalPage> createState() => PersonalPageState();
 }
 
-class ProfilePageState extends State<ProfilePage> {
+class PersonalPageState extends State<PersonalPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(S.of(context).profile),
+        title: Text(S.of(context).personal),
       ),
       body: Center(
         child: Column(

@@ -7,6 +7,7 @@ class HiLogTag {
   static const net = 'HiNet';
   static const tabBar = 'HiTabBar';
   static const dialog = 'HiDialog';
+  static const frame = 'HiFrame';
 }
 
 enum HiLogLevel {
@@ -51,5 +52,6 @@ class HiLogger {
 }
 
 void log(dynamic message, {HiLogLevel level = HiLogLevel.debug, String? tag}) {
-  HiLogger.shared().log((tag != null ? '【$tag】$message' : message), level: level);
+  HiLogger.shared()
+      .log((tag != null ? '【$tag】$message' : message), level: level);
 }

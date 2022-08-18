@@ -11,6 +11,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  hi_core:
+      path: ../hi_core
   redux_epics_hi:
       path: ../redux_epics_hi
       

@@ -31,8 +31,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("login"),
         "oauthLogin": MessageLookupByLibrary.simpleMessage("oauthLogin"),
         "password": MessageLookupByLibrary.simpleMessage("password"),
+        "personal": MessageLookupByLibrary.simpleMessage("personal"),
         "privacyPolicy": MessageLookupByLibrary.simpleMessage("privacy policy"),
-        "profile": MessageLookupByLibrary.simpleMessage("profile"),
         "readAndAgree": MessageLookupByLibrary.simpleMessage("Read and agree"),
         "termTips": MessageLookupByLibrary.simpleMessage(
             "Please agree to the agreement first"),

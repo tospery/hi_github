@@ -70,11 +70,11 @@ class S {
     );
   }
 
-  /// `profile`
-  String get profile {
+  /// `personal`
+  String get personal {
     return Intl.message(
-      'profile',
-      name: 'profile',
+      'personal',
+      name: 'personal',
       desc: '',
       args: [],
     );
