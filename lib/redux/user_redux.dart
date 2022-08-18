@@ -1,8 +1,4 @@
 import 'package:hi_flutter/hi_flutter.dart';
-import 'package:redux/redux.dart';
-import 'package:redux_epics/redux_epics.dart';
-import 'package:rxdart/rxdart.dart';
-
 import '../dao/user_dao.dart';
 import '../model/user.dart';
 import 'app_state.dart';
@@ -36,8 +32,7 @@ class UserMiddleware implements MiddlewareClass<APPState> {
 
 class FetchUserAction {}
 
-Stream<dynamic> userEpic(
-    Stream<dynamic> actions, EpicStore<APPState> store) {
+Stream<dynamic> userEpic(Stream<dynamic> actions, EpicStore<APPState> store) {
   // Use the async* function to make easier
   Stream<dynamic> _loadUserInfo() async* {
     log("*********** userEpic _loadUserInfo ***********");

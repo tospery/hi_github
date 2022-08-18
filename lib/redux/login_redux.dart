@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
-import 'package:hi_github/provider/user_db_provider.dart';
-import 'package:hi_github/redux/user_redux.dart';
-import 'package:redux/redux.dart';
-import 'package:redux_epics/redux_epics.dart';
-import 'package:rxdart/rxdart.dart';
 import '../dao/user_dao.dart';
 import 'app_state.dart';
 

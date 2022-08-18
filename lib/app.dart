@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
-import 'package:hi_github/core/function.dart';
-import 'package:hi_github/generated/l10n.dart';
-import 'package:hi_github/redux/app_state.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:hi_github/router/router.dart';
-import 'package:redux/redux.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 class App extends StatefulWidget {
