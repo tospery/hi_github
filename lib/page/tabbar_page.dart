@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import 'package:hi_github/extension/build_context.dart';
 import 'package:hi_github/page/home_page.dart';
-import 'package:hi_github/page/profile_page.dart';
+import 'package:hi_github/page/personal_page.dart';
 
 class TabBarPage extends StatefulWidget {
   const TabBarPage({Key? key}) : super(key: key);

@@ -11,20 +11,23 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  hi_core:
-      path: ../hi_core
-  hi_tabbar:
-      path: ../hi_tabbar
-  hi_routerx:
-      path: ../hi_routerx
-  hi_netx:
-      path: ../hi_netx
-  hi_cache:
-      path: ../hi_cache
-  hi_dialog:
-      path: ../hi_dialog
-  hi_frame:
-      path: ../hi_frame
+  # core
+  logger: 1.1.0
+  dartx: 1.1.0
+  # routerx
+  fluro: 2.0.3
+  # netx
+  dio: 4.0.6
+  # cache
+  shared_preferences: 2.0.15
+  sqflite: 2.0.3+1
+  cv: 0.2.8+1
+  # dialog
+  flutter_spinkit: 5.1.0
+  flutter_easyloading: 3.0.5
+  # frame
+  redux_epics_hi:
+      path: ../redux_epics_hi
 
 dev_dependencies:
   flutter_test:
