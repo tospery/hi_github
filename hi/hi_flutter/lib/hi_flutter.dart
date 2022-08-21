@@ -55,3 +55,5 @@ export 'dialog/popup.dart';
 export 'package:redux_epics_hi/redux_epics_hi.dart';
 export 'frame/hi_state.dart';
 export 'frame/hi_refresh_state.dart';
+export 'frame/hi_scroll_control.dart';
+export 'frame/hi_scroll_page.dart';
