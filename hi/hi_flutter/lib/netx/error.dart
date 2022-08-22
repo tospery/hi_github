@@ -1,4 +1,4 @@
-import 'package:hi_core/hi_core.dart';
+import '../core/error.dart';
 
 class HiHttpError extends HiError {
   HiHttpError(int code, String message, {dynamic data})

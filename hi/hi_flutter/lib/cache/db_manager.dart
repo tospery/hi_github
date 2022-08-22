@@ -1,6 +1,8 @@
 import 'dart:io';
 import 'package:sqflite/sqflite.dart';
 
+import '../core/logger.dart';
+
 class HiDbManager {
   static const _version = 1;
   static const _name = 'app.db';

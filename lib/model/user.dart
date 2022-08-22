@@ -8,7 +8,7 @@ part 'user.g.dart';
 @JsonSerializable()
 class User extends Equatable {
   final String login;
-  final String id;
+  final int id;
   @JsonKey(name: 'node_id')
   final String nodeId;
   @JsonKey(name: 'avatar_url')
@@ -73,7 +73,7 @@ class User extends Equatable {
 
   const User({
     this.login = '',
-    this.id = '',
+    this.id = 0,
     this.nodeId = '',
     this.avatarUrl = '',
     this.gravatarId = '',
@@ -116,6 +116,8 @@ class User extends Equatable {
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 
   Map<String, dynamic> toJson() => _$UserToJson(this);
+
+  bool get isValid => (id != 0 && login.isNotEmpty);
 
   @override
   bool get stringify => true;

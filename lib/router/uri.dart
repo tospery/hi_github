@@ -4,6 +4,7 @@ import 'package:hi_github/page/about_page.dart';
 import 'package:hi_github/page/login_page.dart';
 import 'package:hi_github/page/oauth_page.dart';
 import 'package:hi_github/page/tabbar_page.dart';
+import 'package:hi_github/page/welcome_page.dart';
 
 import '../core/constant.dart';
 import '../extension/build_context.dart';
@@ -30,12 +31,15 @@ extension UriEx on Uri {
 
   Widget? page({Map<String, dynamic> parameters = const {}}) {
     if (host.isEmpty) {
-      return const TabBarPage();
+      return const WelcomePage();
     }
     Widget? page;
     switch (host) {
       case HiRouterPath.login:
         page = LoginPage(parameters: parameters);
+        break;
+      case HiRouterPath.home:
+        page = const TabBarPage();
         break;
       case HiRouterPath.about:
         page = const AboutPage();

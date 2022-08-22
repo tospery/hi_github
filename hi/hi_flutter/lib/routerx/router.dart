@@ -48,7 +48,7 @@ class HiRouter {
     HiTransitionType? transition = HiTransitionType.push,
     Map<String, dynamic>? parameters,
   }) =>
-      _router.navigateTo(
+      navigateTo(
         context,
         path,
         transition: transition?.rawValue,

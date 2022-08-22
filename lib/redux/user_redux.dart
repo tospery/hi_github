@@ -8,7 +8,7 @@ final userReducer = combineReducers<User?>([
 ]);
 
 User? _updateUser(User? user, action) {
-  log('_updateLoaded');
+  log('设置用户');
   user = action.user;
   return user;
 }

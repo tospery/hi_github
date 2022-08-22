@@ -1,3 +1,4 @@
+import 'package:hi_flutter/core/logger.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class HiCache {
@@ -30,6 +31,9 @@ class HiCache {
   }
 
   setString(String key, String value) {
+    if (_prefs == null) {
+      log('设置的时候_prefs为空');
+    }
     _prefs?.setString(key, value);
   }
 
@@ -54,11 +58,13 @@ class HiCache {
   }
 
   T? get<T>(String key) {
+    if (_prefs == null) {
+      log('_prefs是空的');
+    }
     var result = _prefs?.get(key);
     if (result != null) {
       return result as T;
     }
     return null;
   }
-
 }

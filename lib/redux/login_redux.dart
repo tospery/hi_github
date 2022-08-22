@@ -1,38 +1,44 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import '../dao/user_dao.dart';
-import '../provider/user_db_provider.dart';
 import 'app_state.dart';
 import 'user_redux.dart';
 
 final loginReducer = combineReducers<bool>([
-  TypedReducer<bool, LoginResultAction>(_loginResult),
-  TypedReducer<bool, LogoutResultAction>(_logoutResult),
+  TypedReducer<bool, LoginSuccessAction>(_loginSuccess),
+  TypedReducer<bool, LogoutSuccessAction>(_logoutSuccess),
 ]);
 
-bool _loginResult(bool result, LoginResultAction action) {
-  if (action.success) {
-    log('登录成功了');
-    HiRouter.shared().back(action.context);
-  }
-  return action.success;
-}
-
-bool _logoutResult(bool result, LogoutResultAction action) {
+bool _loginSuccess(bool result, LoginSuccessAction action) {
+  log('登录成功了');
+  // HiRouter.shared().back(action.context);
+  HiRouter.shared().navigateTo(action.context, HiRouterPath.home,
+      replace: true, clearStack: true);
   return true;
 }
 
-class LoginResultAction {
-  final BuildContext context;
-  final bool success;
-
-  LoginResultAction(this.context, this.success);
+bool _logoutSuccess(bool result, LogoutSuccessAction action) {
+  log('退出成功了');
+  if (action.isManual) {
+    HiRouter.shared().present(action.context, HiRouterPath.login);
+  } else {
+    HiRouter.shared().navigateTo(action.context, HiRouterPath.home,
+        replace: true, clearStack: true);
+  }
+  return false;
 }
 
-class LogoutResultAction {
+class LoginSuccessAction {
   final BuildContext context;
 
-  LogoutResultAction(this.context);
+  LoginSuccessAction(this.context);
+}
+
+class LogoutSuccessAction {
+  final BuildContext context;
+  final bool isManual;
+
+  LogoutSuccessAction(this.context, this.isManual);
 }
 
 class LoginAction {
@@ -48,11 +54,13 @@ Stream<dynamic> loginEpic(Stream<dynamic> actions, EpicStore<APPState> store) {
     showToastActivity();
     var token = await UserDao.oauth(action.code);
     var user = await UserDao.login(token);
-    HiCache.shared().setString(token, HiCacheKey.token);
-    UserDbProvider().save(user.login, user.toJson().jsonString);
-    (store as Store<APPState>?)?.dispatch(UpdateUserAction(user));
+    HiCache.shared().setString(HiCacheKey.token, token);
+    // UserDbProvider().save(user.login, user.toJson().jsonString);
+    HiCache.shared().setString(HiCacheKey.user, user.toJson().jsonString);
+    hideToastActivity();
+    store.dispatch(UpdateUserAction(user));
     // ignore: use_build_context_synchronously
-    yield LoginResultAction(action.context, true);
+    yield LoginSuccessAction(action.context);
   }
 
   return actions
