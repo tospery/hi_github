@@ -13,5 +13,6 @@
     "readAndAgree": "已阅读并同意",
     "userAgreement": "用户协议",
     "privacyPolicy": "隐私政策",
-    "termTips": "请先同意用户协议和隐私政策"
+    "termTips": "请先同意用户协议和隐私政策",
+    "joinedOn": "创建于{date}"
 }

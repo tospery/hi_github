@@ -20,6 +20,8 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'zh_CN';
 
+  static String m0(date) => "创建于${date}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("关于"),
@@ -28,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "cancel": MessageLookupByLibrary.simpleMessage("取消"),
         "confirm": MessageLookupByLibrary.simpleMessage("确认"),
         "home": MessageLookupByLibrary.simpleMessage("首页"),
+        "joinedOn": m0,
         "login": MessageLookupByLibrary.simpleMessage("登录"),
         "oauthLogin": MessageLookupByLibrary.simpleMessage("oauthLogin"),
         "password": MessageLookupByLibrary.simpleMessage("密码"),

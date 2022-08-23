@@ -3,7 +3,7 @@ import '../core/error.dart';
 import '../core/logger.dart';
 import 'hi_state.dart';
 
-abstract class HiRefreshState<M, T extends StatefulWidget> extends HiState<T>
+abstract class HiScrollState<M, T extends StatefulWidget> extends HiState<T>
     with AutomaticKeepAliveClientMixin {
   List<M> list = [];
   int pageIndex = 1;

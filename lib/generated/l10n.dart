@@ -199,6 +199,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Joined on {date}`
+  String joinedOn(Object date) {
+    return Intl.message(
+      'Joined on $date',
+      name: 'joinedOn',
+      desc: '',
+      args: [date],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

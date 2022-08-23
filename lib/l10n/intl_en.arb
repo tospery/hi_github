@@ -13,5 +13,6 @@
     "readAndAgree": "Read and agree",
     "userAgreement": "user agreement",
     "privacyPolicy": "privacy policy",
-    "termTips": "Please agree to the agreement first"
+    "termTips": "Please agree to the agreement first",
+    "joinedOn": "Joined on {date}"
 }
