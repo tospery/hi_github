@@ -29,6 +29,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "appname": MessageLookupByLibrary.simpleMessage("hi github"),
         "cancel": MessageLookupByLibrary.simpleMessage("取消"),
         "confirm": MessageLookupByLibrary.simpleMessage("确认"),
+        "feedback": MessageLookupByLibrary.simpleMessage("反馈"),
         "followers": MessageLookupByLibrary.simpleMessage("关注"),
         "following": MessageLookupByLibrary.simpleMessage("参与"),
         "home": MessageLookupByLibrary.simpleMessage("首页"),
@@ -40,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "privacyPolicy": MessageLookupByLibrary.simpleMessage("隐私政策"),
         "readAndAgree": MessageLookupByLibrary.simpleMessage("已阅读并同意"),
         "repositories": MessageLookupByLibrary.simpleMessage("仓库"),
+        "setting": MessageLookupByLibrary.simpleMessage("设置"),
         "termTips": MessageLookupByLibrary.simpleMessage("请先同意用户协议和隐私政策"),
         "userAgreement": MessageLookupByLibrary.simpleMessage("用户协议"),
         "username": MessageLookupByLibrary.simpleMessage("用户名")

@@ -6,7 +6,6 @@
     "accessToken": "accessToken",
     "confirm": "确认",
     "cancel": "取消",
-    "about": "关于",
     "username": "用户名",
     "password": "密码",
     "login": "登录",
@@ -17,5 +16,8 @@
     "joinedOn": "创建于{date}",
     "repositories": "仓库",
     "followers": "关注",
-    "following": "参与"
+    "following": "参与",
+    "setting": "设置",
+    "about": "关于",
+    "feedback": "反馈"
 }

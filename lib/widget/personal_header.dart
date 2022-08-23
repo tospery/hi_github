@@ -80,8 +80,9 @@ class _PersonalHeaderState extends State<PersonalHeader> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       height: 155,
+      color: Colors.white,
       child: Flex(
         direction: Axis.vertical,
         children: [

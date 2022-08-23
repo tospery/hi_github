@@ -24,11 +24,12 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "about": MessageLookupByLibrary.simpleMessage("about"),
+        "about": MessageLookupByLibrary.simpleMessage("About"),
         "accessToken": MessageLookupByLibrary.simpleMessage("accessToken"),
         "appname": MessageLookupByLibrary.simpleMessage("hi github"),
         "cancel": MessageLookupByLibrary.simpleMessage("cancel"),
         "confirm": MessageLookupByLibrary.simpleMessage("confirm"),
+        "feedback": MessageLookupByLibrary.simpleMessage("Feedback"),
         "followers": MessageLookupByLibrary.simpleMessage("Followers"),
         "following": MessageLookupByLibrary.simpleMessage("Following"),
         "home": MessageLookupByLibrary.simpleMessage("home"),
@@ -40,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "privacyPolicy": MessageLookupByLibrary.simpleMessage("privacy policy"),
         "readAndAgree": MessageLookupByLibrary.simpleMessage("Read and agree"),
         "repositories": MessageLookupByLibrary.simpleMessage("Repositories"),
+        "setting": MessageLookupByLibrary.simpleMessage("Setting"),
         "termTips": MessageLookupByLibrary.simpleMessage(
             "Please agree to the agreement first"),
         "userAgreement": MessageLookupByLibrary.simpleMessage("user agreement"),

@@ -6,7 +6,6 @@
     "accessToken": "accessToken",
     "confirm": "confirm",
     "cancel": "cancel",
-    "about": "about",
     "username": "username",
     "password": "password",
     "login": "login",
@@ -17,5 +16,8 @@
     "joinedOn": "Joined on {date}",
     "repositories": "Repositories",
     "followers": "Followers",
-    "following": "Following"
+    "following": "Following",
+    "setting": "Setting",
+    "about": "About",
+    "feedback": "Feedback"
 }

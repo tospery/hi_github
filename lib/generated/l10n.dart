@@ -120,16 +120,6 @@ class S {
     );
   }
 
-  /// `about`
-  String get about {
-    return Intl.message(
-      'about',
-      name: 'about',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `username`
   String get username {
     return Intl.message(
@@ -235,6 +225,36 @@ class S {
     return Intl.message(
       'Following',
       name: 'following',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Setting`
+  String get setting {
+    return Intl.message(
+      'Setting',
+      name: 'setting',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `About`
+  String get about {
+    return Intl.message(
+      'About',
+      name: 'about',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Feedback`
+  String get feedback {
+    return Intl.message(
+      'Feedback',
+      name: 'feedback',
       desc: '',
       args: [],
     );

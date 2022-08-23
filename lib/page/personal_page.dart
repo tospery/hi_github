@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import 'package:hi_github/extension/build_context.dart';
+import 'package:hi_github/widget/user_info_widget.dart';
 
 import '../redux/app_state.dart';
 import '../widget/personal_header.dart';
@@ -40,14 +41,19 @@ class PersonalPageState extends State<PersonalPage> {
     });
   }
 
-  Widget get contentChild => ListView(
-        // padding: const EdgeInsets.only(top: 30),
-        children: buildContentList(),
+  Widget get contentChild => Container(
+        color: Colors.grey[100],
+        child: ListView(
+          // padding: const EdgeInsets.only(top: 30),
+          children: buildContentList(),
+        ),
       );
 
   List<Widget> buildContentList() {
     return [
       const PersonalHeader(),
+      hiSpace(height: 10),
+      const UserInfoWidget(),
     ];
   }
 
@@ -95,8 +101,6 @@ class PersonalPageState extends State<PersonalPage> {
 //     throw UnimplementedError();
 //   }
 // }
-
-
 
 // class _RankingTabPageState extends HiBaseTabState<Ranking, Video, RankingTabPage> {
 
