@@ -13,3 +13,18 @@ Widget hiImage(String url, {double? width, double? height}) {
     imageUrl: url,
   );
 }
+
+BoxBorder hiBorder({
+  bool top = false,
+  bool right = false,
+  bool bottom = false,
+  bool left = false,
+}) {
+  BorderSide borderSide = BorderSide(width: 0.5, color: Colors.grey[200]!);
+  return Border(
+    top: top ? borderSide : BorderSide.none,
+    right: right ? borderSide : BorderSide.none,
+    bottom: bottom ? borderSide : BorderSide.none,
+    left: left ? borderSide : BorderSide.none,
+  );
+}

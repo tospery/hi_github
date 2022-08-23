@@ -14,5 +14,8 @@
     "userAgreement": "user agreement",
     "privacyPolicy": "privacy policy",
     "termTips": "Please agree to the agreement first",
-    "joinedOn": "Joined on {date}"
+    "joinedOn": "Joined on {date}",
+    "repositories": "Repositories",
+    "followers": "Followers",
+    "following": "Following"
 }

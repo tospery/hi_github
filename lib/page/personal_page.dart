@@ -40,11 +40,6 @@ class PersonalPageState extends State<PersonalPage> {
     });
   }
 
-  // body: ListView(
-  //   padding: const EdgeInsets.only(top: 10),
-  //   children: [...buildContentList()],
-  // ),
-
   Widget get contentChild => ListView(
         // padding: const EdgeInsets.only(top: 30),
         children: buildContentList(),
@@ -66,6 +61,7 @@ class PersonalPageState extends State<PersonalPage> {
   // }
 
   Future<void> loadData() {
+    log('刷新开始');
     return Future.delayed(const Duration(seconds: 3), () {
       log('abcd1234');
     });

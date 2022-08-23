@@ -119,6 +119,10 @@ class User extends Equatable {
 
   bool get isValid => (id != 0 && login.isNotEmpty);
 
+  int get repositoryCount {
+    return publicRepos + totalPrivateRepos;
+  }
+
   @override
   bool get stringify => true;
 

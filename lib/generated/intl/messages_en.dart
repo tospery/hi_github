@@ -29,6 +29,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "appname": MessageLookupByLibrary.simpleMessage("hi github"),
         "cancel": MessageLookupByLibrary.simpleMessage("cancel"),
         "confirm": MessageLookupByLibrary.simpleMessage("confirm"),
+        "followers": MessageLookupByLibrary.simpleMessage("Followers"),
+        "following": MessageLookupByLibrary.simpleMessage("Following"),
         "home": MessageLookupByLibrary.simpleMessage("home"),
         "joinedOn": m0,
         "login": MessageLookupByLibrary.simpleMessage("login"),
@@ -37,6 +39,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "personal": MessageLookupByLibrary.simpleMessage("personal"),
         "privacyPolicy": MessageLookupByLibrary.simpleMessage("privacy policy"),
         "readAndAgree": MessageLookupByLibrary.simpleMessage("Read and agree"),
+        "repositories": MessageLookupByLibrary.simpleMessage("Repositories"),
         "termTips": MessageLookupByLibrary.simpleMessage(
             "Please agree to the agreement first"),
         "userAgreement": MessageLookupByLibrary.simpleMessage("user agreement"),

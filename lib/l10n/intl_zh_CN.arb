@@ -14,5 +14,8 @@
     "userAgreement": "用户协议",
     "privacyPolicy": "隐私政策",
     "termTips": "请先同意用户协议和隐私政策",
-    "joinedOn": "创建于{date}"
+    "joinedOn": "创建于{date}",
+    "repositories": "仓库",
+    "followers": "关注",
+    "following": "参与"
 }

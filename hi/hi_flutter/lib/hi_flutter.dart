@@ -13,6 +13,7 @@ export 'core/widget.dart';
 export 'core/constant.dart';
 export 'core/convert.dart';
 export 'core/string.dart';
+export 'core/context.dart';
 
 // tabbar
 export 'tabbar/core.dart';
