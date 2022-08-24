@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import 'package:hi_github/extension/build_context.dart';
-import 'package:path_provider/path_provider.dart';
 
 class PersonalHeader extends StatefulWidget {
   const PersonalHeader({Key? key}) : super(key: key);
@@ -82,13 +81,7 @@ class _PersonalHeaderState extends State<PersonalHeader> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () async {
-        // var path = await getApplicationDocumentsDirectory();
-        // // DefaultAssetBundle
-        // var aaa = await DefaultAssetBundle.of(context)
-        //     .loadString('res/jsons/portals.json');
-        // log('aaabbccc: $aaa');
-      },
+      onTap: () async {},
       child: Container(
         height: 155,
         color: Colors.white,

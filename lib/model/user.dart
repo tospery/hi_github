@@ -119,6 +119,7 @@ class User extends Equatable {
 
   bool get isValid => id != 0;
   int get repositoryCount => publicRepos + totalPrivateRepos;
+  String get dynamicCardUrlString => 'https://ghchart.rshah.org/1CA035/$login';
 
   @override
   bool get stringify => true;

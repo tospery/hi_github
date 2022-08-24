@@ -8,6 +8,7 @@ import 'package:hi_github/widget/user_info_widget.dart';
 
 import '../redux/app_state.dart';
 import '../widget/personal_header.dart';
+import '../widget/user_dynamic_card.dart';
 
 class PersonalPage extends StatefulWidget {
   const PersonalPage({Key? key}) : super(key: key);
@@ -61,6 +62,8 @@ class PersonalPageState extends State<PersonalPage> {
   List<Widget> buildContentList() {
     return [
       const PersonalHeader(),
+      hiSpace(height: 10),
+      const UserDynamicCard(),
       hiSpace(height: 10),
       const UserInfoWidget(),
       hiSpace(height: 10),
