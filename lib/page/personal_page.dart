@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import 'package:hi_github/extension/build_context.dart';
+import 'package:hi_github/model/portal.dart';
+import 'package:hi_github/widget/portal_widget.dart';
 import 'package:hi_github/widget/user_info_widget.dart';
 
 import '../redux/app_state.dart';
@@ -16,6 +18,13 @@ class PersonalPage extends StatefulWidget {
 
 class PersonalPageState extends State<PersonalPage> {
   final ScrollController _controller = ScrollController();
+  List<Portal> portals = [];
+
+  @override
+  void initState() {
+    super.initState();
+    loadData();
+  }
 
   @override
   void dispose() {
@@ -54,19 +63,25 @@ class PersonalPageState extends State<PersonalPage> {
       const PersonalHeader(),
       hiSpace(height: 10),
       const UserInfoWidget(),
+      hiSpace(height: 10),
+      PortalWidget(portals: portals),
     ];
   }
 
-  // Widget _buildParallaxView() {
-  //   return SliverAppBar(
-  //     expandedHeight: 160,
-  //     pinned: true,
-  //     backgroundColor: Colors.red,
-  //     foregroundColor: Colors.green,
-  //   );
-  // }
+  Future<void> loadData() async {
+    String string =
+        await context.assetBundle.loadString('res/jsons/portals.json');
+    var json = string.jsonObject as List? ?? [];
+    var items = json.map(
+      (e) {
+        return Portal.fromJson(e as Map<String, dynamic>? ?? {});
+      },
+    ).toList();
+    setState(() {
+      portals = items;
+    });
+    log('items的大小: ${items.length}');
 
-  Future<void> loadData() {
     log('刷新开始');
     return Future.delayed(const Duration(seconds: 3), () {
       log('abcd1234');

@@ -69,7 +69,7 @@ class User extends Equatable {
   final dynamic hireable;
   @JsonKey(name: 'twitter_username')
   final dynamic twitterUsername;
-  final Plan plan;
+  final Plan? plan;
 
   const User({
     this.login = '',
@@ -110,18 +110,15 @@ class User extends Equatable {
     this.twoFactorAuthentication = false,
     this.hireable,
     this.twitterUsername,
-    this.plan = const Plan(),
+    this.plan,
   });
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 
   Map<String, dynamic> toJson() => _$UserToJson(this);
 
-  bool get isValid => (id != 0 && login.isNotEmpty);
-
-  int get repositoryCount {
-    return publicRepos + totalPrivateRepos;
-  }
+  bool get isValid => id != 0;
+  int get repositoryCount => publicRepos + totalPrivateRepos;
 
   @override
   bool get stringify => true;

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import 'package:hi_github/extension/build_context.dart';
+import 'package:path_provider/path_provider.dart';
 
 class PersonalHeader extends StatefulWidget {
   const PersonalHeader({Key? key}) : super(key: key);
@@ -80,38 +81,47 @@ class _PersonalHeaderState extends State<PersonalHeader> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 155,
-      color: Colors.white,
-      child: Flex(
-        direction: Axis.vertical,
-        children: [
-          Expanded(
-            flex: 100,
-            child: _buildUserView,
-          ),
-          Expanded(
-            flex: 55,
-            child: Container(
-              decoration: BoxDecoration(
-                border: hiBorder(
-                  top: true,
+    return GestureDetector(
+      onTap: () async {
+        // var path = await getApplicationDocumentsDirectory();
+        // // DefaultAssetBundle
+        // var aaa = await DefaultAssetBundle.of(context)
+        //     .loadString('res/jsons/portals.json');
+        // log('aaabbccc: $aaa');
+      },
+      child: Container(
+        height: 155,
+        color: Colors.white,
+        child: Flex(
+          direction: Axis.vertical,
+          children: [
+            Expanded(
+              flex: 100,
+              child: _buildUserView,
+            ),
+            Expanded(
+              flex: 55,
+              child: Container(
+                decoration: BoxDecoration(
+                  border: hiBorder(
+                    top: true,
+                  ),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    _buildCountView(context.string.repositories,
+                        context.store.state.user!.repositoryCount),
+                    _buildCountView(context.string.followers,
+                        context.store.state.user!.followers),
+                    _buildCountView(context.string.following,
+                        context.store.state.user!.following),
+                  ],
                 ),
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  _buildCountView(context.string.repositories,
-                      context.store.state.user!.repositoryCount),
-                  _buildCountView(context.string.followers,
-                      context.store.state.user!.followers),
-                  _buildCountView(context.string.following,
-                      context.store.state.user!.following),
-                ],
-              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -125,7 +135,7 @@ class _PersonalHeaderState extends State<PersonalHeader> {
 
   Widget _buildCountView(String text, int count) {
     return SizedBox(
-      width: (context.mediaSize.width - 20 * 2) / 3,
+      width: (context.mediaQueryData.size.width - 20 * 2) / 3,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

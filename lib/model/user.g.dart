@@ -46,7 +46,9 @@ User _$UserFromJson(Map<String, dynamic> json) => User(
           json['two_factor_authentication'] as bool? ?? false,
       hireable: json['hireable'],
       twitterUsername: json['twitter_username'],
-      plan: Plan.fromJson(json['plan'] as Map<String, dynamic>? ?? {}),
+      plan: json['plan'] == null
+          ? null
+          : Plan.fromJson(json['plan'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{

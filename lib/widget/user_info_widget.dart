@@ -33,7 +33,7 @@ class _UserInfoWidgetState extends State<UserInfoWidget> {
   Widget _buildUserInfoItem(AssetImage image, String? text,
       {bool isLast = false}) {
     return Container(
-      height: 44,
+      height: 50,
       decoration: BoxDecoration(
         border: hiBorder(
           bottom: !isLast,
