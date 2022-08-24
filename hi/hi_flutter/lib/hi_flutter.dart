@@ -14,6 +14,7 @@ export 'core/constant.dart';
 export 'core/convert.dart';
 export 'core/string.dart';
 export 'core/context.dart';
+export 'core/color.dart';
 
 // tabbar
 export 'tabbar/core.dart';

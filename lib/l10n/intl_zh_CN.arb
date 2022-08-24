@@ -9,6 +9,7 @@
     "username": "用户名",
     "password": "密码",
     "login": "登录",
+    "event": "事件",
     "readAndAgree": "已阅读并同意",
     "userAgreement": "用户协议",
     "privacyPolicy": "隐私政策",

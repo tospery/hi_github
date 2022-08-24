@@ -29,6 +29,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "appname": MessageLookupByLibrary.simpleMessage("hi github"),
         "cancel": MessageLookupByLibrary.simpleMessage("取消"),
         "confirm": MessageLookupByLibrary.simpleMessage("确认"),
+        "event": MessageLookupByLibrary.simpleMessage("事件"),
         "feedback": MessageLookupByLibrary.simpleMessage("反馈"),
         "followers": MessageLookupByLibrary.simpleMessage("关注"),
         "following": MessageLookupByLibrary.simpleMessage("参与"),

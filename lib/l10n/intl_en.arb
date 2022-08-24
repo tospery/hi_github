@@ -9,6 +9,7 @@
     "username": "username",
     "password": "password",
     "login": "login",
+    "event": "event",
     "readAndAgree": "Read and agree",
     "userAgreement": "user agreement",
     "privacyPolicy": "privacy policy",

@@ -29,6 +29,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "appname": MessageLookupByLibrary.simpleMessage("hi github"),
         "cancel": MessageLookupByLibrary.simpleMessage("cancel"),
         "confirm": MessageLookupByLibrary.simpleMessage("confirm"),
+        "event": MessageLookupByLibrary.simpleMessage("event"),
         "feedback": MessageLookupByLibrary.simpleMessage("Feedback"),
         "followers": MessageLookupByLibrary.simpleMessage("Followers"),
         "following": MessageLookupByLibrary.simpleMessage("Following"),

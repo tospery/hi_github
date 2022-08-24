@@ -150,6 +150,16 @@ class S {
     );
   }
 
+  /// `event`
+  String get event {
+    return Intl.message(
+      'event',
+      name: 'event',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Read and agree`
   String get readAndAgree {
     return Intl.message(
