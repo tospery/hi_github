@@ -20,7 +20,7 @@ class StarPageState extends HiScrollState<Repository, StarPage> {
   @override
   Widget get contentChild => ListView.builder(
         physics: const AlwaysScrollableScrollPhysics(),
-        padding: const EdgeInsets.only(top: 10),
+        padding: const EdgeInsets.only(top: 0),
         itemCount: list.length,
         controller: scrollController,
         itemBuilder: (context, index) {
