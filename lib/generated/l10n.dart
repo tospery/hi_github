@@ -160,6 +160,16 @@ class S {
     );
   }
 
+  /// `star`
+  String get star {
+    return Intl.message(
+      'star',
+      name: 'star',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Read and agree`
   String get readAndAgree {
     return Intl.message(

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import 'package:hi_github/extension/build_context.dart';
-import 'package:hi_github/model/user.dart';
 
 class PersonalHeader extends StatefulWidget {
   const PersonalHeader({Key? key}) : super(key: key);

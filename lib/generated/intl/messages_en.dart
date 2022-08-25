@@ -43,6 +43,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "readAndAgree": MessageLookupByLibrary.simpleMessage("Read and agree"),
         "repositories": MessageLookupByLibrary.simpleMessage("Repositories"),
         "setting": MessageLookupByLibrary.simpleMessage("Setting"),
+        "star": MessageLookupByLibrary.simpleMessage("star"),
         "termTips": MessageLookupByLibrary.simpleMessage(
             "Please agree to the agreement first"),
         "userAgreement": MessageLookupByLibrary.simpleMessage("user agreement"),

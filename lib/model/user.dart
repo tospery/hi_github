@@ -117,6 +117,10 @@ class User extends Equatable {
 
   Map<String, dynamic> toJson() => _$UserToJson(this);
 
+  bool get isValid => id != 0;
+  int get repositoryCount => publicRepos + totalPrivateRepos;
+  String get dynamicCardUrlString => 'https://ghchart.rshah.org/1CA035/$login';
+
   @override
   bool get stringify => true;
 
@@ -164,10 +168,4 @@ class User extends Equatable {
       plan,
     ];
   }
-}
-
-extension UserEx on User {
-  bool get isValid => id != 0;
-  int get repositoryCount => publicRepos + totalPrivateRepos;
-  String get dynamicCardUrlString => 'https://ghchart.rshah.org/1CA035/$login';
 }

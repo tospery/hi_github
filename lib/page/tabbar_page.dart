@@ -4,7 +4,7 @@ import 'package:hi_github/extension/build_context.dart';
 import 'package:hi_github/page/home_page.dart';
 import 'package:hi_github/page/personal_page.dart';
 
-import 'event_page.dart';
+import 'star_page.dart';
 
 class TabBarPage extends StatefulWidget {
   const TabBarPage({Key? key}) : super(key: key);
@@ -15,7 +15,7 @@ class TabBarPage extends StatefulWidget {
 
 class _TabBarPageState extends State<TabBarPage> {
   final GlobalKey<HomePageState> homeKey = GlobalKey();
-  final GlobalKey<EventPageState> eventKey = GlobalKey();
+  final GlobalKey<StarPageState> starKey = GlobalKey();
   final GlobalKey<PersonalPageState> personalKey = GlobalKey();
 
   @override
@@ -23,12 +23,12 @@ class _TabBarPageState extends State<TabBarPage> {
     return HiTabBarPage(
       tabItems: [
         _renderTab(Icons.home, context.string.home),
-        _renderTab(Icons.event, context.string.event),
+        _renderTab(Icons.star, context.string.star),
         _renderTab(Icons.account_circle, context.string.personal),
       ],
       tabViews: [
         HomePage(key: homeKey),
-        EventPage(key: homeKey),
+        StarPage(key: starKey),
         PersonalPage(key: personalKey),
       ],
       backgroundColor: Colors.green,

@@ -12,6 +12,8 @@ abstract class HiScrollState<M, T extends StatefulWidget> extends HiState<T>
 
   Widget get contentChild;
 
+  String get getTitle;
+
   Future<List<M>> getData(int pageIndex);
 
   @override
@@ -20,7 +22,7 @@ abstract class HiScrollState<M, T extends StatefulWidget> extends HiState<T>
     scrollController.addListener(() {
       var offset = scrollController.position.maxScrollExtent -
           scrollController.position.pixels;
-      if (offset < 300 &&
+      if (offset < 200 &&
           !loading &&
           scrollController.position.maxScrollExtent != 0) {
         loadData(loadMore: true);
@@ -32,13 +34,19 @@ abstract class HiScrollState<M, T extends StatefulWidget> extends HiState<T>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return RefreshIndicator(
-      onRefresh: loadData,
-      color: Colors.blue,
-      child: MediaQuery.removePadding(
-        context: context,
-        removeTop: true,
-        child: contentChild,
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0.5,
+        title: Text(getTitle),
+      ),
+      body: RefreshIndicator(
+        onRefresh: loadData,
+        color: Colors.blue,
+        child: MediaQuery.removePadding(
+          context: context,
+          removeTop: true,
+          child: contentChild,
+        ),
       ),
     );
   }

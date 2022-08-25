@@ -10,6 +10,7 @@
     "password": "password",
     "login": "login",
     "event": "event",
+    "star": "star",
     "readAndAgree": "Read and agree",
     "userAgreement": "user agreement",
     "privacyPolicy": "privacy policy",

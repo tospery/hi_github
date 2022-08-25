@@ -24,13 +24,11 @@ class Portal extends Equatable {
 
   Map<String, dynamic> toJson() => _$PortalToJson(this);
 
+  AssetImage get assetImage => AssetImage(icon);
+
   @override
   bool get stringify => true;
 
   @override
   List<Object?> get props => [id, icon, text, indicated];
-}
-
-extension PortalEx on Portal {
-  AssetImage get assetImage => AssetImage(icon);
 }

@@ -3,7 +3,6 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import 'package:hi_github/extension/build_context.dart';
-import 'package:hi_github/model/user.dart';
 
 class UserDynamicCard extends StatefulWidget {
   const UserDynamicCard({Key? key}) : super(key: key);
