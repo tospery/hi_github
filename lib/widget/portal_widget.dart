@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
-import 'package:hi_github/model/portal.dart';
 
 class PortalWidget extends StatefulWidget {
   final List<Portal> portals;
@@ -43,13 +42,21 @@ class _PortalWidgetState extends State<PortalWidget> {
         children: [
           Row(
             children: [
-              Image(
-                image: portal.assetImage,
-                width: 25,
-              ),
+              // Image(
+              //   image: portal.assetImage,
+              //   width: 25,
+              // ),
+              // SizedBox(
+              //   width: 25,
+              //   height: 25,
+              //   child: portal.icon.image,
+              // ),
+              portal.icon.isNotEmpty
+                  ? portal.icon.image(width: 25)
+                  : Container(),
               hiSpace(width: 10),
               Text(
-                portal.text,
+                portal.title,
                 style: const TextStyle(
                   fontSize: 16,
                   color: Colors.black,
@@ -58,7 +65,7 @@ class _PortalWidgetState extends State<PortalWidget> {
               ),
             ],
           ),
-          portal.indicated
+          portal.indicator
               ? const Icon(
                   Icons.navigate_next,
                   color: Colors.grey,

@@ -1,21 +1,21 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
+// // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'portal.dart';
+// part of 'portal.dart';
 
-// **************************************************************************
-// JsonSerializableGenerator
-// **************************************************************************
+// // **************************************************************************
+// // JsonSerializableGenerator
+// // **************************************************************************
 
-Portal _$PortalFromJson(Map<String, dynamic> json) => Portal(
-      id: json['id'] as int? ?? 0,
-      icon: json['icon'] as String? ?? '',
-      text: json['text'] as String? ?? '',
-      indicated: json['indicated'] as bool? ?? true,
-    );
+// Portal _$PortalFromJson(Map<String, dynamic> json) => Portal(
+//       id: json['id'] as int? ?? 0,
+//       icon: json['icon'] as String? ?? '',
+//       text: json['text'] as String? ?? '',
+//       indicated: json['indicated'] as bool? ?? true,
+//     );
 
-Map<String, dynamic> _$PortalToJson(Portal instance) => <String, dynamic>{
-      'id': instance.id,
-      'icon': instance.icon,
-      'text': instance.text,
-      'indicated': instance.indicated,
-    };
+// Map<String, dynamic> _$PortalToJson(Portal instance) => <String, dynamic>{
+//       'id': instance.id,
+//       'icon': instance.icon,
+//       'text': instance.text,
+//       'indicated': instance.indicated,
+//     };

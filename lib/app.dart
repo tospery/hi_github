@@ -24,8 +24,7 @@ class _AppState extends State<App> {
     appReducer,
     middleware: middleware,
     initialState: APPState(
-      // locale: const Locale('zh', 'CH'),
-      locale: const Locale('en', 'US'),
+      locale: const Locale('zh', 'CH'),
       themeData: getThemeData(Colors.blue),
       login: false,
     ),
@@ -54,8 +53,7 @@ class _AppState extends State<App> {
                       if (spt.languageCode == loc.languageCode) return spt;
                     }
                   }
-                  // return const Locale('zh', 'CN');
-                  return const Locale('en', 'US');
+                  return const Locale('zh', 'CN');
                 },
                 locale: store.state.locale,
                 theme: store.state.themeData,

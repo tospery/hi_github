@@ -8,6 +8,7 @@ import 'package:hi_github/page/welcome_page.dart';
 
 import '../core/constant.dart';
 import '../extension/build_context.dart';
+import '../page/profile_page.dart';
 import 'path.dart';
 
 extension UriEx on Uri {
@@ -40,6 +41,9 @@ extension UriEx on Uri {
         break;
       case HiRouterPath.home:
         page = const TabBarPage();
+        break;
+      case HiRouterPath.profile:
+        page = const ProfilePage();
         break;
       case HiRouterPath.about:
         page = const AboutPage();

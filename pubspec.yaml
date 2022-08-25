@@ -9,13 +9,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  equatable: any
   json_annotation: any
+  json_serializable: any
   freezed_annotation: any
   cupertino_icons: ^1.0.2
   flutter_localizations:
     sdk: flutter
-  json_serializable: any
   build_runner: any
   freezed: any
   intl: ^0.17.0

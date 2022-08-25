@@ -21,5 +21,10 @@
     "following": "参与",
     "setting": "设置",
     "about": "关于",
-    "feedback": "反馈"
+    "feedback": "反馈",
+    "nickname": "昵称",
+    "bio": "简介",
+    "team": "团队",
+    "city": "城市",
+    "blog": "博客"
 }

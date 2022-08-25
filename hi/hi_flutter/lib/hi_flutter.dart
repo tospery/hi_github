@@ -56,6 +56,7 @@ export 'dialog/sheet.dart';
 export 'dialog/popup.dart';
 
 // frame
+export 'package:equatable/equatable.dart';
 export 'package:redux_epics_hi/redux_epics_hi.dart';
 export 'package:cached_network_image/cached_network_image.dart';
 export 'frame/hi_state.dart';
@@ -63,3 +64,6 @@ export 'frame/hi_scroll_state.dart';
 export 'frame/hi_scroll_control.dart';
 export 'frame/hi_scroll_page.dart';
 export 'frame/function.dart';
+export 'frame/string.dart';
+export 'frame/portal.dart';
+export 'frame/hi_portal_list_view.dart';

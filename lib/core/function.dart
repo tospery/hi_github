@@ -6,7 +6,9 @@ ThemeData getThemeData(MaterialColor color) {
     primaryColor: Colors.white,
     brightness: Brightness.light,
     platform: TargetPlatform.iOS,
+    scaffoldBackgroundColor: Colors.grey[200],
     appBarTheme: const AppBarTheme(
+      elevation: 0.5,
       backgroundColor: Colors.white,
       foregroundColor: Colors.black,
     ),

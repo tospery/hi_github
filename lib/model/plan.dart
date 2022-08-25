@@ -1,4 +1,4 @@
-import 'package:equatable/equatable.dart';
+import 'package:hi_flutter/hi_flutter.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'plan.g.dart';

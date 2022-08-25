@@ -21,5 +21,10 @@
     "following": "Following",
     "setting": "Setting",
     "about": "About",
-    "feedback": "Feedback"
+    "feedback": "Feedback",
+    "nickname": "nickname",
+    "bio": "bio",
+    "team": "team",
+    "city": "city",
+    "blog": "blog"
 }

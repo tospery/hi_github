@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import 'package:hi_github/extension/build_context.dart';
-import 'package:hi_github/model/portal.dart';
 import 'package:hi_github/widget/portal_widget.dart';
 import 'package:hi_github/widget/user_info_widget.dart';
-
 import '../redux/app_state.dart';
 import '../widget/personal_header.dart';
 import '../widget/user_dynamic_card.dart';
@@ -61,7 +59,7 @@ class PersonalPageState extends State<PersonalPage> {
 
   List<Widget> buildContentList() {
     return [
-      const PersonalHeader(),
+      PersonalHeader(onPressed: _doUser),
       hiSpace(height: 10),
       const UserDynamicCard(),
       hiSpace(height: 10),
@@ -98,104 +96,20 @@ class PersonalPageState extends State<PersonalPage> {
   //     height: 100,
   //   );
   // }
+
+  void _doUser() async {
+    HiRouter.shared().push(context, HiRouterPath.profile);
+
+    // https://avatars.githubusercontent.com/u/3716286?v=4
+  }
+
+  Widget? getImage(String string) {
+    Widget? result;
+    try {
+      result = Image.asset(string);
+    } catch (e) {
+      result = hiImage(string);
+    }
+    return result;
+  }
 }
-
-// class _PersonalPageState extends HiScrollState<User, PersonalPage> {
-//   @override
-//   Widget build(BuildContext context) {
-//     Widget sp = super.build(context);
-//     return StoreBuilder(builder: (context, store) {
-//       return sp;
-//     });
-//   }
-
-//   @override
-//   // TODO: implement contentChild
-//   Widget get contentChild => throw UnimplementedError();
-
-//   @override
-//   Future<List<User>> getData(int pageIndex) {
-//     // TODO: implement getData
-//     throw UnimplementedError();
-//   }
-// }
-
-// class _RankingTabPageState extends HiBaseTabState<Ranking, Video, RankingTabPage> {
-
-//   @override
-//   get contentChild => ListView.builder(
-//     physics: const AlwaysScrollableScrollPhysics(),
-//     padding: const EdgeInsets.only(top: 10),
-//     itemCount: dataList.length,
-//     controller: scrollController,
-//     itemBuilder: (BuildContext context, int index) => VideoLargeCard(video: dataList[index])
-//   );
-
-//   @override
-//   Future<Ranking> getData(int pageIndex) async {
-//     Ranking result = await RankingDao.get(widget.sort, pageIndex: pageIndex, pageSize: 20);
-//     return result;
-//   }
-
-//   @override
-//   List<Video> parseList(Ranking result) {
-//     return result.list;
-//   }
-// }
-
-// class PersonalPageState extends HiRefreshState<User, PersonalPage> {
-//   // @override
-//   // Widget build(BuildContext context) {
-//   //   return Scaffold(
-//   //     appBar: AppBar(
-//   //       title: Text(S.of(context).personal),
-//   //     ),
-//   //     body: Center(
-//   //       child: Column(
-//   //         mainAxisAlignment: MainAxisAlignment.center,
-//   //         children: [
-// InkWell(
-//   onTap: _login,
-//   child: const Text(
-//     '登录',
-//     style: TextStyle(fontSize: 22),
-//   ),
-// ),
-//   //           InkWell(
-//   //             onTap: _about,
-//   //             child: const Text(
-//   //               '关于',
-//   //               style: TextStyle(fontSize: 22),
-//   //             ),
-//   //           ),
-//   //           InkWell(
-//   //             onTap: _login,
-//   //             child: const Text(
-//   //               '弹窗',
-//   //               style: TextStyle(fontSize: 22),
-//   //             ),
-//   //           )
-//   //         ],
-//   //       ),
-//   //     ),
-//   //   );
-//   // }
-
-//   // _login() async {
-//   //   HiRouter.shared().present(context, HiRouterPath.login);
-//   // }
-
-//   // void _about() async {
-//   // }
-
-//   @override
-//   Widget get contentChild => throw UnimplementedError();
-
-//   @override
-//   Future<List<User>> getData(int pageIndex) {
-//     // ignore: todo
-//     // // TODO: implement getData
-//     throw UnimplementedError();
-//     //var aaa = UserDbProvider().getObject(key)
-//   }
-// }

@@ -3,44 +3,49 @@ import 'package:hi_flutter/hi_flutter.dart';
 import 'package:hi_github/extension/build_context.dart';
 
 class PersonalHeader extends StatefulWidget {
-  const PersonalHeader({Key? key}) : super(key: key);
+  final VoidCallback? onPressed;
+
+  const PersonalHeader({super.key, this.onPressed});
 
   @override
   State<PersonalHeader> createState() => _PersonalHeaderState();
 }
 
 class _PersonalHeaderState extends State<PersonalHeader> {
-  Widget get _buildUserView {
-    return Container(
-      alignment: Alignment.centerLeft,
-      padding: const EdgeInsets.only(
-        left: 20,
-        right: 10,
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: FractionallySizedBox(
-                  heightFactor: 0.7,
-                  child: hiImage(
-                    context.store.state.user!.avatarUrl,
+  Widget _buildUserView() {
+    return GestureDetector(
+      onTap: widget.onPressed,
+      child: Container(
+        alignment: Alignment.centerLeft,
+        padding: const EdgeInsets.only(
+          left: 20,
+          right: 10,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: FractionallySizedBox(
+                    heightFactor: 0.7,
+                    child: hiImage(
+                      context.store.state.user!.avatarUrl,
+                    ),
                   ),
                 ),
-              ),
-              hiSpace(width: 12),
-              _buildUserInfoView,
-            ],
-          ),
-          const Icon(
-            Icons.chevron_right_outlined,
-            color: Colors.grey,
-            size: 28,
-          ),
-        ],
+                hiSpace(width: 12),
+                _buildUserInfoView,
+              ],
+            ),
+            const Icon(
+              Icons.chevron_right_outlined,
+              color: Colors.grey,
+              size: 28,
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -80,41 +85,21 @@ class _PersonalHeaderState extends State<PersonalHeader> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () async {},
-      child: Container(
-        height: 155,
-        color: Colors.white,
-        child: Flex(
-          direction: Axis.vertical,
-          children: [
-            Expanded(
-              flex: 100,
-              child: _buildUserView,
-            ),
-            Expanded(
-              flex: 55,
-              child: Container(
-                decoration: BoxDecoration(
-                  border: hiBorder(
-                    top: true,
-                  ),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    _buildCountView(context.string.repositories,
-                        context.store.state.user!.repositoryCount),
-                    _buildCountView(context.string.followers,
-                        context.store.state.user!.followers),
-                    _buildCountView(context.string.following,
-                        context.store.state.user!.following),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
+    return Container(
+      height: 155,
+      color: Colors.white,
+      child: Flex(
+        direction: Axis.vertical,
+        children: [
+          Expanded(
+            flex: 100,
+            child: _buildUserView(),
+          ),
+          Expanded(
+            flex: 55,
+            child: _buildStatView(),
+          ),
+        ],
       ),
     );
   }
@@ -126,7 +111,7 @@ class _PersonalHeaderState extends State<PersonalHeader> {
     return context.string.joinedOn(str.substring(0, 10));
   }
 
-  Widget _buildCountView(String text, int count) {
+  Widget _buildStatItem(String text, int count) {
     return SizedBox(
       width: (context.mediaQueryData.size.width - 20 * 2) / 3,
       child: Column(
@@ -148,6 +133,27 @@ class _PersonalHeaderState extends State<PersonalHeader> {
               fontWeight: FontWeight.w600,
             ),
           )
+        ],
+      ),
+    );
+  }
+
+  Widget _buildStatView() {
+    return Container(
+      decoration: BoxDecoration(
+        border: hiBorder(
+          top: true,
+        ),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          _buildStatItem(context.string.repositories,
+              context.store.state.user!.repositoryCount),
+          _buildStatItem(
+              context.string.followers, context.store.state.user!.followers),
+          _buildStatItem(
+              context.string.following, context.store.state.user!.following),
         ],
       ),
     );

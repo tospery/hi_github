@@ -35,6 +35,7 @@ extension HiRouterEx on HiRouter {
     define(HiRouterPath.root, handler: routeHandler);
     define(HiRouterPath.login, handler: routeHandler);
     define(HiRouterPath.home, handler: routeHandler);
+    define(HiRouterPath.profile, handler: routeHandler);
     define(HiRouterPath.about, handler: routeHandler);
     define(HiRouterPathEx.oauth, handler: routeHandler);
   }

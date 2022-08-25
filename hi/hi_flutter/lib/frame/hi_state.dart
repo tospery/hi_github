@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../core/logger.dart';
 
 abstract class HiState<T extends StatefulWidget> extends State<T> {
+  // String get _getTitle;
+
   @override
   void setState(VoidCallback fn) {
     if (!mounted) {
@@ -10,4 +12,11 @@ abstract class HiState<T extends StatefulWidget> extends State<T> {
     }
     super.setState(fn);
   }
+
+  // @override
+  // Widget build(BuildContext context) {
+  //   return Scaffold(
+  //     appBar: AppBar(title: Text(_getTitle),),
+  //   );
+  // }
 }
