@@ -1,14 +1,9 @@
 import 'package:hi_flutter/hi_flutter.dart';
-import 'package:json_annotation/json_annotation.dart';
 
-part 'plan.g.dart';
-
-@JsonSerializable()
 class Plan extends Equatable {
   final String name;
   final int space;
   final int collaborators;
-  @JsonKey(name: 'private_repos')
   final int privateRepos;
 
   const Plan({
@@ -18,9 +13,19 @@ class Plan extends Equatable {
     this.privateRepos = 0,
   });
 
-  factory Plan.fromJson(Map<String, dynamic> json) => _$PlanFromJson(json);
+  factory Plan.fromJson(Map<String, dynamic> json) => Plan(
+        name: json['name'] as String? ?? 'free',
+        space: json['space'] as int? ?? 0,
+        collaborators: json['collaborators'] as int? ?? 0,
+        privateRepos: json['private_repos'] as int? ?? 0,
+      );
 
-  Map<String, dynamic> toJson() => _$PlanToJson(this);
+  Map<String, dynamic> toJson() => {
+        'name': name,
+        'space': space,
+        'collaborators': collaborators,
+        'private_repos': privateRepos,
+      };
 
   @override
   bool get stringify => true;

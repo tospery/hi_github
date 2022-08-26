@@ -31,7 +31,7 @@ class _PersonalHeaderState extends State<PersonalHeader> {
                   child: FractionallySizedBox(
                     heightFactor: 0.7,
                     child: hiImage(
-                      context.store.state.user!.avatarUrl,
+                      context.store.state.user?.avatarUrl ?? '',
                     ),
                   ),
                 ),
@@ -56,7 +56,7 @@ class _PersonalHeaderState extends State<PersonalHeader> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          context.store.state.user!.login,
+          context.store.state.user?.login ?? '',
           style: const TextStyle(
             color: Colors.blue,
             fontSize: 17,
@@ -150,10 +150,10 @@ class _PersonalHeaderState extends State<PersonalHeader> {
         children: [
           _buildStatItem(context.string.repositories,
               context.store.state.user!.repositoryCount),
-          _buildStatItem(
-              context.string.followers, context.store.state.user!.followers),
-          _buildStatItem(
-              context.string.following, context.store.state.user!.following),
+          _buildStatItem(context.string.followers,
+              context.store.state.user?.followers ?? 0),
+          _buildStatItem(context.string.following,
+              context.store.state.user?.following ?? 0),
         ],
       ),
     );

@@ -13,23 +13,23 @@
 
 // class EventPageState extends HiScrollState<Event, EventPage> {
 //   @override
-  // Widget get contentChild => ListView.builder(
-  //       physics: const AlwaysScrollableScrollPhysics(),
-  //       padding: const EdgeInsets.only(top: 10),
-  //       itemCount: list.length,
-  //       controller: scrollController,
-  //       itemBuilder: (context, index) {
-  //         return Container(
-  //           height: 50,
-  //           color: HiCoreColorEx.random,
-  //         );
-  //       },
-  //     );
+// Widget get contentChild => ListView.builder(
+//       physics: const AlwaysScrollableScrollPhysics(),
+//       padding: const EdgeInsets.only(top: 10),
+//       itemCount: list.length,
+//       controller: scrollController,
+//       itemBuilder: (context, index) {
+//         return Container(
+//           height: 50,
+//           color: HiCoreColorEx.random,
+//         );
+//       },
+//     );
 
 //   @override
 //   Future<List<Event>> getData(int pageIndex) async {
-    // var list = await EventDao.list('tospery', pageIndex: pageIndex);
-    // return list;
+// var list = await EventDao.list('tospery', pageIndex: pageIndex);
+// return list;
 //   }
 // }
 

@@ -1,34 +1,35 @@
-// import 'package:equatable/equatable.dart';
-// import 'package:flutter/material.dart';
-// import 'package:json_annotation/json_annotation.dart';
+import 'package:hi_flutter/hi_flutter.dart';
 
-// part 'portal.g.dart';
+class Portal extends Equatable {
+  final int id;
+  final String icon;
+  final String text;
+  final bool indicated;
 
-// @JsonSerializable()
-// class Portal extends Equatable {
-//   final int id;
-//   final String icon;
-//   final String text;
-//   final bool indicated;
+  const Portal({
+    this.id = 0,
+    this.icon = '',
+    this.text = '',
+    this.indicated = true,
+  });
 
-//   const Portal({
-//     this.id = 0,
-//     this.icon = '',
-//     this.text = '',
-//     this.indicated = true,
-//   });
+  factory Portal.fromJson(Map<String, dynamic> json) => Portal(
+        id: json['id'] as int? ?? 0,
+        icon: json['icon'] as String? ?? '',
+        text: json['text'] as String? ?? '',
+        indicated: json['indicated'] as bool? ?? true,
+      );
 
-//   factory Portal.fromJson(Map<String, dynamic> json) {
-//     return _$PortalFromJson(json);
-//   }
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'icon': icon,
+        'text': text,
+        'indicated': indicated,
+      };
 
-//   Map<String, dynamic> toJson() => _$PortalToJson(this);
+  @override
+  bool get stringify => true;
 
-//   AssetImage get assetImage => AssetImage(icon);
-
-//   @override
-//   bool get stringify => true;
-
-//   @override
-//   List<Object?> get props => [id, icon, text, indicated];
-// }
+  @override
+  List<Object?> get props => [id, icon, text, indicated];
+}
