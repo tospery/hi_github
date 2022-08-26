@@ -26,5 +26,6 @@
     "bio": "bio",
     "team": "team",
     "city": "city",
-    "blog": "blog"
+    "blog": "blog",
+    "exitLogin": "exitLogin"
 }

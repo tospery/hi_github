@@ -285,7 +285,7 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_redux:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: flutter_redux
       url: "https://pub.dartlang.org"
@@ -832,7 +832,7 @@ packages:
     source: hosted
     version: "2.2.0"
   webview_flutter:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: webview_flutter
       url: "https://pub.dartlang.org"

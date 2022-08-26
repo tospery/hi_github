@@ -1,6 +1,7 @@
 library hi_flutter;
 
 // core
+export 'package:equatable/equatable.dart';
 export 'package:dartx/dartx.dart';
 export 'core/error.dart';
 export 'core/list.dart';
@@ -55,10 +56,13 @@ export 'dialog/alert.dart';
 export 'dialog/sheet.dart';
 export 'dialog/popup.dart';
 
+// web
+export 'package:webview_flutter/webview_flutter.dart';
+
 // frame
-export 'package:equatable/equatable.dart';
 export 'package:redux_epics_hi/redux_epics_hi.dart';
 export 'package:cached_network_image/cached_network_image.dart';
+export 'package:flutter_redux/flutter_redux.dart';
 export 'frame/hi_state.dart';
 export 'frame/hi_scroll_state.dart';
 export 'frame/hi_scroll_control.dart';

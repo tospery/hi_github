@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_redux/flutter_redux.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import 'package:hi_github/redux/app_state.dart';
 

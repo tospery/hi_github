@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_redux/flutter_redux.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import 'package:hi_github/extension/build_context.dart';
 import 'package:hi_github/redux/app_state.dart';
@@ -40,8 +39,14 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           body: Container(
             margin: const EdgeInsets.only(top: 10),
-            child: HiPortalListView(
-              portals: portals,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                HiPortalListView(
+                  portals: portals,
+                ),
+                _buildLogoutItem(),
+              ],
             ),
           ),
         );
@@ -53,13 +58,50 @@ class _ProfilePageState extends State<ProfilePage> {
     if (portals.isNotEmpty) {
       return;
     }
-    portals.add(Portal(
-      title: context.string.nickname,
-      detail: user?.login ?? '',
-    ));
-    portals.add(Portal(
-      title: context.string.bio,
-      detail: user?.bio ?? '',
-    ));
+    portals.addAll([
+      Portal(
+        title: context.string.nickname,
+        detail: user?.login ?? '',
+      ),
+      Portal(
+        title: context.string.bio,
+        detail: user?.bio ?? '',
+        separator: false,
+        spacer: 15,
+      ),
+      Portal(
+        title: context.string.team,
+        detail: user?.company ?? '',
+      ),
+      Portal(
+        title: context.string.city,
+        detail: user?.location ?? '',
+      ),
+      Portal(
+        title: context.string.blog,
+        separator: false,
+        detail: user?.blog ?? '',
+      ),
+    ]);
+  }
+
+  Widget _buildLogoutItem() {
+    return Container(
+      height: 50,
+      color: Colors.white,
+      child: Center(
+        child: InkWell(
+          onTap: () {},
+          child: Text(
+            context.string.exitLogin,
+            style: const TextStyle(
+              fontSize: 17,
+              color: Colors.red,
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }

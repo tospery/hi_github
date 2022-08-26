@@ -13,3 +13,6 @@ shared_preferences_macos=/Users/yangjx/flutter/.pub-cache/hosted/pub.dartlang.or
 shared_preferences_web=/Users/yangjx/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_web-2.0.4/
 shared_preferences_windows=/Users/yangjx/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_windows-2.1.1/
 sqflite=/Users/yangjx/flutter/.pub-cache/hosted/pub.dartlang.org/sqflite-2.0.3+1/
+webview_flutter=/Users/yangjx/flutter/.pub-cache/hosted/pub.dartlang.org/webview_flutter-3.0.4/
+webview_flutter_android=/Users/yangjx/flutter/.pub-cache/hosted/pub.dartlang.org/webview_flutter_android-2.9.5/
+webview_flutter_wkwebview=/Users/yangjx/flutter/.pub-cache/hosted/pub.dartlang.org/webview_flutter_wkwebview-2.9.3/
