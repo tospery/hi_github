@@ -2,9 +2,7 @@ import 'package:hi_flutter/hi_flutter.dart';
 
 import 'plan.dart';
 
-class User extends Equatable {
-  final String? login;
-  final int? id;
+class User extends HiUser {
   final String? nodeId;
   final String? avatarUrl;
   final String? gravatarId;
@@ -44,8 +42,8 @@ class User extends Equatable {
   final Plan? plan;
 
   const User({
-    this.login,
-    this.id,
+    super.id,
+    super.username,
     this.nodeId,
     this.avatarUrl,
     this.gravatarId,
@@ -85,13 +83,13 @@ class User extends Equatable {
     this.plan,
   });
 
-  bool get isValid => id != 0;
   int get repositoryCount => (publicRepos ?? 0) + (totalPrivateRepos ?? 0);
-  String get dynamicCardUrlString => 'https://ghchart.rshah.org/1CA035/$login';
+  String get dynamicCardUrlString =>
+      'https://ghchart.rshah.org/1CA035/$username';
 
   factory User.fromJson(Map<String, dynamic> json) => User(
-        login: json['login'] as String?,
-        id: json['id'] as int?,
+        id: hiString(json['id']),
+        username: json['login'] as String?,
         nodeId: json['node_id'] as String?,
         avatarUrl: json['avatar_url'] as String?,
         gravatarId: json['gravatar_id'] as String?,
@@ -133,9 +131,10 @@ class User extends Equatable {
             : Plan.fromJson(json['plan'] as Map<String, dynamic>),
       );
 
+  @override
   Map<String, dynamic> toJson() => {
-        'login': login,
         'id': id,
+        'login': username,
         'node_id': nodeId,
         'avatar_url': avatarUrl,
         'gravatar_id': gravatarId,
@@ -181,8 +180,8 @@ class User extends Equatable {
   @override
   List<Object?> get props {
     return [
-      login,
       id,
+      username,
       nodeId,
       avatarUrl,
       gravatarId,

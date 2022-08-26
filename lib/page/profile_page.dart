@@ -35,7 +35,7 @@ class _ProfilePageState extends State<ProfilePage> {
         _initData(store.state.user);
         return Scaffold(
           appBar: AppBar(
-            title: Text(store.state.user?.login ?? ''),
+            title: Text(store.state.user?.username ?? ''),
           ),
           body: Container(
             margin: const EdgeInsets.only(top: 10),
@@ -61,7 +61,7 @@ class _ProfilePageState extends State<ProfilePage> {
     portals.addAll([
       Portal(
         title: context.string.nickname,
-        detail: user?.login ?? '',
+        detail: user?.username ?? '',
       ),
       Portal(
         title: context.string.bio,

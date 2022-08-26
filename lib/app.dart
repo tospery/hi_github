@@ -12,6 +12,7 @@ class App extends StatefulWidget {
     HiRouter.shared().configure();
     HiBaseResponse.dataKeys += ['access_token'];
     // HiCache.preInit();
+    // var aaa = HiModel();
   }
 
   @override

@@ -56,7 +56,7 @@ class _PersonalHeaderState extends State<PersonalHeader> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          context.store.state.user?.login ?? '',
+          context.store.state.user?.username ?? '',
           style: const TextStyle(
             color: Colors.blue,
             fontSize: 17,

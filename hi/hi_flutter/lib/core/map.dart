@@ -32,4 +32,9 @@ extension HiCoreMapEx<K, V> on Map<K, V> {
   String get jsonString {
     return json.encode(this);
   }
+
+  Map<K, V> operator +(Map<K, V> other) {
+    addAll(other);
+    return this;
+  }
 }

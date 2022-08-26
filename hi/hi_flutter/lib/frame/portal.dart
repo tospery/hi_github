@@ -1,5 +1,11 @@
 import 'package:equatable/equatable.dart';
 
+// portal_style
+// normal_item
+// normal_cell
+// normal_list_view
+// normal_list_page
+
 class Portal extends Equatable {
   final int id;
   final String icon;

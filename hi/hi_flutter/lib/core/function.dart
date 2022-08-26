@@ -10,3 +10,19 @@ Color get hiRandomColor {
     1,
   );
 }
+
+String? hiString(dynamic any) {
+  dynamic result = any as String?;
+  if (result != null) {
+    return result;
+  }
+  result = any as int?;
+  if (result != null) {
+    return result.toString();
+  }
+  result = any as bool?;
+  if (result != null) {
+    return result.toString();
+  }
+  return null;
+}
