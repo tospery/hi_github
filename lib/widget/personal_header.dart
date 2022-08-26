@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import 'package:hi_github/extension/build_context.dart';
+import '../extension/hi_user.dart';
 
 class PersonalHeader extends StatefulWidget {
   final VoidCallback? onPressed;
@@ -31,7 +32,7 @@ class _PersonalHeaderState extends State<PersonalHeader> {
                   child: FractionallySizedBox(
                     heightFactor: 0.7,
                     child: hiImage(
-                      context.store.state.user?.avatarUrl ?? '',
+                      context.store.state.user?.realUser?.avatarUrl ?? '',
                     ),
                   ),
                 ),
@@ -65,7 +66,7 @@ class _PersonalHeaderState extends State<PersonalHeader> {
         ),
         hiSpace(height: 3),
         Text(
-          context.store.state.user?.bio ?? '',
+          context.store.state.user?.realUser?.bio ?? '',
           style: const TextStyle(
             color: Colors.black,
             fontSize: 15,
@@ -73,7 +74,7 @@ class _PersonalHeaderState extends State<PersonalHeader> {
         ),
         hiSpace(height: 3),
         Text(
-          getJoinedString(context.store.state.user?.createdAt ?? ''),
+          getJoinedString(context.store.state.user?.realUser?.createdAt ?? ''),
           style: const TextStyle(
             color: Colors.black,
             fontSize: 14,
@@ -149,11 +150,11 @@ class _PersonalHeaderState extends State<PersonalHeader> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           _buildStatItem(context.string.repositories,
-              context.store.state.user!.repositoryCount),
+              context.store.state.user?.realUser?.repositoryCount ?? 0),
           _buildStatItem(context.string.followers,
-              context.store.state.user?.followers ?? 0),
+              context.store.state.user?.realUser?.followers ?? 0),
           _buildStatItem(context.string.following,
-              context.store.state.user?.following ?? 0),
+              context.store.state.user?.realUser?.following ?? 0),
         ],
       ),
     );

@@ -20,10 +20,10 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  final store = Store<APPState>(
+  final store = Store<HiAPPState>(
     appReducer,
     middleware: middleware,
-    initialState: APPState(
+    initialState: HiAPPState(
       locale: const Locale('zh', 'CH'),
       themeData: getThemeData(Colors.blue),
       login: false,
@@ -37,7 +37,7 @@ class _AppState extends State<App> {
       builder: (context, snapshot) {
         return StoreProvider(
           store: store,
-          child: StoreBuilder<APPState>(
+          child: StoreBuilder<HiAPPState>(
             builder: (context, store) {
               return MaterialApp(
                 localizationsDelegates: const [

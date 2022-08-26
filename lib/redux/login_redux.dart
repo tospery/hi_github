@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import '../dao/user_dao.dart';
-import 'app_state.dart';
 import 'user_redux.dart';
 
 final loginReducer = combineReducers<bool>([
@@ -48,9 +47,10 @@ class LoginAction {
   LoginAction(this.context, this.code);
 }
 
-Stream<dynamic> loginEpic(Stream<dynamic> actions, EpicStore<APPState> store) {
+Stream<dynamic> loginEpic(
+    Stream<dynamic> actions, EpicStore<HiAPPState> store) {
   Stream<dynamic> _loginIn(
-      LoginAction action, EpicStore<APPState> store) async* {
+      LoginAction action, EpicStore<HiAPPState> store) async* {
     showToastActivity();
     var token = await UserDao.oauth(action.code);
     var user = await UserDao.login(token);

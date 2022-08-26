@@ -3,7 +3,6 @@ import 'package:hi_flutter/hi_flutter.dart';
 import 'package:hi_github/extension/build_context.dart';
 import 'package:hi_github/widget/portal_widget.dart';
 import 'package:hi_github/widget/user_info_widget.dart';
-import '../redux/app_state.dart';
 import '../widget/personal_header.dart';
 import '../widget/user_dynamic_card.dart';
 
@@ -32,7 +31,7 @@ class PersonalPageState extends State<PersonalPage> {
 
   @override
   Widget build(BuildContext context) {
-    return StoreBuilder<APPState>(builder: (context, store) {
+    return StoreBuilder<HiAPPState>(builder: (context, store) {
       return Scaffold(
         appBar: AppBar(elevation: 0.2, title: Text(context.string.personal)),
         body: RefreshIndicator(

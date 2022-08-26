@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hi_flutter/core/widget.dart';
 import 'package:hi_flutter/frame/function.dart';
 import 'package:hi_github/extension/build_context.dart';
+import '../extension/hi_user.dart';
 
 class UserInfoWidget extends StatefulWidget {
   const UserInfoWidget({Key? key}) : super(key: key);
@@ -18,13 +19,13 @@ class _UserInfoWidgetState extends State<UserInfoWidget> {
       physics: const NeverScrollableScrollPhysics(),
       children: [
         _buildUserInfoItem(const AssetImage('res/images/job.png'),
-            context.store.state.user?.company),
+            context.store.state.user?.realUser?.company),
         _buildUserInfoItem(const AssetImage('res/images/location.png'),
-            context.store.state.user?.location),
+            context.store.state.user?.realUser?.location),
         _buildUserInfoItem(const AssetImage('res/images/email.png'),
-            context.store.state.user?.email),
+            context.store.state.user?.realUser?.email),
         _buildUserInfoItem(const AssetImage('res/images/blog.png'),
-            context.store.state.user?.blog,
+            context.store.state.user?.realUser?.blog,
             isLast: true),
       ],
     );

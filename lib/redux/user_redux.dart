@@ -1,13 +1,12 @@
 import 'package:hi_flutter/hi_flutter.dart';
 import '../dao/user_dao.dart';
 import '../model/user.dart';
-import 'app_state.dart';
 
-final userReducer = combineReducers<User?>([
-  TypedReducer<User?, UpdateUserAction>(_updateUser),
+final userReducer = combineReducers<HiUser?>([
+  TypedReducer<HiUser?, UpdateUserAction>(_updateUser),
 ]);
 
-User? _updateUser(User? user, action) {
+HiUser? _updateUser(HiUser? user, action) {
   log('设置用户');
   user = action.user;
   return user;
@@ -19,9 +18,9 @@ class UpdateUserAction {
   UpdateUserAction(this.user);
 }
 
-class UserMiddleware implements MiddlewareClass<APPState> {
+class UserMiddleware implements MiddlewareClass<HiAPPState> {
   @override
-  void call(Store<APPState> store, dynamic action, NextDispatcher next) {
+  void call(Store<HiAPPState> store, dynamic action, NextDispatcher next) {
     if (action is UpdateUserAction) {
       log("*********** UserMiddleware *********** ");
     }
@@ -32,7 +31,7 @@ class UserMiddleware implements MiddlewareClass<APPState> {
 
 class FetchUserAction {}
 
-Stream<dynamic> userEpic(Stream<dynamic> actions, EpicStore<APPState> store) {
+Stream<dynamic> userEpic(Stream<dynamic> actions, EpicStore<HiAPPState> store) {
   // Use the async* function to make easier
   Stream<dynamic> _loadUserInfo() async* {
     log("*********** userEpic _loadUserInfo ***********");

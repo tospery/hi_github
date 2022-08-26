@@ -1,4 +1,3 @@
-import 'package:equatable/equatable.dart';
 import 'package:hi_flutter/core/model.dart';
 
 import '../core/function.dart';

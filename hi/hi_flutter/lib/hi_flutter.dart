@@ -72,3 +72,4 @@ export 'frame/function.dart';
 export 'frame/string.dart';
 export 'frame/portal.dart';
 export 'frame/hi_portal_list_view.dart';
+export 'frame/app_state.dart';

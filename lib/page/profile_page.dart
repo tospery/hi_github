@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import 'package:hi_github/extension/build_context.dart';
-import 'package:hi_github/redux/app_state.dart';
 
 import '../model/user.dart';
 
@@ -30,9 +29,9 @@ class _ProfilePageState extends State<ProfilePage> {
     // var arguments = settings?.arguments;
     // log('settings = $settings, name = $name, arguments = $arguments');
     log('build');
-    return StoreBuilder<APPState>(
+    return StoreBuilder<HiAPPState>(
       builder: (context, store) {
-        _initData(store.state.user);
+        _initData(store.state.user as User?);
         return Scaffold(
           appBar: AppBar(
             title: Text(store.state.user?.username ?? ''),

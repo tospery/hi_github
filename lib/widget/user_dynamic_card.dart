@@ -3,6 +3,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import 'package:hi_github/extension/build_context.dart';
+import '../extension/hi_user.dart';
 
 class UserDynamicCard extends StatefulWidget {
   const UserDynamicCard({Key? key}) : super(key: key);
@@ -22,7 +23,7 @@ class _UserDynamicCardState extends State<UserDynamicCard> {
         child: SizedBox(
           height: 120,
           child: SvgPicture.network(
-            context.store.state.user?.dynamicCardUrlString ?? '',
+            context.store.state.user?.realUser?.dynamicCardUrlString ?? '',
             allowDrawingOutsideViewBox: true,
             placeholderBuilder: (BuildContext context) => SizedBox(
               width: context.mediaQueryData.size.width,

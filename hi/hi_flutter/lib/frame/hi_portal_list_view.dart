@@ -94,7 +94,7 @@ class _HiPortalListViewState extends State<HiPortalListView> {
             ? const Icon(
                 Icons.navigate_next,
                 color: Colors.grey,
-                size: 25,
+                size: 24,
               )
             : Container(),
       ],

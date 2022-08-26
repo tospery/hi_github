@@ -2,7 +2,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import '../extension/build_context.dart';
-import '../redux/app_state.dart';
 import '../redux/login_redux.dart';
 import '../router/path.dart';
 import '../widget/login_button.dart';
@@ -180,7 +179,7 @@ class _LoginPageState extends State<LoginPage> {
     log('code = $code');
     if (code?.isNotEmpty ?? false) {
       // ignore: use_build_context_synchronously
-      StoreProvider.of<APPState>(context)
+      StoreProvider.of<HiAPPState>(context)
           // ignore: use_build_context_synchronously
           .dispatch(LoginAction(context, code!));
     }
