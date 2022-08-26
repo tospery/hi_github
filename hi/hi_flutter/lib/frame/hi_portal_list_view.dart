@@ -6,7 +6,7 @@ import 'string.dart';
 import 'portal.dart';
 
 class HiPortalListView extends StatefulWidget {
-  final List<Portal> portals;
+  final List<HiPortal> portals;
 
   const HiPortalListView({super.key, required this.portals});
 
@@ -24,14 +24,14 @@ class _HiPortalListViewState extends State<HiPortalListView> {
     );
   }
 
-  Widget _buildPortalItem(Portal portal) {
+  Widget _buildPortalItem(HiPortal portal) {
     return Column(
       children: [
         Container(
           height: 50,
           decoration: BoxDecoration(
             border: hiBorder(
-              bottom: portal.separator,
+              bottom: portal.hasBottomLine,
             ),
             color: Colors.white,
           ),
@@ -50,40 +50,17 @@ class _HiPortalListViewState extends State<HiPortalListView> {
         _buildSpaceView(portal),
       ],
     );
-    // return Container(
-    //   height: 50,
-    // decoration: BoxDecoration(
-    //   border: hiBorder(
-    //     bottom: portal.separator,
-    //   ),
-    //   color: Colors.white,
-    // ),
-    // padding: const EdgeInsets.only(
-    //   left: 15,
-    //   right: 10,
-    // ),
-    //   child: Column(
-    //     children: [
-    // Row(
-    //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    //   children: [
-    //     _buildHeadView(portal),
-    //     _buildTailView(portal),
-    //     _buildSpaceView(portal),
-    //   ],
-    // ),
-    //     ],
-    //   ),
-    // );
   }
 
-  Widget _buildHeadView(Portal portal) {
+  Widget _buildHeadView(HiPortal portal) {
     return Row(
       children: [
-        portal.icon.isNotEmpty ? portal.icon.image(width: 25) : Container(),
-        portal.icon.isNotEmpty ? hiSpace(width: 10) : Container(),
+        portal.icon?.isNotEmpty ?? false
+            ? portal.icon!.image(width: 25)
+            : Container(),
+        portal.icon?.isNotEmpty ?? false ? hiSpace(width: 10) : Container(),
         Text(
-          portal.title,
+          portal.title ?? '',
           style: const TextStyle(
             fontSize: 16,
             color: Colors.black,
@@ -94,16 +71,16 @@ class _HiPortalListViewState extends State<HiPortalListView> {
     );
   }
 
-  Widget _buildTailView(Portal portal) {
+  Widget _buildTailView(HiPortal portal) {
     return Row(
       children: [
-        portal.detail.isNotEmpty
+        portal.detail?.isNotEmpty ?? false
             ? Container(
                 constraints: BoxConstraints(
                   maxWidth: context.mediaQueryDataSize.width - 140,
                 ),
                 child: Text(
-                  portal.detail,
+                  portal.detail!,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
@@ -113,7 +90,7 @@ class _HiPortalListViewState extends State<HiPortalListView> {
                 ),
               )
             : Container(),
-        portal.indicator
+        portal.indicated
             ? const Icon(
                 Icons.navigate_next,
                 color: Colors.grey,
@@ -124,10 +101,10 @@ class _HiPortalListViewState extends State<HiPortalListView> {
     );
   }
 
-  Widget _buildSpaceView(Portal portal) {
-    return portal.spacer > 0
+  Widget _buildSpaceView(HiPortal portal) {
+    return portal.bottomSpaceHeight > 0
         ? Container(
-            height: portal.spacer,
+            height: portal.bottomSpaceHeight,
           )
         : Container();
   }

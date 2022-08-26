@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 
 class PortalWidget extends StatefulWidget {
-  final List<Portal> portals;
+  final List<HiPortal> portals;
 
   const PortalWidget({super.key, required this.portals});
 
@@ -24,7 +24,7 @@ class _PortalWidgetState extends State<PortalWidget> {
     );
   }
 
-  Widget _buildPortalView(Portal portal, {bool isLast = false}) {
+  Widget _buildPortalView(HiPortal portal, {bool isLast = false}) {
     return Container(
       height: 50,
       decoration: BoxDecoration(
@@ -51,12 +51,12 @@ class _PortalWidgetState extends State<PortalWidget> {
               //   height: 25,
               //   child: portal.icon.image,
               // ),
-              portal.icon.isNotEmpty
-                  ? portal.icon.image(width: 25)
+              portal.icon?.isNotEmpty ?? false
+                  ? portal.icon!.image(width: 25)
                   : Container(),
               hiSpace(width: 10),
               Text(
-                portal.title,
+                portal.title ?? '',
                 style: const TextStyle(
                   fontSize: 16,
                   color: Colors.black,
@@ -65,7 +65,7 @@ class _PortalWidgetState extends State<PortalWidget> {
               ),
             ],
           ),
-          portal.indicator
+          portal.indicated
               ? const Icon(
                   Icons.navigate_next,
                   color: Colors.grey,

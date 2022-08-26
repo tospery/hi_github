@@ -16,7 +16,7 @@ class PersonalPage extends StatefulWidget {
 
 class PersonalPageState extends State<PersonalPage> {
   final ScrollController _controller = ScrollController();
-  List<Portal> portals = [];
+  List<HiPortal> portals = [];
 
   @override
   void initState() {
@@ -74,7 +74,7 @@ class PersonalPageState extends State<PersonalPage> {
     var json = string.jsonObject as List? ?? [];
     var items = json.map(
       (e) {
-        return Portal.fromJson(e as Map<String, dynamic>? ?? {});
+        return HiPortal.fromJson(e as Map<String, dynamic>? ?? {});
       },
     ).toList();
     setState(() {
