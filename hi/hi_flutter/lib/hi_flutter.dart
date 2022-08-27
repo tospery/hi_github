@@ -52,6 +52,8 @@ export 'cache/base_provider.dart';
 
 // dialog
 export 'package:flutter_easyloading/flutter_easyloading.dart';
+export 'package:flutter_spinkit/flutter_spinkit.dart';
+export 'package:adaptive_dialog/adaptive_dialog.dart';
 export 'dialog/toast.dart';
 export 'dialog/alert.dart';
 export 'dialog/sheet.dart';

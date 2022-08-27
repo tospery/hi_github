@@ -11,9 +11,7 @@ Color get hiRandomColor {
 }
 
 String? hiString(dynamic any) {
-  var result = any.toString();
-  print('hiString的输入值: $any => $result');
-  return result;
+  return any.toString();
 
 // 采用 is 先进行判断
   // String? string = any as String?;

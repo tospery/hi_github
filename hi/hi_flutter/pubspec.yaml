@@ -26,6 +26,7 @@ dependencies:
   # dialog
   flutter_spinkit: 5.1.0
   flutter_easyloading: 3.0.5
+  adaptive_dialog: 1.8.0
   # web
   webview_flutter: 3.0.4
   # frame

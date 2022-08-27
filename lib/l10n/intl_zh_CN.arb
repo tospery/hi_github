@@ -5,6 +5,7 @@
     "oauthLogin": "oauthLogin",
     "accessToken": "accessToken",
     "confirm": "确认",
+    "ok": "确定",
     "cancel": "取消",
     "username": "用户名",
     "password": "密码",
@@ -27,5 +28,6 @@
     "team": "团队",
     "city": "城市",
     "blog": "博客",
-    "exitLogin": "退出登录"
+    "exitLogin": "退出登录",
+    "alertLogoutMessage": "确定退出登录吗？"
 }

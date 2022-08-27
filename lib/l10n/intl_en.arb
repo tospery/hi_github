@@ -5,6 +5,7 @@
     "oauthLogin": "oauthLogin",
     "accessToken": "accessToken",
     "confirm": "confirm",
+    "ok": "ok",
     "cancel": "cancel",
     "username": "username",
     "password": "password",
@@ -27,5 +28,6 @@
     "team": "team",
     "city": "city",
     "blog": "blog",
-    "exitLogin": "exitLogin"
+    "exitLogin": "exitLogin",
+    "alertLogoutMessage": "Are you sure to logout?"
 }

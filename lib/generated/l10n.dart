@@ -110,6 +110,16 @@ class S {
     );
   }
 
+  /// `ok`
+  String get ok {
+    return Intl.message(
+      'ok',
+      name: 'ok',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `cancel`
   String get cancel {
     return Intl.message(
@@ -335,6 +345,16 @@ class S {
     return Intl.message(
       'exitLogin',
       name: 'exitLogin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure to logout?`
+  String get alertLogoutMessage {
+    return Intl.message(
+      'Are you sure to logout?',
+      name: 'alertLogoutMessage',
       desc: '',
       args: [],
     );

@@ -7,8 +7,8 @@ class HiPortal extends HiModel {
   final String? title;
   final String? detail;
   final bool indicated;
-  final bool hasBottomLine;
-  final double bottomSpaceHeight;
+  final bool separated;
+  final double spacer;
 
   const HiPortal({
     super.id,
@@ -16,8 +16,8 @@ class HiPortal extends HiModel {
     this.title,
     this.detail,
     this.indicated = true,
-    this.hasBottomLine = true,
-    this.bottomSpaceHeight = 0,
+    this.separated = true,
+    this.spacer = 0,
   });
 
   factory HiPortal.fromJson(Map<String, dynamic> json) => HiPortal(
@@ -26,8 +26,8 @@ class HiPortal extends HiModel {
         title: json['title'] as String?,
         detail: json['detail'] as String?,
         indicated: json['indicated'] as bool? ?? true,
-        hasBottomLine: json['hasBottomLine'] as bool? ?? true,
-        bottomSpaceHeight: json['bottomSpaceHeight'] as double? ?? 0,
+        separated: json['separated'] as bool? ?? true,
+        spacer: json['spacer'] as double? ?? 0,
       );
 
   @override
@@ -37,11 +37,11 @@ class HiPortal extends HiModel {
         'title': title,
         'detail': detail,
         'indicated': indicated,
-        'hasBottomLine': hasBottomLine,
-        'bottomSpaceHeight': bottomSpaceHeight,
+        'separated': separated,
+        'spacer': spacer,
       };
 
   @override
   List<Object?> get props =>
-      [id, icon, title, detail, indicated, hasBottomLine, bottomSpaceHeight];
+      [id, icon, title, detail, indicated, separated, spacer];
 }

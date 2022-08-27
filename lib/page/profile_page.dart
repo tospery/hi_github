@@ -65,8 +65,8 @@ class _ProfilePageState extends State<ProfilePage> {
       HiPortal(
         title: context.string.bio,
         detail: user?.bio,
-        hasBottomLine: false,
-        bottomSpaceHeight: 15,
+        separated: false,
+        spacer: 15,
       ),
       HiPortal(
         title: context.string.team,
@@ -78,7 +78,7 @@ class _ProfilePageState extends State<ProfilePage> {
       ),
       HiPortal(
         title: context.string.blog,
-        hasBottomLine: false,
+        separated: false,
         detail: user?.blog,
       ),
     ]);
@@ -90,7 +90,7 @@ class _ProfilePageState extends State<ProfilePage> {
       color: Colors.white,
       child: Center(
         child: InkWell(
-          onTap: () {},
+          onTap: _doLogout,
           child: Text(
             context.string.exitLogin,
             style: const TextStyle(
@@ -102,5 +102,16 @@ class _ProfilePageState extends State<ProfilePage> {
         ),
       ),
     );
+  }
+
+  void _doLogout() async {
+    final result = await hiAlert(
+      context: context,
+      title: context.string.exitLogin,
+      message: context.string.alertLogoutMessage,
+      ok: context.string.ok,
+      cancel: context.string.cancel,
+    );
+    log('result = $result');
   }
 }

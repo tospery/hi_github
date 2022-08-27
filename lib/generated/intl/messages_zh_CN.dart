@@ -26,6 +26,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("关于"),
         "accessToken": MessageLookupByLibrary.simpleMessage("accessToken"),
+        "alertLogoutMessage": MessageLookupByLibrary.simpleMessage("确定退出登录吗？"),
         "appname": MessageLookupByLibrary.simpleMessage("hi github"),
         "bio": MessageLookupByLibrary.simpleMessage("简介"),
         "blog": MessageLookupByLibrary.simpleMessage("博客"),
@@ -42,6 +43,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("登录"),
         "nickname": MessageLookupByLibrary.simpleMessage("昵称"),
         "oauthLogin": MessageLookupByLibrary.simpleMessage("oauthLogin"),
+        "ok": MessageLookupByLibrary.simpleMessage("确定"),
         "password": MessageLookupByLibrary.simpleMessage("密码"),
         "personal": MessageLookupByLibrary.simpleMessage("我的"),
         "privacyPolicy": MessageLookupByLibrary.simpleMessage("隐私政策"),

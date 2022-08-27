@@ -31,7 +31,7 @@ class _HiPortalListViewState extends State<HiPortalListView> {
           height: 50,
           decoration: BoxDecoration(
             border: hiBorder(
-              bottom: portal.hasBottomLine,
+              bottom: portal.separated,
             ),
             color: Colors.white,
           ),
@@ -102,9 +102,9 @@ class _HiPortalListViewState extends State<HiPortalListView> {
   }
 
   Widget _buildSpaceView(HiPortal portal) {
-    return portal.bottomSpaceHeight > 0
+    return portal.spacer > 0
         ? Container(
-            height: portal.bottomSpaceHeight,
+            height: portal.spacer,
           )
         : Container();
   }

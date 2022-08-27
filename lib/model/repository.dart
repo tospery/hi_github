@@ -5,6 +5,7 @@ import 'user.dart';
 
 class Repository extends Equatable {
   final int? id;
+
   final String? nodeId;
   final String? name;
   final String? fullName;
@@ -241,7 +242,9 @@ class Repository extends Equatable {
         allowForking: json['allow_forking'] as bool?,
         isTemplate: json['is_template'] as bool?,
         webCommitSignoffRequired: json['web_commit_signoff_required'] as bool?,
-        topics: json['topics'] as List<String>?,
+        topics: (json['topics'] as List<dynamic>?)
+            ?.map((e) => e as String)
+            .toList(),
         visibility: json['visibility'] as String?,
         forks: json['forks'] as int?,
         openIssues: json['open_issues'] as int?,
