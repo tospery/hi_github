@@ -7,7 +7,7 @@ import 'package:hi_github/page/tabbar_page.dart';
 import 'package:hi_github/page/welcome_page.dart';
 
 import '../core/constant.dart';
-import '../extension/build_context.dart';
+import '../ex/build_context.dart';
 import '../page/profile_page.dart';
 import 'path.dart';
 

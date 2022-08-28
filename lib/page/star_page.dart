@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
-import 'package:hi_github/extension/build_context.dart';
+import 'package:hi_github/ex/build_context.dart';
 import 'package:hi_github/model/repository.dart';
 import 'package:hi_github/widget/repository_cell.dart';
 

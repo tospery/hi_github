@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
-import 'package:hi_github/extension/build_context.dart';
+import 'package:hi_github/ex/build_context.dart';
 import 'package:hi_github/page/home_page.dart';
-import 'package:hi_github/page/personal_page.dart';
+import 'package:hi_github/page/personal_page2.dart';
 
 import 'star_page.dart';
 

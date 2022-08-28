@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hi_github/extension/build_context.dart';
+import 'package:hi_github/ex/build_context.dart';
 
 class PasswordInput extends StatelessWidget {
   final bool secure;

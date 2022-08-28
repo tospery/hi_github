@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hi_flutter/hi_flutter.dart';
 
 import '../generated/l10n.dart';
 

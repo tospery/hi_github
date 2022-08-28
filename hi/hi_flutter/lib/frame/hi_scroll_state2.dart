@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../core/error.dart';
 import '../core/logger.dart';
-import 'state.dart';
+import 'state2.dart';
 
 abstract class HiScrollState2<M, T extends StatefulWidget> extends HiState2<T>
     with AutomaticKeepAliveClientMixin {
@@ -57,6 +57,7 @@ abstract class HiScrollState2<M, T extends StatefulWidget> extends HiState2<T>
     scrollController.dispose();
   }
 
+  @override
   Future<void> loadData({loadMore = false}) async {
     if (loading) {
       log('上次加载还没完成！！！', tag: HiLogTag.frame);

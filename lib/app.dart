@@ -5,7 +5,7 @@ import 'package:hi_github/router/router.dart';
 
 import 'core/function.dart';
 import 'generated/l10n.dart';
-import 'redux/app_state.dart';
+import 'redux/middleware.dart';
 
 class App extends StatefulWidget {
   App({Key? key}) : super(key: key) {
