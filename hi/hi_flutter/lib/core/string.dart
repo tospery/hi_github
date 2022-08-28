@@ -1,5 +1,6 @@
 import 'dart:convert';
 
 extension HiCoreString on String {
-  dynamic get jsonObject => json.decode(this);
+  dynamic get jsonObject =>
+      isNotEmpty ? json.decode(this) : <String, dynamic>{};
 }

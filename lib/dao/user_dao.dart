@@ -14,7 +14,7 @@ class UserDao {
         .add(HiParameterEx.clientId, Github.appId)
         .add(HiParameterEx.clientSecret, Github.appSecret);
     request.set('Accept', 'application/json');
-    var base = await HiHttp.shared().fire(request);
+    var base = await HiNet.shared().fire(request);
     var token = base.data as String?;
     if (token?.isEmpty ?? true) {
       throw HiUnknownError();
@@ -25,7 +25,7 @@ class UserDao {
   static Future<User> login(String token) async {
     LoginRequest request = LoginRequest();
     request.set('Authorization', 'token $token');
-    var base = await HiHttp.shared().fire(request);
+    var base = await HiNet.shared().fire(request);
     log('base: $base');
     var json = base.json as Map<String, dynamic>?;
     if (json?.isEmpty ?? true) {
@@ -37,7 +37,7 @@ class UserDao {
 
   static Future<User> userinfo() async {
     UserinfoRequest request = UserinfoRequest();
-    var base = await HiHttp.shared().fire(request);
+    var base = await HiNet.shared().fire(request);
     log('base: $base');
     var json = base.json as Map<String, dynamic>?;
     if (json?.isEmpty ?? true) {

@@ -4,14 +4,14 @@ import 'error.dart';
 import 'request.dart';
 import 'response.dart';
 
-class HiHttp {
-  static HiHttp? _instance;
-  static HiHttp shared() {
-    _instance ??= HiHttp._();
+class HiNet {
+  static HiNet? _instance;
+  static HiNet shared() {
+    _instance ??= HiNet._();
     return _instance!;
   }
 
-  HiHttp._();
+  HiNet._();
 
   Future<HiBaseResponse> fire(HiBaseRequest request) async {
     HiBaseResponse? response;

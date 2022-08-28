@@ -2,7 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import '../extension/build_context.dart';
-import '../redux/login_redux.dart';
+import '../redux/login_epic.dart';
 import '../router/path.dart';
 import '../widget/login_button.dart';
 import '../widget/login_term.dart';

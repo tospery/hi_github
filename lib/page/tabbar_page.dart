@@ -16,7 +16,7 @@ class TabBarPage extends StatefulWidget {
 class _TabBarPageState extends State<TabBarPage> {
   final GlobalKey<HomePageState> homeKey = GlobalKey();
   final GlobalKey<StarPageState> starKey = GlobalKey();
-  final GlobalKey<PersonalPageState> personalKey = GlobalKey();
+  final GlobalKey<PersonalPage2State> personalKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class _TabBarPageState extends State<TabBarPage> {
       tabViews: [
         HomePage(key: homeKey),
         StarPage(key: starKey),
-        PersonalPage(key: personalKey),
+        PersonalPage2(key: personalKey),
       ],
       backgroundColor: Colors.green,
       indicatorColor: Colors.transparent,

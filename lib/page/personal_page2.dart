@@ -6,14 +6,14 @@ import 'package:hi_github/widget/user_info_widget.dart';
 import '../widget/personal_header.dart';
 import '../widget/user_dynamic_card.dart';
 
-class PersonalPage extends StatefulWidget {
-  const PersonalPage({Key? key}) : super(key: key);
+class PersonalPage2 extends StatefulWidget {
+  const PersonalPage2({Key? key}) : super(key: key);
 
   @override
-  State<PersonalPage> createState() => PersonalPageState();
+  State<PersonalPage2> createState() => PersonalPage2State();
 }
 
-class PersonalPageState extends State<PersonalPage> {
+class PersonalPage2State extends State<PersonalPage2> {
   final ScrollController _controller = ScrollController();
   List<HiPortal> portals = [];
 

@@ -8,7 +8,7 @@ class RepositoryDao {
     StarredRequest request = StarredRequest();
     request.pathExtra = '$username/starred';
     request.add('page', pageIndex).add('per_page', pageSize);
-    var base = await HiHttp.shared().fire(request);
+    var base = await HiNet.shared().fire(request);
     var json = base.json as List? ?? [];
     var list = json
         .map((e) => Repository.fromJson(e as Map<String, dynamic>? ?? {}))

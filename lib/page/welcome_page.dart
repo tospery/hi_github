@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import 'package:hi_github/extension/build_context.dart';
-
 import '../model/user.dart';
-import '../redux/login_redux.dart';
-import '../redux/user_redux.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({Key? key}) : super(key: key);
@@ -23,7 +20,7 @@ class _WelcomePageState extends State<WelcomePage> {
       return;
     }
     isInited = true;
-    Future.delayed(const Duration(seconds: 1), () {
+    Future.delayed(const Duration(milliseconds: 200), () {
       initStore();
     });
   }
@@ -32,7 +29,7 @@ class _WelcomePageState extends State<WelcomePage> {
   Widget build(BuildContext context) {
     return Material(
       child: Container(
-        color: Colors.green,
+        color: Colors.blue,
       ),
     );
   }
@@ -41,6 +38,7 @@ class _WelcomePageState extends State<WelcomePage> {
     var token = HiCache.shared().get<String>(HiCacheKey.token);
     var user = User.fromJson(
         (HiCache.shared().get<String>(HiCacheKey.user) ?? '').jsonObject);
+    log('获取到的user: $user');
     if (user.isValid) {
       context.store.dispatch(UpdateUserAction(user));
     }

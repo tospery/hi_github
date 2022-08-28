@@ -16,6 +16,10 @@ class HiUser extends HiModel {
     this.token,
   });
 
+  @override
+  bool get isValid =>
+      (id?.isNotEmpty ?? false) && (username?.isNotEmpty ?? false);
+
   factory HiUser.fromJson(Map<String, dynamic> json) => HiUser(
         id: hiString(json['id']),
         username: json['username'] as String?,
