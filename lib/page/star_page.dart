@@ -13,7 +13,7 @@ class StarPage extends StatefulWidget {
   State<StarPage> createState() => StarPageState();
 }
 
-class StarPageState extends HiScrollState<Repository, StarPage> {
+class StarPageState extends HiScrollState2<Repository, StarPage> {
   @override
   String get getTitle => context.string.star;
 

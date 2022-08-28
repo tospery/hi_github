@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
-import 'package:hi_github/extension/build_context.dart';
-import '../extension/hi_user.dart';
+import 'package:hi_github/ex/build_context.dart';
+import '../ex/hi_user.dart';
 
 class PersonalHeader extends StatefulWidget {
   final VoidCallback? onPressed;

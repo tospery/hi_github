@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hi_flutter/core/widget.dart';
-import 'package:hi_flutter/frame/function.dart';
-import 'package:hi_github/extension/build_context.dart';
-import '../extension/hi_user.dart';
+import 'package:hi_flutter/hi_flutter.dart';
+import '../ex/hi_user.dart';
 
 class UserInfoWidget extends StatefulWidget {
   const UserInfoWidget({Key? key}) : super(key: key);

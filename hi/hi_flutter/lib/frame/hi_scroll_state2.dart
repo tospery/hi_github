@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import '../core/error.dart';
 import '../core/logger.dart';
-import 'hi_state.dart';
+import 'state.dart';
 
-abstract class HiScrollState<M, T extends StatefulWidget> extends HiState<T>
+abstract class HiScrollState2<M, T extends StatefulWidget> extends HiState2<T>
     with AutomaticKeepAliveClientMixin {
   List<M> list = [];
   int pageIndex = 1;

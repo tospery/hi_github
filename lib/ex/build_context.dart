@@ -5,5 +5,4 @@ import '../generated/l10n.dart';
 
 extension BuildContextEx on BuildContext {
   S get string => S.of(this);
-  Store<HiAPPState> get store => StoreProvider.of<HiAPPState>(this);
 }
