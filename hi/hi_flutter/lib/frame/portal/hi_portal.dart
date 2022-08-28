@@ -1,6 +1,6 @@
 import 'package:hi_flutter/core/model.dart';
 
-import '../core/function.dart';
+import '../../core/function.dart';
 
 class HiPortal extends HiModel {
   final String? icon;

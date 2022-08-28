@@ -1,19 +1,17 @@
 [
     {
         "id": 1,
-        "indicated": false,
         "title": "设置",
         "icon": "res/images/setting.png"
     },
     {
         "id": 2,
-        "indicated": false,
         "title": "关于",
         "icon": "res/images/about.png"
     },
     {
         "id": 3,
-        "indicated": true,
+        "separated": false,
         "title": "反馈",
         "icon": "res/images/feedback.png"
     }

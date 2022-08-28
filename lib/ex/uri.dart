@@ -7,9 +7,9 @@ import 'package:hi_github/page/tabbar_page.dart';
 import 'package:hi_github/page/welcome_page.dart';
 
 import '../core/constant.dart';
-import '../ex/build_context.dart';
+import 'build_context.dart';
 import '../page/profile_page.dart';
-import 'path.dart';
+import '../router/path.dart';
 
 extension UriEx on Uri {
   String? defaultTitle(BuildContext? context) {

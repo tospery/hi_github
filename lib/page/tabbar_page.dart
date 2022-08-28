@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import 'package:hi_github/ex/build_context.dart';
 import 'package:hi_github/page/home_page.dart';
-import 'package:hi_github/page/personal_page2.dart';
 
+import 'personal_page.dart';
 import 'star_page.dart';
 
 class TabBarPage extends StatefulWidget {
@@ -16,7 +16,7 @@ class TabBarPage extends StatefulWidget {
 class _TabBarPageState extends State<TabBarPage> {
   final GlobalKey<HomePageState> homeKey = GlobalKey();
   final GlobalKey<StarPageState> starKey = GlobalKey();
-  final GlobalKey<PersonalPage2State> personalKey = GlobalKey();
+  final GlobalKey<PersonalPageState> personalKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class _TabBarPageState extends State<TabBarPage> {
       tabViews: [
         HomePage(key: homeKey),
         StarPage(key: starKey),
-        PersonalPage2(key: personalKey),
+        PersonalPage(key: personalKey),
       ],
       backgroundColor: Colors.green,
       indicatorColor: Colors.transparent,

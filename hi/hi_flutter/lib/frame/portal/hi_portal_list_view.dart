@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/core/context.dart';
-import '../core/widget.dart';
-import 'function.dart';
-import 'string.dart';
-import 'portal.dart';
+import '../../core/widget.dart';
+import '../function.dart';
+import '../string.dart';
+import 'hi_portal.dart';
 
 class HiPortalListView extends StatefulWidget {
   final List<HiPortal> portals;
