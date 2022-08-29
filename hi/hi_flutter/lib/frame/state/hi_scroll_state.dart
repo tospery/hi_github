@@ -5,7 +5,6 @@ import 'hi_state.dart';
 
 abstract class HiScrollState<M, T extends StatefulWidget> extends HiState<T> {
   int pageIndex = 1;
-  bool loading = false;
   List<M> list = [];
   ScrollController scrollController = ScrollController();
 

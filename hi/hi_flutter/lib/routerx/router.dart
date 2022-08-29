@@ -1,11 +1,23 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:hi_flutter/core/logger.dart';
 
 import 'core.dart';
 
+mixin HiRouterCompatible {
+  String? defaultTitle(String path);
+}
+
 class HiRouter {
+  // @override
   // VoidCallback? _myinit;
+
+  // String? defaultTitle() {
+  //   return 'abcd';
+  // }
+
+
   final _router = FluroRouter();
 
   static HiRouter? _instance;
@@ -47,15 +59,14 @@ class HiRouter {
     String path, {
     HiTransitionType? transition = HiTransitionType.push,
     Map<String, dynamic>? parameters,
-  }) =>
-      navigateTo(
-        context,
-        path,
-        transition: transition?.rawValue,
-        routeSettings: RouteSettings(
-          arguments: parameters,
-        ),
-      );
+  }) => navigateTo(
+      context,
+      path,
+      transition: transition?.rawValue,
+      routeSettings: RouteSettings(
+        arguments: parameters,
+      ),
+    );
 
   Future push(
     BuildContext context,

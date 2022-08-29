@@ -25,7 +25,16 @@ extension HiConstantEx on HiConstant {
   static const MaterialColor primarySwatch = MaterialColor(
     _primaryIntValue,
     <int, Color>{
-      500: Color(_primaryIntValue),
+         50: Color(_primaryIntValue),
+        100: Color(_primaryIntValue),
+        200: Color(_primaryIntValue),
+        300: Color(_primaryIntValue),
+        400: Color(_primaryIntValue),
+        500: Color(_primaryIntValue),
+        600: Color(_primaryIntValue),
+        700: Color(_primaryIntValue),
+        800: Color(_primaryIntValue),
+        900: Color(_primaryIntValue),
     },
   );
 

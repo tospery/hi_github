@@ -59,6 +59,12 @@ class _AppState extends State<App> {
                 locale: store.state.locale,
                 theme: store.state.themeData,
                 onGenerateRoute: HiRouter.shared().generator,
+                // onGenerateRoute: (settings) {
+                //   log('【主代理】settings = $settings');
+                //    var route = HiRouter.shared().generator(settings);
+                //    log('【主代理】route = $route');
+                //    return route;
+                // },
                 builder: EasyLoading.init(),
               );
             },

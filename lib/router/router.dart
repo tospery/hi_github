@@ -4,27 +4,32 @@ import 'package:hi_github/ex/uri.dart';
 import '../router/path.dart';
 
 extension HiRouterEx on HiRouter {
+
+  //   String? defaultTitle() {
+  //   return '1234';
+  // }
+
   HiRouterHandler get routeHandler {
     return HiRouterHandler(
       type: HiRouterType.route,
       func: (BuildContext? context, Map<String, List<String>> parameters) {
-        log('context参数: ${context?.settings}');
-        log('parameters: $parameters');
+        log('【Router构建】context参数: ${context?.settings}');
+        log('【Router构建】parameters: $parameters');
 
         var name = (context?.settings?.name ?? '').removePrefix('/');
-        log('name = $name');
+        log('【Router构建】name = $name');
         var uri = Uri.parse('higithub://$name');
-        log('uri = $uri');
+        log('【Router构建】uri = $uri');
         Map<String, dynamic> params = {
           HiParameter.title: uri.defaultTitle(context),
         };
         params.addAll(uri.queryParameters);
-        log('params1 = $params');
+        log('【Router构建】params1 = $params');
         params.addAll(
             (context?.settings?.arguments as Map<String, dynamic>?) ?? {});
-        log('params2 = $params');
+        log('【Router构建】params2 = $params');
         params.addAll(parameters.singleValueMap);
-        log('params3 = $params');
+        log('【Router构建】params3 = $params');
 
         return uri.page(parameters: params);
       },

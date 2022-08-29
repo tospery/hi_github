@@ -7,6 +7,7 @@ import 'package:hi_github/page/tabbar_page.dart';
 import 'package:hi_github/page/welcome_page.dart';
 
 import '../core/constant.dart';
+import '../page/login_page.dart';
 import 'build_context.dart';
 import '../page/profile_page.dart';
 import '../router/path.dart';
@@ -37,7 +38,7 @@ extension UriEx on Uri {
     Widget? page;
     switch (host) {
       case HiRouterPath.login:
-        page = LoginPage2(parameters: parameters);
+        page = LoginPage(parameters: parameters);
         break;
       case HiRouterPath.home:
         page = const TabBarPage();

@@ -8,6 +8,7 @@ import '../redux/app_state.dart';
 
 abstract class HiState<T extends StatefulWidget> extends State<T>
     with AutomaticKeepAliveClientMixin {
+      bool loading = false;
   HiUser? get user => context.store.state.user;
 
   @override
@@ -48,7 +49,9 @@ abstract class HiState<T extends StatefulWidget> extends State<T>
 
   Widget buildBodyView();
 
-  Future<void> loadData({loadMore = false}) async {}
+  Future<void> loadData({loadMore = false}) async {
+    
+  }
 
   @override
   bool get wantKeepAlive => true;

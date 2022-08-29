@@ -86,3 +86,4 @@ export 'frame/redux/login_reducer.dart';
 export 'frame/redux/user_reducer.dart';
 export 'frame/redux/locale_reducer.dart';
 export 'frame/redux/theme_reducer.dart';
+export 'frame/hi_page.dart';
