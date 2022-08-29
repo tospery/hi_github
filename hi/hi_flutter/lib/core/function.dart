@@ -10,7 +10,7 @@ Color get hiRandomColor {
   );
 }
 
-String? hiString(dynamic any) {
+String hiString(dynamic any) {
   return any.toString();
 
 // 采用 is 先进行判断

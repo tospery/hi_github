@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:hi_flutter/core/model.dart';
 import '../../core/error.dart';
 import '../../core/logger.dart';
 import 'hi_state.dart';
+import '../hi_page.dart';
 
-abstract class HiScrollState<M, T extends StatefulWidget> extends HiState<T> {
+abstract class HiScrollState<M extends HiModel, T extends HiPage> extends HiState<T> {
   int pageIndex = 1;
   List<M> list = [];
   ScrollController scrollController = ScrollController();
