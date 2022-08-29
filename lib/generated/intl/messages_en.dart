@@ -33,6 +33,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "blog": MessageLookupByLibrary.simpleMessage("blog"),
         "cancel": MessageLookupByLibrary.simpleMessage("cancel"),
         "city": MessageLookupByLibrary.simpleMessage("city"),
+        "clickToLogin": MessageLookupByLibrary.simpleMessage("click to login"),
         "confirm": MessageLookupByLibrary.simpleMessage("confirm"),
         "event": MessageLookupByLibrary.simpleMessage("event"),
         "exitLogin": MessageLookupByLibrary.simpleMessage("exitLogin"),

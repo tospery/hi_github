@@ -32,6 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "blog": MessageLookupByLibrary.simpleMessage("博客"),
         "cancel": MessageLookupByLibrary.simpleMessage("取消"),
         "city": MessageLookupByLibrary.simpleMessage("城市"),
+        "clickToLogin": MessageLookupByLibrary.simpleMessage("点击登录"),
         "confirm": MessageLookupByLibrary.simpleMessage("确认"),
         "event": MessageLookupByLibrary.simpleMessage("事件"),
         "exitLogin": MessageLookupByLibrary.simpleMessage("退出登录"),

@@ -6,7 +6,8 @@ import '../../core/user.dart';
 import '../ex/build_context.dart';
 import '../redux/app_state.dart';
 
-abstract class HiState<T extends StatefulWidget> extends State<T> {
+abstract class HiState<T extends StatefulWidget> extends State<T>
+    with AutomaticKeepAliveClientMixin {
   HiUser? get user => context.store.state.user;
 
   @override
@@ -28,6 +29,7 @@ abstract class HiState<T extends StatefulWidget> extends State<T> {
   Widget build(BuildContext context) {
     var arguments = context.modalRouteSettingsArguments;
     log('arguments = $arguments');
+    super.build(context);
     return StoreBuilder<HiAPPState>(
       builder: (context, store) {
         return Scaffold(
@@ -47,4 +49,7 @@ abstract class HiState<T extends StatefulWidget> extends State<T> {
   Widget buildBodyView();
 
   Future<void> loadData({loadMore = false}) async {}
+
+  @override
+  bool get wantKeepAlive => true;
 }

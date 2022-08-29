@@ -359,6 +359,16 @@ class S {
       args: [],
     );
   }
+
+  /// `click to login`
+  String get clickToLogin {
+    return Intl.message(
+      'click to login',
+      name: 'clickToLogin',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

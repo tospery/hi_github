@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 
 class Github {
@@ -15,4 +16,17 @@ class Github {
 extension HiParameterEx on HiParameter {
   static const clientId = 'client_id';
   static const clientSecret = 'client_secret';
+}
+
+
+extension HiConstantEx on HiConstant {
+
+  static const int _primaryIntValue = 0xFFFB7299;
+  static const MaterialColor primarySwatch = MaterialColor(
+    _primaryIntValue,
+    <int, Color>{
+      500: Color(_primaryIntValue),
+    },
+  );
+
 }

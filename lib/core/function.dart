@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hi_flutter/core/constant.dart';
 
 ThemeData getThemeData(MaterialColor color) {
   return ThemeData(
@@ -24,6 +25,13 @@ ThemeData getThemeData(MaterialColor color) {
     ),
     iconTheme: const IconThemeData(
       color: Colors.orange,
+    ),
+    colorScheme: const ColorScheme.light(),
+    textTheme: const TextTheme(
+      titleMedium: TextStyle(
+        fontSize: HiConstant.normalFontSize,
+        color: Colors.black,
+      ),
     ),
     // appBarTheme: AppBarTheme(
     //   backgroundColor: Colors.green,

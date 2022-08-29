@@ -29,5 +29,6 @@
     "city": "城市",
     "blog": "博客",
     "exitLogin": "退出登录",
-    "alertLogoutMessage": "确定退出登录吗？"
+    "alertLogoutMessage": "确定退出登录吗？",
+    "clickToLogin": "点击登录"
 }

@@ -29,5 +29,6 @@
     "city": "city",
     "blog": "blog",
     "exitLogin": "exitLogin",
-    "alertLogoutMessage": "Are you sure to logout?"
+    "alertLogoutMessage": "Are you sure to logout?",
+    "clickToLogin": "click to login"
 }

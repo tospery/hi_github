@@ -1,16 +1,16 @@
 [
     {
-        "id": 1,
+        "id": "setting",
         "title": "设置",
         "icon": "res/images/setting.png"
     },
     {
-        "id": 2,
+        "id": "about",
         "title": "关于",
         "icon": "res/images/about.png"
     },
     {
-        "id": 3,
+        "id": "feedback",
         "separated": false,
         "title": "反馈",
         "icon": "res/images/feedback.png"

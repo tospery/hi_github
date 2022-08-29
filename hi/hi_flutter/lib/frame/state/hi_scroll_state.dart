@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_redux/flutter_redux.dart';
 import '../../core/error.dart';
 import '../../core/logger.dart';
-import '../redux/app_state.dart';
 import 'hi_state.dart';
 
-abstract class HiScrollState<M, T extends StatefulWidget> extends HiState<T>
-    with AutomaticKeepAliveClientMixin {
+abstract class HiScrollState<M, T extends StatefulWidget> extends HiState<T> {
   int pageIndex = 1;
   bool loading = false;
   List<M> list = [];
@@ -27,19 +24,6 @@ abstract class HiScrollState<M, T extends StatefulWidget> extends HiState<T>
         loadData(loadMore: true);
       }
     });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    super.build(context);
-    return StoreBuilder<HiAPPState>(
-      builder: (context, store) {
-        return Scaffold(
-          appBar: buildAppBar(),
-          body: buildBodyView(),
-        );
-      },
-    );
   }
 
   @override
@@ -85,7 +69,7 @@ abstract class HiScrollState<M, T extends StatefulWidget> extends HiState<T>
           list = models;
         }
       });
-      Future.delayed(const Duration(milliseconds: 1000), () {
+      Future.delayed(const Duration(milliseconds: 200), () {
         loading = false;
       });
     } on HiError catch (e) {
@@ -94,7 +78,4 @@ abstract class HiScrollState<M, T extends StatefulWidget> extends HiState<T>
       // showWarnToast(e.message);
     }
   }
-
-  @override
-  bool get wantKeepAlive => true;
 }

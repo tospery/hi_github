@@ -56,7 +56,7 @@ class _LoginPageState extends State<LoginPage> {
             : Text(
                 title!,
                 style: const TextStyle(
-                  fontSize: HiConstant.fontLargeSize,
+                  fontSize: HiConstant.largeFontSize
                 ),
               ),
       ),

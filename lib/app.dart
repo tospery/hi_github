@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:hi_github/core/constant.dart';
 import 'package:hi_github/router/router.dart';
 
 import 'core/function.dart';
@@ -25,7 +26,7 @@ class _AppState extends State<App> {
     middleware: middleware,
     initialState: HiAPPState(
       locale: const Locale('zh', 'CH'),
-      themeData: getThemeData(Colors.blue),
+      themeData: getThemeData(HiConstantEx.primarySwatch),
       login: false,
     ),
   );
