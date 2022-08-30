@@ -1,13 +1,18 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:hi_flutter/core/logger.dart';
 
 import 'core.dart';
 
-mixin HiRouterCompatible {
-  String? defaultTitle(String path);
-}
+// mixin HiRouterCompatible {
+//   String? defaultTitle(String path);
+// }
+
+// class HiRouterCompatible {
+//   String? defaultTitle() {
+//     return null;
+//   }
+// }
 
 class HiRouter {
   // @override
