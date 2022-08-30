@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:hi_flutter/hi_flutter.dart';
+import '../core/context.dart';
+import '../core/widget.dart';
+import 'string.dart';
+import 'function.dart';
+import 'hi_normal_portal.dart';
 
 class HiNormalPortalCell extends StatefulWidget {
   final HiNormalPortal portal;
