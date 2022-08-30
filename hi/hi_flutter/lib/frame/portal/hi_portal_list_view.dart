@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:hi_flutter/core/context.dart';
+import '../../core/context.dart';
 import '../../core/widget.dart';
 import '../function.dart';
 import '../string.dart';
-import 'hi_portal.dart';
+import 'hi_normal_portal.dart';
 
 class HiPortalListView extends StatefulWidget {
-  final List<HiPortal> portals;
+  final List<HiNormalPortal> portals;
 
   const HiPortalListView({super.key, required this.portals});
 
@@ -24,7 +24,7 @@ class _HiPortalListViewState extends State<HiPortalListView> {
     );
   }
 
-  Widget _buildPortalItem(HiPortal portal) {
+  Widget _buildPortalItem(HiNormalPortal portal) {
     return Column(
       children: [
         Container(
@@ -52,7 +52,7 @@ class _HiPortalListViewState extends State<HiPortalListView> {
     );
   }
 
-  Widget _buildHeadView(HiPortal portal) {
+  Widget _buildHeadView(HiNormalPortal portal) {
     return Row(
       children: [
         portal.icon?.isNotEmpty ?? false
@@ -71,7 +71,7 @@ class _HiPortalListViewState extends State<HiPortalListView> {
     );
   }
 
-  Widget _buildTailView(HiPortal portal) {
+  Widget _buildTailView(HiNormalPortal portal) {
     return Row(
       children: [
         portal.detail?.isNotEmpty ?? false
@@ -101,7 +101,7 @@ class _HiPortalListViewState extends State<HiPortalListView> {
     );
   }
 
-  Widget _buildSpaceView(HiPortal portal) {
+  Widget _buildSpaceView(HiNormalPortal portal) {
     return portal.spacer > 0
         ? Container(
             height: portal.spacer,

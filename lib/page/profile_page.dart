@@ -13,7 +13,7 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   // User? user;
-  List<HiPortal> portals = [];
+  List<HiNormalPortal> portals = [];
 
   @override
   void initState() {
@@ -58,25 +58,25 @@ class _ProfilePageState extends State<ProfilePage> {
       return;
     }
     portals.addAll([
-      HiPortal(
+      HiNormalPortal(
         title: context.string.nickname,
         detail: user?.username,
       ),
-      HiPortal(
+      HiNormalPortal(
         title: context.string.bio,
         detail: user?.bio,
         separated: false,
         spacer: 15,
       ),
-      HiPortal(
+      HiNormalPortal(
         title: context.string.team,
         detail: user?.company,
       ),
-      HiPortal(
+      HiNormalPortal(
         title: context.string.city,
         detail: user?.location,
       ),
-      HiPortal(
+      HiNormalPortal(
         title: context.string.blog,
         separated: false,
         detail: user?.blog,

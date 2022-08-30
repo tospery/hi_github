@@ -21,18 +21,10 @@ class PersonalPageState extends HiScrollState<HiModel, PersonalPage> {
       controller: scrollController,
       itemBuilder: (context, index) {
         var model = list[index];
-        // if (model is HiSpace) {
-        //   return HiSpaceCell(space: model);
-        // } else {
-        //   return HiPortalCell(
-        //     portal: model as HiPortal,
-        //     onPressed: () => _doPressed(model),
-        //   );
-        // }
         if (model is HiSpace) {
           return HiSpaceCell(space: model);
-        } else if (model is HiPortal) {
-          return HiPortalCell(
+        } else if (model is HiNormalPortal) {
+          return HiNormalPortalCell(
             portal: model,
             onPressed: () => _doPressed(model),
           );
@@ -40,7 +32,9 @@ class PersonalPageState extends HiScrollState<HiModel, PersonalPage> {
           var type = PortalType.fromValue(model.id ?? '');
           switch (type) {
             case PortalType.unlogined:
-              return UnloginedCell(onPressed: _doPressUnlogin,);
+              return UnloginedCell(
+                onPressed: _doPressUnlogin,
+              );
             default:
               return Container();
           }
@@ -59,7 +53,8 @@ class PersonalPageState extends HiScrollState<HiModel, PersonalPage> {
     } else {
       items.add(HiModel(id: PortalType.unlogined.value));
     }
-    items.add(HiSpace(color: context.themeData.scaffoldBackgroundColor.hexString));
+    items.add(
+        HiSpace(color: context.themeData.scaffoldBackgroundColor.hexString));
     items.addAll(json
         .map((e) => HiPortal.fromJson(e as Map<String, dynamic>? ?? {}))
         .toList());
@@ -70,7 +65,7 @@ class PersonalPageState extends HiScrollState<HiModel, PersonalPage> {
     var type = PortalType.fromValue(model.id ?? '');
     HiRouter.shared().push(context, type.path);
   }
-  
+
   _doPressUnlogin() {
     log('_doPressUnlogin');
     HiRouter.shared().present(context, HiRouterPath.login);
