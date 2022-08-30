@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
-import '../core/error.dart';
-import '../core/logger.dart';
-import 'state2.dart';
+import 'package:hi_flutter/core/model.dart';
+import '../../../core/error.dart';
+import '../../../core/logger.dart';
+import '../base/hi_state.dart';
+import '../base/hi_page.dart';
 
-abstract class HiScrollState2<M, T extends StatefulWidget> extends HiState2<T>
-    with AutomaticKeepAliveClientMixin {
-  List<M> list = [];
+abstract class HiScrollState<M extends HiModel, T extends HiPage>
+    extends HiState<T> {
   int pageIndex = 1;
-  bool loading = false;
+  List<M> list = [];
   ScrollController scrollController = ScrollController();
 
-  Widget get contentChild;
-
-  String get getTitle;
-
-  Future<List<M>> getData(int pageIndex);
+  Widget buildChildView();
+  Future<List<M>> requestList(int pageIndex);
 
   @override
   void initState() {
@@ -28,33 +26,25 @@ abstract class HiScrollState2<M, T extends StatefulWidget> extends HiState2<T>
         loadData(loadMore: true);
       }
     });
-    loadData();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    super.build(context);
-    return Scaffold(
-      appBar: AppBar(
-        elevation: 0.5,
-        title: Text(getTitle),
-      ),
-      body: RefreshIndicator(
-        onRefresh: loadData,
-        color: Colors.blue,
-        child: MediaQuery.removePadding(
-          context: context,
-          removeTop: true,
-          child: contentChild,
-        ),
-      ),
-    );
   }
 
   @override
   void dispose() {
     super.dispose();
     scrollController.dispose();
+  }
+
+  @override
+  Widget buildBodyView() {
+    return RefreshIndicator(
+      onRefresh: loadData,
+      color: Colors.blue,
+      child: MediaQuery.removePadding(
+        context: context,
+        removeTop: true,
+        child: buildChildView(),
+      ),
+    );
   }
 
   @override
@@ -70,7 +60,7 @@ abstract class HiScrollState2<M, T extends StatefulWidget> extends HiState2<T>
     var currentIndex = pageIndex + (loadMore ? 1 : 0);
     log('开始加载数据loadMore = $loadMore, currentIndex = $currentIndex');
     try {
-      var models = await getData(currentIndex);
+      var models = await requestList(currentIndex);
       setState(() {
         if (loadMore) {
           list = [...list, ...models];
@@ -81,7 +71,7 @@ abstract class HiScrollState2<M, T extends StatefulWidget> extends HiState2<T>
           list = models;
         }
       });
-      Future.delayed(const Duration(milliseconds: 1000), () {
+      Future.delayed(const Duration(milliseconds: 200), () {
         loading = false;
       });
     } on HiError catch (e) {
@@ -90,7 +80,4 @@ abstract class HiScrollState2<M, T extends StatefulWidget> extends HiState2<T>
       // showWarnToast(e.message);
     }
   }
-
-  @override
-  bool get wantKeepAlive => true;
 }

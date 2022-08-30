@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:redux_epics_hi/redux_epics_hi.dart';
 
-final localeReducer = combineReducers<Locale?>([
+final hiLocaleReducer = combineReducers<Locale?>([
   TypedReducer<Locale?, RefreshLocaleAction>(_refreshLocale),
 ]);
 

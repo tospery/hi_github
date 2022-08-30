@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hi_flutter/hi_flutter.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+
+import '../../core/logger.dart';
+import 'hi_scroll_control.dart';
 
 class HiScrollPage extends StatefulWidget {
   final Key? scrollKey;

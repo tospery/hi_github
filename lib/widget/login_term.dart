@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:hi_github/ex/build_context.dart';
+import '../extension/build_context.dart';
 
 class LoginTerm extends StatelessWidget {
   final bool checked;

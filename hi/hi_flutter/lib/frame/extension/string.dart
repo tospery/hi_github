@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'function.dart';
+import '../function.dart';
 
 extension HiFrameString on String {
   Widget image({double? width, double? height}) {

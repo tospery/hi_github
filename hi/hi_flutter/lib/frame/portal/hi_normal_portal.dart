@@ -1,5 +1,5 @@
 import '../../core/function.dart';
-import 'hi_portal.dart';
+import '../portal/hi_portal.dart';
 
 class HiNormalPortal extends HiPortal {
   final String? icon;

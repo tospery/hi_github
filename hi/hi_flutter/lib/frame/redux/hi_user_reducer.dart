@@ -2,7 +2,7 @@ import 'package:redux_epics_hi/redux_epics_hi.dart';
 import '../../core/logger.dart';
 import '../../core/user.dart';
 
-final userReducer = combineReducers<HiUser?>([
+final hiUserReducer = combineReducers<HiUser?>([
   TypedReducer<HiUser?, UpdateUserAction>(_updateUser),
 ]);
 

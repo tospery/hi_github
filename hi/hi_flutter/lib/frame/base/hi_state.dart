@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:hi_flutter/core/context.dart';
-import '../../core/logger.dart';
-import '../../core/parameter.dart';
-import '../../core/user.dart';
-import '../core/map.dart';
-import 'build_context.dart';
-import 'app_state.dart';
+import '../../../core/logger.dart';
+import '../../../core/parameter.dart';
+import '../../../core/user.dart';
+import '../../core/map.dart';
+import '../extension/build_context.dart';
+import '../redux/hi_app_state.dart';
 import 'hi_page.dart';
 
 abstract class HiState<T extends HiPage> extends State<T>

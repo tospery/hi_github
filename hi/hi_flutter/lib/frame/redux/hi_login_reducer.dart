@@ -5,7 +5,7 @@ import '../../core/logger.dart';
 import '../../routerx/path.dart';
 import '../../routerx/router.dart';
 
-final loginReducer = combineReducers<bool>([
+final hiLoginReducer = combineReducers<bool>([
   TypedReducer<bool, LoginSuccessAction>(_loginSuccess),
   TypedReducer<bool, LogoutSuccessAction>(_logoutSuccess),
 ]);

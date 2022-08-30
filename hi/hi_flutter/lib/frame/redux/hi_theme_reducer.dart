@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:redux_epics_hi/redux_epics_hi.dart';
 
-final themeDataReducer = combineReducers<ThemeData?>([
+final hiThemeDataReducer = combineReducers<ThemeData?>([
   TypedReducer<ThemeData?, RefreshThemeDataAction>(_refreshThemeData),
 ]);
 

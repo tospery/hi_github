@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
-import 'package:hi_github/ex/uri.dart';
+import '../extension/uri.dart';
 import '../router/path.dart';
 
 extension HiRouterEx on HiRouter {
-
   //   String? defaultTitle() {
   //   return '1234';
   // }

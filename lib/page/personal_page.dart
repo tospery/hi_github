@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
-import 'package:hi_github/core/datatype.dart';
-import 'package:hi_github/ex/hi_user.dart';
-import 'package:hi_github/widget/unlogined_cell.dart';
+import '../core/datatype.dart';
+import '../extension/hi_user.dart';
+import '../widget/unlogined_cell.dart';
 
 class PersonalPage extends HiPage {
   const PersonalPage({Key? key, super.parameters = const {}}) : super(key: key);
