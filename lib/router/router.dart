@@ -19,18 +19,18 @@ extension HiRouterEx on HiRouter {
         log('【Router构建】name = $name');
         var uri = Uri.parse('higithub://$name');
         log('【Router构建】uri = $uri');
-        Map<String, dynamic> params = {
+        Map<String, dynamic> myParameters = {
           HiParameter.title: uri.defaultTitle(context),
         };
-        params.addAll(uri.queryParameters);
-        log('【Router构建】params1 = $params');
-        params.addAll(
+        myParameters.addAll(uri.queryParameters);
+        log('【Router构建】params1 = $myParameters');
+        myParameters.addAll(
             (context?.settings?.arguments as Map<String, dynamic>?) ?? {});
-        log('【Router构建】params2 = $params');
-        params.addAll(parameters.singleValueMap);
-        log('【Router构建】params3 = $params');
+        log('【Router构建】params2 = $myParameters');
+        myParameters.addAll(parameters.singleValueMap);
+        log('【Router构建】params3 = $myParameters');
 
-        return uri.page(parameters: params);
+        return uri.page(context: context, parameters: myParameters);
       },
     );
   }
@@ -41,6 +41,7 @@ extension HiRouterEx on HiRouter {
     define(HiRouterPath.home, handler: routeHandler);
     define(HiRouterPath.profile, handler: routeHandler);
     define(HiRouterPath.about, handler: routeHandler);
+    define(HiRouterPath.test, handler: routeHandler);
     define(HiRouterPathEx.oauth, handler: routeHandler);
   }
 }

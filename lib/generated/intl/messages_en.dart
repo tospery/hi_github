@@ -20,11 +20,11 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
-  static String m0(date) => "Joined on ${date}";
+  static String m0(date) => "joined on ${date}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "about": MessageLookupByLibrary.simpleMessage("About"),
+        "about": MessageLookupByLibrary.simpleMessage("about"),
         "accessToken": MessageLookupByLibrary.simpleMessage("accessToken"),
         "alertLogoutMessage":
             MessageLookupByLibrary.simpleMessage("Are you sure to logout?"),
@@ -37,9 +37,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "confirm": MessageLookupByLibrary.simpleMessage("confirm"),
         "event": MessageLookupByLibrary.simpleMessage("event"),
         "exitLogin": MessageLookupByLibrary.simpleMessage("exitLogin"),
-        "feedback": MessageLookupByLibrary.simpleMessage("Feedback"),
-        "followers": MessageLookupByLibrary.simpleMessage("Followers"),
-        "following": MessageLookupByLibrary.simpleMessage("Following"),
+        "feedback": MessageLookupByLibrary.simpleMessage("feedback"),
+        "followers": MessageLookupByLibrary.simpleMessage("followers"),
+        "following": MessageLookupByLibrary.simpleMessage("following"),
         "home": MessageLookupByLibrary.simpleMessage("home"),
         "joinedOn": m0,
         "login": MessageLookupByLibrary.simpleMessage("login"),
@@ -49,13 +49,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("password"),
         "personal": MessageLookupByLibrary.simpleMessage("personal"),
         "privacyPolicy": MessageLookupByLibrary.simpleMessage("privacy policy"),
-        "readAndAgree": MessageLookupByLibrary.simpleMessage("Read and agree"),
-        "repositories": MessageLookupByLibrary.simpleMessage("Repositories"),
-        "setting": MessageLookupByLibrary.simpleMessage("Setting"),
+        "readAndAgree": MessageLookupByLibrary.simpleMessage("read and agree"),
+        "repositories": MessageLookupByLibrary.simpleMessage("repositories"),
+        "setting": MessageLookupByLibrary.simpleMessage("setting"),
         "star": MessageLookupByLibrary.simpleMessage("star"),
         "team": MessageLookupByLibrary.simpleMessage("team"),
         "termTips": MessageLookupByLibrary.simpleMessage(
-            "Please agree to the agreement first"),
+            "please agree to the agreement first"),
+        "test": MessageLookupByLibrary.simpleMessage("test"),
         "userAgreement": MessageLookupByLibrary.simpleMessage("user agreement"),
         "username": MessageLookupByLibrary.simpleMessage("username")
       };

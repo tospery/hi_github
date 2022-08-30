@@ -4,7 +4,7 @@ import '../core/datatype.dart';
 import '../extension/hi_user.dart';
 import '../widget/unlogined_cell.dart';
 
-class PersonalPage extends HiPage {
+class PersonalPage extends HiScrollPage {
   const PersonalPage({Key? key, super.parameters = const {}}) : super(key: key);
 
   @override
@@ -25,7 +25,7 @@ class PersonalPageState extends HiScrollState<HiModel, PersonalPage> {
         //   return HiSpaceCell(space: model);
         // } else
         if (model is HiPortal) {
-          return HiPortalCell(
+          return HiPortalCard(
             portal: model,
             onPressed: () => _doPressed(model),
           );
@@ -64,6 +64,9 @@ class PersonalPageState extends HiScrollState<HiModel, PersonalPage> {
 
   _doPressed(HiPortal model) {
     var type = PortalType.fromValue(model.id ?? '');
+    if (type == PortalType.feedback) {
+      return HiRouter.shared().push(context, HiRouterPath.test);
+    }
     HiRouter.shared().push(context, type.path);
   }
 

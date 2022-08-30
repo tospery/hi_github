@@ -44,53 +44,53 @@
 //   }
 
 //   Widget _buildHeadView() {
-//     return Row(
-//       children: [
-//         widget.portal.icon?.isNotEmpty ?? false
-//             ? widget.portal.icon!.image(width: 25)
-//             : Container(),
-//         widget.portal.icon?.isNotEmpty ?? false
-//             ? hiSpace(width: 10)
-//             : Container(),
-//         Text(
-//           widget.portal.title ?? '',
-//           style: const TextStyle(
-//             fontSize: 16,
-//             color: Colors.black,
-//             fontWeight: FontWeight.w400,
-//           ),
-//         ),
-//       ],
-//     );
+    // return Row(
+    //   children: [
+    //     widget.portal.icon?.isNotEmpty ?? false
+    //         ? widget.portal.icon!.image(width: 25)
+    //         : Container(),
+    //     widget.portal.icon?.isNotEmpty ?? false
+    //         ? hiSpace(width: 10)
+    //         : Container(),
+    //     Text(
+    //       widget.portal.title ?? '',
+    //       style: const TextStyle(
+    //         fontSize: 16,
+    //         color: Colors.black,
+    //         fontWeight: FontWeight.w400,
+    //       ),
+    //     ),
+    //   ],
+    // );
 //   }
 
 //   Widget _buildTailView() {
-//     return Row(
-//       children: [
-//         widget.portal.detail?.isNotEmpty ?? false
-//             ? Container(
-//                 constraints: BoxConstraints(
-//                   maxWidth: context.mediaQueryDataSize.width - 140,
-//                 ),
-//                 child: Text(
-//                   widget.portal.detail!,
-//                   maxLines: 2,
-//                   overflow: TextOverflow.ellipsis,
-//                   style: const TextStyle(
-//                     fontSize: 15,
-//                     color: Colors.black54,
-//                   ),
-//                 ),
-//               )
-//             : Container(),
-//         widget.portal.indicated
-//             ? const Icon(
-//                 Icons.navigate_next,
-//                 color: Colors.grey,
-//                 size: 24,
-//               )
-//             : Container(),
-//       ],
-//     );
+    // return Row(
+    //   children: [
+    //     widget.portal.detail?.isNotEmpty ?? false
+    //         ? Container(
+    //             constraints: BoxConstraints(
+    //               maxWidth: context.mediaQueryDataSize.width - 140,
+    //             ),
+    //             child: Text(
+    //               widget.portal.detail!,
+    //               maxLines: 2,
+    //               overflow: TextOverflow.ellipsis,
+    //               style: const TextStyle(
+    //                 fontSize: 15,
+    //                 color: Colors.black54,
+    //               ),
+    //             ),
+    //           )
+    //         : Container(),
+    //     widget.portal.indicated
+    //         ? const Icon(
+    //             Icons.navigate_next,
+    //             color: Colors.grey,
+    //             size: 24,
+    //           )
+    //         : Container(),
+    //   ],
+    // );
 //   }
 // }

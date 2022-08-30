@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import '../../core/hi_core.dart';
 
 Widget hiImage(String url, {double? width, double? height}) {
   return CachedNetworkImage(
@@ -15,16 +16,36 @@ Widget hiImage(String url, {double? width, double? height}) {
 }
 
 BoxBorder hiBorder({
+  BuildContext? context,
+  Color? color,
+  double? width,
   bool top = false,
   bool right = false,
   bool bottom = false,
   bool left = false,
 }) {
-  BorderSide borderSide = BorderSide(width: 0.5, color: Colors.grey[200]!);
+  var borderSide = Divider.createBorderSide(
+    context,
+    width: width,
+    color: color,
+  );
   return Border(
     top: top ? borderSide : BorderSide.none,
     right: right ? borderSide : BorderSide.none,
     bottom: bottom ? borderSide : BorderSide.none,
     left: left ? borderSide : BorderSide.none,
+  );
+}
+
+Icon hiIndicator({
+  BuildContext? context,
+  IconData? icon,
+  Color? color,
+  double? size,
+}) {
+  return Icon(
+    icon,
+    color: color ?? context?.themeData.indicatorColor,
+    size: size ?? 24,
   );
 }

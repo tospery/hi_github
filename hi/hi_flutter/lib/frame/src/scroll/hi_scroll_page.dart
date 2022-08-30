@@ -1,8 +1,17 @@
-import 'package:flutter/material.dart';
 import '../base/hi_page.dart';
 
 abstract class HiScrollPage extends HiPage {
-  const HiScrollPage({Key? key, required super.parameters}) : super(key: key);
+  // final RefreshCallback? onRefresh;
+  // final RefreshCallback? onLoadMore;
+  final bool canRefresh;
+  final bool canLoadMore;
+
+  const HiScrollPage({
+    super.key,
+    required super.parameters,
+    this.canRefresh = true,
+    this.canLoadMore = false,
+  });
 }
 
 // import 'package:flutter/material.dart';
@@ -13,8 +22,8 @@ abstract class HiScrollPage extends HiPage {
 
 // class HiScrollPage extends StatefulWidget {
 //   final Key? scrollKey;
-//   final RefreshCallback? onRefresh;
-//   final RefreshCallback? onLoadMore;
+  // final RefreshCallback? onRefresh;
+  // final RefreshCallback? onLoadMore;
 //   final HiScrollControl? control;
 //   final IndexedWidgetBuilder itemBuilder;
 

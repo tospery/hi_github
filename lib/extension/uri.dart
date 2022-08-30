@@ -3,6 +3,7 @@ import 'package:hi_flutter/hi_flutter.dart';
 import 'package:hi_github/page/about_page.dart';
 import 'package:hi_github/page/oauth_page.dart';
 import 'package:hi_github/page/tabbar_page.dart';
+import 'package:hi_github/page/test_page.dart';
 import 'package:hi_github/page/welcome_page.dart';
 import '../core/constant.dart';
 import '../page/login_page.dart';
@@ -22,13 +23,17 @@ extension UriEx on Uri {
       case HiRouterPath.about:
         title = context?.string.about;
         break;
+      case HiRouterPath.test:
+        title = context?.string.test;
+        break;
       default:
         break;
     }
     return title;
   }
 
-  Widget? page({Map<String, dynamic> parameters = const {}}) {
+  Widget? page(
+      {BuildContext? context, Map<String, dynamic> parameters = const {}}) {
     if (host.isEmpty) {
       return const WelcomePage();
     }
@@ -44,7 +49,10 @@ extension UriEx on Uri {
       //   page = const ProfilePage();
       //   break;
       case HiRouterPath.about:
-        page = const AboutPage();
+        page = AboutPage(parameters: parameters);
+        break;
+      case HiRouterPath.test:
+        page = const TestPage();
         break;
       case HiRouterPathEx.oauth:
         page = OAuthPage(url: Github.oauthUrlString(), title: '授权标题');

@@ -3,12 +3,11 @@
 // import '../base/hi_state.dart';
 
 import 'package:flutter/material.dart';
-
 import '../../../core/hi_core.dart';
-import '../base/hi_page.dart';
 import '../base/hi_state.dart';
+import 'hi_scroll_page.dart';
 
-abstract class HiScrollState<M extends HiModel, T extends HiPage>
+abstract class HiScrollState<M extends HiModel, T extends HiScrollPage>
     extends HiState<T> {
   int pageIndex = 1;
   List<M> list = [];
@@ -21,6 +20,9 @@ abstract class HiScrollState<M extends HiModel, T extends HiPage>
   void initState() {
     super.initState();
     scrollController.addListener(() {
+      if (!widget.canRefresh) {
+        return;
+      }
       var offset = scrollController.position.maxScrollExtent -
           scrollController.position.pixels;
       if (offset < 200 &&
@@ -39,14 +41,21 @@ abstract class HiScrollState<M extends HiModel, T extends HiPage>
 
   @override
   Widget buildBodyView() {
-    return RefreshIndicator(
-      onRefresh: loadData,
-      color: Colors.blue,
-      child: MediaQuery.removePadding(
-        context: context,
-        removeTop: true,
-        child: buildChildView(),
-      ),
+    return widget.canRefresh
+        ? RefreshIndicator(
+            onRefresh: loadData,
+            color: Colors.blue,
+            triggerMode: RefreshIndicatorTriggerMode.anywhere,
+            child: _buildScrollView(),
+          )
+        : _buildScrollView();
+  }
+
+  Widget _buildScrollView() {
+    return MediaQuery.removePadding(
+      context: context,
+      removeTop: true,
+      child: buildChildView(),
     );
   }
 

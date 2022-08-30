@@ -7,4 +7,5 @@ class HiRouterPath {
   static const profile = 'profile';
   static const setting = 'setting';
   static const about = 'about';
+  static const test = 'test';
 }

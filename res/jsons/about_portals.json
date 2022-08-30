@@ -1,0 +1,18 @@
+[
+    {
+        "id": "author",
+        "title": "作者"
+    },
+    {
+        "id": "scheme",
+        "title": "URL Schemes"
+    },
+    {
+        "id": "rating",
+        "title": "评分鼓励"
+    },
+    {
+        "id": "share",
+        "title": "分享给好友"
+    }
+]

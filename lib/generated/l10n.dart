@@ -180,10 +180,10 @@ class S {
     );
   }
 
-  /// `Read and agree`
+  /// `read and agree`
   String get readAndAgree {
     return Intl.message(
-      'Read and agree',
+      'read and agree',
       name: 'readAndAgree',
       desc: '',
       args: [],
@@ -210,80 +210,80 @@ class S {
     );
   }
 
-  /// `Please agree to the agreement first`
+  /// `please agree to the agreement first`
   String get termTips {
     return Intl.message(
-      'Please agree to the agreement first',
+      'please agree to the agreement first',
       name: 'termTips',
       desc: '',
       args: [],
     );
   }
 
-  /// `Joined on {date}`
+  /// `joined on {date}`
   String joinedOn(Object date) {
     return Intl.message(
-      'Joined on $date',
+      'joined on $date',
       name: 'joinedOn',
       desc: '',
       args: [date],
     );
   }
 
-  /// `Repositories`
+  /// `repositories`
   String get repositories {
     return Intl.message(
-      'Repositories',
+      'repositories',
       name: 'repositories',
       desc: '',
       args: [],
     );
   }
 
-  /// `Followers`
+  /// `followers`
   String get followers {
     return Intl.message(
-      'Followers',
+      'followers',
       name: 'followers',
       desc: '',
       args: [],
     );
   }
 
-  /// `Following`
+  /// `following`
   String get following {
     return Intl.message(
-      'Following',
+      'following',
       name: 'following',
       desc: '',
       args: [],
     );
   }
 
-  /// `Setting`
+  /// `setting`
   String get setting {
     return Intl.message(
-      'Setting',
+      'setting',
       name: 'setting',
       desc: '',
       args: [],
     );
   }
 
-  /// `About`
+  /// `about`
   String get about {
     return Intl.message(
-      'About',
+      'about',
       name: 'about',
       desc: '',
       args: [],
     );
   }
 
-  /// `Feedback`
+  /// `feedback`
   String get feedback {
     return Intl.message(
-      'Feedback',
+      'feedback',
       name: 'feedback',
       desc: '',
       args: [],
@@ -365,6 +365,16 @@ class S {
     return Intl.message(
       'click to login',
       name: 'clickToLogin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `test`
+  String get test {
+    return Intl.message(
+      'test',
+      name: 'test',
       desc: '',
       args: [],
     );

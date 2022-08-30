@@ -12,7 +12,7 @@ export 'src/scroll/hi_scroll_control.dart';
 export 'src/scroll/hi_scroll_page.dart';
 export 'src/scroll/hi_scroll_state.dart';
 export 'src/portal/hi_portal.dart';
-export 'src/portal/hi_portal_cell.dart';
+export 'src/portal/hi_portal_card.dart';
 export 'src/portal/hi_normal_portal.dart';
 export 'src/portal/hi_normal_portal_cell.dart';
 export 'src/portal/hi_portal_list_view.dart';

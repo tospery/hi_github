@@ -30,5 +30,6 @@
     "blog": "博客",
     "exitLogin": "退出登录",
     "alertLogoutMessage": "确定退出登录吗？",
-    "clickToLogin": "点击登录"
+    "clickToLogin": "点击登录",
+    "test": "测试"
 }

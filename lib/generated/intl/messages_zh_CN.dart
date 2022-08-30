@@ -54,6 +54,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "star": MessageLookupByLibrary.simpleMessage("打星"),
         "team": MessageLookupByLibrary.simpleMessage("团队"),
         "termTips": MessageLookupByLibrary.simpleMessage("请先同意用户协议和隐私政策"),
+        "test": MessageLookupByLibrary.simpleMessage("测试"),
         "userAgreement": MessageLookupByLibrary.simpleMessage("用户协议"),
         "username": MessageLookupByLibrary.simpleMessage("用户名")
       };
