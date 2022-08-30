@@ -5,13 +5,14 @@ import 'package:hi_flutter/core/function.dart';
 import '../../core/logger.dart';
 import '../../core/parameter.dart';
 import '../../core/user.dart';
+import '../../core/map.dart';
 import '../ex/build_context.dart';
 import '../redux/app_state.dart';
 import '../hi_page.dart';
 
 abstract class HiState<T extends HiPage> extends State<T>
     with AutomaticKeepAliveClientMixin {
-      bool loading = false;
+  bool loading = false;
   HiUser? get user => context.store.state.user;
 
   @override
@@ -45,17 +46,16 @@ abstract class HiState<T extends HiPage> extends State<T>
   }
 
   PreferredSizeWidget? buildAppBar() {
-    var title = widget.parameters[HiParameter.title];
+    // var title = widget.parameters[HiParameter.title];
+    var title = widget.parameters.stringForKey(HiParameter.title);
     return AppBar(
-      title: title != null ? Text(hiString(title)) : null,
+      title: title != null ? Text(title) : null,
     );
   }
 
   Widget buildBodyView();
 
-  Future<void> loadData({loadMore = false}) async {
-    
-  }
+  Future<void> loadData({loadMore = false}) async {}
 
   @override
   bool get wantKeepAlive => true;

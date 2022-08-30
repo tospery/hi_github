@@ -1,8 +1,10 @@
 import 'dart:convert';
 
+import 'package:hi_flutter/core/function.dart';
+
 extension HiCoreMapEx<K, V> on Map<K, V> {
-  String? stringFoKey(K key) {
-    return (this[key] as String?);
+  String? stringForKey(K key) {
+    return hiString(this[key]);
   }
 
   V? valueForKeys(List<K> keys) {

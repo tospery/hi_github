@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import 'package:hi_github/page/about_page.dart';
-import 'package:hi_github/page/login_page2.dart';
 import 'package:hi_github/page/oauth_page.dart';
 import 'package:hi_github/page/tabbar_page.dart';
 import 'package:hi_github/page/welcome_page.dart';
