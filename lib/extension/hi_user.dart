@@ -1,4 +1,4 @@
-import 'package:hi_flutter/core/user.dart';
+import 'package:hi_flutter/hi_flutter.dart';
 
 import '../model/user.dart';
 

@@ -21,10 +21,11 @@ class PersonalPageState extends HiScrollState<HiModel, PersonalPage> {
       controller: scrollController,
       itemBuilder: (context, index) {
         var model = list[index];
-        if (model is HiSpace) {
-          return HiSpaceCell(space: model);
-        } else if (model is HiNormalPortal) {
-          return HiNormalPortalCell(
+        // if (model is HiSpace) {
+        //   return HiSpaceCell(space: model);
+        // } else
+        if (model is HiPortal) {
+          return HiPortalCell(
             portal: model,
             onPressed: () => _doPressed(model),
           );
@@ -53,8 +54,8 @@ class PersonalPageState extends HiScrollState<HiModel, PersonalPage> {
     } else {
       items.add(HiModel(id: PortalType.unlogined.value));
     }
-    items.add(
-        HiSpace(color: context.themeData.scaffoldBackgroundColor.hexString));
+    // items.add(
+    //     HiSpace(color: context.themeData.scaffoldBackgroundColor.hexString));
     items.addAll(json
         .map((e) => HiPortal.fromJson(e as Map<String, dynamic>? ?? {}))
         .toList());

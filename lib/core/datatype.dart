@@ -1,5 +1,4 @@
 import 'package:hi_flutter/hi_flutter.dart';
-import 'package:hi_flutter/routerx/path.dart';
 
 enum PortalType {
   setting,

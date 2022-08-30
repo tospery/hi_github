@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hi_flutter/core/constant.dart';
+import 'package:hi_flutter/hi_flutter.dart';
 
 ThemeData getThemeData(MaterialColor color) {
   return ThemeData(
