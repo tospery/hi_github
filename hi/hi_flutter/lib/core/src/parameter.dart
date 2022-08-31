@@ -3,4 +3,5 @@ class HiParameter {
   static const code = 'code';
   static const path = 'path';
   static const title = 'title';
+  static const hideNavigationBar = 'hideNavigationBar';
 }

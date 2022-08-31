@@ -1,7 +1,22 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'int.dart';
 
 extension HiCoreStringEx on String {
+  bool? toBool() {
+    if (toLowerCase() == 'true') {
+      return true;
+    }
+    if (toLowerCase() == 'false') {
+      return false;
+    }
+    return toInt()?.toBool();
+  }
+
+  int? toInt() => int.tryParse(this);
+
+  double? toDouble() => double.tryParse(this);
+
   dynamic get jsonObject =>
       isNotEmpty ? json.decode(this) : <String, dynamic>{};
 

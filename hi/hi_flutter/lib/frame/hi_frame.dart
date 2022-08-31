@@ -4,6 +4,7 @@ export 'package:flutter_redux/flutter_redux.dart';
 export 'package:package_info_plus/package_info_plus.dart';
 export 'src/function.dart';
 export 'src/hi_app.dart';
+export 'src/hi_root_page.dart';
 export 'src/hi_space.dart';
 export 'src/hi_space_cell.dart';
 export 'src/extension/string.dart';

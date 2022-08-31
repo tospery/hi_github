@@ -6,6 +6,11 @@ extension HiCoreMapEx<K, V> on Map<K, V> {
     return hiString(this[key]);
   }
 
+  bool? boolForKey(K key) {
+    // return hiString(this[key]);
+    return null;
+  }
+
   V? valueForKeys(List<K> keys) {
     V? v;
     for (K k in keys) {

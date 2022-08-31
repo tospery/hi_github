@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import 'package:hi_github/page/about_page.dart';
 import 'package:hi_github/page/oauth_page.dart';
+import 'package:hi_github/page/root_page.dart';
 import 'package:hi_github/page/tabbar_page.dart';
 import 'package:hi_github/page/test_page.dart';
-import 'package:hi_github/page/welcome_page.dart';
+import 'package:hi_github/page/welcome_page2.dart';
 import '../core/constant.dart';
 import '../page/login_page.dart';
 import 'build_context.dart';
@@ -35,7 +36,8 @@ extension UriEx on Uri {
   Widget? page(
       {BuildContext? context, Map<String, dynamic> parameters = const {}}) {
     if (host.isEmpty) {
-      return const WelcomePage();
+      // return const WelcomePage2();
+      return RootPage(parameters: parameters);
     }
     Widget? page;
     switch (host) {

@@ -46,10 +46,12 @@ abstract class HiPageState<T extends HiPage> extends State<T>
   }
 
   PreferredSizeWidget? buildAppBar() {
-    // var title = widget.parameters[HiParameter.title];
     var title = widget.parameters.stringForKey(HiParameter.title);
+    if (title?.isEmpty ?? true) {
+      return null;
+    }
     return AppBar(
-      title: title != null ? Text(title) : null,
+      title: Text(title!),
     );
   }
 

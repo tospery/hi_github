@@ -30,7 +30,7 @@ class HiPortal extends HiModel {
         title: json['title'] as String?,
         detail: json['detail'] as String?,
         color: json['color'] as String?,
-        height: hiNumber(json['height'])?.toDouble() ?? 50,
+        height: hiDouble(json['height']) ?? 50,
         indicated: json['indicated'] as bool? ?? true,
         separated: json['separated'] as bool? ?? true,
       );

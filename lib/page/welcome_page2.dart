@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import '../model/user.dart';
 
-class WelcomePage extends StatefulWidget {
-  const WelcomePage({Key? key}) : super(key: key);
+class WelcomePage2 extends StatefulWidget {
+  const WelcomePage2({Key? key}) : super(key: key);
 
   @override
-  State<WelcomePage> createState() => _WelcomePageState();
+  State<WelcomePage2> createState() => _WelcomePage2State();
 }
 
-class _WelcomePageState extends State<WelcomePage> {
+class _WelcomePage2State extends State<WelcomePage2> {
   bool isInited = false;
 
   @override

@@ -1,0 +1,1 @@
+extension HiCoreDoubleEx on double {}

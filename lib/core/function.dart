@@ -4,10 +4,10 @@ import 'package:hi_flutter/hi_flutter.dart';
 ThemeData getThemeData(MaterialColor color) {
   return ThemeData(
     primarySwatch: color,
-    // primaryColor: Colors.orange,
     brightness: Brightness.light,
     platform: TargetPlatform.iOS,
-    backgroundColor: Colors.red,
+    // primaryColor: Colors.orange,
+    // backgroundColor: Colors.white,
     scaffoldBackgroundColor: Colors.grey[200],
     appBarTheme: const AppBarTheme(
       elevation: 0.5,
