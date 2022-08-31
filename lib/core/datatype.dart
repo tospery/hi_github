@@ -1,31 +1,32 @@
-import 'package:hi_flutter/hi_flutter.dart';
-
 enum PortalType {
+  space,
   setting,
   about,
   feedback,
-  unlogined;
+  unlogined,
+  weibo,
+  qqGroup,
+  appinfo;
 
-  String get value => {
-        setting: 'setting',
-        about: 'about',
-        feedback: 'feedback',
-        unlogined: 'unlogined',
-      }[this]!;
+  String get stringValue => toString().split('.').last;
 
-  String get path => {
-        setting: HiRouterPath.about,
-        about: HiRouterPath.about,
-        feedback: HiRouterPath.about,
-        unlogined: HiRouterPath.login,
-      }[this]!;
+  String? get routerPath {
+    if (this == PortalType.appinfo) {
+      return null;
+    }
+    return stringValue;
+  }
 
   factory PortalType.fromValue(String value) =>
       {
-        'setting': PortalType.setting,
-        'about': PortalType.about,
-        'feedback': PortalType.feedback,
-        'unlogined': PortalType.unlogined,
+        PortalType.space.stringValue: PortalType.space,
+        PortalType.setting.stringValue: PortalType.setting,
+        PortalType.about.stringValue: PortalType.about,
+        PortalType.feedback.stringValue: PortalType.feedback,
+        PortalType.unlogined.stringValue: PortalType.unlogined,
+        PortalType.weibo.stringValue: PortalType.weibo,
+        PortalType.qqGroup.stringValue: PortalType.qqGroup,
+        PortalType.appinfo.stringValue: PortalType.appinfo,
       }[value] ??
-      PortalType.setting;
+      PortalType.space;
 }

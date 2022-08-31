@@ -33,7 +33,7 @@ abstract class HiPageState<T extends HiPage> extends State<T>
   @override
   Widget build(BuildContext context) {
     var arguments = context.modalRouteSettingsArguments;
-    log('arguments = $arguments, parameters = ${widget.parameters}');
+    log('看看入参: arguments = $arguments, parameters = ${widget.parameters}');
     super.build(context);
     return StoreBuilder<HiAPPState>(
       builder: (context, store) {

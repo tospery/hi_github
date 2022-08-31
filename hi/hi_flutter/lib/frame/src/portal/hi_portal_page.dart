@@ -35,12 +35,7 @@ class HiPortalPageState extends HiScrollPageState<HiPortal, HiPortalPage> {
       controller: scrollController,
       itemBuilder: (context, index) {
         var portal = list[index];
-        return HiPortalCard(
-          portal: portal,
-          onPressed: () => doPressed(portal),
-          // onPressed: () =>
-          //     widget.onPressed != null ? widget.onPressed!(portal) : null,
-        );
+        return buildPortalCard(portal);
       },
     );
   }
@@ -60,5 +55,12 @@ class HiPortalPageState extends HiScrollPageState<HiPortal, HiPortalPage> {
 
   void doPressed(HiPortal portal) {
     log('点击的card: $portal');
+  }
+
+  Widget buildPortalCard(HiPortal portal) {
+    return HiPortalCard(
+      portal: portal,
+      onPressed: () => doPressed(portal),
+    );
   }
 }

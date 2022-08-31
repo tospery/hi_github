@@ -1,5 +1,8 @@
 [
     {
+        "id": "appinfo"
+    },
+    {
         "id": "author",
         "title": "作者"
     },
@@ -14,5 +17,18 @@
     {
         "id": "share",
         "title": "分享给好友"
+    },
+    {
+        "id": "space",
+        "height": 15
+    },
+    {
+        "id": "weibo",
+        "title": "微博"
+    },
+    {
+        "id": "qqGroup",
+        "title": "QQ群",
+        "detail": "826097263"
     }
 ]

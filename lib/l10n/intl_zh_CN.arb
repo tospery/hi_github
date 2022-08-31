@@ -1,6 +1,8 @@
 {
     "home": "首页",
-    "appname": "hi github",
+    "appName": "HiGithub",
+    "appPowered": "基于Flutter平台开发",
+    "appSlogan": "HiGithub By Flutter",
     "personal": "我的",
     "oauthLogin": "oauthLogin",
     "accessToken": "accessToken",

@@ -1,7 +1,9 @@
 export 'package:redux_epics_hi/redux_epics_hi.dart';
 export 'package:cached_network_image/cached_network_image.dart';
 export 'package:flutter_redux/flutter_redux.dart';
+export 'package:package_info_plus/package_info_plus.dart';
 export 'src/function.dart';
+export 'src/hi_app.dart';
 export 'src/hi_space.dart';
 export 'src/hi_space_cell.dart';
 export 'src/extension/string.dart';

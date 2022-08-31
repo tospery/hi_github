@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import '../core/datatype.dart';
 import '../extension/hi_user.dart';
-import '../widget/unlogined_cell.dart';
+import '../widget/card/unlogined_card.dart';
 
 class PersonalPage extends HiScrollPage {
   const PersonalPage({Key? key, super.parameters = const {}}) : super(key: key);
@@ -33,7 +33,7 @@ class PersonalPageState extends HiScrollPageState<HiModel, PersonalPage> {
           var type = PortalType.fromValue(model.id ?? '');
           switch (type) {
             case PortalType.unlogined:
-              return UnloginedCell(
+              return UnloginedCard(
                 onPressed: _doPressUnlogin,
               );
             default:
@@ -52,7 +52,7 @@ class PersonalPageState extends HiScrollPageState<HiModel, PersonalPage> {
     List<HiModel> items = [];
     if (user?.realUser?.isValid ?? false) {
     } else {
-      items.add(HiModel(id: PortalType.unlogined.value));
+      items.add(HiModel(id: PortalType.unlogined.stringValue));
     }
     // items.add(
     //     HiSpace(color: context.themeData.scaffoldBackgroundColor.hexString));
@@ -67,7 +67,9 @@ class PersonalPageState extends HiScrollPageState<HiModel, PersonalPage> {
     if (type == PortalType.feedback) {
       return HiRouter.shared().push(context, HiRouterPath.test);
     }
-    HiRouter.shared().push(context, type.path);
+    if (type.routerPath != null) {
+      HiRouter.shared().push(context, type.routerPath!);
+    }
   }
 
   _doPressUnlogin() {

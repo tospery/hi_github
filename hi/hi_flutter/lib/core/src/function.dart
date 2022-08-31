@@ -11,7 +11,6 @@ Color get hiRandomColor {
 }
 
 String? hiString(dynamic any) {
-  //   var value = this[key];
   if (any is String) {
     return any;
   }
@@ -20,6 +19,16 @@ String? hiString(dynamic any) {
   }
   if (any is bool) {
     return any.toString();
+  }
+  return null;
+}
+
+num? hiNumber(dynamic any) {
+  if (any is num) {
+    return any;
+  }
+  if (any is String) {
+    return num.parse(any);
   }
   return null;
 }

@@ -27,7 +27,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "about": MessageLookupByLibrary.simpleMessage("关于"),
         "accessToken": MessageLookupByLibrary.simpleMessage("accessToken"),
         "alertLogoutMessage": MessageLookupByLibrary.simpleMessage("确定退出登录吗？"),
-        "appname": MessageLookupByLibrary.simpleMessage("hi github"),
+        "appName": MessageLookupByLibrary.simpleMessage("HiGithub"),
+        "appPowered": MessageLookupByLibrary.simpleMessage("基于Flutter平台开发"),
+        "appSlogan":
+            MessageLookupByLibrary.simpleMessage("HiGithub By Flutter"),
         "bio": MessageLookupByLibrary.simpleMessage("简介"),
         "blog": MessageLookupByLibrary.simpleMessage("博客"),
         "cancel": MessageLookupByLibrary.simpleMessage("取消"),

@@ -16,9 +16,11 @@ class _HiPortalCardState extends State<HiPortalCard> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: widget.onPressed,
+      onTap: widget.portal.isSpace ? null : widget.onPressed,
       child: Card(
-        color: widget.portal.color?.color,
+        color: widget.portal.isSpace
+            ? Colors.transparent
+            : widget.portal.color?.color,
         child: Container(
           padding: const EdgeInsets.only(left: 20, right: 10),
           decoration: BoxDecoration(
@@ -103,6 +105,9 @@ class _HiPortalCardState extends State<HiPortalCard> {
   }
 
   _buildTailIndicator() {
+    if (widget.portal.isSpace) {
+      return Container();
+    }
     return widget.portal.indicated
         ? hiIndicator(
             context: context,

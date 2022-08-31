@@ -9,6 +9,8 @@ class HiPortal extends HiModel {
   final bool indicated;
   final bool separated;
 
+  static const String spaceId = 'space';
+
   const HiPortal({
     super.id,
     this.icon,
@@ -20,13 +22,15 @@ class HiPortal extends HiModel {
     this.separated = true,
   });
 
+  bool get isSpace => (id?.isEmpty ?? true) || (id == 'space');
+
   factory HiPortal.fromJson(Map<String, dynamic> json) => HiPortal(
         id: hiString(json['id']),
         icon: json['icon'] as String?,
         title: json['title'] as String?,
         detail: json['detail'] as String?,
         color: json['color'] as String?,
-        height: json['height'] as double? ?? 50,
+        height: hiNumber(json['height'])?.toDouble() ?? 50,
         indicated: json['indicated'] as bool? ?? true,
         separated: json['separated'] as bool? ?? true,
       );

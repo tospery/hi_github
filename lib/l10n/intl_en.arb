@@ -1,6 +1,8 @@
 {
     "home": "home",
-    "appname": "hi github",
+    "appName": "HiGithub",
+    "appPowered": "Powered by Flutter",
+    "appSlogan": "HiGithub By Flutter",
     "personal": "personal",
     "oauthLogin": "oauthLogin",
     "accessToken": "accessToken",

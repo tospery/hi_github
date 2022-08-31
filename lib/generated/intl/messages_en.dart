@@ -28,7 +28,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "accessToken": MessageLookupByLibrary.simpleMessage("accessToken"),
         "alertLogoutMessage":
             MessageLookupByLibrary.simpleMessage("Are you sure to logout?"),
-        "appname": MessageLookupByLibrary.simpleMessage("hi github"),
+        "appName": MessageLookupByLibrary.simpleMessage("HiGithub"),
+        "appPowered":
+            MessageLookupByLibrary.simpleMessage("Powered by Flutter"),
+        "appSlogan":
+            MessageLookupByLibrary.simpleMessage("HiGithub By Flutter"),
         "bio": MessageLookupByLibrary.simpleMessage("bio"),
         "blog": MessageLookupByLibrary.simpleMessage("blog"),
         "cancel": MessageLookupByLibrary.simpleMessage("cancel"),

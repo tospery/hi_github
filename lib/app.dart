@@ -34,7 +34,7 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: HiCache.preInit(),
+      future: HiFlutter.initialize(),
       builder: (context, snapshot) {
         return StoreProvider(
           store: store,

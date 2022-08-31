@@ -11,3 +11,13 @@ export 'router_x/hi_router_x.dart';
 export 'tabbar/hi_tabbar.dart';
 export 'dialog/hi_dialog.dart';
 export 'frame/hi_frame.dart';
+
+import 'package:hi_flutter/cache/hi_cache.dart';
+import 'package:hi_flutter/frame/hi_frame.dart';
+
+class HiFlutter {
+  static Future<void> initialize() async {
+    HiCache.preInit();
+    HiApp.preInit();
+  }
+}

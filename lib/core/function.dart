@@ -4,7 +4,7 @@ import 'package:hi_flutter/hi_flutter.dart';
 ThemeData getThemeData(MaterialColor color) {
   return ThemeData(
     primarySwatch: color,
-    primaryColor: Colors.white,
+    // primaryColor: Colors.orange,
     brightness: Brightness.light,
     platform: TargetPlatform.iOS,
     backgroundColor: Colors.red,
@@ -29,8 +29,16 @@ ThemeData getThemeData(MaterialColor color) {
     primaryIconTheme: const IconThemeData(
       color: Colors.red,
     ),
-    colorScheme: const ColorScheme.light(),
     textTheme: const TextTheme(
+      displayLarge: TextStyle(
+        fontSize: HiConstant.largeFontSize - 2,
+        color: Colors.black,
+        fontWeight: FontWeight.bold,
+      ),
+      displaySmall: TextStyle(
+        fontSize: HiConstant.smallFontSize + 2,
+        color: Colors.grey,
+      ),
       // Card's title
       titleMedium: TextStyle(
         fontSize: HiConstant.normalFontSize - 1,
@@ -55,6 +63,10 @@ ThemeData getThemeData(MaterialColor color) {
       color: Colors.grey[200],
     ),
     indicatorColor: Colors.grey,
+    colorScheme: ColorScheme.light(
+      primary: Colors.white,
+      onPrimary: color,
+    ),
     // appBarTheme: AppBarTheme(
     //   backgroundColor: Colors.green,
     //   // systemOverlayStyle: SystemUiOverlayStyle.dark.copyWith(

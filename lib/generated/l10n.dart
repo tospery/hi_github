@@ -60,11 +60,31 @@ class S {
     );
   }
 
-  /// `hi github`
-  String get appname {
+  /// `HiGithub`
+  String get appName {
     return Intl.message(
-      'hi github',
-      name: 'appname',
+      'HiGithub',
+      name: 'appName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Powered by Flutter`
+  String get appPowered {
+    return Intl.message(
+      'Powered by Flutter',
+      name: 'appPowered',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `HiGithub By Flutter`
+  String get appSlogan {
+    return Intl.message(
+      'HiGithub By Flutter',
+      name: 'appSlogan',
       desc: '',
       args: [],
     );

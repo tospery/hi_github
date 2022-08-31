@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
-import '../extension/build_context.dart';
+import '../../extension/build_context.dart';
 
-class UnloginedCell extends StatefulWidget {
+class UnloginedCard extends StatefulWidget {
   final VoidCallback? onPressed;
 
-  const UnloginedCell({super.key, this.onPressed});
+  const UnloginedCard({super.key, this.onPressed});
 
   @override
-  State<UnloginedCell> createState() => _UnloginedCellState();
+  State<UnloginedCard> createState() => _UnloginedCardState();
 }
 
-class _UnloginedCellState extends State<UnloginedCell> {
+class _UnloginedCardState extends State<UnloginedCard> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
