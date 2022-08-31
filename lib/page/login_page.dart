@@ -15,7 +15,7 @@ class LoginPage extends HiPage {
   State<LoginPage> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends HiState<LoginPage> {
+class _LoginPageState extends HiPageState<LoginPage> {
   String? title;
   bool isSecure = true;
   bool loginEnable = false;

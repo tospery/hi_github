@@ -11,7 +11,7 @@ class PersonalPage extends HiScrollPage {
   State<PersonalPage> createState() => PersonalPageState();
 }
 
-class PersonalPageState extends HiScrollState<HiModel, PersonalPage> {
+class PersonalPageState extends HiScrollPageState<HiModel, PersonalPage> {
   @override
   Widget buildChildView() {
     return ListView.builder(
