@@ -2,14 +2,10 @@ import 'dart:convert';
 import 'function.dart';
 
 extension HiCoreMapEx<K, V> on Map<K, V> {
-  String? stringForKey(K key) {
-    return hiString(this[key]);
-  }
-
-  bool? boolForKey(K key) {
-    // return hiString(this[key]);
-    return null;
-  }
+  bool? boolForKey(K key) => hiBool(this[key]);
+  int? intForKey(K key) => hiInt(this[key]);
+  double? doubleForKey(K key) => hiDouble(this[key]);
+  String? stringForKey(K key) => hiString(this[key]);
 
   V? valueForKeys(List<K> keys) {
     V? v;

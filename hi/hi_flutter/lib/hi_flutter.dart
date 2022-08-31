@@ -17,7 +17,7 @@ import 'package:hi_flutter/frame/hi_frame.dart';
 
 class HiFlutter {
   static Future<void> initialize() async {
-    HiCache.preInit();
-    HiApp.preInit();
+    await HiCache.preInit();
+    await HiApp.preInit();
   }
 }

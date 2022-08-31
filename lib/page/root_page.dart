@@ -1,5 +1,7 @@
 import 'package:hi_flutter/hi_flutter.dart';
 
+import '../model/user.dart';
+
 class RootPage extends HiRootPage {
   const RootPage({super.key, required super.parameters});
 
@@ -10,17 +12,17 @@ class RootPage extends HiRootPage {
 
 class _RootPageState extends HiRootPageState {
   @override
-  void initState() {
-    super.initState();
-    // var string = 'abc123';
-    // var value = string.toLowerCase();
-    // log('测试value1 = ${12.0.toInt()}');
-    // log('测试value2 = ${false.toString()}');
-    // try {
-    //   var value = int.parse(string);
-    //   log('测试value = $value');
-    // } catch (e) {
-    //   log('测试value = $e, 详情: ${e.toString()}');
-    // }
+  Future<void> loadData({loadMore = false}) async {
+    Future.delayed(const Duration(milliseconds: 200), () {
+      var user = User.fromJson(
+          (HiCache.shared().get<String>(HiCacheKey.user) ?? '').jsonObject);
+      log('获取到的user: $user');
+      if (!user.isValid) {
+        context.store.dispatch(LogoutSuccessAction(context, false));
+        return;
+      }
+      context.store.dispatch(UpdateUserAction(user));
+      context.store.dispatch(LoginSuccessAction(context));
+    });
   }
 }

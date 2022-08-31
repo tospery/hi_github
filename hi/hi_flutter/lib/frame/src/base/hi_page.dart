@@ -12,14 +12,30 @@ abstract class HiPage extends StatefulWidget {
 
 abstract class HiPageState<T extends HiPage> extends State<T>
     with AutomaticKeepAliveClientMixin {
+  bool loadOnceToken = false;
+  bool hideNavBar = false;
   bool loading = false;
+  String? title;
   HiUser? get user => context.store.state.user;
 
   @override
   void initState() {
     super.initState();
+    var parameters = widget.parameters;
+    hideNavBar = parameters.boolForKey(HiParameter.hideNavBar) ?? false;
+    title = parameters.stringForKey(HiParameter.title);
     loadData();
   }
+
+  // @override
+  // void didChangeDependencies() {
+  //   super.didChangeDependencies();
+  //   if (loadOnceToken) {
+  //     return;
+  //   }
+  //   loadOnceToken = true;
+  //   loadData();
+  // }
 
   @override
   void setState(VoidCallback fn) {
@@ -46,16 +62,17 @@ abstract class HiPageState<T extends HiPage> extends State<T>
   }
 
   PreferredSizeWidget? buildAppBar() {
-    var title = widget.parameters.stringForKey(HiParameter.title);
-    if (title?.isEmpty ?? true) {
+    if (hideNavBar) {
       return null;
     }
     return AppBar(
-      title: Text(title!),
+      title: title?.isNotEmpty ?? false ? Text(title!) : null,
     );
   }
 
-  Widget buildBodyView();
+  Widget buildBodyView() {
+    return Container();
+  }
 
   Future<void> loadData({loadMore = false}) async {}
 
