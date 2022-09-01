@@ -3,7 +3,7 @@ import 'package:hi_flutter/hi_flutter.dart';
 import 'package:hi_github/extension/build_context.dart';
 import '../core/datatype.dart';
 import '../extension/hi_user.dart';
-import '../widget/cell/unlogined_card.dart';
+import '../widget/cell/unlogined_cell.dart';
 
 class PersonalPage extends HiScrollPage {
   const PersonalPage({super.key, super.parameters = const {}});
@@ -43,7 +43,7 @@ class PersonalPageState extends HiScrollPageState<HiModel, PersonalPage> {
           var type = PortalType.fromValue(model.id ?? '');
           switch (type) {
             case PortalType.unlogined:
-              return UnloginedCard(
+              return UnloginedCell(
                 onPressed: _doPressUnlogin,
               );
             default:
