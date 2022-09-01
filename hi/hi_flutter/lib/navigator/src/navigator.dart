@@ -39,52 +39,61 @@ class HiNavigator {
         handler: handler.rawValue,
       );
 
-  Future forward(
+  Future<dynamic> forward(
     BuildContext context,
-    String path, {
+    String uriString, {
     Map<String, dynamic> parameters = const {},
-  }) =>
-      navigateTo(
-        context,
-        path,
-        transition:
-            HiNavigationMode.fromValue(parameters[HiParameter.navigationMode])
-                .rawValue,
-        routeSettings: RouteSettings(arguments: parameters),
-      );
+  }) {
+    log('导航: $uriString');
+    var uri = Uri.tryParse(uriString);
+    Map<String, dynamic> myParameters = {};
+    myParameters.addAll(parameters);
+    myParameters.addAll(uri?.queryParameters ?? {});
+    var root = myParameters.boolForKey(HiParameter.navigationRoot) ?? false;
+    var mode =
+        HiNavigationMode.fromValue(myParameters[HiParameter.navigationMode]);
+    return _navigator.navigateTo(
+      context,
+      uriString.removePrefix('app://'),
+      replace: root,
+      clearStack: root,
+      transition: mode.rawValue,
+      routeSettings: RouteSettings(arguments: myParameters),
+    );
+  }
 
-  Future push(
-    BuildContext context,
-    String path, {
-    Map<String, dynamic> parameters = const {},
-  }) =>
-      forward(
-        context,
-        path,
-        parameters: parameters +
-            {
-              HiParameter.navigationMode: HiNavigationMode.push.toString(),
-            },
-      );
+  // Future push(
+  //   BuildContext context,
+  //   String uriString, {
+  //   Map<String, dynamic> parameters = const {},
+  // }) =>
+  //     forward(
+  //       context,
+  //       uriString,
+  //       parameters: parameters +
+  //           {
+  //             HiParameter.navigationMode: HiNavigationMode.push.toString(),
+  //           },
+  //     );
 
-  Future present(
-    BuildContext context,
-    String path, {
-    Map<String, dynamic> parameters = const {},
-  }) =>
-      forward(
-        context,
-        path,
-        parameters: parameters +
-            {
-              HiParameter.navigationMode: HiNavigationMode.present.toString(),
-            },
-      );
+  // Future present(
+  //   BuildContext context,
+  //   String uriString, {
+  //   Map<String, dynamic> parameters = const {},
+  // }) =>
+  //     forward(
+  //       context,
+  //       uriString,
+  //       parameters: parameters +
+  //           {
+  //             HiParameter.navigationMode: HiNavigationMode.present.toString(),
+  //           },
+  //     );
 
   void back<T>(BuildContext context, [T? result]) =>
       _navigator.pop(context, result);
 
-  Future navigateTo(BuildContext context, String path,
+  Future _navigateTo(BuildContext context, String path,
       {bool replace = false,
       bool clearStack = false,
       bool maintainState = true,

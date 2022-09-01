@@ -7,4 +7,5 @@ class HiParameter {
   static const canRefresh = 'canRefresh';
   static const canLoadMore = 'canLoadMore';
   static const navigationMode = 'navigationMode';
+  static const navigationRoot = 'navigationRoot';
 }

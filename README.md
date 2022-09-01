@@ -2,5 +2,7 @@
 FutureBuild详解
 重写tabbar
 webview
-hiprovider
-hinavigator
+url schemes
+uriPattern
+root/present/push
+Iterable

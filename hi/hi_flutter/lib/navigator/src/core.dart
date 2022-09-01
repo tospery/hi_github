@@ -54,3 +54,11 @@ enum HiNavigationMode {
     return HiNavigationMode.push;
   }
 }
+
+String hiUriString({
+  required String host,
+  String? path,
+  Map<String, String>? parameters,
+}) =>
+    Uri(scheme: 'app', host: host, path: path, queryParameters: parameters)
+        .toString();

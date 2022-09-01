@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
-import 'package:hi_github/core/datatype.dart';
 import 'package:hi_github/extension/build_context.dart';
 import 'package:hi_github/extension/hi_model.dart';
 
@@ -35,19 +34,30 @@ class PersonalPageState extends HiPortalsPageState {
 
   @override
   void doPressed(HiPortal model) {
-    // log('点击了cell: ${PortalType.unlogined.instanceName}');
+    // Uri.tryParse(uri)
+    // var aaa = Uri.tryParse('https://m.baidu.com?query=abc123');
+    // var bbb = aaa.toString();
+    // log('bbb: $bbb');
     // var path = model.navigationPath;
     // if (path?.isEmpty ?? true) {
     //   return;
     // }
     // navigator.forward(context, path!);
-    // var a1 = true;
-    // var a2 = 1;
-    // var a3 = 1.2;
-    // var a4 = 'string';
-    // if (a4 is Object) {
+    // var aaa = hiUriString(
+    //     host: 'popup', path: 'invtor', parameters: {'name': 'abcd123'});
+    // log('aaa: $aaa');
 
-    // }
+    // var uri = Uri.parse('higithub://login?navigationMode=present');
+
+    var uri = Uri(
+      scheme: 'app',
+      host: 'popup',
+      path: 'inator',
+      queryParameters: {
+        HiParameter.navigationRoot: true,
+      },
+    );
+    log(uri.toString());
   }
 }
 
