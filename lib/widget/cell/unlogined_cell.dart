@@ -18,7 +18,7 @@ class _UnloginedCellState extends State<UnloginedCell> {
       onTap: widget.onPressed,
       child: Container(
         color: context.themeData.colorScheme.primary,
-        height: 200,
+        height: 180,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

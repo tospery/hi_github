@@ -17,16 +17,14 @@ class HiPortalsPageState extends HiScrollPageState<HiPortal, HiPortalsPage> {
       padding: const EdgeInsets.only(top: 0),
       itemCount: list.length,
       controller: scrollController,
-      itemBuilder: (context, index) => buildCard(list[index]),
+      itemBuilder: (context, index) => buildCell(list[index]),
     );
   }
 
-  Widget buildCard(HiPortal model) {
-    return GestureDetector(
-      child: Container(
-        height: 50,
-      ),
-      onTap: () => doPressed(model),
+  Widget buildCell(HiPortal model) {
+    return HiPortalCell(
+      portal: model,
+      onPressed: () => doPressed(model),
     );
   }
 

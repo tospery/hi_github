@@ -1,4 +1,4 @@
-class HiRouterPath {
+class HiPath {
   static const root = '/';
   static const home = 'home';
   static const persona = 'personal';

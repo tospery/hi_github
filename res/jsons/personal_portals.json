@@ -1,7 +1,16 @@
 [
     {
+        "id": "unlogined"
+    },
+    {
         "id": "space",
         "height": 15
+    },
+    {
+        "id": "dark",
+        "title": "暗黑",
+        "icon": "res/images/dark.png",
+        "indicated": false
     },
     {
         "id": "setting",

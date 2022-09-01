@@ -17,11 +17,11 @@ class HiModelsPageState extends HiScrollPageState<HiModel, HiModelsPage> {
       padding: const EdgeInsets.only(top: 0),
       itemCount: list.length,
       controller: scrollController,
-      itemBuilder: (context, index) => buildCard(list[index]),
+      itemBuilder: (context, index) => buildCell(list[index]),
     );
   }
 
-  Widget buildCard(HiModel model) {
+  Widget buildCell(HiModel model) {
     return GestureDetector(
       child: Container(
         height: 50,

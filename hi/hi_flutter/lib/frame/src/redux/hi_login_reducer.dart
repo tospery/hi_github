@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hi_flutter/hi_flutter.dart';
 import 'package:redux_epics_hi/redux_epics_hi.dart';
 import '../../../core/hi_core.dart';
-import '../../../router_x/hi_router_x.dart';
 
 final hiLoginReducer = combineReducers<bool>([
   TypedReducer<bool, LoginSuccessAction>(_loginSuccess),
@@ -11,17 +11,17 @@ final hiLoginReducer = combineReducers<bool>([
 bool _loginSuccess(bool result, LoginSuccessAction action) {
   log('登录成功了');
   // HiRouter.shared().back(action.context);
-  HiRouter.shared().navigateTo(action.context, HiRouterPath.home,
-      replace: true, clearStack: true);
+  HiNavigator.shared()
+      .navigateTo(action.context, HiPath.home, replace: true, clearStack: true);
   return true;
 }
 
 bool _logoutSuccess(bool result, LogoutSuccessAction action) {
   log('退出成功了');
   if (action.isManual) {
-    HiRouter.shared().present(action.context, HiRouterPath.login);
+    HiNavigator.shared().present(action.context, HiPath.login);
   } else {
-    HiRouter.shared().navigateTo(action.context, HiRouterPath.home,
+    HiNavigator.shared().navigateTo(action.context, HiPath.home,
         replace: true, clearStack: true);
   }
   return false;

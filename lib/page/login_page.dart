@@ -2,8 +2,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import 'package:hi_github/extension/build_context.dart';
+import '../navigator/path.dart';
 import '../redux/login_epic.dart';
-import '../router/path.dart';
 import '../widget/login_button.dart';
 import '../widget/login_term.dart';
 import '../widget/password_input.dart';
@@ -166,8 +166,7 @@ class _LoginPageState extends HiPageState<LoginPage> {
       toast(context.string.termTips);
       return;
     }
-    String? code =
-        await HiRouter.shared().forward(context, HiRouterPathEx.oauth);
+    String? code = await HiNavigator.shared().forward(context, HiPathEx.oauth);
     log('code = $code');
     if (code?.isNotEmpty ?? false) {
       // ignore: use_build_context_synchronously

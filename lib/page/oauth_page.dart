@@ -93,7 +93,7 @@ class _OAuthPageState extends State<OAuthPage> {
   navigationDecision(NavigationRequest navigation) {
     if (navigation.url.startsWith('gsygithubapp://authed')) {
       var code = Uri.parse(navigation.url).queryParameters['code'];
-      HiRouter.shared().back(context, code);
+      HiNavigator.shared().back(context, code);
       return NavigationDecision.prevent;
     }
     return NavigationDecision.navigate;

@@ -1,3 +1,6 @@
 获取appicon
 FutureBuild详解
 重写tabbar
+webview
+hiprovider
+hinavigator

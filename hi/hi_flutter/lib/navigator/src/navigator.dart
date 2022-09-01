@@ -1,46 +1,26 @@
 import 'package:fluro/fluro.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
+import 'package:hi_flutter/core/hi_core.dart';
 import 'core.dart';
+import 'handler.dart';
 
-// mixin HiRouterCompatible {
-//   String? defaultTitle(String path);
-// }
+class HiNavigator {
+  final _navigator = FluroRouter();
 
-// class HiRouterCompatible {
-//   String? defaultTitle() {
-//     return null;
-//   }
-// }
-
-class HiRouter {
-  // @override
-  // VoidCallback? _myinit;
-
-  // String? defaultTitle() {
-  //   return 'abcd';
-  // }
-
-
-  final _router = FluroRouter();
-
-  static HiRouter? _instance;
-  static HiRouter shared() {
-    _instance ??= HiRouter._();
+  static HiNavigator? _instance;
+  static HiNavigator shared() {
+    _instance ??= HiNavigator._();
     return _instance!;
   }
 
-  HiRouter._() {
+  HiNavigator._() {
     _initialize();
   }
 
   void _initialize() {
-    _router.notFoundHandler = Handler(
+    _navigator.notFoundHandler = Handler(
         handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
-      if (kDebugMode) {
-        print("ROUTE WAS NOT FOUND !!!");
-      }
+      log('ROUTE WAS NOT FOUND !!!');
       return;
     });
   }
@@ -48,13 +28,13 @@ class HiRouter {
   Route<dynamic>? generator(
     RouteSettings routeSettings,
   ) =>
-      _router.generator(routeSettings);
+      _navigator.generator(routeSettings);
 
   void define(
     String path, {
-    required HiRouterHandler handler,
+    required HiNavigationHandler handler,
   }) =>
-      _router.define(
+      _navigator.define(
         path,
         handler: handler.rawValue,
       );
@@ -62,16 +42,17 @@ class HiRouter {
   Future forward(
     BuildContext context,
     String path, {
-    HiTransitionType? transition = HiTransitionType.push,
+    HiTransitionMode? transition = HiTransitionMode.push,
     Map<String, dynamic>? parameters,
-  }) => navigateTo(
-      context,
-      path,
-      transition: transition?.rawValue,
-      routeSettings: RouteSettings(
-        arguments: parameters,
-      ),
-    );
+  }) =>
+      navigateTo(
+        context,
+        path,
+        transition: transition?.rawValue,
+        routeSettings: RouteSettings(
+          arguments: parameters,
+        ),
+      );
 
   Future push(
     BuildContext context,
@@ -81,7 +62,7 @@ class HiRouter {
       forward(
         context,
         path,
-        transition: HiTransitionType.push,
+        transition: HiTransitionMode.push,
         parameters: parameters,
       );
 
@@ -93,12 +74,12 @@ class HiRouter {
       forward(
         context,
         path,
-        transition: HiTransitionType.present,
+        transition: HiTransitionMode.present,
         parameters: parameters,
       );
 
   void back<T>(BuildContext context, [T? result]) =>
-      _router.pop(context, result);
+      _navigator.pop(context, result);
 
   Future navigateTo(BuildContext context, String path,
       {bool replace = false,
@@ -109,7 +90,7 @@ class HiRouter {
       Duration? transitionDuration,
       RouteTransitionsBuilder? transitionBuilder,
       RouteSettings? routeSettings}) {
-    return _router.navigateTo(
+    return _navigator.navigateTo(
       context,
       path,
       replace: replace,

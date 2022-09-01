@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hi_github/core/constant.dart';
-import 'package:hi_github/router/router.dart';
+import 'package:hi_github/navigator/navigator.dart';
 
 import 'core/function.dart';
 import 'generated/l10n.dart';
@@ -10,7 +10,7 @@ import 'redux/middleware.dart';
 
 class App extends StatefulWidget {
   App({Key? key}) : super(key: key) {
-    HiRouter.shared().configure();
+    HiNavigator.shared().configure();
     HiBaseResponse.dataKeys += ['access_token'];
     // HiCache.preInit();
     // var aaa = HiModel();
@@ -58,7 +58,7 @@ class _AppState extends State<App> {
                 },
                 locale: store.state.locale,
                 theme: store.state.themeData,
-                onGenerateRoute: HiRouter.shared().generator,
+                onGenerateRoute: HiNavigator.shared().generator,
                 // onGenerateRoute: (settings) {
                 //   log('【主代理】settings = $settings');
                 //    var route = HiRouter.shared().generator(settings);
