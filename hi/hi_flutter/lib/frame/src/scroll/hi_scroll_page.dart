@@ -3,21 +3,17 @@ import '../base/hi_page.dart';
 import '../../../core/hi_core.dart';
 
 abstract class HiScrollPage extends HiPage {
-  // final RefreshCallback? onRefresh;
-  // final RefreshCallback? onLoadMore;
-  final bool canRefresh;
-  final bool canLoadMore;
-
   const HiScrollPage({
     super.key,
     required super.parameters,
-    this.canRefresh = true,
-    this.canLoadMore = false,
   });
 }
 
 abstract class HiScrollPageState<M extends HiModel, T extends HiScrollPage>
     extends HiPageState<T> {
+  late bool canRefresh;
+  late bool canLoadMore;
+
   int pageIndex = 1;
   List<M> list = [];
   ScrollController scrollController = ScrollController();
@@ -26,10 +22,14 @@ abstract class HiScrollPageState<M extends HiModel, T extends HiScrollPage>
   Future<List<M>> requestList(int pageIndex);
 
   @override
-  void initState() {
-    super.initState();
+  void init() {
+    super.init();
+    log('初始化canRefresh开始');
+    canRefresh = parameters.boolForKey(HiParameter.canRefresh) ?? false;
+    canLoadMore = parameters.boolForKey(HiParameter.canLoadMore) ?? false;
+    log('初始化canRefresh结束');
     scrollController.addListener(() {
-      if (!widget.canRefresh) {
+      if (!canRefresh) {
         return;
       }
       var offset = scrollController.position.maxScrollExtent -
@@ -50,7 +50,7 @@ abstract class HiScrollPageState<M extends HiModel, T extends HiScrollPage>
 
   @override
   Widget buildBodyView() {
-    return widget.canRefresh
+    return canRefresh
         ? RefreshIndicator(
             onRefresh: loadData,
             color: Colors.blue,

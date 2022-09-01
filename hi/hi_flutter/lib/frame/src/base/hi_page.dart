@@ -12,18 +12,37 @@ abstract class HiPage extends StatefulWidget {
 
 abstract class HiPageState<T extends HiPage> extends State<T>
     with AutomaticKeepAliveClientMixin {
-  bool loadOnceToken = false;
-  bool hideNavBar = false;
+  late bool hideNavBar;
+  late String? title;
+  late final Map<String, dynamic> parameters;
+  // bool _isInitialized = false;
   bool loading = false;
-  String? title;
   HiUser? get user => context.store.state.user;
 
   @override
   void initState() {
     super.initState();
-    var parameters = widget.parameters;
+    init();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      setup();
+    });
+  }
+
+  /// 该方法在build执行前被调用，用于初始化late数据
+  void init() {
+    log('init被调用');
+    parameters = widget.parameters;
     hideNavBar = parameters.boolForKey(HiParameter.hideNavBar) ?? false;
     title = parameters.stringForKey(HiParameter.title);
+  }
+
+  /// 该方法在build执行后被调用，需要使用setState来修改数据
+  void setup() {
+    log('setup被调用');
+    // if (_isInitialized) {
+    //   return;
+    // }
+    // _isInitialized = true;
     loadData();
   }
 

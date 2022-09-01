@@ -2,7 +2,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'bool.dart';
 import 'int.dart';
-import 'double.dart';
 import 'string.dart';
 
 Color get hiRandomColor {

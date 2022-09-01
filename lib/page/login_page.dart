@@ -16,7 +16,6 @@ class LoginPage extends HiPage {
 }
 
 class _LoginPageState extends HiPageState<LoginPage> {
-  String? title;
   bool isSecure = true;
   bool loginEnable = false;
   bool termChecked = false;
@@ -43,7 +42,7 @@ class _LoginPageState extends HiPageState<LoginPage> {
   }
 
   @override
-  Widget buildBodyView() {
+  Widget buildBody() {
     return Container(
       color: Colors.white,
       child: Flex(

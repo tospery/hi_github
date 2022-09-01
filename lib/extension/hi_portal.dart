@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import 'package:hi_github/core/datatype.dart';
-import 'package:hi_github/widget/card/appinfo_portal_card.dart';
+import 'package:hi_github/widget/cell/appinfo_cell.dart';
 
 extension HiPortalEx on HiPortal {
-  Widget card(ValueChanged<HiPortal>? onPressed) {
+  Widget cell(ValueChanged<HiPortal>? onPressed) {
     var type = PortalType.fromValue(id ?? '');
     switch (type) {
       case PortalType.appinfo:
-        return const AppinfoPortalCard();
+        return const AppinfoCard();
       default:
         return HiPortalCard(
           portal: this,

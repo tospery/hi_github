@@ -12,8 +12,8 @@ class HiRootPage extends HiPage {
 
 class HiRootPageState extends HiPageState<HiRootPage> {
   @override
-  void initState() {
-    super.initState();
+  void init() {
+    super.init();
     hideNavBar = widget.parameters.boolForKey(HiParameter.hideNavBar) ?? true;
   }
 }

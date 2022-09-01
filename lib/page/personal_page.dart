@@ -1,17 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
+import 'package:hi_github/extension/build_context.dart';
 import '../core/datatype.dart';
 import '../extension/hi_user.dart';
-import '../widget/card/unlogined_card.dart';
+import '../widget/cell/unlogined_card.dart';
 
 class PersonalPage extends HiScrollPage {
-  const PersonalPage({Key? key, super.parameters = const {}}) : super(key: key);
+  const PersonalPage({super.key, super.parameters = const {}});
 
   @override
   State<PersonalPage> createState() => PersonalPageState();
 }
 
 class PersonalPageState extends HiScrollPageState<HiModel, PersonalPage> {
+  @override
+  void setup() {
+    super.setup();
+    setState(() {
+      title =
+          parameters.stringForKey(HiParameter.title) ?? context.string.personal;
+    });
+  }
+
   @override
   Widget buildChildView() {
     return ListView.builder(
@@ -86,7 +96,7 @@ class PersonalPageState extends HiScrollPageState<HiModel, PersonalPage> {
   // }
 
   // @override
-  // Widget buildBodyView() {
+  // Widget buildBody() {
   //   return Container(
   //     color: Colors.red,
   //   );

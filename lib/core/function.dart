@@ -6,7 +6,7 @@ ThemeData getThemeData(MaterialColor color) {
     primarySwatch: color,
     brightness: Brightness.light,
     platform: TargetPlatform.iOS,
-    // primaryColor: Colors.orange,
+    primaryColor: Colors.white,
     // backgroundColor: Colors.white,
     scaffoldBackgroundColor: Colors.grey[200],
     appBarTheme: const AppBarTheme(
@@ -14,8 +14,8 @@ ThemeData getThemeData(MaterialColor color) {
       backgroundColor: Colors.white,
       foregroundColor: Colors.black,
     ),
-    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      backgroundColor: Colors.orange,
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: Colors.grey[200],
     ),
     textButtonTheme: TextButtonThemeData(
       style: ButtonStyle(
@@ -63,6 +63,12 @@ ThemeData getThemeData(MaterialColor color) {
       color: Colors.grey[200],
     ),
     indicatorColor: Colors.grey,
+    tabBarTheme: TabBarTheme(
+      labelColor: color,
+      unselectedLabelColor: Colors.black,
+      labelStyle: const TextStyle(fontSize: 14),
+      unselectedLabelStyle: const TextStyle(fontSize: 14),
+    ),
     colorScheme: ColorScheme.light(
       primary: Colors.white,
       onPrimary: color,

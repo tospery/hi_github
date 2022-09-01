@@ -2,14 +2,12 @@ import 'package:flutter/material.dart';
 import '../../../core/hi_core.dart';
 import '../scroll/hi_scroll_page.dart';
 import 'hi_portal.dart';
-import 'hi_portal_card.dart';
+import 'hi_portal_cell.dart';
 
 class HiPortalPage extends HiScrollPage {
   const HiPortalPage({
     super.key,
     required super.parameters,
-    super.canRefresh = false,
-    super.canLoadMore = false,
   });
 
   @override
@@ -20,10 +18,10 @@ class HiPortalPageState extends HiScrollPageState<HiPortal, HiPortalPage> {
   late final String? path;
 
   @override
-  void initState() {
-    path = widget.parameters.stringForKey(HiParameter.path);
-    log('看看portal json的path: $path, paramters = ${widget.parameters}');
-    super.initState();
+  void init() {
+    super.init();
+    path = parameters.stringForKey(HiParameter.path);
+    log('看看portal json的path: $path, paramters = $parameters');
   }
 
   @override
@@ -35,7 +33,7 @@ class HiPortalPageState extends HiScrollPageState<HiPortal, HiPortalPage> {
       controller: scrollController,
       itemBuilder: (context, index) {
         var portal = list[index];
-        return buildPortalCard(portal);
+        return buildCard(portal);
       },
     );
   }
@@ -57,7 +55,7 @@ class HiPortalPageState extends HiScrollPageState<HiPortal, HiPortalPage> {
     log('点击的card: $portal');
   }
 
-  Widget buildPortalCard(HiPortal portal) {
+  Widget buildCard(HiPortal portal) {
     return HiPortalCard(
       portal: portal,
       onPressed: () => doPressed(portal),

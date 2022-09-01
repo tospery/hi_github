@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:hi_flutter/core/hi_core.dart';
 import 'package:hi_flutter/frame/hi_frame.dart';
 
-class AppinfoPortalCard extends StatefulWidget {
-  const AppinfoPortalCard({Key? key}) : super(key: key);
+class AppinfoCard extends StatefulWidget {
+  const AppinfoCard({Key? key}) : super(key: key);
 
   @override
-  State<AppinfoPortalCard> createState() => _AppinfoPortalCardState();
+  State<AppinfoCard> createState() => _AppinfoCardState();
 }
 
-class _AppinfoPortalCardState extends State<AppinfoPortalCard> {
+class _AppinfoCardState extends State<AppinfoCard> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(

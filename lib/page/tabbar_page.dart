@@ -22,7 +22,6 @@ class _TabBarPageState extends State<TabBarPage> {
     return HiTabBarPage(
       tabItems: [
         _renderTab(Icons.home, context.string.home),
-        //_renderTab(Icons.star, context.string.star),
         _renderTab(Icons.account_circle, context.string.personal),
       ],
       tabViews: [
@@ -38,8 +37,12 @@ class _TabBarPageState extends State<TabBarPage> {
   _renderTab(icon, text) {
     return Tab(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[Icon(icon, size: 16.0), Text(text)],
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          Icon(icon, size: 22),
+          hiSpace(height: 2),
+          Text(text)
+        ],
       ),
     );
   }

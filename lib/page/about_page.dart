@@ -3,13 +3,7 @@ import 'package:hi_flutter/hi_flutter.dart';
 import '../extension/hi_portal.dart';
 
 class AboutPage extends HiPortalPage {
-  AboutPage({super.key, required Map<String, dynamic> parameters})
-      : super(
-          parameters: <String, dynamic>{
-                HiParameter.path: 'res/jsons/about_portals.json',
-              } +
-              parameters,
-        );
+  const AboutPage({super.key, super.parameters = const {}});
 
   @override
   AboutPageState createState() => AboutPageState();
@@ -17,8 +11,15 @@ class AboutPage extends HiPortalPage {
 
 class AboutPageState extends HiPortalPageState {
   @override
-  Widget buildPortalCard(HiPortal portal) {
-    return portal.card(doPressed);
+  void init() {
+    super.init();
+    path = parameters.stringForKey(HiParameter.path) ??
+        'res/jsons/about_portals.json';
+  }
+
+  @override
+  Widget buildCard(HiPortal portal) {
+    return portal.cell(doPressed);
   }
 
   @override

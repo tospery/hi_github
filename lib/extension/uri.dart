@@ -5,7 +5,6 @@ import 'package:hi_github/page/oauth_page.dart';
 import 'package:hi_github/page/root_page.dart';
 import 'package:hi_github/page/tabbar_page.dart';
 import 'package:hi_github/page/test_page.dart';
-import 'package:hi_github/page/welcome_page2.dart';
 import '../core/constant.dart';
 import '../page/login_page.dart';
 import 'build_context.dart';
