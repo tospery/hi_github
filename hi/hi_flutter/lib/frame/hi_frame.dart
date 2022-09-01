@@ -3,6 +3,7 @@ export 'package:cached_network_image/cached_network_image.dart';
 export 'package:flutter_redux/flutter_redux.dart';
 export 'package:package_info_plus/package_info_plus.dart';
 export 'src/function.dart';
+export 'src/hi_provider.dart';
 export 'src/hi_app.dart';
 export 'src/hi_root_page.dart';
 export 'src/hi_space.dart';

@@ -19,9 +19,10 @@ extension HiNavigatorEx on HiNavigator {
         log('【Router构建】name = $name');
         var uri = Uri.parse('higithub://$name');
         log('【Router构建】uri = $uri');
-        Map<String, dynamic> myParameters = {
-          HiParameter.title: uri.defaultTitle(context),
-        };
+        // Map<String, dynamic> myParameters = {
+        //   HiParameter.title: uri.defaultTitle(context),
+        // };
+        Map<String, dynamic> myParameters = {};
         myParameters.addAll(uri.queryParameters);
         log('【Router构建】params1 = $myParameters');
         myParameters.addAll(

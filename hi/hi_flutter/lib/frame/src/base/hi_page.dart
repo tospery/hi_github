@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_redux/flutter_redux.dart';
-import '../../../core/hi_core.dart';
-import '../extension/build_context.dart';
-import '../redux/hi_app_state.dart';
+import 'package:hi_flutter/hi_flutter.dart';
 
 abstract class HiPage extends StatefulWidget {
   final Map<String, dynamic> parameters;
@@ -15,9 +12,10 @@ abstract class HiPageState<T extends HiPage> extends State<T>
   late bool hideNavBar;
   late String? title;
   late final Map<String, dynamic> parameters;
-  // bool _isInitialized = false;
   bool loading = false;
   HiUser? get user => context.store.state.user;
+  final provider = HiProvider.shared();
+  final navigator = HiNavigator.shared();
 
   @override
   void initState() {

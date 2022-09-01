@@ -6,30 +6,29 @@ import 'package:hi_github/page/tabbar_page.dart';
 import 'package:hi_github/page/test_page.dart';
 import '../core/constant.dart';
 import '../page/login_page.dart';
-import 'build_context.dart';
 import '../navigator/path.dart';
 
 extension UriEx on Uri {
-  String? defaultTitle(BuildContext? context) {
-    if (host.isEmpty) {
-      return null;
-    }
-    String? title;
-    switch (host) {
-      case HiPath.login:
-        title = context?.string.login;
-        break;
-      case HiPath.about:
-        title = context?.string.about;
-        break;
-      case HiPath.test:
-        title = context?.string.test;
-        break;
-      default:
-        break;
-    }
-    return title;
-  }
+  // String? defaultTitle(BuildContext? context) {
+  //   if (host.isEmpty) {
+  //     return null;
+  //   }
+  //   String? title;
+  //   switch (host) {
+  //     case HiPath.login:
+  //       title = context?.string.login;
+  //       break;
+  //     case HiPath.about:
+  //       title = context?.string.about;
+  //       break;
+  //     case HiPath.test:
+  //       title = context?.string.test;
+  //       break;
+  //     default:
+  //       break;
+  //   }
+  //   return title;
+  // }
 
   Widget? page(
       {BuildContext? context, Map<String, dynamic> parameters = const {}}) {

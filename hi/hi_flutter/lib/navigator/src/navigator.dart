@@ -42,40 +42,43 @@ class HiNavigator {
   Future forward(
     BuildContext context,
     String path, {
-    HiTransitionMode? transition = HiTransitionMode.push,
-    Map<String, dynamic>? parameters,
+    Map<String, dynamic> parameters = const {},
   }) =>
       navigateTo(
         context,
         path,
-        transition: transition?.rawValue,
-        routeSettings: RouteSettings(
-          arguments: parameters,
-        ),
+        transition:
+            HiNavigationMode.fromValue(parameters[HiParameter.navigationMode])
+                .rawValue,
+        routeSettings: RouteSettings(arguments: parameters),
       );
 
   Future push(
     BuildContext context,
     String path, {
-    Map<String, dynamic>? parameters,
+    Map<String, dynamic> parameters = const {},
   }) =>
       forward(
         context,
         path,
-        transition: HiTransitionMode.push,
-        parameters: parameters,
+        parameters: parameters +
+            {
+              HiParameter.navigationMode: HiNavigationMode.push.toString(),
+            },
       );
 
   Future present(
     BuildContext context,
     String path, {
-    Map<String, dynamic>? parameters,
+    Map<String, dynamic> parameters = const {},
   }) =>
       forward(
         context,
         path,
-        transition: HiTransitionMode.present,
-        parameters: parameters,
+        parameters: parameters +
+            {
+              HiParameter.navigationMode: HiNavigationMode.present.toString(),
+            },
       );
 
   void back<T>(BuildContext context, [T? result]) =>

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
+import 'package:hi_github/core/datatype.dart';
 import 'package:hi_github/extension/build_context.dart';
 import 'package:hi_github/extension/hi_model.dart';
 
@@ -34,7 +35,19 @@ class PersonalPageState extends HiPortalsPageState {
 
   @override
   void doPressed(HiPortal model) {
-    // HiRouter.shared().present(context, HiRouterPath.login);
+    // log('点击了cell: ${PortalType.unlogined.instanceName}');
+    // var path = model.navigationPath;
+    // if (path?.isEmpty ?? true) {
+    //   return;
+    // }
+    // navigator.forward(context, path!);
+    // var a1 = true;
+    // var a2 = 1;
+    // var a3 = 1.2;
+    // var a4 = 'string';
+    // if (a4 is Object) {
+
+    // }
   }
 }
 

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
-import 'package:redux_epics_hi/redux_epics_hi.dart';
-import '../../../core/hi_core.dart';
 
 final hiLoginReducer = combineReducers<bool>([
   TypedReducer<bool, LoginSuccessAction>(_loginSuccess),

@@ -11,8 +11,6 @@ enum PortalType {
   qqGroup,
   appinfo;
 
-  String get stringValue => toString().split('.').last;
-
   String? get routerPath {
     switch (this) {
       case PortalType.dark:
@@ -22,21 +20,21 @@ enum PortalType {
       case PortalType.unlogined:
         return HiPath.login;
       default:
-        return stringValue;
+        return instanceName;
     }
   }
 
   factory PortalType.fromValue(String value) =>
       {
-        PortalType.space.stringValue: PortalType.space,
-        PortalType.dark.stringValue: PortalType.dark,
-        PortalType.setting.stringValue: PortalType.setting,
-        PortalType.about.stringValue: PortalType.about,
-        PortalType.feedback.stringValue: PortalType.feedback,
-        PortalType.unlogined.stringValue: PortalType.unlogined,
-        PortalType.weibo.stringValue: PortalType.weibo,
-        PortalType.qqGroup.stringValue: PortalType.qqGroup,
-        PortalType.appinfo.stringValue: PortalType.appinfo,
+        PortalType.space.instanceName: PortalType.space,
+        PortalType.dark.instanceName: PortalType.dark,
+        PortalType.setting.instanceName: PortalType.setting,
+        PortalType.about.instanceName: PortalType.about,
+        PortalType.feedback.instanceName: PortalType.feedback,
+        PortalType.unlogined.instanceName: PortalType.unlogined,
+        PortalType.weibo.instanceName: PortalType.weibo,
+        PortalType.qqGroup.instanceName: PortalType.qqGroup,
+        PortalType.appinfo.instanceName: PortalType.appinfo,
       }[value] ??
       PortalType.space;
 }

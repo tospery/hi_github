@@ -6,6 +6,19 @@ import 'package:hi_github/widget/cell/unlogined_cell.dart';
 import '../core/datatype.dart';
 
 extension HiModelEx on HiModel {
+  String? get navigationPath {
+    if (this is HiPortal) {
+      var type = PortalType.fromValue(id ?? '');
+      switch (type) {
+        case PortalType.unlogined:
+          return '${HiPath.login}?${HiParameter.navigationMode}=present';
+        default:
+          break;
+      }
+    }
+    return null;
+  }
+
   Widget cell(VoidCallback? onPressed) {
     if (this is HiPortal) {
       var type = PortalType.fromValue(id ?? '');

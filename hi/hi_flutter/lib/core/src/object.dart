@@ -1,4 +1,4 @@
 extension HiCoreObjectEx on Object {
-  String get instanceName => runtimeType.toString();
-  // static String get className => toString().split('.').last;
+  String get typeName => runtimeType.toString();
+  String get instanceName => toString().split('.').last;
 }
