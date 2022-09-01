@@ -17,23 +17,20 @@ class _UnloginedCellState extends State<UnloginedCell> {
     return GestureDetector(
       onTap: widget.onPressed,
       child: Container(
-        color: Colors.white,
+        color: context.themeData.colorScheme.primary,
         height: 180,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
               'res/images/github.png',
-              color: Colors.blue,
+              color: context.themeData.colorScheme.onPrimary,
               height: 70,
             ),
             hiSpace(height: 5),
             Text(
               context.string.clickToLogin.capitalize(),
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
+              style: context.themeData.textTheme.displayMedium,
             ),
           ],
         ),

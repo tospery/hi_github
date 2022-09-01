@@ -1,5 +1,9 @@
 [
     {
+        "id": "space",
+        "height": 15
+    },
+    {
         "id": "setting",
         "title": "设置",
         "icon": "res/images/setting.png"

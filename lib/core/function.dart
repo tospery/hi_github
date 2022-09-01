@@ -31,12 +31,17 @@ ThemeData getThemeData(MaterialColor color) {
     ),
     textTheme: const TextTheme(
       displayLarge: TextStyle(
-        fontSize: HiConstant.largeFontSize - 2,
+        fontSize: HiConstant.normalFontSize + 2,
         color: Colors.black,
         fontWeight: FontWeight.bold,
       ),
+      displayMedium: TextStyle(
+        fontSize: HiConstant.normalFontSize,
+        color: Colors.black,
+        fontWeight: FontWeight.w600,
+      ),
       displaySmall: TextStyle(
-        fontSize: HiConstant.smallFontSize + 2,
+        fontSize: HiConstant.normalFontSize - 2,
         color: Colors.grey,
       ),
       // Card's title
