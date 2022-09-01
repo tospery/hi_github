@@ -13,21 +13,18 @@ abstract class HiScrollPageState<M extends HiModel, T extends HiScrollPage>
     extends HiPageState<T> {
   late bool canRefresh;
   late bool canLoadMore;
+  late final String? path;
 
   int pageIndex = 1;
   List<M> list = [];
   ScrollController scrollController = ScrollController();
 
-  Widget buildChildView();
-  Future<List<M>> requestList(int pageIndex);
-
   @override
   void init() {
     super.init();
-    log('初始化canRefresh开始');
     canRefresh = parameters.boolForKey(HiParameter.canRefresh) ?? false;
     canLoadMore = parameters.boolForKey(HiParameter.canLoadMore) ?? false;
-    log('初始化canRefresh结束');
+    path = parameters.stringForKey(HiParameter.path);
     scrollController.addListener(() {
       if (!canRefresh) {
         return;
@@ -43,30 +40,42 @@ abstract class HiScrollPageState<M extends HiModel, T extends HiScrollPage>
   }
 
   @override
+  void setup() {
+    super.setup();
+  }
+
+  @override
   void dispose() {
     super.dispose();
     scrollController.dispose();
   }
 
   @override
-  Widget buildBodyView() {
+  PreferredSizeWidget? buildAppBar() {
+    return super.buildAppBar();
+  }
+
+  @override
+  Widget buildBody() {
     return canRefresh
         ? RefreshIndicator(
             onRefresh: loadData,
             color: Colors.blue,
             triggerMode: RefreshIndicatorTriggerMode.anywhere,
-            child: _buildScrollView(),
+            child: _buildScroll(),
           )
-        : _buildScrollView();
+        : _buildScroll();
   }
 
-  Widget _buildScrollView() {
+  Widget _buildScroll() {
     return MediaQuery.removePadding(
       context: context,
       removeTop: true,
-      child: buildChildView(),
+      child: buildContent(),
     );
   }
+
+  Widget buildContent();
 
   @override
   Future<void> loadData({loadMore = false}) async {
@@ -101,6 +110,8 @@ abstract class HiScrollPageState<M extends HiModel, T extends HiScrollPage>
       // showWarnToast(e.message);
     }
   }
+
+  Future<List<M>> requestList(int pageIndex);
 }
 
 

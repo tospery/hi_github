@@ -23,7 +23,7 @@ class PersonalPageState extends HiScrollPageState<HiModel, PersonalPage> {
   }
 
   @override
-  Widget buildChildView() {
+  Widget buildContent() {
     return ListView.builder(
       physics: const AlwaysScrollableScrollPhysics(),
       padding: const EdgeInsets.only(top: 0),
@@ -35,7 +35,7 @@ class PersonalPageState extends HiScrollPageState<HiModel, PersonalPage> {
         //   return HiSpaceCell(space: model);
         // } else
         if (model is HiPortal) {
-          return HiPortalCard(
+          return HiPortalCell(
             portal: model,
             onPressed: () => _doPressed(model),
           );
@@ -86,19 +86,4 @@ class PersonalPageState extends HiScrollPageState<HiModel, PersonalPage> {
     log('_doPressUnlogin');
     HiRouter.shared().present(context, HiRouterPath.login);
   }
-
-// class PersonalPageState extends HiBaseState<PersonalPage> {
-  // @override
-  // PreferredSizeWidget? buildAppBar() {
-  //   return AppBar(
-  //     title: Text(context.string.personal),
-  //   );
-  // }
-
-  // @override
-  // Widget buildBody() {
-  //   return Container(
-  //     color: Colors.red,
-  //   );
-  // }
 }

@@ -15,17 +15,8 @@ class HiPortalPage extends HiScrollPage {
 }
 
 class HiPortalPageState extends HiScrollPageState<HiPortal, HiPortalPage> {
-  late final String? path;
-
   @override
-  void init() {
-    super.init();
-    path = parameters.stringForKey(HiParameter.path);
-    log('看看portal json的path: $path, paramters = $parameters');
-  }
-
-  @override
-  Widget buildChildView() {
+  Widget buildContent() {
     return ListView.builder(
       physics: const AlwaysScrollableScrollPhysics(),
       padding: const EdgeInsets.only(top: 0),
@@ -56,7 +47,7 @@ class HiPortalPageState extends HiScrollPageState<HiPortal, HiPortalPage> {
   }
 
   Widget buildCard(HiPortal portal) {
-    return HiPortalCard(
+    return HiPortalCell(
       portal: portal,
       onPressed: () => doPressed(portal),
     );

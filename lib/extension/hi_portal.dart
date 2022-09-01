@@ -8,9 +8,9 @@ extension HiPortalEx on HiPortal {
     var type = PortalType.fromValue(id ?? '');
     switch (type) {
       case PortalType.appinfo:
-        return const AppinfoCard();
+        return const AppinfoCell();
       default:
-        return HiPortalCard(
+        return HiPortalCell(
           portal: this,
           onPressed: () => onPressed != null ? onPressed(this) : null,
         );

@@ -18,7 +18,7 @@
 //       builder: (context, store) {
 //         return Scaffold(
 //           appBar: buildAppBar(),
-//           body: buildBodyView(),
+//           body: buildBody(),
 //         );
 //       },
 //     );
@@ -30,5 +30,5 @@
 //     );
 //   }
 
-//   Widget buildBodyView();
+//   Widget buildBody();
 // }

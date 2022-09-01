@@ -74,7 +74,7 @@ abstract class HiPageState<T extends HiPage> extends State<T>
       builder: (context, store) {
         return Scaffold(
           appBar: buildAppBar(),
-          body: buildBodyView(),
+          body: buildBody(),
         );
       },
     );
@@ -89,7 +89,7 @@ abstract class HiPageState<T extends HiPage> extends State<T>
     );
   }
 
-  Widget buildBodyView() {
+  Widget buildBody() {
     return Container();
   }
 
