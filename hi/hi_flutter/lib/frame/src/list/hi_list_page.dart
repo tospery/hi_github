@@ -2,21 +2,21 @@ import 'package:flutter/material.dart';
 import '../base/hi_page.dart';
 import '../../../core/hi_core.dart';
 
-abstract class HiScrollPage extends HiPage {
-  const HiScrollPage({
+abstract class HiListPage extends HiPage {
+  const HiListPage({
     super.key,
     required super.parameters,
   });
 }
 
-abstract class HiScrollPageState<M extends HiModel, T extends HiScrollPage>
+abstract class HiListPageState<M extends HiModel, T extends HiListPage>
     extends HiPageState<T> {
   late bool canRefresh;
   late bool canLoadMore;
   late String? path;
 
   int pageIndex = 1;
-  List<M> list = [];
+  List<M> items = [];
   ScrollController scrollController = ScrollController();
 
   @override
@@ -75,7 +75,19 @@ abstract class HiScrollPageState<M extends HiModel, T extends HiScrollPage>
     );
   }
 
-  Widget buildContent();
+  Widget buildContent() {
+    return ListView.builder(
+      physics: const AlwaysScrollableScrollPhysics(),
+      padding: const EdgeInsets.only(top: 0),
+      itemCount: items.length,
+      controller: scrollController,
+      itemBuilder: (context, index) => buildCell(items[index]),
+    );
+  }
+
+  Widget buildCell(M model) {
+    return model.cell<M>(callback: callback);
+  }
 
   @override
   Future<void> loadData({loadMore = false}) async {
@@ -94,12 +106,12 @@ abstract class HiScrollPageState<M extends HiModel, T extends HiScrollPage>
       var models = await requestList(currentIndex);
       setState(() {
         if (loadMore) {
-          list = [...list, ...models];
+          items = [...items, ...models];
           if (models.isNotEmpty) {
             pageIndex++;
           }
         } else {
-          list = models;
+          items = models;
         }
       });
       Future.delayed(const Duration(milliseconds: 200), () {
@@ -113,4 +125,8 @@ abstract class HiScrollPageState<M extends HiModel, T extends HiScrollPage>
   }
 
   Future<List<M>> requestList(int pageIndex);
+
+  void callback(M model, {dynamic result}) {
+    log('点击$model, 结果->$result');
+  }
 }

@@ -18,7 +18,7 @@ class _UserinfoCellState extends State<UserinfoCell> {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.red,
-      height: 100,
+      height: 120,
     );
   }
 }

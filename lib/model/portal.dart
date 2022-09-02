@@ -1,35 +1,84 @@
+import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 
-class Portal extends Equatable {
-  final int id;
-  final String icon;
-  final String text;
-  final bool indicated;
+enum PortalType {
+  space,
+  dark,
+  language,
+  setting,
+  about,
+  feedback,
+  unlogined,
+  userinfo,
+  userstat,
+  weibo,
+  qqGroup,
+  appinfo;
 
+  String? get routerPath {
+    switch (this) {
+      case PortalType.dark:
+      case PortalType.appinfo:
+      case PortalType.space:
+        return null;
+      case PortalType.unlogined:
+        return HiHost.login;
+      default:
+        return instanceName;
+    }
+  }
+
+  factory PortalType.fromValue(String value) =>
+      {
+        PortalType.space.instanceName: PortalType.space,
+        PortalType.dark.instanceName: PortalType.dark,
+        PortalType.language.instanceName: PortalType.language,
+        PortalType.setting.instanceName: PortalType.setting,
+        PortalType.about.instanceName: PortalType.about,
+        PortalType.feedback.instanceName: PortalType.feedback,
+        PortalType.unlogined.instanceName: PortalType.unlogined,
+        PortalType.userinfo.instanceName: PortalType.userinfo,
+        PortalType.userstat.instanceName: PortalType.userstat,
+        PortalType.weibo.instanceName: PortalType.weibo,
+        PortalType.qqGroup.instanceName: PortalType.qqGroup,
+        PortalType.appinfo.instanceName: PortalType.appinfo,
+      }[value] ??
+      PortalType.space;
+}
+
+class Portal extends HiPortal {
   const Portal({
-    this.id = 0,
-    this.icon = '',
-    this.text = '',
-    this.indicated = true,
+    super.id,
+    super.icon,
+    super.title,
+    super.detail,
+    super.color,
+    super.height = 50,
+    super.indicated = true,
+    super.separated = true,
   });
 
   factory Portal.fromJson(Map<String, dynamic> json) => Portal(
-        id: json['id'] as int? ?? 0,
-        icon: json['icon'] as String? ?? '',
-        text: json['text'] as String? ?? '',
+        id: hiString(json['id']),
+        icon: json['icon'] as String?,
+        title: json['title'] as String?,
+        detail: json['detail'] as String?,
+        color: json['color'] as String?,
+        height: hiDouble(json['height']) ?? 50,
         indicated: json['indicated'] as bool? ?? true,
+        separated: json['separated'] as bool? ?? true,
       );
 
-  Map<String, dynamic> toJson() => {
-        'id': id,
-        'icon': icon,
-        'text': text,
-        'indicated': indicated,
-      };
-
   @override
-  bool get stringify => true;
-
-  @override
-  List<Object?> get props => [id, icon, text, indicated];
+  Widget cell<M extends HiModel>({dynamic data, HiModelCallback<M>? callback}) {
+    return HiPortalCell(
+      portal: this,
+      onPressed: () {
+        if (callback == null) {
+          return;
+        }
+        callback(this as M);
+      },
+    );
+  }
 }

@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:hi_flutter/frame/hi_frame.dart';
+
 import '../../../core/hi_core.dart';
 
 class HiPortal extends HiModel {
@@ -58,4 +61,12 @@ class HiPortal extends HiModel {
         indicated,
         separated,
       ];
+
+  @override
+  Widget cell<M extends HiModel>({dynamic data, HiModelCallback<M>? callback}) {
+    return HiPortalCell(
+      portal: this,
+      onPressed: () => callback != null ? callback(this as M) : null,
+    );
+  }
 }

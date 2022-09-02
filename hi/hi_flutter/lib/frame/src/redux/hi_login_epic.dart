@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:redux_epics_hi/redux_epics_hi.dart';
 
+import '../../../cache/hi_cache.dart';
 import '../../../core/hi_core.dart';
 import '../../../dialog/hi_dialog.dart';
 import '../../../net/hi_net.dart';
@@ -22,6 +23,7 @@ Stream<dynamic> hiLoginEpic(
     showToastActivity();
     var user =
         await HiNet.shared().login(parameters: {HiParameter.code: action.code});
+    HiCache.shared().setString(HiKey.user, user.toJson().jsonString);
     hideToastActivity();
     store.dispatch(UpdateUserAction(user));
     // ignore: use_build_context_synchronously

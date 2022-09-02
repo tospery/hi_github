@@ -1,18 +1,14 @@
-import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
-import 'package:hi_github/core/datatype.dart';
 import 'package:hi_github/extension/build_context.dart';
-import 'package:hi_github/extension/hi_model.dart';
-import '../extension/hi_user.dart';
 
-class PersonalPage extends HiPortalsPage {
+class PersonalPage extends HiModelListPage {
   const PersonalPage({super.key, super.parameters = const {}});
 
   @override
   PersonalPageState createState() => PersonalPageState();
 }
 
-class PersonalPageState extends HiPortalsPageState {
+class PersonalPageState extends HiModelListPageState {
   @override
   void init() {
     super.init();
@@ -28,39 +24,58 @@ class PersonalPageState extends HiPortalsPageState {
           parameters.stringForKey(HiParameter.title) ?? context.string.personal;
     });
   }
-
-  @override
-  Widget buildCell(HiPortal model) {
-    return model.cell(user: user?.realUser, onPressed: () => doPressed(model));
-  }
-
-  @override
-  Future<List<HiPortal>> requestList(int pageIndex) async {
-    if (path?.isEmpty ?? true) {
-      return [];
-    }
-    var content = await context.assetBundle.loadString(path!);
-    var json = content.jsonObject as List? ?? [];
-    var items = json
-        .map((e) => HiPortal.fromJson(e as Map<String, dynamic>? ?? {}))
-        .toList();
-    if (user?.realUser?.isValid ?? false) {
-      items.insert(0, HiPortal(id: PortalType.userinfo.instanceName));
-    } else {
-      items.insert(0, HiPortal(id: PortalType.unlogined.instanceName));
-    }
-    return items;
-  }
-
-  @override
-  void doPressed(HiPortal model) {
-    var uriString = model.uriString;
-    if (uriString?.isEmpty ?? true) {
-      return;
-    }
-    HiRouter.shared().forward(context, uriString!);
-  }
 }
+
+// class PersonalPage extends HiPortalsPage {
+//   const PersonalPage({super.key, super.parameters = const {}});
+
+//   @override
+//   PersonalPageState createState() => PersonalPageState();
+// }
+
+// class PersonalPageState extends HiPortalsPageState {
+  // @override
+  // void init() {
+  //   super.init();
+  //   path = parameters.stringForKey(HiParameter.path) ??
+  //       'res/jsons/personal_portals.json';
+  // }
+
+  // @override
+  // void setup() {
+  //   super.setup();
+  //   setState(() {
+  //     title =
+  //         parameters.stringForKey(HiParameter.title) ?? context.string.personal;
+  //   });
+  // }
+
+//   // @override
+//   // Widget buildCell(HiPortal model) {
+//   //   return model.cell(
+//   //     data: user?.realUser,
+//   //     callback: xxdoPressed,
+//   //   );
+//   // }
+
+//   @override
+//   Future<List<HiPortal>> requestList(int pageIndex) async {
+//     if (path?.isEmpty ?? true) {
+//       return [];
+//     }
+//     var content = await context.assetBundle.loadString(path!);
+//     var json = content.jsonObject as List? ?? [];
+//     var items = json
+//         .map((e) => HiPortal.fromJson(e as Map<String, dynamic>? ?? {}))
+//         .toList();
+//     if (user?.realUser?.isValid ?? false) {
+//       items.insert(0, HiPortal(id: PortalType.userinfo.instanceName));
+//     } else {
+//       items.insert(0, HiPortal(id: PortalType.unlogined.instanceName));
+//     }
+//     return items;
+//   }
+// }
 
 // class PersonalPage extends HiScrollPage {
 //   const PersonalPage({super.key, super.parameters = const {}});

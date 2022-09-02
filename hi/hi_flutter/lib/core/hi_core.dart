@@ -1,6 +1,7 @@
 export 'package:equatable/equatable.dart';
 export 'package:dartx/dartx.dart';
 export 'src/error.dart';
+export 'src/datatype.dart';
 export 'src/extension/list.dart';
 export 'src/extension/bool.dart';
 export 'src/extension/double.dart';
