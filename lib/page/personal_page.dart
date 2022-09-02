@@ -47,17 +47,18 @@ class PersonalPageState extends HiPortalsPageState {
     //     host: 'popup', path: 'invtor', parameters: {'name': 'abcd123'});
     // log('aaa: $aaa');
 
-    // var uri = Uri.parse('higithub://login?navigationMode=present');
+    // var uri =
+    //     Uri.tryParse('higithub://login/native/detail?navigationMode=present')!;
+    // var aaa = uri.path;
+    // var bbb = uri.pathSegments;
+    // log('aaa: $aaa');
+    // log('bbb: $bbb');
+    // log('ccc: ${uri.hostpath}');
 
-    var uri = Uri(
-      scheme: 'app',
-      host: 'popup',
-      path: 'inator',
-      queryParameters: {
-        HiParameter.routerRoot: true,
-      },
-    );
-    log(uri.toString());
+    // Uri.https(host, path ?? '', parameters).toString();
+    // var uri = Uri.https(
+    //     'login', 'native/detail', {HiParameter.hideNavBar: true.toString()});
+    // log('uri = ${uri.toString()}');
   }
 }
 

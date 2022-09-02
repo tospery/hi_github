@@ -8,13 +8,11 @@ final hiLoginReducer = combineReducers<bool>([
 
 bool _loginSuccess(bool result, LoginSuccessAction action) {
   log('登录成功了');
-  HiRouter.shared().forward(
+  HiRouter.shared().push(
     action.context,
     hiUriString(
       host: HiHost.home,
-      parameters: {
-        HiParameter.routerRoot: true.toString(),
-      },
+      queries: {HiParameter.routerRoot: true.toString()},
     ),
   );
   return true;
@@ -23,23 +21,13 @@ bool _loginSuccess(bool result, LoginSuccessAction action) {
 bool _logoutSuccess(bool result, LogoutSuccessAction action) {
   log('退出成功了');
   if (action.isManual) {
-    HiRouter.shared().forward(
-      action.context,
-      hiUriString(
-        host: HiHost.login,
-        parameters: {
-          HiParameter.routerMode: HiRouterMode.present.instanceName,
-        },
-      ),
-    );
+    HiRouter.shared().present(action.context, hiUriString(host: HiHost.login));
   } else {
-    HiRouter.shared().forward(
+    HiRouter.shared().push(
       action.context,
       hiUriString(
         host: HiHost.home,
-        parameters: {
-          HiParameter.routerRoot: true.toString(),
-        },
+        queries: {HiParameter.routerRoot: true.toString()},
       ),
     );
   }

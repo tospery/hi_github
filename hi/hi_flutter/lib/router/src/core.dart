@@ -58,7 +58,6 @@ enum HiRouterMode {
 String hiUriString({
   required String host,
   String? path,
-  Map<String, String>? parameters,
+  Map<String, String>? queries,
 }) =>
-    Uri(scheme: 'app', host: host, path: path, queryParameters: parameters)
-        .toString();
+    Uri.https(host, path ?? '', queries).toString();

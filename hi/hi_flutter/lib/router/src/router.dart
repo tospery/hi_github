@@ -3,6 +3,7 @@ import 'package:fluro/fluro.dart';
 import 'package:hi_flutter/core/hi_core.dart';
 import 'core.dart';
 import 'handler.dart';
+import 'uri.dart';
 
 class HiRouter {
   final _router = FluroRouter();
@@ -31,63 +32,67 @@ class HiRouter {
       _router.generator(routeSettings);
 
   void define(
-    String path, {
+    String uriPattern, {
     required HiRouterHandler handler,
   }) =>
       _router.define(
-        path,
+        uriPattern,
         handler: handler.rawValue,
       );
 
+  /// data存放无法放入uri的数据，如model
   Future<dynamic> forward(
     BuildContext context,
     String uriString, {
-    Map<String, dynamic> parameters = const {},
+    Map<String, dynamic> data = const {},
   }) {
     log('导航: $uriString');
     var uri = Uri.tryParse(uriString);
-    Map<String, dynamic> myParameters = {};
-    myParameters.addAll(parameters);
-    myParameters.addAll(uri?.queryParameters ?? {});
-    var root = myParameters.boolForKey(HiParameter.routerRoot) ?? false;
-    var mode = HiRouterMode.fromValue(myParameters[HiParameter.routerMode]);
+    if (uri == null) {
+      return Future.value(null);
+    }
+    Map<String, dynamic> parameters = {};
+    parameters.addAll(uri.queryParameters);
+    parameters.addAll(data);
+    var root = parameters.boolForKey(HiParameter.routerRoot) ?? false;
+    var mode = HiRouterMode.fromValue(parameters[HiParameter.routerMode]);
     return _router.navigateTo(
       context,
-      uriString.removePrefix('app://'),
+      uri.hostpath,
       replace: root,
       clearStack: root,
       transition: mode.rawValue,
-      routeSettings: RouteSettings(arguments: myParameters),
+      routeSettings: RouteSettings(arguments: parameters),
     );
   }
 
-  // Future push(
-  //   BuildContext context,
-  //   String uriString, {
-  //   Map<String, dynamic> parameters = const {},
-  // }) =>
-  //     forward(
-  //       context,
-  //       uriString,
-  //       parameters: parameters +
-  //           {
-  //             HiParameter.navigationMode: HiNavigationMode.push.toString(),
-  //           },
-  //     );
+  Future<dynamic> push(
+    BuildContext context,
+    String uriString, {
+    Map<String, dynamic> data = const {},
+  }) {
+    var uri = Uri.tryParse(uriString);
+    if (uri == null) {
+      return Future.value(null);
+    }
+    uri.appending(
+        queries: {HiParameter.routerMode: HiRouterMode.push.instanceName});
+    return forward(context, uri.toString(), data: data);
+  }
 
-  // Future present(
-  //   BuildContext context,
-  //   String uriString, {
-  //   Map<String, dynamic> parameters = const {},
-  // }) =>
-  //     forward(
-  //       context,
-  //       uriString,
-  //       parameters: parameters +
-  //           {
-  //             HiParameter.navigationMode: HiNavigationMode.present.toString(),
-  //           },
-  //     );
+  Future<dynamic> present(
+    BuildContext context,
+    String uriString, {
+    Map<String, dynamic> data = const {},
+  }) {
+    var uri = Uri.tryParse(uriString);
+    if (uri == null) {
+      return Future.value(null);
+    }
+    uri.appending(
+        queries: {HiParameter.routerMode: HiRouterMode.present.instanceName});
+    return forward(context, uri.toString(), data: data);
+  }
 
   void back<T>(BuildContext context, [T? result]) =>
       _router.pop(context, result);
