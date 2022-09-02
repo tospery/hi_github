@@ -34,9 +34,9 @@ class _WelcomePage2State extends State<WelcomePage2> {
   }
 
   void initStore() {
-    var token = HiCache.shared().get<String>(HiCacheKey.token);
+    var token = HiCache.shared().get<String>(HiKey.token);
     var user = User.fromJson(
-        (HiCache.shared().get<String>(HiCacheKey.user) ?? '').jsonObject);
+        (HiCache.shared().get<String>(HiKey.user) ?? '').jsonObject);
     log('获取到的user: $user');
     if (user.isValid) {
       context.store.dispatch(UpdateUserAction(user));

@@ -4,7 +4,7 @@ class GithubApiRequest extends HiBaseRequest {
   @override
   String urlString() {
     if (needLogin()) {
-      set('Authorization', 'token ${HiCache.shared().get(HiCacheKey.token)}');
+      set('Authorization', 'token ${HiCache.shared().get(HiKey.token)}');
     }
     return super.urlString();
   }

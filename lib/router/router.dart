@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
-import '../extension/uri.dart';
+import 'uri_router.dart';
 import 'host.dart';
 
 extension HiRouterEx on HiRouter {

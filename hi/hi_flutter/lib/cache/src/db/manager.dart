@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:sqflite/sqflite.dart';
-import '../../core/hi_core.dart';
+
+import '../../../core/hi_core.dart';
 
 class HiDbManager {
   static const _version = 1;

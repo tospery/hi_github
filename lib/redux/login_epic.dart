@@ -16,9 +16,9 @@ Stream<dynamic> loginEpic(
     showToastActivity();
     var token = await HiNet.shared().oauth(action.code);
     var user = await HiNet.shared().login(token);
-    HiCache.shared().setString(HiCacheKey.token, token);
+    HiCache.shared().setString(HiKey.token, token);
     // UserDbProvider().save(user.login, user.toJson().jsonString);
-    HiCache.shared().setString(HiCacheKey.user, user.toJson().jsonString);
+    HiCache.shared().setString(HiKey.user, user.toJson().jsonString);
     hideToastActivity();
     store.dispatch(UpdateUserAction(user));
     // ignore: use_build_context_synchronously

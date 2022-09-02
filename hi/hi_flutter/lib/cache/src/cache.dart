@@ -22,7 +22,7 @@ class HiCache {
     _prefs = prefs;
   }
 
-  static Future<HiCache> preInit() async {
+  static Future<HiCache> ready() async {
     if (_instance == null) {
       var prefs = await SharedPreferences.getInstance();
       log('设置_prefs成功');
@@ -31,23 +31,23 @@ class HiCache {
     return _instance!;
   }
 
-  setString(String key, String value) {
-    if (_prefs == null) {
-      log('设置的时候_prefs为空');
-    }
-    _prefs?.setString(key, value);
-  }
-
-  setDouble(String key, double value) {
-    _prefs?.setDouble(key, value);
+  setBool(String key, bool value) {
+    _prefs?.setBool(key, value);
   }
 
   setInt(String key, int value) {
     _prefs?.setInt(key, value);
   }
 
-  setBool(String key, bool value) {
-    _prefs?.setBool(key, value);
+  setDouble(String key, double value) {
+    _prefs?.setDouble(key, value);
+  }
+
+  setString(String key, String value) {
+    if (_prefs == null) {
+      log('设置的时候_prefs为空');
+    }
+    _prefs?.setString(key, value);
   }
 
   setStringList(String key, List<String> value) {
@@ -66,7 +66,7 @@ class HiCache {
     }
     var result = _prefs?.get(key);
     if (result != null) {
-      return result as T;
+      return result as T?;
     }
     return null;
   }

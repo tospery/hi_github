@@ -15,7 +15,7 @@ class _RootPageState extends HiRootPageState {
   Future<void> loadData({loadMore = false}) async {
     Future.delayed(const Duration(milliseconds: 200), () {
       var user = User.fromJson(
-          (HiCache.shared().get<String>(HiCacheKey.user) ?? '').jsonObject);
+          (HiCache.shared().get<String>(HiKey.user) ?? '').jsonObject);
       log('获取到的user: $user');
       if (!user.isValid) {
         context.store.dispatch(LogoutSuccessAction(context, false));

@@ -21,7 +21,7 @@ class HiApp {
     _packageInfo = prefs;
   }
 
-  static Future<HiApp> preInit() async {
+  static Future<HiApp> ready() async {
     if (_instance == null) {
       var prefs = await PackageInfo.fromPlatform();
       _instance = HiApp._pre(prefs);
