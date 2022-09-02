@@ -6,3 +6,4 @@ url schemes
 Iterable
 重写login
 hinet->path
+Future<bool>用于HiCache的返回值

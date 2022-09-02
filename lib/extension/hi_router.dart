@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
-import 'uri_router.dart';
-import 'host.dart';
+import 'uri.dart';
+import 'hi_host.dart';
 
 extension HiRouterEx on HiRouter {
   //   String? defaultTitle() {

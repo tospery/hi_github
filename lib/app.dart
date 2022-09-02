@@ -2,18 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hi_github/core/constant.dart';
-import 'package:hi_github/router/router.dart';
+import 'package:hi_github/extension/hi_router.dart';
 
 import 'core/function.dart';
 import 'generated/l10n.dart';
-import 'redux/middleware.dart';
 
 class App extends StatefulWidget {
   App({Key? key}) : super(key: key) {
     HiRouter.shared().configure();
     HiBaseResponse.dataKeys += ['access_token'];
-    // HiCache.preInit();
-    // var aaa = HiModel();
+    HiNet.shared().loginFunc = customLogin;
+    HiNet.shared().userinfoFunc = customUserinfo;
   }
 
   @override
@@ -23,7 +22,7 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   final store = Store<HiAPPState>(
     appReducer,
-    middleware: middleware,
+    middleware: hiMiddleware,
     initialState: HiAPPState(
       locale: const Locale('zh', 'CH'),
       themeData: getThemeData(HiConstantEx.primarySwatch),

@@ -4,7 +4,13 @@ import 'adapter/dio_adapter.dart';
 import 'request.dart';
 import 'response.dart';
 
+typedef HiLoginFunc = Future<HiUser> Function(Map<String, dynamic> parameters);
+typedef HiUserinfoFunc = HiLoginFunc;
+
 class HiNet {
+  HiLoginFunc? loginFunc;
+  HiUserinfoFunc? userinfoFunc;
+
   static HiNet? _instance;
   static HiNet shared() {
     _instance ??= HiNet._();
@@ -51,5 +57,38 @@ class HiNet {
     log(request, tag: 'HiHttp');
     HiDioAdapter adapter = HiDioAdapter();
     return adapter.send(request);
+  }
+
+  //   Future<User> login(String token) async {
+  //   LoginRequest request = LoginRequest();
+  //   request.set('Authorization', 'token $token');
+  //   var base = await HiNet.shared().fire(request);
+  //   log('base: $base');
+  //   var json = base.json as Map<String, dynamic>?;
+  //   if (json?.isEmpty ?? true) {
+  //     throw HiUnknownError();
+  //   }
+  //   var user = User.fromJson(json!);
+  //   return user;
+  // }
+
+  Future<HiUser> login({
+    Map<String, dynamic> parameters = const {},
+  }) async {
+    if (loginFunc == null) {
+      throw HiUnknownError();
+    }
+    var user = await loginFunc!(parameters);
+    return user;
+  }
+
+  Future<HiUser> userinfo({
+    Map<String, dynamic> parameters = const {},
+  }) async {
+    if (userinfoFunc == null) {
+      throw HiUnknownError();
+    }
+    var user = await userinfoFunc!(parameters);
+    return user;
   }
 }

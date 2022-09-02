@@ -2,11 +2,10 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import 'package:hi_github/extension/build_context.dart';
-import '../router/host.dart';
-import '../redux/login_epic.dart';
+import '../extension/hi_host.dart';
 import '../widget/login_button.dart';
 import '../widget/login_term.dart';
-import '../widget/password_input.dart';
+import '../widget/login_password_input.dart';
 
 class LoginPage extends HiPage {
   const LoginPage({super.key, super.parameters = const {}});

@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:hi_flutter/hi_flutter.dart';
-import 'package:hi_github/net/hi_net_user.dart';
+import 'package:redux_epics_hi/redux_epics_hi.dart';
+
+import '../../../core/hi_core.dart';
+import '../../../dialog/hi_dialog.dart';
+import '../../../net/hi_net.dart';
+import 'hi_app_state.dart';
+import 'hi_login_reducer.dart';
+import 'hi_user_reducer.dart';
 
 class LoginAction {
   final BuildContext context;
@@ -9,16 +15,14 @@ class LoginAction {
   LoginAction(this.context, this.code);
 }
 
-Stream<dynamic> loginEpic(
+Stream<dynamic> hiLoginEpic(
     Stream<dynamic> actions, EpicStore<HiAPPState> store) {
   Stream<dynamic> _loginIn(
       LoginAction action, EpicStore<HiAPPState> store) async* {
     showToastActivity();
-    var token = await HiNet.shared().oauth(action.code);
-    var user = await HiNet.shared().login(token);
-    HiCache.shared().setString(HiKey.token, token);
-    // UserDbProvider().save(user.login, user.toJson().jsonString);
-    HiCache.shared().setString(HiKey.user, user.toJson().jsonString);
+    var user = await HiNet.shared()
+        .myLogin(parameters: {HiParameter.code: action.code});
+    log('登录成功了！！！！！！');
     hideToastActivity();
     store.dispatch(UpdateUserAction(user));
     // ignore: use_build_context_synchronously

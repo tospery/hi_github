@@ -1,5 +1,9 @@
-import 'package:hi_flutter/hi_flutter.dart';
-import 'package:hi_github/net/hi_net_user.dart';
+import 'package:redux_epics_hi/redux_epics_hi.dart';
+
+import '../../../core/hi_core.dart';
+import '../../../net/hi_net.dart';
+import 'hi_app_state.dart';
+import 'hi_user_reducer.dart';
 
 class FetchUserAction {}
 
@@ -14,7 +18,8 @@ class UserMiddleware implements MiddlewareClass<HiAPPState> {
   }
 }
 
-Stream<dynamic> userEpic(Stream<dynamic> actions, EpicStore<HiAPPState> store) {
+Stream<dynamic> hiUserEpic(
+    Stream<dynamic> actions, EpicStore<HiAPPState> store) {
   // Use the async* function to make easier
   Stream<dynamic> _loadUserInfo() async* {
     log("*********** userEpic _loadUserInfo ***********");
