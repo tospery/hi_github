@@ -6,6 +6,6 @@ class HiParameter {
   static const hideNavBar = 'hideNavBar';
   static const canRefresh = 'canRefresh';
   static const canLoadMore = 'canLoadMore';
-  static const navigationMode = 'navigationMode';
-  static const navigationRoot = 'navigationRoot';
+  static const routerMode = 'routerMode';
+  static const routerRoot = 'routerRoot';
 }

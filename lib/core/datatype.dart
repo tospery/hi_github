@@ -18,7 +18,7 @@ enum PortalType {
       case PortalType.space:
         return null;
       case PortalType.unlogined:
-        return HiPath.login;
+        return HiHost.login;
       default:
         return instanceName;
     }

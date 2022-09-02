@@ -9,7 +9,7 @@ export 'cache/hi_cache.dart';
 export 'net_x/hi_net_x.dart';
 export 'tabbar/hi_tabbar.dart';
 export 'dialog/hi_dialog.dart';
-export 'navigator/hi_navigator.dart';
+export 'router/hi_router.dart';
 export 'frame/hi_frame.dart';
 
 import 'package:hi_flutter/cache/hi_cache.dart';

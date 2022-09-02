@@ -14,8 +14,6 @@ abstract class HiPageState<T extends HiPage> extends State<T>
   late final Map<String, dynamic> parameters;
   bool loading = false;
   HiUser? get user => context.store.state.user;
-  final provider = HiProvider.shared();
-  final navigator = HiNavigator.shared();
 
   @override
   void initState() {

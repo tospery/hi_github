@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import '../extension/uri.dart';
-import '../navigator/path.dart';
+import '../router/path.dart';
 
-extension HiNavigatorEx on HiNavigator {
+extension HiRouterEx on HiRouter {
   //   String? defaultTitle() {
   //   return '1234';
   // }
 
-  HiNavigationHandler get routeHandler {
-    return HiNavigationHandler(
-      type: HiNavigationType.route,
+  HiRouterHandler get routeHandler {
+    return HiRouterHandler(
+      type: HiRouterType.route,
       func: (BuildContext? context, Map<String, List<String>> parameters) {
         log('【Router构建】context参数: ${context?.settings}');
         log('【Router构建】parameters: $parameters');
@@ -37,12 +37,12 @@ extension HiNavigatorEx on HiNavigator {
   }
 
   void configure() {
-    define(HiPath.root, handler: routeHandler);
-    define(HiPath.login, handler: routeHandler);
-    define(HiPath.home, handler: routeHandler);
-    define(HiPath.profile, handler: routeHandler);
-    define(HiPath.about, handler: routeHandler);
-    define(HiPath.test, handler: routeHandler);
-    define(HiPathEx.oauth, handler: routeHandler);
+    define(HiHost.root, handler: routeHandler);
+    define(HiHost.login, handler: routeHandler);
+    define(HiHost.home, handler: routeHandler);
+    define(HiHost.profile, handler: routeHandler);
+    define(HiHost.about, handler: routeHandler);
+    define(HiHost.test, handler: routeHandler);
+    define(HiHostEx.oauth, handler: routeHandler);
   }
 }

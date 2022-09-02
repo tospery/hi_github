@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
-import 'package:hi_flutter/navigator/src/host.dart';
 
 final hiLoginReducer = combineReducers<bool>([
   TypedReducer<bool, LoginSuccessAction>(_loginSuccess),
@@ -9,12 +8,12 @@ final hiLoginReducer = combineReducers<bool>([
 
 bool _loginSuccess(bool result, LoginSuccessAction action) {
   log('登录成功了');
-  HiNavigator.shared().forward(
+  HiRouter.shared().forward(
     action.context,
     hiUriString(
       host: HiHost.home,
       parameters: {
-        HiParameter.navigationRoot: true.toString(),
+        HiParameter.routerRoot: true.toString(),
       },
     ),
   );
@@ -24,22 +23,22 @@ bool _loginSuccess(bool result, LoginSuccessAction action) {
 bool _logoutSuccess(bool result, LogoutSuccessAction action) {
   log('退出成功了');
   if (action.isManual) {
-    HiNavigator.shared().forward(
+    HiRouter.shared().forward(
       action.context,
       hiUriString(
         host: HiHost.login,
         parameters: {
-          HiParameter.navigationMode: HiNavigationMode.present.instanceName,
+          HiParameter.routerMode: HiRouterMode.present.instanceName,
         },
       ),
     );
   } else {
-    HiNavigator.shared().forward(
+    HiRouter.shared().forward(
       action.context,
       hiUriString(
         host: HiHost.home,
         parameters: {
-          HiParameter.navigationRoot: true.toString(),
+          HiParameter.routerRoot: true.toString(),
         },
       ),
     );

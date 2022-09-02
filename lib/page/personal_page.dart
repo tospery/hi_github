@@ -54,7 +54,7 @@ class PersonalPageState extends HiPortalsPageState {
       host: 'popup',
       path: 'inator',
       queryParameters: {
-        HiParameter.navigationRoot: true,
+        HiParameter.routerRoot: true,
       },
     );
     log(uri.toString());

@@ -1,0 +1,1 @@
+extension HiRouterUriEx on Uri {}

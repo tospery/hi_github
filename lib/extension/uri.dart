@@ -6,7 +6,7 @@ import 'package:hi_github/page/tabbar_page.dart';
 import 'package:hi_github/page/test_page.dart';
 import '../core/constant.dart';
 import '../page/login_page.dart';
-import '../navigator/path.dart';
+import '../router/host.dart';
 
 extension UriEx on Uri {
   // String? defaultTitle(BuildContext? context) {
@@ -38,10 +38,10 @@ extension UriEx on Uri {
     }
     Widget? page;
     switch (host) {
-      case HiPath.login:
+      case HiHost.login:
         page = LoginPage(parameters: parameters);
         break;
-      case HiPath.home:
+      case HiHost.home:
         page = const TabBarPage();
         break;
       // case HiRouterPath.profile:
@@ -50,10 +50,10 @@ extension UriEx on Uri {
       // case HiRouterPath.about:
       //   page = AboutPage(parameters: parameters);
       //   break;
-      case HiPath.test:
+      case HiHost.test:
         page = const TestPage();
         break;
-      case HiPathEx.oauth:
+      case HiHostEx.oauth:
         page = OAuthPage(url: Github.oauthUrlString(), title: '授权标题');
         break;
       default:

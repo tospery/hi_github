@@ -11,7 +11,7 @@ extension HiModelEx on HiModel {
       var type = PortalType.fromValue(id ?? '');
       switch (type) {
         case PortalType.unlogined:
-          return '${HiPath.login}?${HiParameter.navigationMode}=present';
+          return '${HiHost.login}?${HiParameter.routerMode}=present';
         default:
           break;
       }

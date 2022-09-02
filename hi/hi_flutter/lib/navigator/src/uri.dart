@@ -1,1 +1,0 @@
-extension HiNavigatorUriEx on Uri {}

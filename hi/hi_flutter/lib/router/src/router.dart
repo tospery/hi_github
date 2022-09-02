@@ -1,24 +1,24 @@
-import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:fluro/fluro.dart';
 import 'package:hi_flutter/core/hi_core.dart';
 import 'core.dart';
 import 'handler.dart';
 
-class HiNavigator {
-  final _navigator = FluroRouter();
+class HiRouter {
+  final _router = FluroRouter();
 
-  static HiNavigator? _instance;
-  static HiNavigator shared() {
-    _instance ??= HiNavigator._();
+  static HiRouter? _instance;
+  static HiRouter shared() {
+    _instance ??= HiRouter._();
     return _instance!;
   }
 
-  HiNavigator._() {
+  HiRouter._() {
     _initialize();
   }
 
   void _initialize() {
-    _navigator.notFoundHandler = Handler(
+    _router.notFoundHandler = Handler(
         handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
       log('ROUTE WAS NOT FOUND !!!');
       return;
@@ -28,13 +28,13 @@ class HiNavigator {
   Route<dynamic>? generator(
     RouteSettings routeSettings,
   ) =>
-      _navigator.generator(routeSettings);
+      _router.generator(routeSettings);
 
   void define(
     String path, {
-    required HiNavigationHandler handler,
+    required HiRouterHandler handler,
   }) =>
-      _navigator.define(
+      _router.define(
         path,
         handler: handler.rawValue,
       );
@@ -49,10 +49,9 @@ class HiNavigator {
     Map<String, dynamic> myParameters = {};
     myParameters.addAll(parameters);
     myParameters.addAll(uri?.queryParameters ?? {});
-    var root = myParameters.boolForKey(HiParameter.navigationRoot) ?? false;
-    var mode =
-        HiNavigationMode.fromValue(myParameters[HiParameter.navigationMode]);
-    return _navigator.navigateTo(
+    var root = myParameters.boolForKey(HiParameter.routerRoot) ?? false;
+    var mode = HiRouterMode.fromValue(myParameters[HiParameter.routerMode]);
+    return _router.navigateTo(
       context,
       uriString.removePrefix('app://'),
       replace: root,
@@ -91,28 +90,5 @@ class HiNavigator {
   //     );
 
   void back<T>(BuildContext context, [T? result]) =>
-      _navigator.pop(context, result);
-
-  Future _navigateTo(BuildContext context, String path,
-      {bool replace = false,
-      bool clearStack = false,
-      bool maintainState = true,
-      bool rootNavigator = false,
-      TransitionType? transition,
-      Duration? transitionDuration,
-      RouteTransitionsBuilder? transitionBuilder,
-      RouteSettings? routeSettings}) {
-    return _navigator.navigateTo(
-      context,
-      path,
-      replace: replace,
-      clearStack: clearStack,
-      maintainState: maintainState,
-      rootNavigator: rootNavigator,
-      transition: transition,
-      transitionDuration: transitionDuration,
-      transitionBuilder: transitionBuilder,
-      routeSettings: routeSettings,
-    );
-  }
+      _router.pop(context, result);
 }

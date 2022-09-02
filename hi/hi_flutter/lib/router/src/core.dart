@@ -2,56 +2,56 @@ import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
 import 'package:hi_flutter/core/hi_core.dart';
 
-typedef HiNavigationFunc = Widget? Function(
+typedef HiRouterFunc = Widget? Function(
     BuildContext? context, Map<String, List<String>> parameters);
 
-enum HiNavigationType {
+enum HiRouterType {
   route,
   function;
 
   HandlerType get rawValue {
     switch (this) {
-      case HiNavigationType.route:
+      case HiRouterType.route:
         return HandlerType.route;
-      case HiNavigationType.function:
+      case HiRouterType.function:
         return HandlerType.function;
     }
   }
 }
 
-enum HiNavigationMode {
+enum HiRouterMode {
   push,
   present;
 
   TransitionType get rawValue {
     switch (this) {
-      case HiNavigationMode.push:
+      case HiRouterMode.push:
         return TransitionType.native;
-      case HiNavigationMode.present:
+      case HiRouterMode.present:
         return TransitionType.nativeModal;
       default:
         return TransitionType.none;
     }
   }
 
-  factory HiNavigationMode.fromValue(dynamic value) {
+  factory HiRouterMode.fromValue(dynamic value) {
     if (value is int) {
       if (value == 0) {
-        return HiNavigationMode.push;
+        return HiRouterMode.push;
       }
       if (value == 1) {
-        return HiNavigationMode.present;
+        return HiRouterMode.present;
       }
     }
     if (value is String) {
-      if (value == HiNavigationMode.push.instanceName || value == '0') {
-        return HiNavigationMode.push;
+      if (value == HiRouterMode.push.instanceName || value == '0') {
+        return HiRouterMode.push;
       }
-      if (value == HiNavigationMode.present.instanceName || value == '1') {
-        return HiNavigationMode.present;
+      if (value == HiRouterMode.present.instanceName || value == '1') {
+        return HiRouterMode.present;
       }
     }
-    return HiNavigationMode.push;
+    return HiRouterMode.push;
   }
 }
 
