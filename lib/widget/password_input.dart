@@ -1,13 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:hi_flutter/hi_flutter.dart';
 import '../extension/build_context.dart';
 
 class PasswordInput extends StatelessWidget {
   final bool secure;
+  final String? password;
   final VoidCallback? onSecured;
   final ValueChanged<String>? onChanged;
 
-  const PasswordInput(
-      {super.key, required this.secure, this.onSecured, this.onChanged});
+  const PasswordInput({
+    super.key,
+    required this.secure,
+    this.password,
+    this.onSecured,
+    this.onChanged,
+  });
+
+  // const PasswordInput(
+  //     {super.key, required this.secure, this.onSecured, this.onChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +28,10 @@ class PasswordInput extends StatelessWidget {
         child: Stack(
           children: [
             TextField(
-              cursorColor: Colors.blue,
+              controller: TextEditingController.fromValue(
+                TextEditingValue(text: password ?? ''),
+              ),
+              cursorColor: context.themeData.colorScheme.onPrimary,
               obscureText: secure,
               style: const TextStyle(
                 fontSize: 16,

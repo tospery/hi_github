@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hi_flutter/hi_flutter.dart';
 
 class LoginButton extends StatelessWidget {
   final String title;
@@ -24,7 +25,7 @@ class LoginButton extends StatelessWidget {
             if (states.contains(MaterialState.disabled)) {
               return Colors.grey[400];
             }
-            return Colors.blue;
+            return context.themeData.colorScheme.onPrimary;
           }),
           foregroundColor: MaterialStateProperty.resolveWith((states) {
             if (states.contains(MaterialState.disabled)) {

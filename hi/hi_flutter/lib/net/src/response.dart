@@ -1,7 +1,5 @@
 import 'dart:convert' as convert;
-import '../../core/hi_core.dart';
-
-enum HiResponseDataKind { model, array, basic }
+import '../../../core/hi_core.dart';
 
 class HiBaseResponse {
   final int code;

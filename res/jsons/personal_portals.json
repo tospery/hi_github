@@ -4,7 +4,7 @@
     },
     {
         "id": "space",
-        "height": 15
+        "height": 10
     },
     {
         "id": "dark",
@@ -13,19 +13,29 @@
         "indicated": false
     },
     {
+        "id": "language",
+        "title": "语言",
+        "icon": "res/images/language.png",
+        "separated": false
+    },
+    {
+        "id": "space",
+        "height": 10
+    },
+    {
         "id": "setting",
         "title": "设置",
         "icon": "res/images/setting.png"
     },
     {
-        "id": "about",
-        "title": "关于",
-        "icon": "res/images/about.png"
-    },
-    {
         "id": "feedback",
-        "separated": false,
         "title": "反馈",
         "icon": "res/images/feedback.png"
+    },
+    {
+        "id": "about",
+        "title": "关于",
+        "icon": "res/images/about.png",
+        "separated": false
     }
 ]

@@ -1,8 +1,8 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'bool.dart';
-import 'int.dart';
-import 'string.dart';
+import 'extension/bool.dart';
+import 'extension/int.dart';
+import 'extension/string.dart';
 
 Color get hiRandomColor {
   return Color.fromRGBO(

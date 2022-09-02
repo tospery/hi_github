@@ -1,5 +1,4 @@
-
-enum HiHttpMethod { get, post, delete }
+import 'core.dart';
 
 abstract class HiBaseRequest {
   var useHttps = true;
@@ -39,7 +38,7 @@ abstract class HiBaseRequest {
     headers[k] = v.toString();
     return this;
   }
-  
+
   Uri _getUri(String fullpath) {
     Uri uri;
     var method = this.method();

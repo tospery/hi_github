@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fluro/fluro.dart';
-import 'package:hi_flutter/core/hi_core.dart';
-import 'core.dart';
-import 'handler.dart';
-import 'uri.dart';
+import 'package:hi_flutter/hi_flutter.dart';
 
 class HiRouter {
   final _router = FluroRouter();
@@ -96,4 +92,11 @@ class HiRouter {
 
   void back<T>(BuildContext context, [T? result]) =>
       _router.pop(context, result);
+
+  Future<dynamic> goLogin(BuildContext context) {
+    return present(
+      context,
+      hiUriString(host: HiHost.login),
+    );
+  }
 }

@@ -15,6 +15,13 @@ Widget hiImage(String url, {double? width, double? height}) {
   );
 }
 
+SizedBox hiSpace({double width = 1, double height = 1}) {
+  return SizedBox(
+    width: width,
+    height: height,
+  );
+}
+
 BoxBorder hiBorder({
   BuildContext? context,
   Color? color,

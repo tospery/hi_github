@@ -6,9 +6,9 @@ import 'package:hi_github/page/tabbar_page.dart';
 import 'package:hi_github/page/test_page.dart';
 import '../core/constant.dart';
 import '../page/login_page.dart';
-import '../router/host.dart';
+import 'host.dart';
 
-extension UriEx on Uri {
+extension UriRouter on Uri {
   // String? defaultTitle(BuildContext? context) {
   //   if (host.isEmpty) {
   //     return null;

@@ -34,31 +34,11 @@ class PersonalPageState extends HiPortalsPageState {
 
   @override
   void doPressed(HiPortal model) {
-    // Uri.tryParse(uri)
-    // var aaa = Uri.tryParse('https://m.baidu.com?query=abc123');
-    // var bbb = aaa.toString();
-    // log('bbb: $bbb');
-    // var path = model.navigationPath;
-    // if (path?.isEmpty ?? true) {
-    //   return;
-    // }
-    // navigator.forward(context, path!);
-    // var aaa = hiUriString(
-    //     host: 'popup', path: 'invtor', parameters: {'name': 'abcd123'});
-    // log('aaa: $aaa');
-
-    // var uri =
-    //     Uri.tryParse('higithub://login/native/detail?navigationMode=present')!;
-    // var aaa = uri.path;
-    // var bbb = uri.pathSegments;
-    // log('aaa: $aaa');
-    // log('bbb: $bbb');
-    // log('ccc: ${uri.hostpath}');
-
-    // Uri.https(host, path ?? '', parameters).toString();
-    // var uri = Uri.https(
-    //     'login', 'native/detail', {HiParameter.hideNavBar: true.toString()});
-    // log('uri = ${uri.toString()}');
+    var uriString = model.uriString;
+    if (uriString?.isEmpty ?? true) {
+      return;
+    }
+    HiRouter.shared().forward(context, uriString!);
   }
 }
 

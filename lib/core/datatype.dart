@@ -3,6 +3,7 @@ import 'package:hi_flutter/hi_flutter.dart';
 enum PortalType {
   space,
   dark,
+  language,
   setting,
   about,
   feedback,
@@ -28,6 +29,7 @@ enum PortalType {
       {
         PortalType.space.instanceName: PortalType.space,
         PortalType.dark.instanceName: PortalType.dark,
+        PortalType.language.instanceName: PortalType.language,
         PortalType.setting.instanceName: PortalType.setting,
         PortalType.about.instanceName: PortalType.about,
         PortalType.feedback.instanceName: PortalType.feedback,

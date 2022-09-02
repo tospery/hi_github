@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:hi_flutter/hi_flutter.dart';
 import '../extension/build_context.dart';
 
 class LoginTerm extends StatelessWidget {
@@ -34,7 +35,7 @@ class LoginTerm extends StatelessWidget {
                     checked
                         ? Icons.radio_button_checked_outlined
                         : Icons.radio_button_unchecked_outlined,
-                    color: Colors.blue,
+                    color: context.themeData.colorScheme.onPrimary,
                     size: 16,
                   ),
                 ),
@@ -44,7 +45,8 @@ class LoginTerm extends StatelessWidget {
               ),
               TextSpan(
                 text: '《${context.string.userAgreement}》',
-                style: const TextStyle(color: Colors.blue),
+                style:
+                    TextStyle(color: context.themeData.colorScheme.onPrimary),
                 recognizer: agreementRecognizer,
               ),
               const TextSpan(
@@ -52,7 +54,8 @@ class LoginTerm extends StatelessWidget {
               ),
               TextSpan(
                 text: '《${context.string.privacyPolicy}》',
-                style: const TextStyle(color: Colors.blue),
+                style:
+                    TextStyle(color: context.themeData.colorScheme.onPrimary),
                 recognizer: privacyRecognizer,
               ),
             ],

@@ -3,6 +3,6 @@ FutureBuild详解
 重写tabbar
 webview
 url schemes
-uriPattern
-root/present/push
 Iterable
+重写login
+hinet->path

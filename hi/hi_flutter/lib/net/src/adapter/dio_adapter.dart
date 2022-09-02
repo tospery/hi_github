@@ -1,25 +1,10 @@
 import 'package:dio/dio.dart';
-import '../../core/hi_core.dart';
-import 'error.dart';
-import 'request.dart';
-import 'response.dart';
-
-abstract class HiBaseAdapter {
-  Future<HiBaseResponse> send(HiBaseRequest request);
-}
-
-class HiMockAdapter extends HiBaseAdapter {
-  @override
-  Future<HiBaseResponse> send(HiBaseRequest request) {
-    return Future.delayed(const Duration(milliseconds: 1000), () {
-      // return HiHttpResponse(
-      //   request,
-      //   data: HiBaseResponse(),
-      // );
-      return HiBaseResponse();
-    });
-  }
-}
+import '../../../core/hi_core.dart';
+import '../error.dart';
+import '../response.dart';
+import 'adapter.dart';
+import '../core.dart';
+import '../request.dart';
 
 class HiDioAdapter extends HiBaseAdapter {
   @override
@@ -52,7 +37,7 @@ class HiDioAdapter extends HiBaseAdapter {
 
     if (error != null) {
       log('发生错误了');
-      throw HiHttpError(response?.statusCode ?? -1, error.toString(),
+      throw HiNetError(response?.statusCode ?? -1, error.toString(),
           data: await buildResponse(request, response));
     }
     // log(message, tag: 'HiHttp');

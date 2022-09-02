@@ -1,13 +1,12 @@
 import 'package:hi_flutter/hi_flutter.dart';
-
+import 'package:hi_github/request/github/oauth_request.dart';
 import '../core/constant.dart';
 import '../model/user.dart';
-import '../request/github/oauth_request.dart';
 import '../request/githubapi/login_request.dart';
 import '../request/githubapi/userinfo_request.dart';
 
-class UserDao {
-  static Future<String> oauth(String code) async {
+extension HiNetUser on HiNet {
+  Future<String> oauth(String code) async {
     OAuthRequest request = OAuthRequest();
     request
         .add(HiParameter.code, code)
@@ -22,7 +21,7 @@ class UserDao {
     return token!;
   }
 
-  static Future<User> login(String token) async {
+  Future<User> login(String token) async {
     LoginRequest request = LoginRequest();
     request.set('Authorization', 'token $token');
     var base = await HiNet.shared().fire(request);
@@ -35,7 +34,7 @@ class UserDao {
     return user;
   }
 
-  static Future<User> userinfo() async {
+  Future<User> userinfo() async {
     UserinfoRequest request = UserinfoRequest();
     var base = await HiNet.shared().fire(request);
     log('base: $base');

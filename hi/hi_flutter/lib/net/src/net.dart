@@ -1,6 +1,6 @@
 import '../../core/hi_core.dart';
-import 'adapter.dart';
 import 'error.dart';
+import 'adapter/dio_adapter.dart';
 import 'request.dart';
 import 'response.dart';
 
@@ -18,7 +18,7 @@ class HiNet {
     Object? error;
     try {
       response = await _send(request);
-    } on HiHttpError catch (e) {
+    } on HiNetError catch (e) {
       log('发生错误1: $e');
       error = e;
       response = e.data;
@@ -39,11 +39,11 @@ class HiNet {
       case 200:
         return response!;
       case 401:
-        throw HiHttpUnloginError();
+        throw HiNetUnloginedError();
       case 403:
-        throw HiHttpNeedAuthError();
+        throw HiNetUnauthorizedError();
       default:
-        throw HiHttpError(code ?? -1, response?.message ?? '', data: response);
+        throw HiNetError(code ?? -1, response?.message ?? '', data: response);
     }
   }
 

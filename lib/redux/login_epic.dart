@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
-import '../dao/user_dao.dart';
+import 'package:hi_github/net/hi_net_user.dart';
 
 class LoginAction {
   final BuildContext context;
@@ -14,8 +14,8 @@ Stream<dynamic> loginEpic(
   Stream<dynamic> _loginIn(
       LoginAction action, EpicStore<HiAPPState> store) async* {
     showToastActivity();
-    var token = await UserDao.oauth(action.code);
-    var user = await UserDao.login(token);
+    var token = await HiNet.shared().oauth(action.code);
+    var user = await HiNet.shared().login(token);
     HiCache.shared().setString(HiCacheKey.token, token);
     // UserDbProvider().save(user.login, user.toJson().jsonString);
     HiCache.shared().setString(HiCacheKey.user, user.toJson().jsonString);

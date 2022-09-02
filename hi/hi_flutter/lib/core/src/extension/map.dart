@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'function.dart';
+import '../function.dart';
 
 extension HiCoreMapEx<K, V> on Map<K, V> {
   bool? boolForKey(K key) => hiBool(this[key]);

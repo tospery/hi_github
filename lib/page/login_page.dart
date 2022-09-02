@@ -19,8 +19,8 @@ class _LoginPageState extends HiPageState<LoginPage> {
   bool isSecure = true;
   bool loginEnable = false;
   bool termChecked = false;
-  String? username;
-  String? password;
+  String? username = 'admin';
+  String? password = '11111111';
   TapGestureRecognizer agreementGestureRecognizer = TapGestureRecognizer();
   TapGestureRecognizer privacyGestureRecognizer = TapGestureRecognizer();
 
@@ -30,6 +30,9 @@ class _LoginPageState extends HiPageState<LoginPage> {
     privacyGestureRecognizer.onTap = () {
       log('privacy tapped');
     };
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      _checkInput();
+    });
   }
 
   @override
@@ -78,6 +81,7 @@ class _LoginPageState extends HiPageState<LoginPage> {
           hiSpace(height: 5),
           PasswordInput(
             secure: isSecure,
+            password: password,
             onSecured: () {
               setState(() {
                 isSecure = !isSecure;
@@ -107,7 +111,10 @@ class _LoginPageState extends HiPageState<LoginPage> {
       child: SizedBox(
         height: 50,
         child: TextField(
-          cursorColor: Colors.blue,
+          controller: TextEditingController.fromValue(
+            TextEditingValue(text: username ?? ''),
+          ),
+          cursorColor: context.themeData.colorScheme.onPrimary,
           style: const TextStyle(
             fontSize: 16,
             color: Colors.black,

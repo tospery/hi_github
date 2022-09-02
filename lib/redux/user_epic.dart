@@ -1,5 +1,5 @@
 import 'package:hi_flutter/hi_flutter.dart';
-import '../dao/user_dao.dart';
+import 'package:hi_github/net/hi_net_user.dart';
 
 class FetchUserAction {}
 
@@ -18,7 +18,7 @@ Stream<dynamic> userEpic(Stream<dynamic> actions, EpicStore<HiAPPState> store) {
   // Use the async* function to make easier
   Stream<dynamic> _loadUserInfo() async* {
     log("*********** userEpic _loadUserInfo ***********");
-    var user = await UserDao.userinfo();
+    var user = await HiNet.shared().userinfo();
     yield UpdateUserAction(user);
   }
 

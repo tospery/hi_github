@@ -6,12 +6,14 @@ import 'package:hi_github/widget/cell/unlogined_cell.dart';
 import '../core/datatype.dart';
 
 extension HiModelEx on HiModel {
-  String? get navigationPath {
+  String? get uriString {
     if (this is HiPortal) {
       var type = PortalType.fromValue(id ?? '');
       switch (type) {
         case PortalType.unlogined:
-          return '${HiHost.login}?${HiParameter.routerMode}=present';
+          return hiUriString(host: HiHost.login, queries: {
+            HiParameter.routerMode: HiRouterMode.present.instanceName,
+          });
         default:
           break;
       }
