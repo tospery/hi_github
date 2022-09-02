@@ -63,7 +63,7 @@ class HiPortal extends HiModel {
       ];
 
   @override
-  Widget cell<M extends HiModel>({dynamic data, HiModelCallback<M>? callback}) {
+  Widget cell<M extends HiModel>(HiModelCallback<M>? callback) {
     return HiPortalCell(
       portal: this,
       onPressed: () => callback != null ? callback(this as M) : null,

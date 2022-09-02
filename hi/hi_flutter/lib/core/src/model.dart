@@ -26,7 +26,7 @@ class HiModel extends Equatable {
   @override
   bool get stringify => true;
 
-  Widget cell<M extends HiModel>({dynamic data, HiModelCallback<M>? callback}) {
+  Widget cell<M extends HiModel>(HiModelCallback<M>? callback) {
     return Container(
       color: hiRandomColor,
       height: 100,

@@ -1,5 +1,7 @@
 import 'package:hi_flutter/hi_flutter.dart';
 import 'package:hi_github/extension/build_context.dart';
+import 'package:hi_github/item/userinfo_item.dart';
+import '../extension/hi_user.dart';
 
 class PersonalPage extends HiModelListPage {
   const PersonalPage({super.key, super.parameters = const {}});
@@ -23,6 +25,15 @@ class PersonalPageState extends HiModelListPageState {
       title =
           parameters.stringForKey(HiParameter.title) ?? context.string.personal;
     });
+  }
+
+  @override
+  Future<List<HiModel>> requestList(int pageIndex) async {
+    var models = await super.requestList(pageIndex);
+    if (user?.realUser?.isValid ?? false) {
+      models.insert(0, UserinfoItem(user!.realUser!));
+    } else {}
+    return models;
   }
 }
 

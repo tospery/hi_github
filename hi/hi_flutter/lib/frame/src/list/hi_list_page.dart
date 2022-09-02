@@ -86,7 +86,7 @@ abstract class HiListPageState<M extends HiModel, T extends HiListPage>
   }
 
   Widget buildCell(M model) {
-    return model.cell<M>(callback: callback);
+    return model.cell<M>(callback);
   }
 
   @override
