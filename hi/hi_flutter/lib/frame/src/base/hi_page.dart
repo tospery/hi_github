@@ -10,6 +10,7 @@ abstract class HiPage extends StatefulWidget {
 abstract class HiPageState<T extends HiPage> extends State<T>
     with AutomaticKeepAliveClientMixin {
   late bool hideNavBar;
+  late bool hideNavLine;
   late String? title;
   late final Map<String, dynamic> parameters;
   bool loading = false;
@@ -29,6 +30,7 @@ abstract class HiPageState<T extends HiPage> extends State<T>
     log('init被调用');
     parameters = widget.parameters;
     hideNavBar = parameters.boolForKey(HiParameter.hideNavBar) ?? false;
+    hideNavLine = parameters.boolForKey(HiParameter.hideNavLine) ?? false;
     title = parameters.stringForKey(HiParameter.title);
   }
 
@@ -81,6 +83,7 @@ abstract class HiPageState<T extends HiPage> extends State<T>
       return null;
     }
     return AppBar(
+      elevation: hideNavLine ? 0 : null,
       title: title?.isNotEmpty ?? false ? Text(title!) : null,
     );
   }

@@ -4,6 +4,7 @@ class HiParameter {
   static const path = 'path';
   static const title = 'title';
   static const hideNavBar = 'hideNavBar';
+  static const hideNavLine = 'hideNavLine';
   static const canRefresh = 'canRefresh';
   static const canLoadMore = 'canLoadMore';
   static const routerMode = 'routerMode';

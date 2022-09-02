@@ -9,7 +9,7 @@ import '../widget/login_term.dart';
 import '../widget/password_input.dart';
 
 class LoginPage extends HiPage {
-  const LoginPage({Key? key, required super.parameters}) : super(key: key);
+  const LoginPage({super.key, super.parameters = const {}});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -25,8 +25,8 @@ class _LoginPageState extends HiPageState<LoginPage> {
   TapGestureRecognizer privacyGestureRecognizer = TapGestureRecognizer();
 
   @override
-  void initState() {
-    super.initState();
+  void init() {
+    super.init();
     privacyGestureRecognizer.onTap = () {
       log('privacy tapped');
     };
@@ -36,18 +36,26 @@ class _LoginPageState extends HiPageState<LoginPage> {
   }
 
   @override
-  PreferredSizeWidget? buildAppBar() {
-    var title = widget.parameters.stringForKey(HiParameter.title);
-    return AppBar(
-      elevation: 0,
-      title: title != null ? Text(title) : null,
-    );
+  void setup() {
+    super.setup();
+    setState(() {
+      title =
+          parameters.stringForKey(HiParameter.title) ?? context.string.login;
+      hideNavLine = parameters.boolForKey(HiParameter.hideNavLine) ?? true;
+    });
+  }
+
+  @override
+  void dispose() {
+    agreementGestureRecognizer.dispose();
+    privacyGestureRecognizer.dispose();
+    super.dispose();
   }
 
   @override
   Widget buildBody() {
     return Container(
-      color: Colors.white,
+      color: context.themeData.primaryColor,
       child: Flex(
         direction: Axis.vertical,
         children: [
@@ -64,22 +72,15 @@ class _LoginPageState extends HiPageState<LoginPage> {
     );
   }
 
-  @override
-  void dispose() {
-    agreementGestureRecognizer.dispose();
-    privacyGestureRecognizer.dispose();
-    super.dispose();
-  }
-
   _buildInputView() {
     return Container(
       decoration: const BoxDecoration(color: Colors.white),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          _buildUsernameInputView(),
+          _buildUsernameInput(),
           hiSpace(height: 5),
-          PasswordInput(
+          LoginPasswordInput(
             secure: isSecure,
             password: password,
             onSecured: () {
@@ -105,7 +106,7 @@ class _LoginPageState extends HiPageState<LoginPage> {
     );
   }
 
-  _buildUsernameInputView() {
+  _buildUsernameInput() {
     return FractionallySizedBox(
       widthFactor: 0.9,
       child: SizedBox(

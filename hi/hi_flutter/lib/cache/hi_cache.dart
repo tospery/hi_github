@@ -5,5 +5,5 @@ export 'src/key.dart';
 export 'src/db/field.dart';
 export 'src/cache.dart';
 export 'src/db/record.dart';
-export 'src/db_manager.dart';
-export 'src/db_provider.dart';
+export 'src/db/manager.dart';
+export 'src/db/provider.dart';

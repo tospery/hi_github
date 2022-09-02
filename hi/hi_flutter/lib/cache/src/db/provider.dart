@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:sqflite/sqflite.dart';
-import '../../core/hi_core.dart';
-import 'db_manager.dart';
+import '../../../core/hi_core.dart';
+import 'manager.dart';
 
 class HiDbProvider {
   final String columnId = '_id';

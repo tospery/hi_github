@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import '../extension/build_context.dart';
 
-class PasswordInput extends StatelessWidget {
+class LoginPasswordInput extends StatelessWidget {
   final bool secure;
   final String? password;
   final VoidCallback? onSecured;
   final ValueChanged<String>? onChanged;
 
-  const PasswordInput({
+  const LoginPasswordInput({
     super.key,
     required this.secure,
     this.password,
