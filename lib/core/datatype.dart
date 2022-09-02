@@ -8,6 +8,8 @@ enum PortalType {
   about,
   feedback,
   unlogined,
+  userinfo,
+  userstat,
   weibo,
   qqGroup,
   appinfo;
@@ -34,6 +36,8 @@ enum PortalType {
         PortalType.about.instanceName: PortalType.about,
         PortalType.feedback.instanceName: PortalType.feedback,
         PortalType.unlogined.instanceName: PortalType.unlogined,
+        PortalType.userinfo.instanceName: PortalType.userinfo,
+        PortalType.userstat.instanceName: PortalType.userstat,
         PortalType.weibo.instanceName: PortalType.weibo,
         PortalType.qqGroup.instanceName: PortalType.qqGroup,
         PortalType.appinfo.instanceName: PortalType.appinfo,

@@ -25,7 +25,7 @@ class HiCache {
   static Future<HiCache> ready() async {
     if (_instance == null) {
       var prefs = await SharedPreferences.getInstance();
-      log('设置_prefs成功');
+      // log('设置_prefs成功');
       _instance = HiCache._pre(prefs);
     }
     return _instance!;
@@ -59,11 +59,6 @@ class HiCache {
   }
 
   T? get<T>(String key) {
-    if (_prefs == null) {
-      log('_prefs是空的');
-    } else {
-      log('_prefs正常');
-    }
     var result = _prefs?.get(key);
     if (result != null) {
       return result as T?;

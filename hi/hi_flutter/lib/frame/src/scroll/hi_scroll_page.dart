@@ -88,7 +88,8 @@ abstract class HiScrollPageState<M extends HiModel, T extends HiScrollPage>
       pageIndex = 1;
     }
     var currentIndex = pageIndex + (loadMore ? 1 : 0);
-    log('开始加载数据loadMore = $loadMore, currentIndex = $currentIndex');
+    log('$typeName->loadData: loadMore = $loadMore, currentIndex = $currentIndex',
+        tag: HiLogTag.frame);
     try {
       var models = await requestList(currentIndex);
       setState(() {

@@ -173,7 +173,8 @@ class _LoginPageState extends HiPageState<LoginPage> {
       toast(context.string.termTips);
       return;
     }
-    String? code = await HiRouter.shared().forward(context, HiHostEx.oauth);
+    String? code = await HiRouter.shared()
+        .push(context, hiUriString(host: HiHostEx.oauth));
     log('code = $code');
     if (code?.isNotEmpty ?? false) {
       // ignore: use_build_context_synchronously

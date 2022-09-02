@@ -27,7 +27,7 @@ abstract class HiPageState<T extends HiPage> extends State<T>
 
   /// 该方法在build执行前被调用，用于初始化late数据
   void init() {
-    log('init被调用');
+    // log('init被调用');
     parameters = widget.parameters;
     hideNavBar = parameters.boolForKey(HiParameter.hideNavBar) ?? false;
     hideNavLine = parameters.boolForKey(HiParameter.hideNavLine) ?? false;
@@ -36,7 +36,7 @@ abstract class HiPageState<T extends HiPage> extends State<T>
 
   /// 该方法在build执行后被调用，需要使用setState来修改数据
   void setup() {
-    log('setup被调用');
+    // log('setup被调用');
     // if (_isInitialized) {
     //   return;
     // }
@@ -65,8 +65,7 @@ abstract class HiPageState<T extends HiPage> extends State<T>
 
   @override
   Widget build(BuildContext context) {
-    var arguments = context.modalRouteSettingsArguments;
-    log('看看入参: arguments = $arguments, parameters = ${widget.parameters}');
+    // log('看看入参: arguments = $arguments, parameters = ${widget.parameters}');
     super.build(context);
     return StoreBuilder<HiAPPState>(
       builder: (context, store) {

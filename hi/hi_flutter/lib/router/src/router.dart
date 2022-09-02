@@ -42,7 +42,7 @@ class HiRouter {
     String uriString, {
     Map<String, dynamic> data = const {},
   }) {
-    log('导航: $uriString');
+    log('导航: $uriString', tag: HiLogTag.router);
     var uri = Uri.tryParse(uriString);
     if (uri == null) {
       return Future.value(null);
@@ -71,7 +71,7 @@ class HiRouter {
     if (uri == null) {
       return Future.value(null);
     }
-    uri.appending(
+    uri = uri.appending(
         queries: {HiParameter.routerMode: HiRouterMode.push.instanceName});
     return forward(context, uri.toString(), data: data);
   }
@@ -85,7 +85,7 @@ class HiRouter {
     if (uri == null) {
       return Future.value(null);
     }
-    uri.appending(
+    uri = uri.appending(
         queries: {HiParameter.routerMode: HiRouterMode.present.instanceName});
     return forward(context, uri.toString(), data: data);
   }

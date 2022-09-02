@@ -20,9 +20,8 @@ Stream<dynamic> hiLoginEpic(
   Stream<dynamic> _loginIn(
       LoginAction action, EpicStore<HiAPPState> store) async* {
     showToastActivity();
-    var user = await HiNet.shared()
-        .myLogin(parameters: {HiParameter.code: action.code});
-    log('登录成功了！！！！！！');
+    var user =
+        await HiNet.shared().login(parameters: {HiParameter.code: action.code});
     hideToastActivity();
     store.dispatch(UpdateUserAction(user));
     // ignore: use_build_context_synchronously

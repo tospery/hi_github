@@ -35,7 +35,7 @@ extension HiRouterEx on HiRouter {
         myParameters.addAll(
             (context?.settings?.arguments as Map<String, dynamic>?) ?? {});
         myParameters.addAll(parameters.singleValueMap);
-        log('【Router构建】所有参数: $myParameters');
+        // log('【Router构建】所有参数: $myParameters');
         return uri.page(context: context, parameters: myParameters);
       },
     );

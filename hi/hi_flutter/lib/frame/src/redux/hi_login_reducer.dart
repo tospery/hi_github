@@ -7,7 +7,6 @@ final hiLoginReducer = combineReducers<bool>([
 ]);
 
 bool _loginSuccess(bool result, LoginSuccessAction action) {
-  log('登录成功了');
   HiRouter.shared().push(
     action.context,
     hiUriString(
@@ -19,7 +18,7 @@ bool _loginSuccess(bool result, LoginSuccessAction action) {
 }
 
 bool _logoutSuccess(bool result, LogoutSuccessAction action) {
-  log('退出成功了');
+  // log('退出成功了');
   if (action.isManual) {
     HiRouter.shared().present(action.context, hiUriString(host: HiHost.login));
   } else {

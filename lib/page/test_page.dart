@@ -14,14 +14,11 @@ class _TestPageState extends State<TestPage> {
       appBar: AppBar(
         title: const Text('测试'),
       ),
-      body: Container(
-        color: Colors.grey,
-        child: Center(
-          child: Card(
-            child: Container(
-              height: 100,
-            ),
-          ),
+      body: Center(
+        child: Container(
+          // color: Colors.red,
+          // width: 200,
+          height: 200,
         ),
       ),
     );

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
+import 'package:hi_github/core/datatype.dart';
 import 'package:hi_github/extension/build_context.dart';
 import 'package:hi_github/extension/hi_model.dart';
+import '../extension/hi_user.dart';
 
 class PersonalPage extends HiPortalsPage {
   const PersonalPage({super.key, super.parameters = const {}});
@@ -29,7 +31,25 @@ class PersonalPageState extends HiPortalsPageState {
 
   @override
   Widget buildCell(HiPortal model) {
-    return model.cell(() => doPressed(model));
+    return model.cell(user: user?.realUser, onPressed: () => doPressed(model));
+  }
+
+  @override
+  Future<List<HiPortal>> requestList(int pageIndex) async {
+    if (path?.isEmpty ?? true) {
+      return [];
+    }
+    var content = await context.assetBundle.loadString(path!);
+    var json = content.jsonObject as List? ?? [];
+    var items = json
+        .map((e) => HiPortal.fromJson(e as Map<String, dynamic>? ?? {}))
+        .toList();
+    if (user?.realUser?.isValid ?? false) {
+      items.insert(0, HiPortal(id: PortalType.userinfo.instanceName));
+    } else {
+      items.insert(0, HiPortal(id: PortalType.unlogined.instanceName));
+    }
+    return items;
   }
 
   @override
