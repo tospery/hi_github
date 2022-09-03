@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import 'package:hi_github/extension/build_context.dart';
-import '../item/userinfo_item.dart';
+import '../item/user_info_item.dart';
 import '../model/user.dart';
 
-enum UserinfoClick { user, repositories, followers, following }
+enum UserInfoClick { user, repositories, followers, following }
 
-class UserinfoCell extends HiCell<UserinfoItem> {
+class UserinfoCell extends HiCell<UserInfoItem> {
   const UserinfoCell({super.key, required super.item, super.onPressed});
 
   @override
   UserinfoCellState createState() => UserinfoCellState();
 }
 
-class UserinfoCellState extends HiCellState<UserinfoItem> {
+class UserinfoCellState extends HiCellState<UserInfoItem> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -38,7 +38,7 @@ class UserinfoCellState extends HiCellState<UserinfoItem> {
   _buildUserView() {
     return GestureDetector(
       onTap: () => widget.onPressed != null
-          ? widget.onPressed!(item, result: UserinfoClick.user)
+          ? widget.onPressed!(item, result: UserInfoClick.user)
           : null,
       child: Container(
         alignment: Alignment.centerLeft,
@@ -126,21 +126,21 @@ class UserinfoCellState extends HiCellState<UserinfoItem> {
         children: [
           GestureDetector(
             onTap: () => widget.onPressed != null
-                ? widget.onPressed!(item, result: UserinfoClick.repositories)
+                ? widget.onPressed!(item, result: UserInfoClick.repositories)
                 : null,
             child: _buildInfoItem(context.string.repositories,
                 context.storeStateUser<User>()?.repositoryCount ?? 0),
           ),
           GestureDetector(
             onTap: () => widget.onPressed != null
-                ? widget.onPressed!(item, result: UserinfoClick.followers)
+                ? widget.onPressed!(item, result: UserInfoClick.followers)
                 : null,
             child: _buildInfoItem(context.string.followers,
                 context.storeStateUser<User>()?.followers ?? 0),
           ),
           GestureDetector(
             onTap: () => widget.onPressed != null
-                ? widget.onPressed!(item, result: UserinfoClick.following)
+                ? widget.onPressed!(item, result: UserInfoClick.following)
                 : null,
             child: _buildInfoItem(context.string.following,
                 context.storeStateUser<User>()?.following ?? 0),

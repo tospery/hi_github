@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hi_flutter/hi_flutter.dart';
+import '../item/user_chart_item.dart';
 import '../model/user.dart';
 
-class UserDynamicCard extends StatefulWidget {
-  const UserDynamicCard({Key? key}) : super(key: key);
+class UserChartCell extends HiCell<UserChartItem> {
+  const UserChartCell({super.key, required super.item, super.onPressed});
 
   @override
-  State<UserDynamicCard> createState() => _UserDynamicCardState();
+  UserChartCellState createState() => UserChartCellState();
 }
 
-class _UserDynamicCardState extends State<UserDynamicCard> {
+class UserChartCellState extends HiCellState<UserChartItem> {
   @override
   Widget build(BuildContext context) {
     return Card(
       margin: EdgeInsets.zero,
-      color: Colors.white,
+      color: context.themeData.colorScheme.primary,
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: SizedBox(
@@ -26,9 +27,9 @@ class _UserDynamicCardState extends State<UserDynamicCard> {
             placeholderBuilder: (BuildContext context) => SizedBox(
               width: context.mediaQueryData.size.width,
               height: 120,
-              child: const Center(
+              child: Center(
                 child: SpinKitRipple(
-                  color: Colors.blue,
+                  color: context.themeData.colorScheme.onPrimary,
                 ),
               ),
             ),

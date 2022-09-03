@@ -1,6 +1,9 @@
+import 'package:hi_flutter/frame/src/item/hi_portal_item.dart';
 import 'package:hi_flutter/hi_flutter.dart';
+import 'package:hi_github/core/datatype.dart';
 import 'package:hi_github/extension/build_context.dart';
-import 'package:hi_github/item/userinfo_item.dart';
+import 'package:hi_github/item/user_chart_item.dart';
+import 'package:hi_github/item/user_info_item.dart';
 import '../model/user.dart';
 
 class PersonalPage extends HiModelListPage {
@@ -27,26 +30,57 @@ class PersonalPageState extends HiModelListPageState {
     });
   }
 
-  // @override
-  // Future<List<HiModel>> requestList(int pageIndex) async {
-  // var models = await super.requestList(pageIndex);
-  // // ignore: use_build_context_synchronously
-  // var user = context.storeStateUser<User>();
-  // if (user?.isValid ?? false) {
-  //   models.insert(0, UserinfoItem(user!));
-  // } else {}
-  // return models;
-  // }
-
   @override
   Future<List<HiItem<HiModel>>> requestList(int pageIndex) async {
     var items = await super.requestList(pageIndex);
     // ignore: use_build_context_synchronously
     var user = context.storeStateUser<User>();
     if (user?.isValid ?? false) {
-      items.insert(0, UserinfoItem());
+      items.insertAll(0, _buildUserBriefItems());
+      items.insert(0, HiPortalItem(model: const HiPortal(height: 10)));
+      items.insert(0, UserChartItem());
+      items.insert(0, HiPortalItem(model: const HiPortal(height: 10)));
+      items.insert(0, UserInfoItem());
     } else {}
     return items;
+  }
+
+  Iterable<HiItem<HiModel>> _buildUserBriefItems() {
+    var user = context.storeStateUser<User>();
+    return [
+      HiPortalItem(
+        model: HiPortal(
+          id: PortalType.userBriefBlog.instanceName,
+          icon: 'res/images/job.png',
+          title: user?.company,
+          indicated: false,
+        ),
+      ),
+      HiPortalItem(
+        model: HiPortal(
+          id: PortalType.userBriefBlog.instanceName,
+          icon: 'res/images/location.png',
+          title: user?.location,
+          indicated: false,
+        ),
+      ),
+      HiPortalItem(
+        model: HiPortal(
+          id: PortalType.userBriefBlog.instanceName,
+          icon: 'res/images/email.png',
+          title: user?.email,
+          indicated: false,
+        ),
+      ),
+      HiPortalItem(
+        model: HiPortal(
+          id: PortalType.userBriefBlog.instanceName,
+          icon: 'res/images/blog.png',
+          title: user?.blog,
+          separated: false,
+        ),
+      ),
+    ];
   }
 
   // @override

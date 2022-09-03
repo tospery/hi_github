@@ -20,14 +20,14 @@
         "height": 10
     },
     {
-        "id": "setting",
-        "title": "设置",
-        "icon": "res/images/setting.png"
-    },
-    {
         "id": "feedback",
         "title": "反馈",
         "icon": "res/images/feedback.png"
+    },
+    {
+        "id": "setting",
+        "title": "设置",
+        "icon": "res/images/setting.png"
     },
     {
         "id": "about",

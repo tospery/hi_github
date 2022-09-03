@@ -74,7 +74,7 @@ class HiPortalCellState extends HiCellState<HiPortalItem> {
     return (item.model?.title?.isNotEmpty ?? false)
         ? Container(
             constraints: BoxConstraints(
-              maxWidth: context.mediaQueryDataSize.width / 2,
+              maxWidth: context.mediaQueryDataSize.width / 5 * 4,
             ),
             child: Text(
               item.model!.title!,
