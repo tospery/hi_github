@@ -12,6 +12,7 @@ class UserinfoItem extends HiModel {
   @override
   Widget cell<M extends HiModel>(HiModelCallback<M>? callback) {
     return UserinfoCell(
+      user: user,
       onPressed: (value) {
         if (callback == null) {
           return;

@@ -2,13 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import 'package:hi_github/extension/build_context.dart';
 import '../extension/hi_user.dart';
+import '../model/user.dart';
 
 enum UserinfoClick { user, repositories, followers, following }
 
 class UserinfoCell extends StatefulWidget {
+  final User user;
   final ValueChanged<UserinfoClick>? onPressed;
 
-  const UserinfoCell({super.key, this.onPressed});
+  const UserinfoCell({super.key, required this.user, this.onPressed});
+
+  // const UserinfoCell({super.key, this.onPressed});
 
   @override
   State<UserinfoCell> createState() => _UserinfoCellState();
@@ -87,6 +91,7 @@ class _UserinfoCellState extends State<UserinfoCell> {
       children: [
         Text(
           context.store.state.user?.username ?? '',
+          // widget.user.username ?? '',
           style: const TextStyle(
             color: Colors.blue,
             fontSize: 17,

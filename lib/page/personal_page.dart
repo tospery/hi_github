@@ -43,7 +43,8 @@ class PersonalPageState extends HiModelListPageState {
     if (user == null) {
       return;
     }
-    var action = UpdateUserAction(user);
+    var myUser = user.copyWith(username: 'abcd1234');
+    var action = UpdateUserAction(myUser);
     context.store.dispatch(action);
   }
 }
