@@ -7,6 +7,9 @@ import '../redux/hi_app_state.dart';
 extension HiFrameBuildContextEx on BuildContext {
   Store<HiAPPState> get store => StoreProvider.of<HiAPPState>(this);
   HiAPPState get storeState => store.state;
-  HiUser? get storeStateUser => storeState.user;
   bool get storeStateLogin => storeState.login;
+
+  U? storeStateUser<U extends HiUser>() {
+    return storeState.user as U?;
+  }
 }

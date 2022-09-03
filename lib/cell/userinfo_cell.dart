@@ -78,7 +78,7 @@ class _UserinfoCellState extends State<UserinfoCell> {
       child: FractionallySizedBox(
         heightFactor: 0.7,
         child: hiImage(
-          context.storeState.user?.real?.avatarUrl ?? '',
+          context.storeStateUser<User>()?.avatarUrl ?? '',
         ),
       ),
     );
@@ -100,7 +100,7 @@ class _UserinfoCellState extends State<UserinfoCell> {
         ),
         hiSpace(height: 3),
         Text(
-          context.storeState.user?.real?.bio ?? '',
+          context.storeStateUser<User>()?.bio ?? '',
           style: const TextStyle(
             color: Colors.black,
             fontSize: 15,
