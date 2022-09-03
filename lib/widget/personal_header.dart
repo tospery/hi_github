@@ -32,7 +32,7 @@ class _PersonalHeaderState extends State<PersonalHeader> {
                   child: FractionallySizedBox(
                     heightFactor: 0.7,
                     child: hiImage(
-                      context.store.state.user?.realUser?.avatarUrl ?? '',
+                      context.storeState.user?.real?.avatarUrl ?? '',
                     ),
                   ),
                 ),
@@ -66,7 +66,7 @@ class _PersonalHeaderState extends State<PersonalHeader> {
         ),
         hiSpace(height: 3),
         Text(
-          context.store.state.user?.realUser?.bio ?? '',
+          context.storeState.user?.real?.bio ?? '',
           style: const TextStyle(
             color: Colors.black,
             fontSize: 15,
@@ -74,7 +74,7 @@ class _PersonalHeaderState extends State<PersonalHeader> {
         ),
         hiSpace(height: 3),
         Text(
-          getJoinedString(context.store.state.user?.realUser?.createdAt ?? ''),
+          getJoinedString(context.storeState.user?.real?.createdAt ?? ''),
           style: const TextStyle(
             color: Colors.black,
             fontSize: 14,
@@ -150,11 +150,11 @@ class _PersonalHeaderState extends State<PersonalHeader> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           _buildStatItem(context.string.repositories,
-              context.store.state.user?.realUser?.repositoryCount ?? 0),
+              context.storeState.user?.real?.repositoryCount ?? 0),
           _buildStatItem(context.string.followers,
-              context.store.state.user?.realUser?.followers ?? 0),
+              context.storeState.user?.real?.followers ?? 0),
           _buildStatItem(context.string.following,
-              context.store.state.user?.realUser?.following ?? 0),
+              context.storeState.user?.real?.following ?? 0),
         ],
       ),
     );

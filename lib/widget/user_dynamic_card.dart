@@ -21,7 +21,7 @@ class _UserDynamicCardState extends State<UserDynamicCard> {
         child: SizedBox(
           height: 120,
           child: SvgPicture.network(
-            context.store.state.user?.realUser?.dynamicCardUrlString ?? '',
+            context.storeState.user?.real?.dynamicCardUrlString ?? '',
             allowDrawingOutsideViewBox: true,
             placeholderBuilder: (BuildContext context) => SizedBox(
               width: context.mediaQueryData.size.width,

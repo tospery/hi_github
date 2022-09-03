@@ -14,7 +14,7 @@ abstract class HiPageState<T extends HiPage> extends State<T>
   late String? title;
   late final Map<String, dynamic> parameters;
   bool loading = false;
-  HiUser? get user => context.store.state.user;
+  // HiUser? get user => context.store.state.user;
 
   @override
   void initState() {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/core/hi_core.dart';
 
-import 'base/hi_page.dart';
+import 'page/hi_page.dart';
 
 class HiRootPage extends HiPage {
   const HiRootPage({super.key, required super.parameters});

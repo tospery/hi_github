@@ -74,7 +74,7 @@ class _UserinfoCellState extends State<UserinfoCell> {
       child: FractionallySizedBox(
         heightFactor: 0.7,
         child: hiImage(
-          context.store.state.user?.realUser?.avatarUrl ?? '',
+          context.storeState.user?.real?.avatarUrl ?? '',
         ),
       ),
     );
@@ -95,7 +95,7 @@ class _UserinfoCellState extends State<UserinfoCell> {
         ),
         hiSpace(height: 3),
         Text(
-          context.store.state.user?.realUser?.bio ?? '',
+          context.storeState.user?.real?.bio ?? '',
           style: const TextStyle(
             color: Colors.black,
             fontSize: 15,
@@ -103,7 +103,7 @@ class _UserinfoCellState extends State<UserinfoCell> {
         ),
         hiSpace(height: 3),
         Text(
-          getJoinedString(context.store.state.user?.realUser?.createdAt ?? ''),
+          getJoinedString(context.storeState.user?.real?.createdAt ?? ''),
           style: const TextStyle(
             color: Colors.black,
             fontSize: 14,
@@ -129,21 +129,21 @@ class _UserinfoCellState extends State<UserinfoCell> {
                 ? widget.onPressed!(UserinfoClick.repositories)
                 : null,
             child: _buildInfoItem(context.string.repositories,
-                context.store.state.user?.realUser?.repositoryCount ?? 0),
+                context.storeState.user?.real?.repositoryCount ?? 0),
           ),
           GestureDetector(
             onTap: () => widget.onPressed != null
                 ? widget.onPressed!(UserinfoClick.followers)
                 : null,
             child: _buildInfoItem(context.string.followers,
-                context.store.state.user?.realUser?.followers ?? 0),
+                context.storeState.user?.real?.followers ?? 0),
           ),
           GestureDetector(
             onTap: () => widget.onPressed != null
                 ? widget.onPressed!(UserinfoClick.following)
                 : null,
             child: _buildInfoItem(context.string.following,
-                context.store.state.user?.realUser?.following ?? 0),
+                context.storeState.user?.real?.following ?? 0),
           ),
         ],
       ),

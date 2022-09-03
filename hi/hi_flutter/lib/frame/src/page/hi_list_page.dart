@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../base/hi_page.dart';
+import 'hi_page.dart';
 import '../../../core/hi_core.dart';
 
 abstract class HiListPage extends HiPage {

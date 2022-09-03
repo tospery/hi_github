@@ -30,10 +30,21 @@ class PersonalPageState extends HiModelListPageState {
   @override
   Future<List<HiModel>> requestList(int pageIndex) async {
     var models = await super.requestList(pageIndex);
-    if (user?.realUser?.isValid ?? false) {
-      models.insert(0, UserinfoItem(user!.realUser!));
+    var user = context.storeState.user?.real;
+    if (user?.isValid ?? false) {
+      models.insert(0, UserinfoItem(user!));
     } else {}
     return models;
+  }
+
+  @override
+  void callback(HiModel model, {result}) {
+    var user = context.storeState.user?.real;
+    if (user == null) {
+      return;
+    }
+    var action = UpdateUserAction(user);
+    context.store.dispatch(action);
   }
 }
 

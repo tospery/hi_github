@@ -17,13 +17,13 @@ class _UserInfoWidgetState extends State<UserInfoWidget> {
       physics: const NeverScrollableScrollPhysics(),
       children: [
         _buildUserInfoItem(const AssetImage('res/images/job.png'),
-            context.store.state.user?.realUser?.company),
+            context.storeState.user?.real?.company),
         _buildUserInfoItem(const AssetImage('res/images/location.png'),
-            context.store.state.user?.realUser?.location),
+            context.storeState.user?.real?.location),
         _buildUserInfoItem(const AssetImage('res/images/email.png'),
-            context.store.state.user?.realUser?.email),
+            context.storeState.user?.real?.email),
         _buildUserInfoItem(const AssetImage('res/images/blog.png'),
-            context.store.state.user?.realUser?.blog,
+            context.storeState.user?.real?.blog,
             isLast: true),
       ],
     );
