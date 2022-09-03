@@ -11,7 +11,9 @@ abstract class HiPageState<T extends HiPage> extends State<T>
     with AutomaticKeepAliveClientMixin {
   late bool hideNavBar;
   late bool hideNavLine;
+  late String? id;
   late String? title;
+  late HiModel? model;
   late final Map<String, dynamic> parameters;
   bool loading = false;
   // HiUser? get user => context.store.state.user;
@@ -31,7 +33,9 @@ abstract class HiPageState<T extends HiPage> extends State<T>
     parameters = widget.parameters;
     hideNavBar = parameters.boolForKey(HiParameter.hideNavBar) ?? false;
     hideNavLine = parameters.boolForKey(HiParameter.hideNavLine) ?? false;
+    id = parameters.stringForKey(HiParameter.id);
     title = parameters.stringForKey(HiParameter.title);
+    model = parameters[HiParameter.model] as HiModel?;
   }
 
   /// 该方法在build执行后被调用，需要使用setState来修改数据

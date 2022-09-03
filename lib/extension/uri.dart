@@ -6,6 +6,7 @@ import 'package:hi_github/page/tabbar_page.dart';
 import 'package:hi_github/page/test_page.dart';
 import '../core/constant.dart';
 import '../page/login_page.dart';
+import '../page/user_page.dart';
 import 'hi_host.dart';
 
 extension UriRouter on Uri {
@@ -44,9 +45,9 @@ extension UriRouter on Uri {
       case HiHost.home:
         page = const TabBarPage();
         break;
-      // case HiRouterPath.profile:
-      //   page = const ProfilePage();
-      //   break;
+      case HiHost.user:
+        page = UserPage(parameters: parameters);
+        break;
       // case HiRouterPath.about:
       //   page = AboutPage(parameters: parameters);
       //   break;

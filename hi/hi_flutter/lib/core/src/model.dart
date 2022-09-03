@@ -6,7 +6,7 @@ class HiModel extends Equatable {
   final String? id;
 
   bool get isValid => id?.isNotEmpty ?? false;
-  String? get targetUriString => null;
+  // String? get targetUriString => null;
 
   const HiModel({this.id});
 

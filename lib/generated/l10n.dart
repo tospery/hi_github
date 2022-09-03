@@ -330,21 +330,21 @@ class S {
     );
   }
 
-  /// `team`
-  String get team {
+  /// `company`
+  String get company {
     return Intl.message(
-      'team',
-      name: 'team',
+      'company',
+      name: 'company',
       desc: '',
       args: [],
     );
   }
 
-  /// `city`
-  String get city {
+  /// `location`
+  String get location {
     return Intl.message(
-      'city',
-      name: 'city',
+      'location',
+      name: 'location',
       desc: '',
       args: [],
     );
@@ -395,6 +395,16 @@ class S {
     return Intl.message(
       'test',
       name: 'test',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `loading`
+  String get loading {
+    return Intl.message(
+      'loading',
+      name: 'loading',
       desc: '',
       args: [],
     );

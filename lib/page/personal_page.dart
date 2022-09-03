@@ -1,5 +1,6 @@
 import 'package:hi_flutter/frame/src/item/hi_portal_item.dart';
 import 'package:hi_flutter/hi_flutter.dart';
+import 'package:hi_github/cell/user_info_cell.dart';
 import 'package:hi_github/core/datatype.dart';
 import 'package:hi_github/extension/build_context.dart';
 import 'package:hi_github/item/user_chart_item.dart';
@@ -50,7 +51,7 @@ class PersonalPageState extends HiModelListPageState {
     return [
       HiPortalItem(
         model: HiPortal(
-          id: PortalType.userBriefBlog.instanceName,
+          id: PortalType.blog.instanceName,
           icon: 'res/images/job.png',
           title: user?.company,
           indicated: false,
@@ -58,7 +59,7 @@ class PersonalPageState extends HiModelListPageState {
       ),
       HiPortalItem(
         model: HiPortal(
-          id: PortalType.userBriefBlog.instanceName,
+          id: PortalType.blog.instanceName,
           icon: 'res/images/location.png',
           title: user?.location,
           indicated: false,
@@ -66,7 +67,7 @@ class PersonalPageState extends HiModelListPageState {
       ),
       HiPortalItem(
         model: HiPortal(
-          id: PortalType.userBriefBlog.instanceName,
+          id: PortalType.blog.instanceName,
           icon: 'res/images/email.png',
           title: user?.email,
           indicated: false,
@@ -74,7 +75,7 @@ class PersonalPageState extends HiModelListPageState {
       ),
       HiPortalItem(
         model: HiPortal(
-          id: PortalType.userBriefBlog.instanceName,
+          id: PortalType.blog.instanceName,
           icon: 'res/images/blog.png',
           title: user?.blog,
           separated: false,
@@ -85,6 +86,33 @@ class PersonalPageState extends HiModelListPageState {
 
   // @override
   // void doPressed(HiItem<HiModel> item, {result}) {}
+
+  @override
+  void doPressed(HiItem<HiModel> item, {result}) {
+    if (item is UserInfoItem) {
+      switch (result) {
+        case UserInfoClick.user:
+          HiRouter.shared().push(
+            context,
+            // hiUriString(host: HiHost.user, path: '123'),
+            hiUriString(host: HiHost.user),
+          );
+          break;
+        default:
+          break;
+      }
+    }
+    // if (item is HiPortalItem) {
+    //   var id = item.model?.id ?? '';
+    //   var type = PortalType.fromValue(id);
+    //   switch (type) {
+    //     case PortalType.userInfo:
+    //       break;
+    //     default:
+    //       break;
+    //   }
+    // }
+  }
 
   // @override
   // void callback(HiModel model, {result}) {

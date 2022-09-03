@@ -27,11 +27,12 @@
     "feedback": "feedback",
     "nickname": "nickname",
     "bio": "bio",
-    "team": "team",
-    "city": "city",
+    "company": "company",
+    "location": "location",
     "blog": "blog",
     "exitLogin": "exitLogin",
     "alertLogoutMessage": "Are you sure to logout?",
     "clickToLogin": "click to login",
-    "test": "test"
+    "test": "test",
+    "loading": "loading"
 }

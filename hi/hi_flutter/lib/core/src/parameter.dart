@@ -4,6 +4,7 @@ class HiParameter {
   static const path = 'path';
   static const token = 'token';
   static const title = 'title';
+  static const model = 'model';
   static const hideNavBar = 'hideNavBar';
   static const hideNavLine = 'hideNavLine';
   static const canRefresh = 'canRefresh';

@@ -1,8 +1,89 @@
-// import 'package:flutter/material.dart';
-// import 'package:hi_flutter/hi_flutter.dart';
-// import '../extension/build_context.dart';
+import 'package:flutter/material.dart';
+import 'package:hi_flutter/frame/src/item/hi_portal_item.dart';
+import 'package:hi_flutter/hi_flutter.dart';
+import 'package:hi_github/core/datatype.dart';
+import '../extension/build_context.dart';
+import '../model/user.dart';
 
-// import '../model/user.dart';
+class UserPage extends HiModelListPage {
+  const UserPage({super.key, required super.parameters});
+
+  @override
+  UserPageState createState() => UserPageState();
+}
+
+class UserPageState extends HiModelListPageState {
+  @override
+  void setup() {
+    super.setup();
+    setState(() {
+      if (id?.isEmpty ?? true) {
+        title = parameters.stringForKey(HiParameter.title) ??
+            context.storeStateUser<User>()?.username;
+      } else {
+        title = parameters.stringForKey(HiParameter.title) ??
+            context.string.loading;
+      }
+    });
+  }
+
+  @override
+  Future<List<HiItem<HiModel>>> requestList(int pageIndex) async {
+    List<HiItem<HiModel>> items = [];
+    if (id?.isEmpty ?? true) {
+      // 当前用户
+      items.addAll(_buildItems(context.storeStateUser<User>()));
+    } else {
+      // 其他用户
+    }
+    return items;
+  }
+
+  Iterable<HiItem<HiModel>> _buildItems(User? user) {
+    return [
+      HiPortalItem(model: const HiPortal(height: 10)),
+      HiPortalItem(
+        model: HiPortal(
+          id: PortalType.nickname.instanceName,
+          title: context.string.nickname,
+          detail: user?.username,
+        ),
+      ),
+      HiPortalItem(
+        model: HiPortal(
+          id: PortalType.bio.instanceName,
+          title: context.string.bio,
+          detail: user?.bio,
+          separated: false,
+        ),
+      ),
+      HiPortalItem(model: const HiPortal(height: 10)),
+      HiPortalItem(
+        model: HiPortal(
+          id: PortalType.company.instanceName,
+          title: context.string.company,
+          detail: user?.company,
+        ),
+      ),
+      HiPortalItem(
+        model: HiPortal(
+          id: PortalType.bio.instanceName,
+          title: context.string.location,
+          detail: user?.location,
+        ),
+      ),
+      HiPortalItem(
+        model: HiPortal(
+          id: PortalType.bio.instanceName,
+          title: context.string.blog,
+          detail: user?.blog,
+          separated: false,
+        ),
+      ),
+      HiPortalItem(model: const HiPortal(height: 30)),
+    ];
+  }
+}
 
 // class ProfilePage extends StatefulWidget {
 //   const ProfilePage({Key? key}) : super(key: key);

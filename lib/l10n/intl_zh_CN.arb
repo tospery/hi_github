@@ -27,11 +27,12 @@
     "feedback": "反馈",
     "nickname": "昵称",
     "bio": "简介",
-    "team": "团队",
-    "city": "城市",
+    "company": "公司",
+    "location": "地点",
     "blog": "博客",
     "exitLogin": "退出登录",
     "alertLogoutMessage": "确定退出登录吗？",
     "clickToLogin": "点击登录",
-    "test": "测试"
+    "test": "测试",
+    "loading": "正在加载"
 }
