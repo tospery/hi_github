@@ -27,27 +27,42 @@ class PersonalPageState extends HiModelListPageState {
     });
   }
 
-  @override
-  Future<List<HiModel>> requestList(int pageIndex) async {
-    var models = await super.requestList(pageIndex);
-    var user = context.storeStateUser<User>();
-    if (user?.isValid ?? false) {
-      models.insert(0, UserinfoItem(user!));
-    } else {}
-    return models;
-  }
+  // @override
+  // Future<List<HiModel>> requestList(int pageIndex) async {
+  // var models = await super.requestList(pageIndex);
+  // // ignore: use_build_context_synchronously
+  // var user = context.storeStateUser<User>();
+  // if (user?.isValid ?? false) {
+  //   models.insert(0, UserinfoItem(user!));
+  // } else {}
+  // return models;
+  // }
 
   @override
-  void callback(HiModel model, {result}) {
-    log('看看是否登录: ${context.storeStateLogin}');
-    // var user = context.storeState.user?.real;
-    // if (user == null) {
-    //   return;
-    // }
-    // var myUser = user.copyWith(username: 'abcd1234');
-    // var action = UpdateUserAction(myUser);
-    // context.store.dispatch(action);
+  Future<List<HiItem<HiModel>>> requestList(int pageIndex) async {
+    var items = await super.requestList(pageIndex);
+    // ignore: use_build_context_synchronously
+    var user = context.storeStateUser<User>();
+    if (user?.isValid ?? false) {
+      items.insert(0, UserinfoItem());
+    } else {}
+    return items;
   }
+
+  // @override
+  // void doPressed(HiItem<HiModel> item, {result}) {}
+
+  // @override
+  // void callback(HiModel model, {result}) {
+  //   log('看看是否登录: ${context.storeStateLogin}');
+  //   // var user = context.storeState.user?.real;
+  //   // if (user == null) {
+  //   //   return;
+  //   // }
+  //   // var myUser = user.copyWith(username: 'abcd1234');
+  //   // var action = UpdateUserAction(myUser);
+  //   // context.store.dispatch(action);
+  // }
 }
 
 // class PersonalPage extends HiPortalsPage {

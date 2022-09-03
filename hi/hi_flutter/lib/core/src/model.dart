@@ -1,7 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
 
-import 'datatype.dart';
 import 'function.dart';
 
 class HiModel extends Equatable {
@@ -25,11 +23,4 @@ class HiModel extends Equatable {
 
   @override
   bool get stringify => true;
-
-  Widget cell<M extends HiModel>(HiModelCallback<M>? callback) {
-    return Container(
-      color: hiRandomColor,
-      height: 100,
-    );
-  }
 }

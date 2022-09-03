@@ -6,7 +6,7 @@ import '../../../core/hi_core.dart';
 import 'hi_cell.dart';
 
 class HiPortalCell extends HiCell<HiPortalItem> {
-  const HiPortalCell({super.key, required super.item});
+  const HiPortalCell({super.key, required super.item, super.onPressed});
 
   @override
   HiPortalCellState createState() => HiPortalCellState();

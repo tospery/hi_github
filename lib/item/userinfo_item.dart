@@ -1,24 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:hi_flutter/core/hi_core.dart';
+import 'package:hi_flutter/hi_flutter.dart';
 import 'package:hi_github/cell/userinfo_cell.dart';
 
 import '../model/user.dart';
 
-class UserinfoItem extends HiModel {
-  final User user;
-
-  const UserinfoItem(this.user);
+class UserinfoItem extends HiItem<User> {
+  UserinfoItem({super.width, super.height, super.model});
 
   @override
-  Widget cell<M extends HiModel>(HiModelCallback<M>? callback) {
-    return UserinfoCell(
-      user: user,
-      onPressed: (value) {
-        if (callback == null) {
-          return;
-        }
-        callback(this as M, result: value);
-      },
-    );
+  Widget cell(HiCellPressed<UserinfoItem>? onPressed) {
+    return UserinfoCell(item: this, onPressed: onPressed);
   }
 }

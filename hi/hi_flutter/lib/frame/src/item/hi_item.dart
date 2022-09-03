@@ -7,9 +7,18 @@ class HiItem<M extends HiModel> {
   final double? height;
   final M? model;
 
-  HiItem(this.width, this.height, this.model);
+  HiItem({this.width, this.height, this.model});
 
-  Widget cell<I extends HiItem>(HiCellPressed<I>? onPressed) {
-    return HiCell<I>(item: this as I, onPressed: onPressed);
+  // Widget cell<I extends HiItem>(HiCellPressed<I>? onPressed) {
+  //   return HiCell<I>(item: this as I, onPressed: onPressed);
+  // }
+
+  Widget cell(HiCellPressed<HiItem>? onPressed) {
+    return HiCell<HiItem>(item: this, onPressed: onPressed);
+  }
+
+  @override
+  String toString() {
+    return '$typeName, ${model?.toString()}';
   }
 }

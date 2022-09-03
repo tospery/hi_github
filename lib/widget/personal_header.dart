@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import '../extension/build_context.dart';
-import '../extension/hi_user.dart';
+import '../model/user.dart';
 
 class PersonalHeader extends StatefulWidget {
   final VoidCallback? onPressed;
@@ -32,7 +32,7 @@ class _PersonalHeaderState extends State<PersonalHeader> {
                   child: FractionallySizedBox(
                     heightFactor: 0.7,
                     child: hiImage(
-                      context.storeState.user?.real?.avatarUrl ?? '',
+                      context.storeStateUser<User>()?.avatarUrl ?? '',
                     ),
                   ),
                 ),
@@ -66,7 +66,7 @@ class _PersonalHeaderState extends State<PersonalHeader> {
         ),
         hiSpace(height: 3),
         Text(
-          context.storeState.user?.real?.bio ?? '',
+          context.storeStateUser<User>()?.bio ?? '',
           style: const TextStyle(
             color: Colors.black,
             fontSize: 15,
@@ -74,7 +74,7 @@ class _PersonalHeaderState extends State<PersonalHeader> {
         ),
         hiSpace(height: 3),
         Text(
-          getJoinedString(context.storeState.user?.real?.createdAt ?? ''),
+          getJoinedString(context.storeStateUser<User>()?.createdAt ?? ''),
           style: const TextStyle(
             color: Colors.black,
             fontSize: 14,
@@ -150,11 +150,11 @@ class _PersonalHeaderState extends State<PersonalHeader> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           _buildStatItem(context.string.repositories,
-              context.storeState.user?.real?.repositoryCount ?? 0),
+              context.storeStateUser<User>()?.repositoryCount ?? 0),
           _buildStatItem(context.string.followers,
-              context.storeState.user?.real?.followers ?? 0),
+              context.storeStateUser<User>()?.followers ?? 0),
           _buildStatItem(context.string.following,
-              context.storeState.user?.real?.following ?? 0),
+              context.storeStateUser<User>()?.following ?? 0),
         ],
       ),
     );

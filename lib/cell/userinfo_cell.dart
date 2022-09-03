@@ -1,24 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import 'package:hi_github/extension/build_context.dart';
-import '../extension/hi_user.dart';
+import '../item/userinfo_item.dart';
 import '../model/user.dart';
 
 enum UserinfoClick { user, repositories, followers, following }
 
-class UserinfoCell extends StatefulWidget {
-  final User user;
-  final ValueChanged<UserinfoClick>? onPressed;
-
-  const UserinfoCell({super.key, required this.user, this.onPressed});
-
-  // const UserinfoCell({super.key, this.onPressed});
+class UserinfoCell extends HiCell<UserinfoItem> {
+  const UserinfoCell({super.key, required super.item, super.onPressed});
 
   @override
-  State<UserinfoCell> createState() => _UserinfoCellState();
+  UserinfoCellState createState() => UserinfoCellState();
 }
 
-class _UserinfoCellState extends State<UserinfoCell> {
+class UserinfoCellState extends HiCellState<UserinfoItem> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -43,7 +38,7 @@ class _UserinfoCellState extends State<UserinfoCell> {
   _buildUserView() {
     return GestureDetector(
       onTap: () => widget.onPressed != null
-          ? widget.onPressed!(UserinfoClick.user)
+          ? widget.onPressed!(item, result: UserinfoClick.user)
           : null,
       child: Container(
         alignment: Alignment.centerLeft,
@@ -108,7 +103,7 @@ class _UserinfoCellState extends State<UserinfoCell> {
         ),
         hiSpace(height: 3),
         Text(
-          getJoinedString(context.storeState.user?.real?.createdAt ?? ''),
+          getJoinedString(context.storeStateUser<User>()?.createdAt ?? ''),
           style: const TextStyle(
             color: Colors.black,
             fontSize: 14,
@@ -131,24 +126,24 @@ class _UserinfoCellState extends State<UserinfoCell> {
         children: [
           GestureDetector(
             onTap: () => widget.onPressed != null
-                ? widget.onPressed!(UserinfoClick.repositories)
+                ? widget.onPressed!(item, result: UserinfoClick.repositories)
                 : null,
             child: _buildInfoItem(context.string.repositories,
-                context.storeState.user?.real?.repositoryCount ?? 0),
+                context.storeStateUser<User>()?.repositoryCount ?? 0),
           ),
           GestureDetector(
             onTap: () => widget.onPressed != null
-                ? widget.onPressed!(UserinfoClick.followers)
+                ? widget.onPressed!(item, result: UserinfoClick.followers)
                 : null,
             child: _buildInfoItem(context.string.followers,
-                context.storeState.user?.real?.followers ?? 0),
+                context.storeStateUser<User>()?.followers ?? 0),
           ),
           GestureDetector(
             onTap: () => widget.onPressed != null
-                ? widget.onPressed!(UserinfoClick.following)
+                ? widget.onPressed!(item, result: UserinfoClick.following)
                 : null,
             child: _buildInfoItem(context.string.following,
-                context.storeState.user?.real?.following ?? 0),
+                context.storeStateUser<User>()?.following ?? 0),
           ),
         ],
       ),
@@ -189,3 +184,19 @@ class _UserinfoCellState extends State<UserinfoCell> {
     return context.string.joinedOn(str.substring(0, 10));
   }
 }
+
+// class UserinfoCell extends StatefulWidget {
+//   final User user;
+//   final ValueChanged<UserinfoClick>? onPressed;
+
+//   const UserinfoCell({super.key, required this.user, this.onPressed});
+
+//   // const UserinfoCell({super.key, this.onPressed});
+
+//   @override
+//   State<UserinfoCell> createState() => _UserinfoCellState();
+// }
+
+// class _UserinfoCellState extends State<UserinfoCell> {
+
+// }

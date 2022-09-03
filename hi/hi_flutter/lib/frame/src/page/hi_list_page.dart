@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../item/hi_item.dart';
 import 'hi_page.dart';
 import '../../../core/hi_core.dart';
 
@@ -9,14 +10,14 @@ abstract class HiListPage extends HiPage {
   });
 }
 
-abstract class HiListPageState<M extends HiModel, T extends HiListPage>
+abstract class HiListPageState<I extends HiItem, T extends HiListPage>
     extends HiPageState<T> {
   late bool canRefresh;
   late bool canLoadMore;
   late String? path;
 
   int pageIndex = 1;
-  List<M> items = [];
+  List<I> items = [];
   ScrollController scrollController = ScrollController();
 
   @override
@@ -85,8 +86,8 @@ abstract class HiListPageState<M extends HiModel, T extends HiListPage>
     );
   }
 
-  Widget buildCell(M model) {
-    return model.cell<M>(callback);
+  Widget buildCell(I item) {
+    return item.cell((i, {result}) => doPressed(i as I, result: result));
   }
 
   @override
@@ -124,9 +125,9 @@ abstract class HiListPageState<M extends HiModel, T extends HiListPage>
     }
   }
 
-  Future<List<M>> requestList(int pageIndex);
+  Future<List<I>> requestList(int pageIndex);
 
-  void callback(M model, {dynamic result}) {
-    log('点击$model, 结果->$result');
+  void doPressed(I item, {result}) {
+    log('点击$item, 结果->$result');
   }
 }

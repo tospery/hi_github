@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hi_flutter/frame/src/item/hi_portal_item.dart';
 import '../../../core/hi_core.dart';
+import '../item/hi_item.dart';
 import '../model/hi_portal.dart';
 import 'hi_list_page.dart';
 
@@ -10,20 +12,33 @@ class HiModelListPage extends HiListPage {
   State<HiModelListPage> createState() => HiModelListPageState();
 }
 
-class HiModelListPageState extends HiListPageState<HiModel, HiModelListPage> {
+class HiModelListPageState extends HiListPageState<HiItem, HiModelListPage> {
   @override
-  Future<List<HiModel>> requestList(int pageIndex) async {
-    List<HiModel> models = [];
+  Future<List<HiItem<HiModel>>> requestList(int pageIndex) async {
+    List<HiItem<HiModel>> items = [];
     if (path != null) {
       var content = await context.assetBundle.loadString(path!);
       var json = content.jsonObject as List? ?? [];
       var portals = json
           .map((e) => HiPortal.fromJson(e as Map<String, dynamic>? ?? {}))
           .toList();
-      models.addAll(portals);
+      items.addAll(portals.map((e) => HiPortalItem(model: e)).toList());
     }
-    return models;
+    return items;
   }
+  // @override
+  // Future<List<HiModel>> requestList(int pageIndex) async {
+  // List<HiModel> models = [];
+  // if (path != null) {
+  //   var content = await context.assetBundle.loadString(path!);
+  //   var json = content.jsonObject as List? ?? [];
+  //   var portals = json
+  //       .map((e) => HiPortal.fromJson(e as Map<String, dynamic>? ?? {}))
+  //       .toList();
+  //   models.addAll(portals);
+  // }
+  // return models;
+  // }
 }
 
 
