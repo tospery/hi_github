@@ -18,7 +18,7 @@ import 'package:hi_flutter/frame/hi_frame.dart';
 class HiFlutter {
   static Future<bool> ready() async {
     await HiCache.ready();
-    await HiApp.ready();
+    await HiPackageManager.ready();
     return true;
   }
 }

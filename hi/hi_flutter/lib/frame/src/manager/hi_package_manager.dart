@@ -1,15 +1,15 @@
 import 'package:package_info_plus/package_info_plus.dart';
 
-class HiApp {
+class HiPackageManager {
   PackageInfo? _packageInfo;
 
-  static HiApp? _instance;
-  static HiApp shared() {
-    _instance ??= HiApp._();
+  static HiPackageManager? _instance;
+  static HiPackageManager shared() {
+    _instance ??= HiPackageManager._();
     return _instance!;
   }
 
-  HiApp._() {
+  HiPackageManager._() {
     init();
   }
 
@@ -17,14 +17,14 @@ class HiApp {
     _packageInfo ??= await PackageInfo.fromPlatform();
   }
 
-  HiApp._pre(PackageInfo prefs) {
+  HiPackageManager._pre(PackageInfo prefs) {
     _packageInfo = prefs;
   }
 
-  static Future<HiApp> ready() async {
+  static Future<HiPackageManager> ready() async {
     if (_instance == null) {
       var prefs = await PackageInfo.fromPlatform();
-      _instance = HiApp._pre(prefs);
+      _instance = HiPackageManager._pre(prefs);
     }
     return _instance!;
   }

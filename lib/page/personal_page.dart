@@ -39,13 +39,14 @@ class PersonalPageState extends HiModelListPageState {
 
   @override
   void callback(HiModel model, {result}) {
-    var user = context.storeState.user?.real;
-    if (user == null) {
-      return;
-    }
-    var myUser = user.copyWith(username: 'abcd1234');
-    var action = UpdateUserAction(myUser);
-    context.store.dispatch(action);
+    log('看看是否登录: ${context.storeStateLogin}');
+    // var user = context.storeState.user?.real;
+    // if (user == null) {
+    //   return;
+    // }
+    // var myUser = user.copyWith(username: 'abcd1234');
+    // var action = UpdateUserAction(myUser);
+    // context.store.dispatch(action);
   }
 }
 

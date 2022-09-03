@@ -2,8 +2,8 @@ import 'package:hi_flutter/hi_flutter.dart';
 
 import '../model/user.dart';
 
-class RootPage extends HiRootPage {
-  const RootPage({super.key, required super.parameters});
+class WelcomePage extends HiWelcomePage {
+  const WelcomePage({super.key, required super.parameters});
 
   @override
   // ignore: library_private_types_in_public_api

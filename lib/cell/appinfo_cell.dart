@@ -28,13 +28,13 @@ class _AppinfoCellState extends State<AppinfoCell> {
               style: const TextStyle(height: 1.5),
               children: [
                 TextSpan(
-                  text: HiApp.shared().name,
+                  text: HiPackageManager.shared().name,
                   style: context.themeData.textTheme.displayLarge,
                 ),
                 const TextSpan(text: '\n'),
                 TextSpan(
                   text:
-                      'v${HiApp.shared().version}(${HiApp.shared().buildNumber})',
+                      'v${HiPackageManager.shared().version}(${HiPackageManager.shared().buildNumber})',
                   style: context.themeData.textTheme.displaySmall,
                 ),
               ],

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import 'package:hi_github/page/oauth_page.dart';
-import 'package:hi_github/page/root_page.dart';
+import 'package:hi_github/page/welcome_page.dart';
 import 'package:hi_github/page/tabbar_page.dart';
 import 'package:hi_github/page/test_page.dart';
 import '../core/constant.dart';
@@ -34,7 +34,7 @@ extension UriRouter on Uri {
       {BuildContext? context, Map<String, dynamic> parameters = const {}}) {
     if (host.isEmpty) {
       // return const WelcomePage2();
-      return RootPage(parameters: parameters);
+      return WelcomePage(parameters: parameters);
     }
     Widget? page;
     switch (host) {
