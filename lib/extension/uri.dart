@@ -31,22 +31,38 @@ extension UriRouter on Uri {
   //   return title;
   // }
 
-  Widget? page(
-      {BuildContext? context, Map<String, dynamic> parameters = const {}}) {
+  Uri addDefaultQueries() {
+    Map<String, String> defaults = {};
+    switch (host) {
+      case HiHost.login:
+        defaults = {
+          HiParameter.routerMode: HiRouterMode.present.instanceName,
+        };
+        break;
+      default:
+        break;
+    }
+    return appendingIfNotExist(queries: defaults);
+  }
+
+  Widget? page({
+    BuildContext? context,
+    Map<String, dynamic> parameters = const {},
+  }) {
+    var myParameters = parameters;
     if (host.isEmpty) {
-      // return const WelcomePage2();
-      return WelcomePage(parameters: parameters);
+      return WelcomePage(parameters: myParameters);
     }
     Widget? page;
     switch (host) {
       case HiHost.login:
-        page = LoginPage(parameters: parameters);
+        page = LoginPage(parameters: myParameters);
         break;
       case HiHost.home:
         page = const TabBarPage();
         break;
       case HiHost.user:
-        page = UserPage(parameters: parameters);
+        page = UserPage(parameters: myParameters);
         break;
       // case HiRouterPath.about:
       //   page = AboutPage(parameters: parameters);

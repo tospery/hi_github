@@ -1,5 +1,10 @@
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
-import 'package:hi_flutter/hi_flutter.dart';
+import 'uri.dart';
+import '../../core/hi_core.dart';
+import 'core.dart';
+import 'handler.dart';
+import 'host.dart';
 
 class HiRouter {
   final _router = FluroRouter();

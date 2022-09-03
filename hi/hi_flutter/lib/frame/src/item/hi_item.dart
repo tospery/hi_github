@@ -7,6 +7,8 @@ class HiItem<M extends HiModel> {
   final double? height;
   final M? model;
 
+  String? get target => null;
+
   HiItem({this.width, this.height, this.model});
 
   // Widget cell<I extends HiItem>(HiCellPressed<I>? onPressed) {

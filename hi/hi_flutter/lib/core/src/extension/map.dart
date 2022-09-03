@@ -35,6 +35,27 @@ extension HiCoreMapEx<K, V> on Map<K, V> {
     return json.encode(this);
   }
 
+  Map<K, V> addIfNotExist(Map<K, V> other) {
+    // if (this[key] != null) {
+    //   return this;
+    // }
+    // var result = this;
+    // result[key] = value;
+    // return result;
+    if (other.isEmpty) {
+      return this;
+    }
+    var result = <K, V>{};
+    result.addAll(this);
+    for (var key in other.keys) {
+      if (result[key] != null) {
+        continue;
+      }
+      result[key] = other[key] as V;
+    }
+    return result;
+  }
+
   Map<K, V> operator +(Map<K, V> other) {
     addAll(other);
     return this;

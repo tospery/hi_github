@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:hi_flutter/frame/src/item/hi_portal_item.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import 'package:hi_github/core/datatype.dart';
@@ -80,8 +79,40 @@ class UserPageState extends HiModelListPageState {
           separated: false,
         ),
       ),
-      HiPortalItem(model: const HiPortal(height: 30)),
+      HiPortalItem(model: const HiPortal(height: 20)),
+      HiPortalItem(
+        model: HiPortal(
+          id: PortalType.button.instanceName,
+          title: context.string.exitLogin,
+        ),
+      ),
     ];
+  }
+
+  @override
+  void doPressed(HiItem<HiModel> item, {result}) {
+    if (item is HiPortalItem) {
+      var id = item.model?.id ?? '';
+      var type = PortalType.fromValue(id);
+      switch (type) {
+        case PortalType.button:
+          logout();
+          break;
+        default:
+          break;
+      }
+    }
+  }
+
+  void logout() async {
+    final result = await hiAlert(
+      context: context,
+      title: context.string.exitLogin,
+      message: context.string.alertLogoutMessage,
+      ok: context.string.ok,
+      cancel: context.string.cancel,
+    );
+    log('result = $result');
   }
 }
 
@@ -185,14 +216,14 @@ class UserPageState extends HiModelListPageState {
 //     );
 //   }
 
-//   void _doLogout() async {
-//     final result = await hiAlert(
-//       context: context,
-//       title: context.string.exitLogin,
-//       message: context.string.alertLogoutMessage,
-//       ok: context.string.ok,
-//       cancel: context.string.cancel,
-//     );
-//     log('result = $result');
-//   }
+  // void _doLogout() async {
+  //   final result = await hiAlert(
+  //     context: context,
+  //     title: context.string.exitLogin,
+  //     message: context.string.alertLogoutMessage,
+  //     ok: context.string.ok,
+  //     cancel: context.string.cancel,
+  //   );
+  //   log('result = $result');
+  // }
 // }

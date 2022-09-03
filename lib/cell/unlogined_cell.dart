@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import '../../extension/build_context.dart';
+import '../item/unlogined_item.dart';
 
-class UnloginedCell extends StatefulWidget {
-  final VoidCallback? onPressed;
-
-  const UnloginedCell({super.key, this.onPressed});
+class UnloginedCell extends HiCell<UnloginedItem> {
+  const UnloginedCell({super.key, required super.item, super.onPressed});
 
   @override
-  State<UnloginedCell> createState() => _UnloginedCellState();
+  UnloginedCellState createState() => UnloginedCellState();
 }
 
-class _UnloginedCellState extends State<UnloginedCell> {
+class UnloginedCellState extends HiCellState<UnloginedItem> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: widget.onPressed,
+      onTap: () => widget.onPressed != null ? widget.onPressed!(item) : null,
       child: Container(
         color: context.themeData.colorScheme.primary,
         height: 180,

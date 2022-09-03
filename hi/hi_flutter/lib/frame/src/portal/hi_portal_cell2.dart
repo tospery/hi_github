@@ -108,7 +108,7 @@ class _HiPortalCell2State extends State<HiPortalCell2> {
     if (widget.portal.isSpace) {
       return Container();
     }
-    return widget.portal.indicated
+    return widget.portal.indicated ?? false
         ? hiIndicator(
             context: context,
             icon: Icons.navigate_next,

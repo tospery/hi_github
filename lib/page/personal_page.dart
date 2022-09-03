@@ -1,11 +1,12 @@
 import 'package:hi_flutter/frame/src/item/hi_portal_item.dart';
 import 'package:hi_flutter/hi_flutter.dart';
-import 'package:hi_github/cell/user_info_cell.dart';
 import 'package:hi_github/core/datatype.dart';
 import 'package:hi_github/extension/build_context.dart';
+import 'package:hi_github/item/unlogined_item.dart';
 import 'package:hi_github/item/user_chart_item.dart';
 import 'package:hi_github/item/user_info_item.dart';
 import '../model/user.dart';
+import '../extension/uri.dart';
 
 class PersonalPage extends HiModelListPage {
   const PersonalPage({super.key, super.parameters = const {}});
@@ -34,15 +35,15 @@ class PersonalPageState extends HiModelListPageState {
   @override
   Future<List<HiItem<HiModel>>> requestList(int pageIndex) async {
     var items = await super.requestList(pageIndex);
-    // ignore: use_build_context_synchronously
-    var user = context.storeStateUser<User>();
-    if (user?.isValid ?? false) {
+    if (context.storeStateLogin) {
       items.insertAll(0, _buildUserBriefItems());
       items.insert(0, HiPortalItem(model: const HiPortal(height: 10)));
       items.insert(0, UserChartItem());
       items.insert(0, HiPortalItem(model: const HiPortal(height: 10)));
       items.insert(0, UserInfoItem());
-    } else {}
+    } else {
+      items.insert(0, UnloginedItem());
+    }
     return items;
   }
 
@@ -89,19 +90,32 @@ class PersonalPageState extends HiModelListPageState {
 
   @override
   void doPressed(HiItem<HiModel> item, {result}) {
-    if (item is UserInfoItem) {
-      switch (result) {
-        case UserInfoClick.user:
-          HiRouter.shared().push(
-            context,
-            // hiUriString(host: HiHost.user, path: '123'),
-            hiUriString(host: HiHost.user),
-          );
-          break;
-        default:
-          break;
-      }
+    var target = item.target?.toUri()?.addDefaultQueries().toString();
+    if (target == null) {
+      return;
     }
+    HiRouter.shared().forward(context, target);
+
+    // var login = context.storeStateLogin;
+    // log('login1 = $login');
+
+    // context.store.dispatch(LogoutSuccessAction(context, true));
+
+    // if (item is UnloginedItem) {
+    // } else if (item is UserInfoItem) {
+    //   switch (result) {
+    //     case UserInfoClick.user:
+    //       HiRouter.shared().push(
+    //         context,
+    //         // hiUriString(host: HiHost.user, path: '123'),
+    //         hiUriString(host: HiHost.user),
+    //       );
+    //       break;
+    //     default:
+    //       break;
+    //   }
+    // }
+
     // if (item is HiPortalItem) {
     //   var id = item.model?.id ?? '';
     //   var type = PortalType.fromValue(id);

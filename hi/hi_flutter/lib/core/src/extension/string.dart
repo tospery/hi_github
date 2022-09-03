@@ -17,8 +17,9 @@ extension HiCoreStringEx on String {
 
   double? toDouble() => double.tryParse(this);
 
-  dynamic get jsonObject =>
-      isNotEmpty ? json.decode(this) : <String, dynamic>{};
+  dynamic toJson() {
+    return isNotEmpty ? json.decode(this) : <String, dynamic>{};
+  }
 
   Color? toColor() {
     if (length < 7) {
@@ -28,4 +29,6 @@ extension HiCoreStringEx on String {
 
     // Color(int.parse(c,radix:16)).withAlpha(255)
   }
+
+  Uri? toUri() => Uri.tryParse(this);
 }

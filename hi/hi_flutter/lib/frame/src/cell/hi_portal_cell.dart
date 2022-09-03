@@ -23,22 +23,52 @@ class HiPortalCellState extends HiCellState<HiPortalItem> {
         widget.onPressed!(item);
       },
       child: Card(
-        color: item.model?.isSpace ?? false
-            ? Colors.transparent
-            : item.model?.color?.toColor(),
+        color: _getColor(),
         child: Container(
-          padding: const EdgeInsets.only(left: 20, right: 10),
+          padding: _buildPadding(),
           decoration: BoxDecoration(
             border: hiBorder(context: context, bottom: true),
           ),
-          height: item.model?.height,
+          height: _getHeight(),
           child: _buildContentView(),
         ),
       ),
     );
   }
 
+  _buildPadding() {
+    return item.model?.isButton ?? false
+        ? EdgeInsets.zero
+        : const EdgeInsets.only(left: 20, right: 10);
+  }
+
+  Color? _getColor() {
+    return item.model?.isSpace ?? false
+        ? Colors.transparent
+        : item.model?.color?.toColor();
+  }
+
+  double _getHeight() {
+    var height = item.height;
+    height ??= item.model?.height;
+    if (height == null && (item.model?.isSpace ?? false)) {
+      height = 10;
+    }
+    return height ?? 50;
+  }
+
   _buildContentView() {
+    if (item.model?.isSpace ?? false) {
+      return Container();
+    }
+    if (item.model?.isButton ?? false) {
+      return Center(
+        child: Text(
+          item.model?.title ?? '',
+          style: context.themeData.primaryTextTheme.displayMedium,
+        ),
+      );
+    }
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -113,7 +143,7 @@ class HiPortalCellState extends HiCellState<HiPortalItem> {
     if (item.model?.isSpace ?? false) {
       return Container();
     }
-    return item.model!.indicated
+    return item.model?.indicated ?? false
         ? hiIndicator(
             context: context,
             icon: Icons.navigate_next,

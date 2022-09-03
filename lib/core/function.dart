@@ -69,6 +69,13 @@ ThemeData getThemeData(MaterialColor color) {
         borderRadius: BorderRadius.zero,
       ),
     ),
+    primaryTextTheme: TextTheme(
+      displayMedium: TextStyle(
+        fontSize: HiConstant.normalFontSize,
+        color: color,
+        fontWeight: FontWeight.w600,
+      ),
+    ),
     dividerTheme: DividerThemeData(
       thickness: 0.5,
       color: Colors.grey[200],

@@ -13,16 +13,20 @@ class WelcomePage extends HiWelcomePage {
 class _RootPageState extends HiRootPageState {
   @override
   Future<void> loadData({loadMore = false}) async {
-    Future.delayed(const Duration(milliseconds: 200), () {
-      var user = User.fromJson(
-          (HiCache.shared().get<String>(HiKey.user) ?? '').jsonObject);
-      log('获取到的user: $user');
-      if (!user.isValid) {
-        context.store.dispatch(LogoutSuccessAction(context, false));
-        return;
-      }
-      context.store.dispatch(UpdateUserAction(user));
-      context.store.dispatch(LoginSuccessAction(context));
-    });
+    Future.delayed(
+      const Duration(milliseconds: 200),
+      () {
+        var login = HiCache.shared().get<bool>(HiKey.login) ?? false;
+        if (!login) {
+          context.store.dispatch(DidLogoutAction(context, false));
+          return;
+        }
+        var string = HiCache.shared().get<String>(HiKey.user) ?? '';
+        var json = string.toJson() as Map<String, dynamic>? ?? {};
+        var user = User.fromJson(json);
+        context.store.dispatch(UpdateUserAction(user));
+        context.store.dispatch(DidLoginAction(context));
+      },
+    );
   }
 }

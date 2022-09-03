@@ -18,7 +18,7 @@ class HiModelListPageState extends HiListPageState<HiItem, HiModelListPage> {
     List<HiItem<HiModel>> items = [];
     if (path != null) {
       var content = await context.assetBundle.loadString(path!);
-      var json = content.jsonObject as List? ?? [];
+      var json = content.toJson() as List? ?? [];
       var portals = json
           .map((e) => HiPortal.fromJson(e as Map<String, dynamic>? ?? {}))
           .toList();

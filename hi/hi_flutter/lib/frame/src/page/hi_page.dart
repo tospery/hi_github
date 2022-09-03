@@ -31,6 +31,7 @@ abstract class HiPageState<T extends HiPage> extends State<T>
   void init() {
     // log('init被调用');
     parameters = widget.parameters;
+    log('页面参数: $parameters');
     hideNavBar = parameters.boolForKey(HiParameter.hideNavBar) ?? false;
     hideNavLine = parameters.boolForKey(HiParameter.hideNavLine) ?? false;
     id = parameters.stringForKey(HiParameter.id);

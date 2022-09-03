@@ -2,6 +2,7 @@ import 'package:hi_flutter/hi_flutter.dart';
 
 enum PortalType {
   space,
+  button,
   dark,
   nickname,
   bio,
@@ -36,6 +37,7 @@ enum PortalType {
   factory PortalType.fromValue(String value) =>
       {
         PortalType.space.instanceName: PortalType.space,
+        PortalType.button.instanceName: PortalType.button,
         PortalType.dark.instanceName: PortalType.dark,
         PortalType.nickname.instanceName: PortalType.nickname,
         PortalType.bio.instanceName: PortalType.bio,

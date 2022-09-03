@@ -65,7 +65,7 @@ class _PortalWidgetState extends State<PortalWidget> {
               ),
             ],
           ),
-          portal.indicated
+          portal.indicated ?? false
               ? const Icon(
                   Icons.navigate_next,
                   color: Colors.grey,

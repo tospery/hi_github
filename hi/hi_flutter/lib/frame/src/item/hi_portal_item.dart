@@ -1,25 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:hi_flutter/frame/hi_frame.dart';
+import '../cell/hi_cell.dart';
+import '../cell/hi_portal_cell.dart';
+import '../model/hi_portal.dart';
+import 'hi_item.dart';
 
 class HiPortalItem extends HiItem<HiPortal> {
   HiPortalItem({super.width, super.height, super.model});
-
-  //   Widget cell<I extends HiItem>(HiCellPressed<I>? onPressed) {
-  //   return HiCell<I>(item: this as I, onPressed: onPressed);
-  // }
-
-  // @override
-  // Widget cell<M extends HiModel>(HiModelCallback<M>? callback) {
-  //   return HiPortalCell2(
-  //     portal: this,
-  //     onPressed: () => callback != null ? callback(this as M) : null,
-  //   );
-  // }
-
-  // @override
-  // Widget cell<HiPortalItem>(HiCellPressed? onPressed) {
-  //   return HiPortalCell(item: this, onPressed: onPressed);
-  // }
 
   @override
   Widget cell(HiCellPressed<HiPortalItem>? onPressed) {

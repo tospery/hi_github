@@ -15,3 +15,4 @@ HiRouter.shared().push(context, hiUriString(host: HiHost.profile));
 只传id, 同时传model，自动跳登录页，检测登录
 建议：是否检测登录，由传参决定，不通过提前埋下
 portalcell的title最大长度
+map通过扩展修改自身
