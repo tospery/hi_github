@@ -71,7 +71,7 @@ class Portal extends HiPortal {
 
   @override
   Widget cell<M extends HiModel>(HiModelCallback<M>? callback) {
-    return HiPortalCell(
+    return HiPortalCell2(
       portal: this,
       onPressed: () {
         if (callback == null) {

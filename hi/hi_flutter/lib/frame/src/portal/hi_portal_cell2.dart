@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:hi_flutter/frame/hi_frame.dart';
 import '../../../core/hi_core.dart';
 
-class HiPortalCell extends StatefulWidget {
+class HiPortalCell2 extends StatefulWidget {
   final HiPortal portal;
   final VoidCallback? onPressed;
 
-  const HiPortalCell({super.key, required this.portal, this.onPressed});
+  const HiPortalCell2({super.key, required this.portal, this.onPressed});
 
   @override
-  State<HiPortalCell> createState() => _HiPortalCellState();
+  State<HiPortalCell2> createState() => _HiPortalCell2State();
 }
 
-class _HiPortalCellState extends State<HiPortalCell> {
+class _HiPortalCell2State extends State<HiPortalCell2> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -20,7 +20,7 @@ class _HiPortalCellState extends State<HiPortalCell> {
       child: Card(
         color: widget.portal.isSpace
             ? Colors.transparent
-            : widget.portal.color?.color,
+            : widget.portal.color?.toColor(),
         child: Container(
           padding: const EdgeInsets.only(left: 20, right: 10),
           decoration: BoxDecoration(
@@ -55,7 +55,7 @@ class _HiPortalCellState extends State<HiPortalCell> {
 
   _buildHeadIcon() {
     return widget.portal.icon?.isNotEmpty ?? false
-        ? widget.portal.icon!.image(width: 25)
+        ? widget.portal.icon!.toImage(width: 25)
         : Container();
   }
 

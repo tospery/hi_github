@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../core.dart';
 
 extension HiFrameString on String {
-  Widget image({double? width, double? height}) {
+  Widget toImage({double? width, double? height}) {
     Widget? result;
     try {
       result = Image.asset(

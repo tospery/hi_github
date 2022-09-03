@@ -20,7 +20,7 @@ extension HiCoreStringEx on String {
   dynamic get jsonObject =>
       isNotEmpty ? json.decode(this) : <String, dynamic>{};
 
-  Color? get color {
+  Color? toColor() {
     if (length < 7) {
       return null;
     }

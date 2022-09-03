@@ -52,7 +52,7 @@ class _PortalWidgetState extends State<PortalWidget> {
               //   child: portal.icon.image,
               // ),
               portal.icon?.isNotEmpty ?? false
-                  ? portal.icon!.image(width: 25)
+                  ? portal.icon!.toImage(width: 25)
                   : Container(),
               hiSpace(width: 10),
               Text(

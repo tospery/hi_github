@@ -1,7 +1,6 @@
+import 'package:flutter/material.dart';
 import '../../../core/hi_core.dart';
-
-typedef HiItemCallback<M extends HiModel> = void Function(M model,
-    {dynamic result});
+import '../cell/hi_cell.dart';
 
 class HiItem<M extends HiModel> {
   final double? width;
@@ -9,4 +8,8 @@ class HiItem<M extends HiModel> {
   final M? model;
 
   HiItem(this.width, this.height, this.model);
+
+  Widget cell<I extends HiItem>(HiCellPressed<I>? onPressed) {
+    return HiCell<I>(item: this as I, onPressed: onPressed);
+  }
 }
