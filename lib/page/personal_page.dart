@@ -56,21 +56,21 @@ class PersonalPageState extends HiModelListPageState {
 // }
 
 // class PersonalPageState extends HiPortalsPageState {
-  // @override
-  // void init() {
-  //   super.init();
-  //   path = parameters.stringForKey(HiParameter.path) ??
-  //       'res/jsons/personal_portals.json';
-  // }
+// @override
+// void init() {
+//   super.init();
+//   path = parameters.stringForKey(HiParameter.path) ??
+//       'res/jsons/personal_portals.json';
+// }
 
-  // @override
-  // void setup() {
-  //   super.setup();
-  //   setState(() {
-  //     title =
-  //         parameters.stringForKey(HiParameter.title) ?? context.string.personal;
-  //   });
-  // }
+// @override
+// void setup() {
+//   super.setup();
+//   setState(() {
+//     title =
+//         parameters.stringForKey(HiParameter.title) ?? context.string.personal;
+//   });
+// }
 
 //   // @override
 //   // Widget buildCell(HiPortal model) {

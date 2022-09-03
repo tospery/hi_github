@@ -10,11 +10,11 @@ class License extends Equatable {
   const License({this.key, this.name, this.spdxId, this.url, this.nodeId});
 
   factory License.fromJson(Map<String, dynamic> json) => License(
-        key: json['key'] as String?,
-        name: json['name'] as String?,
-        spdxId: json['spdx_id'] as String?,
-        url: json['url'] as String?,
-        nodeId: json['node_id'] as String?,
+        key: json.stringForKey('key'),
+        name: json.stringForKey('name'),
+        spdxId: json.stringForKey('spdx_id'),
+        url: json.stringForKey('url'),
+        nodeId: json.stringForKey('node_id'),
       );
 
   Map<String, dynamic> toJson() => {
