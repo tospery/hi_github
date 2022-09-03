@@ -30,3 +30,4 @@ export 'src/redux/hi_theme_reducer.dart';
 export 'src/redux/hi_login_epic.dart';
 export 'src/redux/hi_user_epic.dart';
 export 'src/redux/hi_middleware.dart';
+export 'src/item/item.dart';

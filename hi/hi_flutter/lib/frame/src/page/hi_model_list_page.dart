@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../core/hi_core.dart';
-import '../portal/hi_portal.dart';
+import '../model/hi_portal.dart';
 import 'hi_list_page.dart';
 
 class HiModelListPage extends HiListPage {
