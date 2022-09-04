@@ -18,14 +18,14 @@ class _RootPageState extends HiRootPageState {
       () {
         var login = HiCache.shared().get<bool>(HiKey.login) ?? false;
         if (!login) {
-          context.store.dispatch(DidLogoutAction(context, false));
+          context.store.dispatch(DidLogoutAction(context, true));
           return;
         }
         var string = HiCache.shared().get<String>(HiKey.user) ?? '';
         var json = string.toJson() as Map<String, dynamic>? ?? {};
         var user = User.fromJson(json);
         context.store.dispatch(UpdateUserAction(user));
-        context.store.dispatch(DidLoginAction(context));
+        context.store.dispatch(DidLoginAction(context, true));
       },
     );
   }

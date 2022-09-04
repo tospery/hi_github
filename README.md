@@ -5,7 +5,7 @@ webview
 url schemes
 Iterable
 重写login
-hinet->path
+hinet->path（重构）
 Future<bool>用于HiCache的返回值
 添加item
 看看cell数据的响应式
@@ -16,3 +16,8 @@ HiRouter.shared().push(context, hiUriString(host: HiHost.profile));
 建议：是否检测登录，由传参决定，不通过提前埋下
 portalcell的title最大长度
 map通过扩展修改自身
+    HiRouter.shared().configure();
+    HiBaseResponse.dataKeys += ['access_token'];
+    HiNet.shared().loginFunc = customLogin;
+    HiNet.shared().userinfoFunc = customUserinfo;
+作为ready的参数

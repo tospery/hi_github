@@ -6,7 +6,6 @@ import 'package:hi_github/item/unlogined_item.dart';
 import 'package:hi_github/item/user_chart_item.dart';
 import 'package:hi_github/item/user_info_item.dart';
 import '../model/user.dart';
-import '../extension/uri.dart';
 
 class PersonalPage extends HiModelListPage {
   const PersonalPage({super.key, super.parameters = const {}});
@@ -90,7 +89,8 @@ class PersonalPageState extends HiModelListPageState {
 
   @override
   void doPressed(HiItem<HiModel> item, {result}) {
-    var target = item.target?.toUri()?.addDefaultQueries().toString();
+    // var target = item.target?.toUri()?.addDefaultQueries().toString();
+    var target = item.target;
     if (target == null) {
       return;
     }

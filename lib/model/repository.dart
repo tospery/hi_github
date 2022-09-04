@@ -3,16 +3,12 @@ import 'package:hi_flutter/hi_flutter.dart';
 import 'license.dart';
 import 'user.dart';
 
-class Repository extends Equatable {
-  final int? id;
+class Repository extends HiModel {
   final String? nodeId;
   final String? name;
   final String? fullName;
-  final bool? private;
-  final User? owner;
   final String? htmlUrl;
   final String? description;
-  final bool? fork;
   final String? url;
   final String? forksUrl;
   final String? keysUrl;
@@ -58,33 +54,36 @@ class Repository extends Equatable {
   final String? cloneUrl;
   final String? svnUrl;
   final String? homepage;
-  final int? size;
-  final int? stargazersCount;
-  final int? watchersCount;
   final String? language;
+  final String? visibility;
+  final String? defaultBranch;
+  final String? mirrorUrl;
+  final bool? private;
+  final bool? fork;
   final bool? hasIssues;
   final bool? hasProjects;
   final bool? hasDownloads;
   final bool? hasWiki;
   final bool? hasPages;
-  final int? forksCount;
-  final dynamic mirrorUrl;
   final bool? archived;
   final bool? disabled;
-  final int? openIssuesCount;
-  final License? license;
   final bool? allowForking;
   final bool? isTemplate;
   final bool? webCommitSignoffRequired;
-  final List<String>? topics;
-  final String? visibility;
+  final int? size;
+  final int? stargazersCount;
+  final int? watchersCount;
+  final int? forksCount;
+  final int? openIssuesCount;
   final int? forks;
   final int? openIssues;
   final int? watchers;
-  final String? defaultBranch;
+  final User? owner;
+  final License? license;
+  final List<String>? topics;
 
   const Repository({
-    this.id,
+    super.id,
     this.nodeId,
     this.name,
     this.fullName,
@@ -165,92 +164,94 @@ class Repository extends Equatable {
   });
 
   factory Repository.fromJson(Map<String, dynamic> json) => Repository(
-        id: json['id'] as int?,
-        nodeId: json['node_id'] as String?,
-        name: json['name'] as String?,
-        fullName: json['full_name'] as String?,
-        private: json['private'] as bool?,
+        id: json.stringForKey('id'),
+        nodeId: json.stringForKey('node_id'),
+        name: json.stringForKey('name'),
+        fullName: json.stringForKey('full_name'),
+        htmlUrl: json.stringForKey('html_url'),
+        description: json.stringForKey('description'),
+        url: json.stringForKey('url'),
+        forksUrl: json.stringForKey('forks_url'),
+        keysUrl: json.stringForKey('keys_url'),
+        collaboratorsUrl: json.stringForKey('collaborators_url'),
+        teamsUrl: json.stringForKey('teams_url'),
+        hooksUrl: json.stringForKey('hooks_url'),
+        issueEventsUrl: json.stringForKey('issue_events_url'),
+        eventsUrl: json.stringForKey('events_url'),
+        assigneesUrl: json.stringForKey('assignees_url'),
+        branchesUrl: json.stringForKey('branches_url'),
+        tagsUrl: json.stringForKey('tags_url'),
+        blobsUrl: json.stringForKey('blobs_url'),
+        gitTagsUrl: json.stringForKey('git_tags_url'),
+        gitRefsUrl: json.stringForKey('git_refs_url'),
+        treesUrl: json.stringForKey('trees_url'),
+        statusesUrl: json.stringForKey('statuses_url'),
+        languagesUrl: json.stringForKey('languages_url'),
+        stargazersUrl: json.stringForKey('stargazers_url'),
+        contributorsUrl: json.stringForKey('contributors_url'),
+        subscribersUrl: json.stringForKey('subscribers_url'),
+        subscriptionUrl: json.stringForKey('subscription_url'),
+        commitsUrl: json.stringForKey('commits_url'),
+        gitCommitsUrl: json.stringForKey('git_commits_url'),
+        commentsUrl: json.stringForKey('comments_url'),
+        issueCommentUrl: json.stringForKey('issue_comment_url'),
+        contentsUrl: json.stringForKey('contents_url'),
+        compareUrl: json.stringForKey('compare_url'),
+        mergesUrl: json.stringForKey('merges_url'),
+        archiveUrl: json.stringForKey('archive_url'),
+        downloadsUrl: json.stringForKey('downloads_url'),
+        issuesUrl: json.stringForKey('issues_url'),
+        pullsUrl: json.stringForKey('pulls_url'),
+        milestonesUrl: json.stringForKey('milestones_url'),
+        notificationsUrl: json.stringForKey('notifications_url'),
+        labelsUrl: json.stringForKey('labels_url'),
+        releasesUrl: json.stringForKey('releases_url'),
+        deploymentsUrl: json.stringForKey('deployments_url'),
+        createdAt: json.stringForKey('created_at'),
+        updatedAt: json.stringForKey('updated_at'),
+        pushedAt: json.stringForKey('pushed_at'),
+        gitUrl: json.stringForKey('git_url'),
+        sshUrl: json.stringForKey('ssh_url'),
+        cloneUrl: json.stringForKey('clone_url'),
+        svnUrl: json.stringForKey('svn_url'),
+        language: json.stringForKey('language'),
+        homepage: json.stringForKey('homepage'),
+        visibility: json.stringForKey('visibility'),
+        defaultBranch: json.stringForKey('default_branch'),
+        mirrorUrl: json.stringForKey('mirror_url'),
+        private: json.boolForKey('private'),
+        hasIssues: json.boolForKey('has_issues'),
+        hasProjects: json.boolForKey('has_projects'),
+        hasDownloads: json.boolForKey('has_downloads'),
+        hasWiki: json.boolForKey('has_wiki'),
+        hasPages: json.boolForKey('has_pages'),
+        archived: json.boolForKey('archived'),
+        disabled: json.boolForKey('disabled'),
+        allowForking: json.boolForKey('allow_forking'),
+        isTemplate: json.boolForKey('is_template'),
+        fork: json.boolForKey('fork'),
+        webCommitSignoffRequired:
+            json.boolForKey('web_commit_signoff_required'),
+        size: json.intForKey('size'),
+        stargazersCount: json.intForKey('stargazers_count'),
+        watchersCount: json.intForKey('watchers_count'),
+        forksCount: json.intForKey('forks_count'),
+        openIssuesCount: json.intForKey('open_issues_count'),
+        forks: json.intForKey('forks'),
+        openIssues: json.intForKey('open_issues'),
+        watchers: json.intForKey('watchers'),
         owner: json['owner'] == null
             ? null
             : User.fromJson(json['owner'] as Map<String, dynamic>),
-        htmlUrl: json['html_url'] as String?,
-        description: json['description'] as String?,
-        fork: json['fork'] as bool?,
-        url: json['url'] as String?,
-        forksUrl: json['forks_url'] as String?,
-        keysUrl: json['keys_url'] as String?,
-        collaboratorsUrl: json['collaborators_url'] as String?,
-        teamsUrl: json['teams_url'] as String?,
-        hooksUrl: json['hooks_url'] as String?,
-        issueEventsUrl: json['issue_events_url'] as String?,
-        eventsUrl: json['events_url'] as String?,
-        assigneesUrl: json['assignees_url'] as String?,
-        branchesUrl: json['branches_url'] as String?,
-        tagsUrl: json['tags_url'] as String?,
-        blobsUrl: json['blobs_url'] as String?,
-        gitTagsUrl: json['git_tags_url'] as String?,
-        gitRefsUrl: json['git_refs_url'] as String?,
-        treesUrl: json['trees_url'] as String?,
-        statusesUrl: json['statuses_url'] as String?,
-        languagesUrl: json['languages_url'] as String?,
-        stargazersUrl: json['stargazers_url'] as String?,
-        contributorsUrl: json['contributors_url'] as String?,
-        subscribersUrl: json['subscribers_url'] as String?,
-        subscriptionUrl: json['subscription_url'] as String?,
-        commitsUrl: json['commits_url'] as String?,
-        gitCommitsUrl: json['git_commits_url'] as String?,
-        commentsUrl: json['comments_url'] as String?,
-        issueCommentUrl: json['issue_comment_url'] as String?,
-        contentsUrl: json['contents_url'] as String?,
-        compareUrl: json['compare_url'] as String?,
-        mergesUrl: json['merges_url'] as String?,
-        archiveUrl: json['archive_url'] as String?,
-        downloadsUrl: json['downloads_url'] as String?,
-        issuesUrl: json['issues_url'] as String?,
-        pullsUrl: json['pulls_url'] as String?,
-        milestonesUrl: json['milestones_url'] as String?,
-        notificationsUrl: json['notifications_url'] as String?,
-        labelsUrl: json['labels_url'] as String?,
-        releasesUrl: json['releases_url'] as String?,
-        deploymentsUrl: json['deployments_url'] as String?,
-        createdAt: json['created_at'] as String?,
-        updatedAt: json['updated_at'] as String?,
-        pushedAt: json['pushed_at'] as String?,
-        gitUrl: json['git_url'] as String?,
-        sshUrl: json['ssh_url'] as String?,
-        cloneUrl: json['clone_url'] as String?,
-        svnUrl: json['svn_url'] as String?,
-        homepage: json['homepage'] as String?,
-        size: json['size'] as int?,
-        stargazersCount: json['stargazers_count'] as int?,
-        watchersCount: json['watchers_count'] as int?,
-        language: json['language'] as String?,
-        hasIssues: json['has_issues'] as bool?,
-        hasProjects: json['has_projects'] as bool?,
-        hasDownloads: json['has_downloads'] as bool?,
-        hasWiki: json['has_wiki'] as bool?,
-        hasPages: json['has_pages'] as bool?,
-        forksCount: json['forks_count'] as int?,
-        mirrorUrl: json['mirror_url'] as dynamic,
-        archived: json['archived'] as bool?,
-        disabled: json['disabled'] as bool?,
-        openIssuesCount: json['open_issues_count'] as int?,
         license: json['license'] == null
             ? null
             : License.fromJson(json['license'] as Map<String, dynamic>),
-        allowForking: json['allow_forking'] as bool?,
-        isTemplate: json['is_template'] as bool?,
-        webCommitSignoffRequired: json['web_commit_signoff_required'] as bool?,
         topics: (json['topics'] as List<dynamic>?)
             ?.map((e) => e as String)
             .toList(),
-        visibility: json['visibility'] as String?,
-        forks: json['forks'] as int?,
-        openIssues: json['open_issues'] as int?,
-        watchers: json['watchers'] as int?,
-        defaultBranch: json['default_branch'] as String?,
       );
 
+  @override
   Map<String, dynamic> toJson() => {
         'id': id,
         'node_id': nodeId,
@@ -333,7 +334,7 @@ class Repository extends Equatable {
       };
 
   Repository copyWith({
-    int? id,
+    String? id,
     String? nodeId,
     String? name,
     String? fullName,
@@ -397,7 +398,7 @@ class Repository extends Equatable {
     bool? hasWiki,
     bool? hasPages,
     int? forksCount,
-    dynamic mirrorUrl,
+    String? mirrorUrl,
     bool? archived,
     bool? disabled,
     int? openIssuesCount,

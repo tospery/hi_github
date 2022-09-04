@@ -33,7 +33,9 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: HiFlutter.ready(),
+      future: HiFlutter.ready(
+        defaultQuerieFunc: customDefaultQuerie,
+      ),
       builder: (context, snapshot) {
         return StoreProvider(
           store: store,

@@ -14,43 +14,37 @@ final hiLoginReducer = combineReducers<bool>([
 ]);
 
 bool _didLogin(bool result, DidLoginAction action) {
-  HiRouter.shared().push(
-    action.context,
-    hiUriString(
-      host: HiHost.home,
-      queries: {HiParameter.routerRoot: true.toString()},
-    ),
-  );
+  // 执行为关闭登录页
+  if (action.isInitialized) {
+    HiRouter.shared().resetRoot(action.context, hiUriString(host: HiHost.home));
+  } else {
+    HiRouter.shared().back(action.context);
+  }
   return true;
 }
 
 bool _didLogout(bool result, DidLogoutAction action) {
-  log('_logoutSuccess: result = $result, isManual = ${action.isManual}');
-  if (action.isManual) {
-    HiRouter.shared().present(action.context, hiUriString(host: HiHost.login));
+  log('_logoutSuccess: result = $result, isInitialized = ${action.isInitialized}');
+  if (action.isInitialized) {
+    HiRouter.shared().resetRoot(action.context, hiUriString(host: HiHost.home));
   } else {
-    HiRouter.shared().push(
-      action.context,
-      hiUriString(
-        host: HiHost.home,
-        queries: {HiParameter.routerRoot: true.toString()},
-      ),
-    );
+    HiRouter.shared().goLogin(action.context);
   }
   return false;
 }
 
 class DidLoginAction {
   final BuildContext context;
+  final bool isInitialized;
 
-  DidLoginAction(this.context);
+  DidLoginAction(this.context, this.isInitialized);
 }
 
 class DidLogoutAction {
   final BuildContext context;
-  final bool isManual;
+  final bool isInitialized;
 
-  DidLogoutAction(this.context, this.isManual);
+  DidLogoutAction(this.context, this.isInitialized);
 }
 
 class LoginAction {
@@ -89,7 +83,7 @@ Stream<dynamic> loginEpic(
     hideToastActivity();
     store.dispatch(UpdateUserAction(user));
     // ignore: use_build_context_synchronously
-    yield DidLoginAction(action.context);
+    yield DidLoginAction(action.context, false);
   }
 
   return actions

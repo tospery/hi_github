@@ -56,7 +56,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "readAndAgree": MessageLookupByLibrary.simpleMessage("已阅读并同意"),
         "repositories": MessageLookupByLibrary.simpleMessage("仓库"),
         "setting": MessageLookupByLibrary.simpleMessage("设置"),
-        "star": MessageLookupByLibrary.simpleMessage("打星"),
+        "star": MessageLookupByLibrary.simpleMessage("收藏"),
         "termTips": MessageLookupByLibrary.simpleMessage("请先同意用户协议和隐私政策"),
         "test": MessageLookupByLibrary.simpleMessage("测试"),
         "userAgreement": MessageLookupByLibrary.simpleMessage("用户协议"),

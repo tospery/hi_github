@@ -153,3 +153,17 @@ Future<HiUser> customUserinfo(Map<String, dynamic> parameters) async {
   var user = User.fromJson(json!);
   return user;
 }
+
+Uri customUri(Uri uri) {
+  Map<String, String> defaults = {};
+  switch (uri.host) {
+    case HiHost.login:
+      defaults = {
+        HiParameter.routerMode: HiRouterMode.present.instanceName,
+      };
+      break;
+    default:
+      break;
+  }
+  return uri.appendingIfNotExist(queries: defaults);
+}

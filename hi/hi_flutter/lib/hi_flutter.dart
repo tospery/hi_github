@@ -14,11 +14,15 @@ export 'frame/hi_frame.dart';
 
 import 'package:hi_flutter/cache/hi_cache.dart';
 import 'package:hi_flutter/frame/hi_frame.dart';
+import 'package:hi_flutter/router/hi_router.dart';
 
 class HiFlutter {
-  static Future<bool> ready() async {
+  static Future<bool> ready({
+    HiRouterAddDefaultUriQueriesFunc? customUriFunc,
+  }) async {
     await HiCache.ready();
     await HiPackageManager.ready();
+    HiRouter.shared().customUriFunc = customUriFunc;
     return true;
   }
 }

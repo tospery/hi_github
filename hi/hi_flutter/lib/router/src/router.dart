@@ -9,6 +9,10 @@ import 'host.dart';
 class HiRouter {
   final _router = FluroRouter();
 
+  HiRouterDefaultQueriesFunc? defaultQuerieFunc;
+  HiRouterCheckLoginFunc? checkLoginFunc;
+  HiRouterNeedLoginFunc? needLoginFunc;
+
   static HiRouter? _instance;
   static HiRouter shared() {
     _instance ??= HiRouter._();
@@ -47,10 +51,31 @@ class HiRouter {
     String uriString, {
     Map<String, dynamic> data = const {},
   }) {
-    log('导航: $uriString', tag: HiLogTag.router);
     var uri = Uri.tryParse(uriString);
     if (uri == null) {
       return Future.value(null);
+    }
+    if (defaultQuerieFunc != null) {
+      uri = defaultQuerieFunc!(uri);
+    }
+    log('导航: $uri, $data', tag: HiLogTag.router);
+    if (uri.host == HiHost.login) {
+      return goLogin(context);
+    }
+    if (needLoginFunc != null) {
+      var isLogined = false;
+      if (checkLoginFunc != null) {
+        isLogined = checkLoginFunc!();
+      }
+      if (!isLogined && needLoginFunc!(uri)) {
+        return goLogin(context).then(
+          (value) => forward(
+            context,
+            uriString,
+            data: data,
+          ),
+        );
+      }
     }
     Map<String, dynamic> parameters = {};
     parameters.addAll(uri.queryParameters);
@@ -72,13 +97,14 @@ class HiRouter {
     String uriString, {
     Map<String, dynamic> data = const {},
   }) {
-    var uri = Uri.tryParse(uriString);
-    if (uri == null) {
-      return Future.value(null);
-    }
-    uri = uri.appending(
-        queries: {HiParameter.routerMode: HiRouterMode.push.instanceName});
-    return forward(context, uri.toString(), data: data);
+    return forward(
+      context,
+      uriString,
+      data: data +
+          {
+            HiParameter.routerMode: HiRouterMode.push.instanceName,
+          },
+    );
   }
 
   Future<dynamic> present(
@@ -86,22 +112,37 @@ class HiRouter {
     String uriString, {
     Map<String, dynamic> data = const {},
   }) {
-    var uri = Uri.tryParse(uriString);
-    if (uri == null) {
-      return Future.value(null);
-    }
-    uri = uri.appending(
-        queries: {HiParameter.routerMode: HiRouterMode.present.instanceName});
-    return forward(context, uri.toString(), data: data);
+    return forward(
+      context,
+      uriString,
+      data: data +
+          {
+            HiParameter.routerMode: HiRouterMode.present.instanceName,
+          },
+    );
   }
 
   void back<T>(BuildContext context, [T? result]) =>
       _router.pop(context, result);
 
-  Future<dynamic> goLogin(BuildContext context) {
-    return present(
+  Future<dynamic> resetRoot(
+    BuildContext context,
+    String uriString,
+  ) {
+    return forward(
       context,
-      hiUriString(host: HiHost.login),
+      uriString,
+      data: {
+        HiParameter.routerRoot: true.toString(),
+      },
+    );
+  }
+
+  Future<dynamic> goLogin(BuildContext context) {
+    return _router.navigateTo(
+      context,
+      HiHost.login,
+      transition: HiRouterMode.present.rawValue,
     );
   }
 }
