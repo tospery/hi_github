@@ -30,7 +30,7 @@ class HiCellState<I extends HiItem> extends State<HiCell<I>> {
       onTap: () => widget.onPressed != null ? widget.onPressed!(item) : null,
       child: Container(
         height: 50,
-        color: hiRandomColor,
+        color: ColorsHiCoreEx.randomColor,
       ),
     );
   }

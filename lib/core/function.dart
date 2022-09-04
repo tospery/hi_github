@@ -154,7 +154,7 @@ Future<HiUser> customUserinfo(Map<String, dynamic> parameters) async {
   return user;
 }
 
-Uri customUri(Uri uri) {
+Uri customDefaultQuerie(Uri uri) {
   Map<String, String> defaults = {};
   switch (uri.host) {
     case HiHost.login:
@@ -165,5 +165,13 @@ Uri customUri(Uri uri) {
     default:
       break;
   }
-  return uri.appendingIfNotExist(queries: defaults);
+  return uri.addIfNotExist(queries: defaults);
+}
+
+bool customCheckLogin() {
+  return true;
+}
+
+bool customNeedLogin(Uri uri) {
+  return false;
 }

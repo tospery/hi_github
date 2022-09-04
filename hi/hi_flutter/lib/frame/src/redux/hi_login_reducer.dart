@@ -16,7 +16,10 @@ final hiLoginReducer = combineReducers<bool>([
 bool _didLogin(bool result, DidLoginAction action) {
   // 执行为关闭登录页
   if (action.isInitialized) {
-    HiRouter.shared().resetRoot(action.context, hiUriString(host: HiHost.home));
+    HiRouter.shared().resetRoot(
+      action.context,
+      UriHiCoreEx.uri(host: HiHost.home).toString(),
+    );
   } else {
     HiRouter.shared().back(action.context);
   }
@@ -26,7 +29,10 @@ bool _didLogin(bool result, DidLoginAction action) {
 bool _didLogout(bool result, DidLogoutAction action) {
   log('_logoutSuccess: result = $result, isInitialized = ${action.isInitialized}');
   if (action.isInitialized) {
-    HiRouter.shared().resetRoot(action.context, hiUriString(host: HiHost.home));
+    HiRouter.shared().resetRoot(
+      action.context,
+      UriHiCoreEx.uri(host: HiHost.home).toString(),
+    );
   } else {
     HiRouter.shared().goLogin(action.context);
   }

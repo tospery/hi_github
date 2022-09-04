@@ -36,12 +36,6 @@ extension HiCoreMapEx<K, V> on Map<K, V> {
   }
 
   Map<K, V> addIfNotExist(Map<K, V> other) {
-    // if (this[key] != null) {
-    //   return this;
-    // }
-    // var result = this;
-    // result[key] = value;
-    // return result;
     if (other.isEmpty) {
       return this;
     }

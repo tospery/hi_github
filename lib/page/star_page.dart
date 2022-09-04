@@ -1,10 +1,31 @@
-// import 'package:flutter/material.dart';
-// import 'package:hi_flutter/hi_flutter.dart';
-// import 'package:hi_github/ex/build_context.dart';
-// import 'package:hi_github/model/repository.dart';
-// import 'package:hi_github/widget/repository_cell.dart';
+import 'package:flutter/material.dart';
+import 'package:hi_flutter/hi_flutter.dart';
+import 'package:hi_github/extension/build_context.dart';
+import '../item/repository_item.dart';
 
-// import '../dao/repository_dao.dart';
+class StarPage extends HiListPage {
+  const StarPage({super.key, super.parameters = const {}});
+
+  @override
+  State<StarPage> createState() => StarPageState();
+}
+
+class StarPageState extends HiListPageState<RepositoryItem, StarPage> {
+  @override
+  void setup() {
+    super.setup();
+    setState(() {
+      title = parameters.stringForKey(HiParameter.title) ?? context.string.star;
+    });
+  }
+
+  @override
+  Future<List<RepositoryItem>> requestList(int pageIndex) async {
+    return [];
+  }
+}
+
+
 
 // class StarPage extends StatefulWidget {
 //   const StarPage({Key? key}) : super(key: key);

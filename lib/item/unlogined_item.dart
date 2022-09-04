@@ -7,7 +7,7 @@ class UnloginedItem extends HiItem<HiModel> {
   UnloginedItem({super.width, super.height, super.model});
 
   @override
-  String? get target => hiUriString(host: HiHost.login);
+  String? get target => UriHiCoreEx.uri(host: HiHost.login).toString();
 
   @override
   Widget cell(HiCellPressed<UnloginedItem>? onPressed) {

@@ -16,5 +16,6 @@ export 'src/convert.dart';
 export 'src/extension/string.dart';
 export 'src/extension/context.dart';
 export 'src/extension/color.dart';
+export 'src/extension/uri.dart';
 export 'src/function.dart';
 export 'src/user.dart';

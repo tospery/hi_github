@@ -18,11 +18,15 @@ import 'package:hi_flutter/router/hi_router.dart';
 
 class HiFlutter {
   static Future<bool> ready({
-    HiRouterAddDefaultUriQueriesFunc? customUriFunc,
+    HiRouterDefaultQueriesFunc? defaultQuerieFunc,
+    HiRouterCheckLoginFunc? checkLoginFunc,
+    HiRouterNeedLoginFunc? needLoginFunc,
   }) async {
     await HiCache.ready();
     await HiPackageManager.ready();
-    HiRouter.shared().customUriFunc = customUriFunc;
+    HiRouter.shared().defaultQuerieFunc = defaultQuerieFunc;
+    HiRouter.shared().checkLoginFunc = checkLoginFunc;
+    HiRouter.shared().needLoginFunc = needLoginFunc;
     return true;
   }
 }

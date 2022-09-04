@@ -1,6 +1,5 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
-import 'uri.dart';
 import '../../core/hi_core.dart';
 import 'core.dart';
 import 'handler.dart';

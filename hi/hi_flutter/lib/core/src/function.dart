@@ -1,17 +1,6 @@
-import 'dart:math';
-import 'package:flutter/material.dart';
 import 'extension/bool.dart';
 import 'extension/int.dart';
 import 'extension/string.dart';
-
-Color get hiRandomColor {
-  return Color.fromRGBO(
-    Random().nextInt(256),
-    Random().nextInt(256),
-    Random().nextInt(256),
-    1,
-  );
-}
 
 bool? hiBool(dynamic any) {
   if (any is bool) {

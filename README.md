@@ -11,7 +11,7 @@ Future<bool>用于HiCache的返回值
 看看cell数据的响应式
 urlPattern是否需要登录
 urlPattern自动跳登录页
-HiRouter.shared().push(context, hiUriString(host: HiHost.profile));
+HiRouter.shared().push(context, UriHiCoreEx.uri(host: HiHost.profile).toString());
 只传id, 同时传model，自动跳登录页，检测登录
 建议：是否检测登录，由传参决定，不通过提前埋下
 portalcell的title最大长度

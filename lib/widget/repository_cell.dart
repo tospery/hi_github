@@ -51,7 +51,7 @@ class RepositoryCell extends StatelessWidget {
           Image.asset(
             'res/images/repository.png',
             height: 32,
-            color: hiRandomColor,
+            color: ColorsHiCoreEx.randomColor,
           ),
           hiSpace(width: 8),
           Column(
@@ -74,7 +74,7 @@ class RepositoryCell extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(5),
           child: Container(
-            color: hiRandomColor,
+            color: ColorsHiCoreEx.randomColor,
             width: 10,
             height: 10,
           ),
