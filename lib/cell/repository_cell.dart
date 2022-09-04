@@ -13,7 +13,7 @@ class RepositoryCellState extends HiCellState<RepositoryItem> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      color: context.themeData.colorScheme.primary,
       margin: const EdgeInsets.only(
         left: 15,
         right: 15,
@@ -25,23 +25,6 @@ class RepositoryCellState extends HiCellState<RepositoryItem> {
           _buildDesc(context),
         ],
       ),
-      // child: Flex(
-      //   direction: Axis.vertical,
-      //   crossAxisAlignment: CrossAxisAlignment.stretch,
-      //   children: [
-      //     Expanded(
-      //       flex: 50,
-      //       child: _buildTop(context),
-      //     ),
-      //     Expanded(
-      //       flex: 100,
-      //       child: Container(
-      //         color: Colors.white,
-      //         child: _buildDesc(context),
-      //       ),
-      //     ),
-      //   ],
-      // ),
     );
   }
 
@@ -53,8 +36,8 @@ class RepositoryCellState extends HiCellState<RepositoryItem> {
         children: [
           Image.asset(
             'res/images/repository.png',
-            height: 32,
-            color: ColorsHiCoreEx.randomColor,
+            height: 30,
+            color: context.themeData.colorScheme.onPrimary,
           ),
           hiSpace(width: 8),
           Column(
@@ -101,11 +84,7 @@ class RepositoryCellState extends HiCellState<RepositoryItem> {
         item.model?.fullName ?? '',
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
-        style: const TextStyle(
-          fontSize: 15,
-          color: Colors.blue,
-          fontWeight: FontWeight.w500,
-        ),
+        style: context.themeData.primaryTextTheme.displaySmall,
       ),
     );
   }
@@ -118,10 +97,7 @@ class RepositoryCellState extends HiCellState<RepositoryItem> {
         item.model?.description ?? '',
         maxLines: 5,
         overflow: TextOverflow.ellipsis,
-        style: const TextStyle(
-          fontSize: 14,
-          color: Colors.black,
-        ),
+        style: context.themeData.textTheme.displaySmall,
       ),
     );
   }

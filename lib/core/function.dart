@@ -36,28 +36,30 @@ ThemeData getThemeData(MaterialColor color) {
       color: Colors.red,
     ),
     textTheme: const TextTheme(
+      // 全黑色
       displayLarge: TextStyle(
-        fontSize: HiConstant.normalFontSize + 2,
+        fontSize: HiConstant.largeFontSize,
         color: Colors.black,
-        fontWeight: FontWeight.bold,
+        fontWeight: FontWeight.w500,
       ),
       displayMedium: TextStyle(
-        fontSize: HiConstant.normalFontSize,
+        fontSize: HiConstant.mediumFontSize,
         color: Colors.black,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.normal,
       ),
       displaySmall: TextStyle(
-        fontSize: HiConstant.normalFontSize - 2,
-        color: Colors.grey,
+        fontSize: HiConstant.smallFontSize,
+        color: Colors.black,
+        fontWeight: FontWeight.w400,
       ),
       // Card's title
       titleMedium: TextStyle(
-        fontSize: HiConstant.normalFontSize - 1,
+        fontSize: HiConstant.mediumFontSize - 1,
         color: Colors.black87,
       ),
       // Card's detail
       bodyMedium: TextStyle(
-        fontSize: HiConstant.normalFontSize - 2,
+        fontSize: HiConstant.mediumFontSize - 2,
         color: Colors.black54,
       ),
     ),
@@ -70,11 +72,38 @@ ThemeData getThemeData(MaterialColor color) {
       ),
     ),
     primaryTextTheme: TextTheme(
-      displayMedium: TextStyle(
-        fontSize: HiConstant.normalFontSize,
+      // 主题色
+      displayLarge: TextStyle(
+        fontSize: HiConstant.largeFontSize,
         color: color,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w500,
       ),
+      displayMedium: TextStyle(
+        fontSize: HiConstant.mediumFontSize,
+        color: color,
+        fontWeight: FontWeight.normal,
+      ),
+      displaySmall: TextStyle(
+        fontSize: HiConstant.smallFontSize,
+        color: color,
+        fontWeight: FontWeight.w400,
+      ),
+      // // 主题色
+      // titleLarge: TextStyle(
+      //   fontSize: HiConstant.largeFontSize,
+      //   color: color,
+      //   fontWeight: FontWeight.w500,
+      // ),
+      // titleMedium: TextStyle(
+      //   fontSize: HiConstant.mediumFontSize,
+      //   color: color,
+      //   fontWeight: FontWeight.normal,
+      // ),
+      // titleSmall: TextStyle(
+      //   fontSize: HiConstant.smallFontSize,
+      //   color: color,
+      //   fontWeight: FontWeight.w400,
+      // ),
     ),
     dividerTheme: DividerThemeData(
       thickness: 0.5,
