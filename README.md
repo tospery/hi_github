@@ -21,3 +21,4 @@ map通过扩展修改自身
     HiNet.shared().loginFunc = customLogin;
     HiNet.shared().userinfoFunc = customUserinfo;
 作为ready的参数
+收藏页，没有网络/加载失败/列表为空等异常页面，加载中页面

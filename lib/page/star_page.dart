@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import 'package:hi_github/extension/build_context.dart';
+import '../extension/hi_net_repository.dart';
 import '../item/repository_item.dart';
+import '../model/user.dart';
 
 class StarPage extends HiListPage {
   const StarPage({super.key, super.parameters = const {}});
@@ -21,7 +23,14 @@ class StarPageState extends HiListPageState<RepositoryItem, StarPage> {
 
   @override
   Future<List<RepositoryItem>> requestList(int pageIndex) async {
-    return [];
+    var user = context.storeStateUser<User>();
+    var name = user?.username ?? '';
+    var models = await HiNet.shared().staredRepositories(
+      name,
+      pageIndex: pageIndex,
+    );
+    var items = models.map((e) => RepositoryItem(model: e)).toList();
+    return items;
   }
 }
 

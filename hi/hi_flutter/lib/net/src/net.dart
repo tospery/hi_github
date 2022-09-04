@@ -35,10 +35,10 @@ class HiNet {
 
     var last = Uri.dataFromString(request.urlString()).pathSegments.last;
     if (error != null) {
-      log('响应[$last]: $error', tag: 'HiHttp');
+      log('响应[$last]: $error', tag: HiLogTag.net);
       throw error;
     }
-    log('响应[$last]: $response', tag: 'HiHttp');
+    log('响应[$last]: $response', tag: HiLogTag.net);
 
     var code = response?.code;
     switch (code) {
@@ -54,7 +54,7 @@ class HiNet {
   }
 
   Future<HiBaseResponse> _send(HiBaseRequest request) async {
-    log(request, tag: 'HiHttp');
+    log(request, tag: HiLogTag.net);
     HiDioAdapter adapter = HiDioAdapter();
     return adapter.send(request);
   }

@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
-import 'package:hi_github/model/repository.dart';
+import '../item/repository_item.dart';
 
-class RepositoryCell extends StatelessWidget {
-  final Repository repository;
+class RepositoryCell extends HiCell<RepositoryItem> {
+  const RepositoryCell({super.key, required super.item, super.onPressed});
 
-  const RepositoryCell({super.key, required this.repository});
+  @override
+  RepositoryCellState createState() => RepositoryCellState();
+}
 
+class RepositoryCellState extends HiCellState<RepositoryItem> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -81,7 +84,7 @@ class RepositoryCell extends StatelessWidget {
         ),
         hiSpace(width: 4),
         Text(
-          repository.language ?? '',
+          item.model?.language ?? '',
           style: const TextStyle(
             fontSize: 12,
             color: Colors.black87,
@@ -95,7 +98,7 @@ class RepositoryCell extends StatelessWidget {
     return SizedBox(
       width: context.mediaQueryData.size.width - 15 - 32 - 8 - 20,
       child: Text(
-        repository.fullName ?? '',
+        item.model?.fullName ?? '',
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
         style: const TextStyle(
@@ -112,7 +115,7 @@ class RepositoryCell extends StatelessWidget {
       alignment: Alignment.centerLeft,
       padding: const EdgeInsets.only(bottom: 10),
       child: Text(
-        repository.description ?? '',
+        item.model?.description ?? '',
         maxLines: 5,
         overflow: TextOverflow.ellipsis,
         style: const TextStyle(
