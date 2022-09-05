@@ -15,6 +15,7 @@ final hiLoginReducer = combineReducers<bool>([
 
 bool _didLogin(bool result, DidLoginAction action) {
   // 执行为关闭登录页
+  log('_didLogin: ${action.isInitialized}');
   if (action.isInitialized) {
     HiRouter.shared().resetRoot(
       action.context,

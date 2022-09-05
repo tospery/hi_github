@@ -147,6 +147,7 @@ class HiRouter {
   }
 
   Future<dynamic> goLogin(BuildContext context) {
+    log('执行登录页');
     return _router.navigateTo(
       context,
       HiHost.login,

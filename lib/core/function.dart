@@ -198,7 +198,7 @@ Uri customDefaultQueries(Uri uri) {
 }
 
 bool customCheckNeedLogin(Uri uri) {
-  return true;
+  return false;
 }
 
 bool customNeedLogin(Uri uri) {
