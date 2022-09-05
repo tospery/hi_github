@@ -2,7 +2,6 @@ import 'dart:io';
 import 'package:sqflite/sqflite.dart';
 
 import '../../../core/hi_core.dart';
-import '../cache.dart';
 
 class HiDbManager {
   static const _version = 1;
@@ -12,8 +11,8 @@ class HiDbManager {
   static init() async {
     var path = await getDatabasesPath();
     String? userid;
-    if (getUseridFunc != null) {
-      userid = getUseridFunc!();
+    if (hiGetUseridFunc != null) {
+      userid = hiGetUseridFunc!();
     }
     userid ??= 'unlogged.db';
 

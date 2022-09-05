@@ -1,15 +1,12 @@
 import '../../core/hi_core.dart';
+import 'configuration.dart';
 import 'error.dart';
 import 'adapter/dio_adapter.dart';
 import 'request.dart';
 import 'response.dart';
 
-typedef HiLoginFunc = Future<HiUser> Function(Map<String, dynamic> parameters);
-typedef HiUserinfoFunc = HiLoginFunc;
-
 class HiNet {
-  HiLoginFunc? loginFunc;
-  HiUserinfoFunc? userinfoFunc;
+  HiNetConfiguration? configuration;
 
   static HiNet? _instance;
   static HiNet shared() {
@@ -18,6 +15,10 @@ class HiNet {
   }
 
   HiNet._();
+
+  Future<void> ready(HiNetConfiguration? configuration) async {
+    this.configuration = configuration;
+  }
 
   Future<HiBaseResponse> fire(HiBaseRequest request) async {
     HiBaseResponse? response;
@@ -75,20 +76,22 @@ class HiNet {
   Future<HiUser> login({
     Map<String, dynamic> parameters = const {},
   }) async {
+    var loginFunc = configuration?.loginFunc;
     if (loginFunc == null) {
       throw HiUnknownError();
     }
-    var user = await loginFunc!(parameters);
+    var user = await loginFunc(parameters);
     return user;
   }
 
   Future<HiUser> userinfo({
     Map<String, dynamic> parameters = const {},
   }) async {
+    var userinfoFunc = configuration?.userinfoFunc;
     if (userinfoFunc == null) {
       throw HiUnknownError();
     }
-    var user = await userinfoFunc!(parameters);
+    var user = await userinfoFunc(parameters);
     return user;
   }
 }

@@ -28,12 +28,19 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      // future: HiFlutter.ready(
-      //   defaultRouterFunc: defaultRouterFunc,
-      //   getUseridFunc: () => store.state.user?.username,
-      //   initRouterFunc2: HiRouter.shared().init,
-      // ),
-      future: HiFlutter.ready(),
+      future: HiFlutter.ready(
+        getUseridFunc: customGetUserid,
+        netConfiguration: HiNetConfiguration(
+          dataKeys: ['data', 'access_token'],
+          loginFunc: customLogin,
+          userinfoFunc: customUserinfo,
+        ),
+        routerConfiguration: HiRouterConfiguration(
+          configureFunc: HiRouter.shared().configure,
+          defaultQueriesFunc: customDefaultQueries,
+          checkNeedLoginFunc: customCheckNeedLogin,
+        ),
+      ),
       builder: (context, snapshot) {
         return StoreProvider(
           store: store,

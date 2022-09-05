@@ -1,5 +1,6 @@
 import 'dart:convert' as convert;
 import '../../../core/hi_core.dart';
+import 'net.dart';
 
 class HiBaseResponse {
   final int code;
@@ -10,9 +11,9 @@ class HiBaseResponse {
   // final dynamic httpResponse;
   // final json
 
-  static List<String> codeKeys = ['code'];
-  static List<String> messageKeys = ['message'];
-  static List<String> dataKeys = ['data'];
+  // static List<String> codeKeys = ['code'];
+  // static List<String> messageKeys = ['message'];
+  // static List<String> dataKeys = ['data'];
 
   HiBaseResponse({this.code = 200, this.message = 'OK', this.data, this.json});
 
@@ -30,12 +31,16 @@ class HiBaseResponse {
   }
 
   factory HiBaseResponse.fromJson(Map<String, dynamic> json) {
-    int code = json.valueForKeys(codeKeys) ?? 200;
+    int code =
+        json.valueForKeys(HiNet.shared().configuration?.codeKeys ?? []) ?? 200;
     if (code == 0) {
       code = 200;
     }
-    String message = json.valueForKeys(messageKeys) ?? 'OK';
-    dynamic data = json.valueForKeys(dataKeys);
+    String message =
+        json.valueForKeys(HiNet.shared().configuration?.messageKeys ?? []) ??
+            'OK';
+    dynamic data =
+        json.valueForKeys(HiNet.shared().configuration?.dataKeys ?? []);
     return HiBaseResponse(code: code, message: message, data: data, json: json);
   }
 

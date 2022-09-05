@@ -38,7 +38,7 @@ extension HiRouterEx on HiRouter {
     );
   }
 
-  void init() {
+  void configure() {
     define(HiHost.root, handler: routeHandler);
     define(HiHost.login, handler: routeHandler);
     define(HiHost.home, handler: routeHandler);

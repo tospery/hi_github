@@ -5,8 +5,6 @@ import 'db/manager.dart';
 class HiCache {
   SharedPreferences? _prefs;
 
-  HiGetUseridFunc? getUseridFunc;
-
   static HiCache? _instance;
   static HiCache shared() {
     _instance ??= HiCache._();

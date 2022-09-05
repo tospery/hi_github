@@ -16,15 +16,18 @@ export 'frame/hi_frame.dart';
 import 'package:hi_flutter/cache/hi_cache.dart';
 import 'package:hi_flutter/core/hi_core.dart';
 import 'package:hi_flutter/frame/hi_frame.dart';
+import 'package:hi_flutter/net/hi_net.dart';
 import 'package:hi_flutter/router/hi_router.dart';
 import 'package:path_provider/path_provider.dart';
 
 class HiFlutter {
   static Future<bool> ready({
-    HiGetUseridFunc? getUserid,
+    HiGetUseridFunc? getUseridFunc,
+    HiNetConfiguration? netConfiguration,
     HiRouterConfiguration? routerConfiguration,
   }) async {
-    getUseridFunc = getUserid;
+    hiGetUseridFunc = getUseridFunc;
+    await HiNet.shared().ready(netConfiguration);
     await HiRouter.shared().ready(routerConfiguration);
     await HiCache.ready();
     await HiPackageManager.ready();

@@ -72,8 +72,8 @@ class HiRouter {
     var checkNeedLoginFunc = configuration?.checkNeedLoginFunc;
     if (checkNeedLoginFunc != null) {
       var isLogined = false;
-      if (getUseridFunc != null) {
-        isLogined = getUseridFunc!()?.isNotEmpty ?? false;
+      if (hiGetUseridFunc != null) {
+        isLogined = hiGetUseridFunc!()?.isNotEmpty ?? false;
       }
       if (!isLogined && checkNeedLoginFunc(uri)) {
         return goLogin(context).then(

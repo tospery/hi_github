@@ -183,7 +183,7 @@ Future<HiUser> customUserinfo(Map<String, dynamic> parameters) async {
   return user;
 }
 
-Uri defaultRouterFunc(Uri uri) {
+Uri customDefaultQueries(Uri uri) {
   Map<String, String> defaults = {};
   switch (uri.host) {
     case HiHost.login:
@@ -197,7 +197,7 @@ Uri defaultRouterFunc(Uri uri) {
   return uri.addIfNotExist(queries: defaults);
 }
 
-bool customCheckLogin() {
+bool customCheckNeedLogin(Uri uri) {
   return true;
 }
 
@@ -205,6 +205,6 @@ bool customNeedLogin(Uri uri) {
   return false;
 }
 
-bool getUserid() {
-  return true;
+String? customGetUserid() {
+  return HiCache.shared().get<String>(HiKey.userid);
 }

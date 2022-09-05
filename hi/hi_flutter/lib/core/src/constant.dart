@@ -6,4 +6,4 @@ class HiConstant {
   static const largeFontSize = 18.0;
 }
 
-HiGetUseridFunc? getUseridFunc;
+HiGetUseridFunc? hiGetUseridFunc;

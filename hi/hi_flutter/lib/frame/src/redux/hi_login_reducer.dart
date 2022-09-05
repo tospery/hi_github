@@ -67,6 +67,7 @@ class LoginMiddleware implements MiddlewareClass<HiAPPState> {
       log("*********** DidLogoutAction *********** ");
       HiCache.shared().reset();
       HiCache.shared().setBool(HiKey.login, false);
+      HiCache.shared().remove(HiKey.userid);
       // UserDao.clearAll(store);
       // CookieManager().clearCookies();
       // SqlManager.close();
@@ -87,6 +88,7 @@ Stream<dynamic> loginEpic(
         await HiNet.shared().login(parameters: {HiParameter.code: action.code});
     await HiCache.shared().reset();
     HiCache.shared().setBool(HiKey.login, true);
+    HiCache.shared().setString(HiKey.userid, user.username ?? '');
     HiCache.shared().setString(HiKey.user, user.toJson().toJsonString());
     hideToastActivity();
     store.dispatch(UpdateUserAction(user));
