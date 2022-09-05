@@ -1,6 +1,7 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import '../../core/hi_core.dart';
+import 'configuration.dart';
 import 'core.dart';
 import 'handler.dart';
 import 'host.dart';
@@ -8,9 +9,7 @@ import 'host.dart';
 class HiRouter {
   final _router = FluroRouter();
 
-  HiRouterDefaultQueriesFunc? defaultQuerieFunc;
-  HiRouterCheckLoginFunc? checkLoginFunc;
-  HiRouterNeedLoginFunc? needLoginFunc;
+  late final HiRouterConfiguration? configuration;
 
   static HiRouter? _instance;
   static HiRouter shared() {
@@ -19,15 +18,23 @@ class HiRouter {
   }
 
   HiRouter._() {
-    _initialize();
+    _init();
   }
 
-  void _initialize() {
+  void _init() {
     _router.notFoundHandler = Handler(
         handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
       log('ROUTE WAS NOT FOUND !!!');
       return;
     });
+  }
+
+  Future<void> ready(HiRouterConfiguration? configuration) async {
+    var configureFunc = configuration?.configureFunc;
+    if (configureFunc != null) {
+      configureFunc();
+    }
+    this.configuration = configuration;
   }
 
   Route<dynamic>? generator(
@@ -54,19 +61,21 @@ class HiRouter {
     if (uri == null) {
       return Future.value(null);
     }
-    if (defaultQuerieFunc != null) {
-      uri = defaultQuerieFunc!(uri);
+    var defaultQueriesFunc = configuration?.defaultQueriesFunc;
+    if (defaultQueriesFunc != null) {
+      uri = defaultQueriesFunc(uri);
     }
     log('导航: $uri, $data', tag: HiLogTag.router);
     if (uri.host == HiHost.login) {
       return goLogin(context);
     }
-    if (needLoginFunc != null) {
+    var checkNeedLoginFunc = configuration?.checkNeedLoginFunc;
+    if (checkNeedLoginFunc != null) {
       var isLogined = false;
-      if (checkLoginFunc != null) {
-        isLogined = checkLoginFunc!();
+      if (getUseridFunc != null) {
+        isLogined = getUseridFunc!()?.isNotEmpty ?? false;
       }
-      if (!isLogined && needLoginFunc!(uri)) {
+      if (!isLogined && checkNeedLoginFunc(uri)) {
         return goLogin(context).then(
           (value) => forward(
             context,

@@ -1,1 +1,1 @@
-
+typedef HiGetUseridFunc = String? Function();

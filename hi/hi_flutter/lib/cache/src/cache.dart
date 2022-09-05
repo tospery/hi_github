@@ -1,8 +1,11 @@
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../core/hi_core.dart';
+import 'db/manager.dart';
 
 class HiCache {
   SharedPreferences? _prefs;
+
+  HiGetUseridFunc? getUseridFunc;
 
   static HiCache? _instance;
   static HiCache shared() {
@@ -11,10 +14,10 @@ class HiCache {
   }
 
   HiCache._() {
-    init();
+    _init();
   }
 
-  void init() async {
+  void _init() async {
     _prefs ??= await SharedPreferences.getInstance();
   }
 
@@ -64,5 +67,22 @@ class HiCache {
       return result as T?;
     }
     return null;
+  }
+
+  //   Future<bool> store(String key, String data) async {
+  //   Database db = await getDataBase();
+  //   var provider = await _getProvider(db, key);
+  //   if (provider != null) {
+  //     await db.delete(tableName, where: '$columnKey = ?', whereArgs: [key]);
+  //   }
+  //   var result = await db.insert(tableName, toMap(key, data));
+  //   return result != 0;
+  // }
+  Future<bool> store(String key, String data) async {
+    return false;
+  }
+
+  Future<void> reset() async {
+    await HiDbManager.close();
   }
 }

@@ -8,6 +8,7 @@ class HiLogTag {
   static const tabBar = 'HiTabBar';
   static const dialog = 'HiDialog';
   static const frame = 'HiFrame';
+  static const flutter = 'HiFlutter';
 }
 
 enum HiLogLevel {

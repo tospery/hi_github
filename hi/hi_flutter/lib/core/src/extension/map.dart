@@ -1,4 +1,4 @@
-import 'dart:convert';
+import 'dart:convert' as convert;
 import '../function.dart';
 
 extension HiCoreMapEx<K, V> on Map<K, V> {
@@ -31,9 +31,7 @@ extension HiCoreMapEx<K, V> on Map<K, V> {
     return result;
   }
 
-  String get jsonString {
-    return json.encode(this);
-  }
+  String toJsonString() => convert.json.encode(this);
 
   Map<K, V> addIfNotExist(Map<K, V> other) {
     if (other.isEmpty) {

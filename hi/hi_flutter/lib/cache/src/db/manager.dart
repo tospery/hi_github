@@ -2,29 +2,29 @@ import 'dart:io';
 import 'package:sqflite/sqflite.dart';
 
 import '../../../core/hi_core.dart';
+import '../cache.dart';
 
 class HiDbManager {
   static const _version = 1;
-  static const _name = 'app.db';
 
   static Database? _db;
 
   static init() async {
     var path = await getDatabasesPath();
-    // var user;
-    String name = _name;
-    // if (user != null) {
-
-    // }
-    if (Platform.isIOS) {
-      path += '/$name';
-    } else {
-      path += name;
+    String? userid;
+    if (getUseridFunc != null) {
+      userid = getUseridFunc!();
     }
-    log('path = $path', tag: HiLogTag.cache);
+    userid ??= 'unlogged.db';
+
+    if (Platform.isIOS) {
+      path += '/$userid';
+    } else {
+      path += userid;
+    }
     _db = await openDatabase(path, version: _version,
         onCreate: (database, version) {
-      log('数据库已创建', tag: HiLogTag.cache);
+      log('数据库已创建->$path', tag: HiLogTag.cache);
     });
   }
 
@@ -42,7 +42,7 @@ class HiDbManager {
     return _db!;
   }
 
-  static close() {
+  static Future<void> close() async {
     _db?.close();
     _db = null;
   }

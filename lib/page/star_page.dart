@@ -13,6 +13,8 @@ class StarPage extends HiListPage {
 }
 
 class StarPageState extends HiListPageState<RepositoryItem, StarPage> {
+  var testId = 0;
+
   @override
   void setup() {
     super.setup();
@@ -31,6 +33,36 @@ class StarPageState extends HiListPageState<RepositoryItem, StarPage> {
     );
     var items = models.map((e) => RepositoryItem(model: e)).toList();
     return items;
+  }
+
+  @override
+  void doPressed(RepositoryItem item, {result}) async {
+    // if (testId == 0) {
+    // } else if (testId == 1) {
+    // } else if (testId == 2) {
+    // } else if (testId == 3) {
+    // } else if (testId == 4) {}
+    // testId += 1;
+    // // 测试1
+    // var map = <String, dynamic>{};
+    // map.addAll({'intValue': 123, 'stringValue': 'abc'});
+    // var strString = map.toString();
+    // var jsonString = map.toJsonString();
+    // log('strString = $strString');
+    // log('jsonString = $jsonString}');
+    // log('strString == jsonString = ${strString == jsonString}');
+    // var json = jsonString.toJsonObject();
+    // log('json = $json');
+
+    // var provider = RepositoryDbProvider();
+    // var models = await provider.fetch('tospery');
+    // log('models.length = ${models.length}');
+    // log('');
+
+    // var models = items.map((e) => e.model).toList();
+    // var jsonString = models.toJsonString();
+    // log('jsonString = $jsonString');
+    // await provider.save(context.storeStateUser()?.username ?? '', jsonString);
   }
 }
 

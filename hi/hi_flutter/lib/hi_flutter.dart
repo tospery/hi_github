@@ -2,6 +2,7 @@ library hi_flutter;
 
 // web
 export 'package:webview_flutter/webview_flutter.dart';
+export 'package:path_provider/path_provider.dart';
 
 // other
 export 'core/hi_core.dart';
@@ -13,20 +14,22 @@ export 'router/hi_router.dart';
 export 'frame/hi_frame.dart';
 
 import 'package:hi_flutter/cache/hi_cache.dart';
+import 'package:hi_flutter/core/hi_core.dart';
 import 'package:hi_flutter/frame/hi_frame.dart';
 import 'package:hi_flutter/router/hi_router.dart';
+import 'package:path_provider/path_provider.dart';
 
 class HiFlutter {
   static Future<bool> ready({
-    HiRouterDefaultQueriesFunc? defaultQuerieFunc,
-    HiRouterCheckLoginFunc? checkLoginFunc,
-    HiRouterNeedLoginFunc? needLoginFunc,
+    HiGetUseridFunc? getUserid,
+    HiRouterConfiguration? routerConfiguration,
   }) async {
+    getUseridFunc = getUserid;
+    await HiRouter.shared().ready(routerConfiguration);
     await HiCache.ready();
     await HiPackageManager.ready();
-    HiRouter.shared().defaultQuerieFunc = defaultQuerieFunc;
-    HiRouter.shared().checkLoginFunc = checkLoginFunc;
-    HiRouter.shared().needLoginFunc = needLoginFunc;
+    var path = await getApplicationDocumentsDirectory();
+    log('path = $path', tag: HiLogTag.flutter);
     return true;
   }
 }

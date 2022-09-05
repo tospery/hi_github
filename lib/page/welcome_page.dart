@@ -22,7 +22,7 @@ class _RootPageState extends HiRootPageState {
           return;
         }
         var string = HiCache.shared().get<String>(HiKey.user) ?? '';
-        var json = string.toJson() as Map<String, dynamic>? ?? {};
+        var json = string.toJsonObject();
         var user = User.fromJson(json);
         context.store.dispatch(UpdateUserAction(user));
         context.store.dispatch(DidLoginAction(context, true));

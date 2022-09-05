@@ -1,6 +1,6 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'int.dart';
+import 'dart:convert' as convert;
 
 extension HiCoreStringEx on String {
   bool? toBool() {
@@ -17,9 +17,9 @@ extension HiCoreStringEx on String {
 
   double? toDouble() => double.tryParse(this);
 
-  dynamic toJson() {
-    return isNotEmpty ? json.decode(this) : <String, dynamic>{};
-  }
+  // dynamic toJson() {
+  //   return isNotEmpty ? convert.json.decode(this) : <String, dynamic>{};
+  // }
 
   Color? toColor() {
     if (length < 7) {
@@ -31,4 +31,33 @@ extension HiCoreStringEx on String {
   }
 
   Uri? toUri() => Uri.tryParse(this);
+
+  String toJsonString() => convert.json.encode(this);
+  Map<String, dynamic> toJsonObject() {
+    var json = convert.json.decode(this);
+    if (json is! Map<String, dynamic>) {
+      return {};
+    }
+    return json;
+  }
+
+  List<dynamic> toJsonArray() {
+    var json = convert.json.decode(this);
+    if (json is! List<dynamic>) {
+      return [];
+    }
+    return json;
+  }
+
+  dynamic toJson() {
+    var object = toJsonObject();
+    if (object.isNotEmpty) {
+      return object;
+    }
+    var array = toJsonArray();
+    if (array.isNotEmpty) {
+      return array;
+    }
+    return null;
+  }
 }

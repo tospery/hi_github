@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>device_info_plus.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>package_info_plus.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -35,6 +40,11 @@
 			<false/>
 		</dict>
 		<key>sqflite.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>uni_links.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

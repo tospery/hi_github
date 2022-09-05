@@ -8,12 +8,7 @@ import 'core/function.dart';
 import 'generated/l10n.dart';
 
 class App extends StatefulWidget {
-  App({Key? key}) : super(key: key) {
-    HiRouter.shared().configure();
-    HiBaseResponse.dataKeys += ['access_token'];
-    HiNet.shared().loginFunc = customLogin;
-    HiNet.shared().userinfoFunc = customUserinfo;
-  }
+  const App({Key? key}) : super(key: key);
 
   @override
   State<App> createState() => _AppState();
@@ -33,9 +28,12 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: HiFlutter.ready(
-        defaultQuerieFunc: customDefaultQuerie,
-      ),
+      // future: HiFlutter.ready(
+      //   defaultRouterFunc: defaultRouterFunc,
+      //   getUseridFunc: () => store.state.user?.username,
+      //   initRouterFunc2: HiRouter.shared().init,
+      // ),
+      future: HiFlutter.ready(),
       builder: (context, snapshot) {
         return StoreProvider(
           store: store,

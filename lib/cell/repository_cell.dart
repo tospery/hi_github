@@ -12,18 +12,21 @@ class RepositoryCell extends HiCell<RepositoryItem> {
 class RepositoryCellState extends HiCellState<RepositoryItem> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: context.themeData.colorScheme.primary,
-      margin: const EdgeInsets.only(
-        left: 15,
-        right: 15,
-        bottom: 10,
-      ),
-      child: Column(
-        children: [
-          _buildTop(context),
-          _buildDesc(context),
-        ],
+    return GestureDetector(
+      onTap: () => widget.onPressed != null ? widget.onPressed!(item) : null,
+      child: Container(
+        color: context.themeData.colorScheme.primary,
+        margin: const EdgeInsets.only(
+          left: 15,
+          right: 15,
+          bottom: 10,
+        ),
+        child: Column(
+          children: [
+            _buildTop(context),
+            _buildDesc(context),
+          ],
+        ),
       ),
     );
   }

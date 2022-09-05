@@ -7,3 +7,4 @@ export 'src/adapter/dio_adapter.dart';
 export 'src/adapter/mock_adapter.dart';
 export 'src/net.dart';
 export 'src/core.dart';
+export 'src/configuration.dart';

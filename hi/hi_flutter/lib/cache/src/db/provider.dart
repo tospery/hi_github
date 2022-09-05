@@ -3,7 +3,7 @@ import 'package:sqflite/sqflite.dart';
 import '../../../core/hi_core.dart';
 import 'manager.dart';
 
-class HiDbProvider {
+class HiDbProvider<M extends HiModel> {
   final String columnId = '_id';
   final String columnKey = 'key';
   final String columnData = 'data';
@@ -17,7 +17,11 @@ class HiDbProvider {
   HiDbProvider();
 
   String get tableName {
-    throw UnimplementedError();
+    log('M.runtimeType = ${M.runtimeType}');
+    log('M.toString() = ${M.toString()}');
+    log('M.typeName = ${M.typeName}');
+    log('M.instanceName = ${M.instanceName}');
+    return 'abc';
   }
 
   String get tableSqlString {
@@ -43,23 +47,24 @@ create table $tableName (
     data = map[columnData];
   }
 
-  Future<int> save(String key, String data) async {
+  Future<bool> store(String key, String data) async {
     Database db = await getDataBase();
     var provider = await _getProvider(db, key);
     if (provider != null) {
       await db.delete(tableName, where: '$columnKey = ?', whereArgs: [key]);
     }
-    return await db.insert(tableName, toMap(key, data));
+    var result = await db.insert(tableName, toMap(key, data));
+    return result != 0;
   }
 
-  Future<dynamic> getObject(String key) async {
+  Future<dynamic> fetch(String key) async {
     Database db = await getDataBase();
     var provider = await _getProvider(db, key);
     var string = provider?.data;
     if (string?.isEmpty ?? true) {
       return null;
     }
-    return await compute(HiConvert.decodeToMap, string!);
+    return await compute(HiConvert.toJson, string!);
   }
 
   Future<HiDbProvider?> _getProvider(Database db, String? key) async {

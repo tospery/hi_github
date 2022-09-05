@@ -14,7 +14,7 @@ void main() {
         color: Colors.red,
       );
     };
-    runApp(App());
+    runApp(const App());
   }, (object, stack) {
     log('异常发生object = $object');
     log('异常发生stack = $stack');

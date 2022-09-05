@@ -2,11 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
 import 'package:hi_flutter/core/hi_core.dart';
 
-/// 用于添加默认的查询参数
-typedef HiRouterDefaultQueriesFunc = Uri Function(Uri uri);
-typedef HiRouterCheckLoginFunc = bool Function();
-typedef HiRouterNeedLoginFunc = bool Function(Uri uri);
-
 typedef HiRouterFunc = Widget? Function(
     BuildContext? context, Map<String, List<String>> parameters);
 
