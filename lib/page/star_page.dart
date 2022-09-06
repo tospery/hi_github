@@ -3,6 +3,7 @@ import 'package:hi_flutter/hi_flutter.dart';
 import 'package:hi_github/extension/build_context.dart';
 import '../extension/hi_net_repository.dart';
 import '../item/repository_item.dart';
+import '../model/repository.dart';
 import '../model/user.dart';
 
 class StarPage extends HiListPage {
@@ -63,7 +64,33 @@ class StarPageState extends HiListPageState<RepositoryItem, StarPage> {
     // var jsonString = models.toJsonString();
     // log('jsonString = $jsonString');
     // await provider.save(context.storeStateUser()?.username ?? '', jsonString);
+
+    // myTest<Repository>();
+
+    // var repo = Repository(name: 'abc', description: '这是描述');
+    // await HiCache.shared().storeObject(repo.name ?? '', repo);
+
+    // var aaa = repo.toString();
+    // var bbb = repo.toJson().toString();
+    // var ccc = repo.toJson().toJsonString();
+    // log('aaa = $aaa');
+    // log('bbb = $bbb');
+    // log('ccc = $ccc');
+    // log('aaa == bbb: ${aaa == bbb}');
+    // log('bbb == ccc: ${aaa == bbb}');
+
+    // var json = await HiCache.shared().fetchJson<Repository>('abc');
+    // log('json = $json');
+    // var repo = Repository.fromJson(json);
+    // log('repo.description = ${repo.description}');
   }
+
+  // void myTest<M extends HiModel>() {
+  //   log('M.runtimeType = ${M.runtimeType}');
+  //   log('M.toString() = ${M.toString()}');
+  //   log('M.typeName = ${M.typeName}');
+  //   log('M.instanceName = ${M.instanceName}');
+  // }
 }
 
 

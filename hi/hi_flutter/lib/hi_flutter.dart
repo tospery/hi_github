@@ -21,11 +21,17 @@ import 'package:hi_flutter/router/hi_router.dart';
 import 'package:path_provider/path_provider.dart';
 
 class HiFlutter {
+  static bool hasInited = false;
+
   static Future<bool> ready({
     HiGetUseridFunc? getUseridFunc,
     HiNetConfiguration? netConfiguration,
     HiRouterConfiguration? routerConfiguration,
   }) async {
+    if (hasInited) {
+      return true;
+    }
+    hasInited = true;
     hiGetUseridFunc = getUseridFunc;
     await HiNet.shared().ready(netConfiguration);
     await HiRouter.shared().ready(routerConfiguration);

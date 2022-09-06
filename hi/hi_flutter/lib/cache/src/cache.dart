@@ -1,6 +1,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../core/hi_core.dart';
 import 'db/manager.dart';
+import 'db/provider.dart';
 
 class HiCache {
   SharedPreferences? _prefs;
@@ -67,17 +68,30 @@ class HiCache {
     return null;
   }
 
-  //   Future<bool> store(String key, String data) async {
-  //   Database db = await getDataBase();
-  //   var provider = await _getProvider(db, key);
-  //   if (provider != null) {
-  //     await db.delete(tableName, where: '$columnKey = ?', whereArgs: [key]);
-  //   }
-  //   var result = await db.insert(tableName, toMap(key, data));
-  //   return result != 0;
-  // }
-  Future<bool> store(String key, String data) async {
-    return false;
+  Future<bool> store<M extends HiModel>(
+    String key, {
+    M? model,
+    List<M>? models,
+  }) async {
+    String? string;
+    if (model != null) {
+      string = model.toJson().toJsonString();
+    }
+    if (string == null && models != null) {
+      string = models.toJsonString();
+    }
+    if (string == null) {
+      return false;
+    }
+    var provider = HiDbProvider<M>();
+    return await provider.store(key, string);
+  }
+
+  Future<dynamic> fetch<M extends HiModel>(
+    String key,
+  ) async {
+    var provider = HiDbProvider<M>();
+    return await provider.fetch(key);
   }
 
   Future<void> reset() async {

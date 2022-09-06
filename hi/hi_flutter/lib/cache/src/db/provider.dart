@@ -16,13 +16,7 @@ class HiDbProvider<M extends HiModel> {
 
   HiDbProvider();
 
-  String get tableName {
-    log('M.runtimeType = ${M.runtimeType}');
-    log('M.toString() = ${M.toString()}');
-    log('M.typeName = ${M.typeName}');
-    log('M.instanceName = ${M.instanceName}');
-    return 'abc';
-  }
+  String get tableName => M.toString();
 
   String get tableSqlString {
     return '''
