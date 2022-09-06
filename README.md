@@ -31,4 +31,5 @@ https://github.com/dart-lang/convert
 https://pub.dev/packages/carousel_slider
 https://pub.dev/packages/rive
 https://pub.dev/packages/qr_flutter
-https://pub.dev/packages/flutter_sticky_header)
+https://pub.dev/packages/flutter_sticky_header
+GlobalKey
