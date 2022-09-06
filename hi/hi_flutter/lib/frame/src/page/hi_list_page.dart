@@ -96,36 +96,53 @@ abstract class HiListPageState<I extends HiItem, T extends HiListPage>
       log('上次加载还没完成！！！', tag: HiLogTag.frame);
       return;
     }
-    loading = true;
+    setState(() {
+      loading = true;
+    });
     if (!loadMore) {
       pageIndex = 1;
+      if (!fetchOnce) {
+        fetchOnce = true;
+        var result = await fetchLocal();
+        setState(() {
+          items = result;
+        });
+      }
     }
     var currentIndex = pageIndex + (loadMore ? 1 : 0);
     log('$typeName->loadData: loadMore = $loadMore, currentIndex = $currentIndex',
         tag: HiLogTag.frame);
     try {
-      var models = await requestList(currentIndex);
+      var result = await requestRemote(pageIndex: currentIndex);
       setState(() {
-        if (loadMore) {
-          items = [...items, ...models];
-          if (models.isNotEmpty) {
-            pageIndex++;
-          }
-        } else {
-          items = models;
+        items = [...items, ...result];
+        if (result.isNotEmpty) {
+          pageIndex++;
         }
       });
       Future.delayed(const Duration(milliseconds: 200), () {
-        loading = false;
+        setState(() {
+          loading = false;
+        });
       });
     } on HiError catch (e) {
       log(e, tag: HiLogTag.frame);
-      loading = false;
+      setState(() {
+        loading = false;
+      });
       // showWarnToast(e.message);
     }
   }
 
-  Future<List<I>> requestList(int pageIndex);
+  @override
+  Future<List<I>> fetchLocal() async {
+    return [];
+  }
+
+  @override
+  Future<List<I>> requestRemote({int pageIndex = 1}) async {
+    return [];
+  }
 
   void doPressed(I item, {result}) {
     log('点击$item, 结果->$result');

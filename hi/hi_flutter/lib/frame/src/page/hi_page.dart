@@ -16,6 +16,7 @@ abstract class HiPageState<T extends HiPage> extends State<T>
   late HiModel? model;
   late final Map<String, dynamic> parameters;
   bool loading = false;
+  bool fetchOnce = false;
   // HiUser? get user => context.store.state.user;
 
   @override
@@ -96,7 +97,31 @@ abstract class HiPageState<T extends HiPage> extends State<T>
     return Container();
   }
 
-  Future<void> loadData({loadMore = false}) async {}
+  Future<void> loadData({loadMore = false}) async {
+    if (loading) {
+      log('base->上次加载还没完成！！！', tag: HiLogTag.frame);
+      return;
+    }
+    setState(() {
+      loading = true;
+    });
+    try {
+      await fetchLocal();
+      await requestRemote();
+      Future.delayed(const Duration(milliseconds: 200), () {
+        loading = false;
+      });
+    } catch (e) {
+      log(e, tag: HiLogTag.frame);
+      setState(() {
+        loading = false;
+      });
+    }
+  }
+
+  Future<dynamic> fetchLocal() async {}
+
+  Future<dynamic> requestRemote({int pageIndex = 1}) async {}
 
   @override
   bool get wantKeepAlive => true;

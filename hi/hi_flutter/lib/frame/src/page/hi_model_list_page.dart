@@ -14,7 +14,7 @@ class HiModelListPage extends HiListPage {
 
 class HiModelListPageState extends HiListPageState<HiItem, HiModelListPage> {
   @override
-  Future<List<HiItem<HiModel>>> requestList(int pageIndex) async {
+  Future<List<HiItem<HiModel>>> requestRemote({int pageIndex = 1}) async {
     List<HiItem<HiModel>> items = [];
     if (path != null) {
       var content = await context.assetBundle.loadString(path!);

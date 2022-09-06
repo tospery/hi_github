@@ -27,7 +27,7 @@ class UserPageState extends HiModelListPageState {
   }
 
   @override
-  Future<List<HiItem<HiModel>>> requestList(int pageIndex) async {
+  Future<List<HiItem<HiModel>>> requestRemote({int pageIndex = 1}) async {
     List<HiItem<HiModel>> items = [];
     if (id?.isEmpty ?? true) {
       // 当前用户

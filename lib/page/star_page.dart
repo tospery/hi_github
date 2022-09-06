@@ -25,7 +25,7 @@ class StarPageState extends HiListPageState<RepositoryItem, StarPage> {
   }
 
   @override
-  Future<List<RepositoryItem>> requestList(int pageIndex) async {
+  Future<List<RepositoryItem>> requestRemote({int pageIndex = 1}) async {
     var user = context.storeStateUser<User>();
     var name = user?.username ?? '';
     var models = await HiNet.shared().staredRepositories(
@@ -92,34 +92,3 @@ class StarPageState extends HiListPageState<RepositoryItem, StarPage> {
   //   log('M.instanceName = ${M.instanceName}');
   // }
 }
-
-
-
-// class StarPage extends StatefulWidget {
-//   const StarPage({Key? key}) : super(key: key);
-
-//   @override
-//   State<StarPage> createState() => StarPageState();
-// }
-
-// class StarPageState extends HiScrollState2<Repository, StarPage> {
-//   @override
-//   String get getTitle => context.string.star;
-
-//   @override
-//   Widget get contentChild => ListView.builder(
-//         physics: const AlwaysScrollableScrollPhysics(),
-//         padding: const EdgeInsets.only(top: 0),
-//         itemCount: list.length,
-//         controller: scrollController,
-//         itemBuilder: (context, index) {
-//           return RepositoryCell(repository: list[index]);
-//         },
-//       );
-
-//   @override
-//   Future<List<Repository>> getData(int pageIndex) async {
-//     var list = await RepositoryDao.list('tospery', pageIndex: pageIndex);
-//     return list;
-//   }
-// }

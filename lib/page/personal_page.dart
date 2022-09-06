@@ -32,8 +32,8 @@ class PersonalPageState extends HiModelListPageState {
   }
 
   @override
-  Future<List<HiItem<HiModel>>> requestList(int pageIndex) async {
-    var items = await super.requestList(pageIndex);
+  Future<List<HiItem<HiModel>>> requestRemote({int pageIndex = 1}) async {
+    var items = await super.requestRemote(pageIndex: pageIndex);
     if (context.storeStateLogin) {
       items.insertAll(0, _buildUserBriefItems());
       items.insert(0, HiPortalItem(model: const HiPortal(height: 10)));
