@@ -33,3 +33,4 @@ https://pub.dev/packages/rive
 https://pub.dev/packages/qr_flutter
 https://pub.dev/packages/flutter_sticky_header
 GlobalKey
+https://pub.dev/packages/get
