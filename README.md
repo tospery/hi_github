@@ -22,3 +22,6 @@ map通过扩展修改自身
     HiNet.shared().userinfoFunc = customUserinfo;
 作为ready的参数
 收藏页，没有网络/加载失败/列表为空等异常页面，加载中页面
+优化下拉刷新/加载更多的视觉效果
+loadData的流数据实现方式
+https://github.com/xuelongqy/flutter_easy_refresh
