@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hi_flutter/hi_flutter.dart';
 import 'package:hi_github/extension/build_context.dart';
+import '../extension/hi_key.dart';
 import '../extension/hi_net_repository.dart';
 import '../item/repository_item.dart';
 import '../model/repository.dart';
@@ -17,11 +18,33 @@ class StarPageState extends HiListPageState<RepositoryItem, StarPage> {
   var testId = 0;
 
   @override
+  void init() {
+    super.init();
+    canRefresh = parameters.boolForKey(HiParameter.canRefresh) ?? true;
+    canLoadMore = parameters.boolForKey(HiParameter.canLoadMore) ?? false;
+  }
+
+  @override
   void setup() {
     super.setup();
     setState(() {
       title = parameters.stringForKey(HiParameter.title) ?? context.string.star;
     });
+  }
+
+  @override
+  Future<List<RepositoryItem>> fetchLocal() async {
+    var user = context.storeStateUser<User>();
+    var name = user?.username ?? '';
+    var data = await HiCache.shared().fetch<Repository>(
+      name + HiKeyEx.stars,
+    );
+    var json = data as List? ?? [];
+    var models = json
+        .map((e) => Repository.fromJson(e as Map<String, dynamic>? ?? {}))
+        .toList();
+    var items = models.map((e) => RepositoryItem(model: e)).toList();
+    return items;
   }
 
   @override
@@ -32,6 +55,12 @@ class StarPageState extends HiListPageState<RepositoryItem, StarPage> {
       name,
       pageIndex: pageIndex,
     );
+    if (models.isNotEmpty && pageIndex == 1) {
+      await HiCache.shared().store<Repository>(
+        name + HiKeyEx.stars,
+        models: models,
+      );
+    }
     var items = models.map((e) => RepositoryItem(model: e)).toList();
     return items;
   }

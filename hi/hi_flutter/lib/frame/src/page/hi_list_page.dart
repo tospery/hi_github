@@ -27,7 +27,7 @@ abstract class HiListPageState<I extends HiItem, T extends HiListPage>
     canLoadMore = parameters.boolForKey(HiParameter.canLoadMore) ?? false;
     path = parameters.stringForKey(HiParameter.path);
     scrollController.addListener(() {
-      if (!canRefresh) {
+      if (!canLoadMore) {
         return;
       }
       var offset = scrollController.position.maxScrollExtent -
@@ -115,7 +115,11 @@ abstract class HiListPageState<I extends HiItem, T extends HiListPage>
     try {
       var result = await requestRemote(pageIndex: currentIndex);
       setState(() {
-        items = [...items, ...result];
+        if (!loadMore) {
+          items = result;
+        } else {
+          items = [...items, ...result];
+        }
         if (result.isNotEmpty) {
           pageIndex++;
         }
