@@ -25,3 +25,10 @@ map通过扩展修改自身
 优化下拉刷新/加载更多的视觉效果
 loadData的流数据实现方式
 https://github.com/xuelongqy/flutter_easy_refresh
+[](https://github.com/2d-inc/Flare-Flutter
+https://pub.dev/packages/extended_nested_scroll_view
+https://github.com/dart-lang/convert
+https://pub.dev/packages/carousel_slider
+https://pub.dev/packages/rive
+https://pub.dev/packages/qr_flutter
+https://pub.dev/packages/flutter_sticky_header)
