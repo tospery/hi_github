@@ -8,6 +8,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  equatable: any
+  json_annotation: any
+  freezed_annotation: any
   cupertino_icons: ^1.0.2
   hi_get:
     path: ./hi/hi_get
@@ -15,6 +18,9 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  json_serializable: any
+  build_runner: any
+  freezed: any
   flutter_lints: ^2.0.0
 
 flutter:
