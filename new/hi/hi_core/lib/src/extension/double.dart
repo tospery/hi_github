@@ -1,1 +1,1 @@
-extension HiCoreDoubleEx on double {}
+extension DoubleHiCoreEx on double {}

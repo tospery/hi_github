@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-extension HiCoreBuildContextEx on BuildContext {
+extension BuildContextHiCoreEx on BuildContext {
   MediaQueryData get mediaQueryData => MediaQuery.of(this);
   Size get mediaQueryDataSize => mediaQueryData.size;
 

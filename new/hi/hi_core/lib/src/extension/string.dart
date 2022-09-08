@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'int.dart';
 import 'dart:convert' as convert;
 
-extension HiCoreStringEx on String {
+extension StringHiCoreEx on String {
   bool? toBool() {
     if (toLowerCase() == 'true') {
       return true;
