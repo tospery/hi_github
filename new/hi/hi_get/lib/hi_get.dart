@@ -1,7 +1,4 @@
 library hi_get;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'package:get/get.dart';
+export 'package:easy_refresh/easy_refresh.dart';

@@ -9,6 +9,8 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
+  hi_get:
+    path: ./hi/hi_get
 
 dev_dependencies:
   flutter_test:
