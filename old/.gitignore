@@ -1,0 +1,8 @@
+build
+.flutter-plugins-dependencies
+.dart_tool
+
+
+# "JSON to Dart Model" generator tracker files locations.
+/.json_models/
+models.jsonc

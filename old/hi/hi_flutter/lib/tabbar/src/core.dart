@@ -1,0 +1,1 @@
+enum HiTabBarPosition { top, bottom }
